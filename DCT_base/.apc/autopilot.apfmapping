@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="Tasks.cpp" path="C:\Users\bot\Documents\GitHub\DCT_base\Tasks.cpp"/>
-    <originFiles name="Tasks.h" path="C:\Users\bot\Documents\GitHub\DCT_base\Tasks.h"/>
-    <originFiles name="qdbmp.cpp" path="C:\Users\bot\Documents\GitHub\DCT_base\qdbmp.cpp"/>
-    <originFiles name="qdbmp.h" path="C:\Users\bot\Documents\GitHub\DCT_base\qdbmp.h"/>
-    <originFiles name="Tasks.cpp" path="C:\Users\bot\Documents\GitHub\DCT_base\Tasks.cpp"/>
-    <originFiles name="Tasks.h" path="C:\Users\bot\Documents\GitHub\DCT_base\Tasks.h"/>
-    <originFiles name="qdbmp.cpp" path="C:\Users\bot\Documents\GitHub\DCT_base\qdbmp.cpp"/>
-    <originFiles name="qdbmp.h" path="C:\Users\bot\Documents\GitHub\DCT_base\qdbmp.h"/>
     <originFiles name="Top.h" path="C:\Users\bot\Documents\GitHub\DCT_base\Top.h"/>
   </source>
   <testbench>
     <originFiles name="testbench_Top.cpp" path="C:\Users\bot\Documents\GitHub\DCT_base\testbench_Top.cpp"/>
+    <originFiles name="qdbmp.cpp" path="C:\Users\bot\Documents\GitHub\DCT_base\qdbmp.cpp"/>
+    <originFiles name="qdbmp.h" path="C:\Users\bot\Documents\GitHub\DCT_base\qdbmp.h"/>
+    <originFiles name="Tasks.cpp" path="C:\Users\bot\Documents\GitHub\DCT_base\Tasks.cpp"/>
+    <originFiles name="Tasks.h" path="C:\Users\bot\Documents\GitHub\DCT_base\Tasks.h"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

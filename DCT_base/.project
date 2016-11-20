@@ -42,16 +42,6 @@
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/.tcls</location>
 		</link>
 		<link>
-			<name>source/Tasks.cpp</name>
-			<type>1</type>
-			<location>C:/Users/bot/Documents/GitHub/DCT_base/Tasks.cpp</location>
-		</link>
-		<link>
-			<name>source/Tasks.h</name>
-			<type>1</type>
-			<location>C:/Users/bot/Documents/GitHub/DCT_base/Tasks.h</location>
-		</link>
-		<link>
 			<name>source/Top.cpp</name>
 			<type>1</type>
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/Top.cpp</location>
@@ -62,12 +52,22 @@
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/Top.h</location>
 		</link>
 		<link>
-			<name>source/qdbmp.cpp</name>
+			<name>testbench/Tasks.cpp</name>
+			<type>1</type>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/Tasks.cpp</location>
+		</link>
+		<link>
+			<name>testbench/Tasks.h</name>
+			<type>1</type>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/Tasks.h</location>
+		</link>
+		<link>
+			<name>testbench/qdbmp.cpp</name>
 			<type>1</type>
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/qdbmp.cpp</location>
 		</link>
 		<link>
-			<name>source/qdbmp.h</name>
+			<name>testbench/qdbmp.h</name>
 			<type>1</type>
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/qdbmp.h</location>
 		</link>

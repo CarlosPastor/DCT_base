@@ -21,7 +21,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../testbench_Top.cpp ../../../../Tasks.cpp ../../../../Top.cpp ../../../../qdbmp.cpp
+HLS_SOURCES = ../../../../Tasks.cpp ../../../../qdbmp.cpp ../../../../testbench_Top.cpp ../../../../Top.cpp
 
 TARGET := csim.exe
 
@@ -74,26 +74,26 @@ all: $(TARGET)
 
 
 
+$(ObjDir)/Tasks.o: ../../../../Tasks.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../Tasks.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) -c -MMD   $(IFLAG) $(DFLAG)  $< -o $@ ; \
+
+-include $(ObjDir)/Tasks.d
+
+$(ObjDir)/qdbmp.o: ../../../../qdbmp.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../qdbmp.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) -c -MMD   $(IFLAG) $(DFLAG)  $< -o $@ ; \
+
+-include $(ObjDir)/qdbmp.d
+
 $(ObjDir)/testbench_Top.o: ../../../../testbench_Top.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../testbench_Top.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CC) -c -MMD   $(IFLAG) $(DFLAG)  $< -o $@ ; \
 
 -include $(ObjDir)/testbench_Top.d
 
-$(ObjDir)/Tasks.o: ../../../../Tasks.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../Tasks.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) -c -MMD    $(IFLAG) $(DFLAG)  $< -o $@ ; \
-
--include $(ObjDir)/Tasks.d
-
 $(ObjDir)/Top.o: ../../../../Top.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../Top.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CC) -c -MMD    $(IFLAG) $(DFLAG)  $< -o $@ ; \
 
 -include $(ObjDir)/Top.d
-
-$(ObjDir)/qdbmp.o: ../../../../qdbmp.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../qdbmp.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) -c -MMD    $(IFLAG) $(DFLAG)  $< -o $@ ; \
-
--include $(ObjDir)/qdbmp.d
