@@ -5,8 +5,12 @@
 ############################################################
 open_project DCT_base
 set_top main
+add_files Constants.h
+add_files DFT_block.h
 add_files Top.cpp
 add_files Top.h
+add_files blocker_512.h
+add_files multiply_8F.h.h
 add_files -tb Tasks.cpp
 add_files -tb Tasks.h
 add_files -tb qdbmp.cpp

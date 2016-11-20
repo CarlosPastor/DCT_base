@@ -42,6 +42,16 @@
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/.tcls</location>
 		</link>
 		<link>
+			<name>source/Constants.h</name>
+			<type>1</type>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/Constants.h</location>
+		</link>
+		<link>
+			<name>source/DFT_block.h</name>
+			<type>1</type>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/DFT_block.h</location>
+		</link>
+		<link>
 			<name>source/Top.cpp</name>
 			<type>1</type>
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/Top.cpp</location>
@@ -50,6 +60,16 @@
 			<name>source/Top.h</name>
 			<type>1</type>
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/Top.h</location>
+		</link>
+		<link>
+			<name>source/blocker_512.h</name>
+			<type>1</type>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/blocker_512.h</location>
+		</link>
+		<link>
+			<name>source/multiply_8F.h.h</name>
+			<type>1</type>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/multiply_8F.h.h</location>
 		</link>
 		<link>
 			<name>testbench/Tasks.cpp</name>
