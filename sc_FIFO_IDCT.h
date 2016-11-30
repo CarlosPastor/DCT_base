@@ -1,11 +1,12 @@
-#ifndef SC_blocker_512_H
-#define SC_blocker_512_H
+#ifndef SC_FIFO_IDCT_H
+#define SC_FIFO_IDCT_H
 
 #include"systemc.h"
 #include"tlm.h"
 using namespace tlm;
 
-SC_MODULE(blocker_512)
+
+SC_MODULE(sc_FIFO_IDCT)
 {
 	//Ports
 	sc_in <bool>  clock;
@@ -15,23 +16,25 @@ SC_MODULE(blocker_512)
 	sc_fifo_out<double> dout;
 	sc_fifo_in<double> din;
 
+
 	//Variables
-	int img_data[512*8];
+	double A[100];
+	double B[100];
 	bool write_done;
-	bool b_done;
 
 	//Process Declaration
-	void blocker_buffer();
-	void blocker_512_main();
+	void Prc1();
+	void Prc2();
 
 	//Constructor
-	SC_CTOR(blocker_512)
+	SC_CTOR(sc_FIFO_IDCT)
 	{
+
 		//Process Registration
-		SC_CTHREAD(blocker_buffer,clock.pos());
+		SC_CTHREAD(Prc1,clock.pos());
 		reset_signal_is(reset,true);
 
-		SC_CTHREAD(blocker_512_main,clock.pos());
+		SC_CTHREAD(Prc2,clock.pos());
 		reset_signal_is(reset,true);
 	}
 };

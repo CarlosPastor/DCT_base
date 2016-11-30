@@ -1,11 +1,11 @@
-#ifndef SC_blocker_512_H
-#define SC_blocker_512_H
+#ifndef SC_imager_512_H
+#define SC_imager_512_H
 
 #include"systemc.h"
 #include"tlm.h"
 using namespace tlm;
 
-SC_MODULE(blocker_512)
+SC_MODULE(imager_512)
 {
 	//Ports
 	sc_in <bool>  clock;
@@ -21,17 +21,17 @@ SC_MODULE(blocker_512)
 	bool b_done;
 
 	//Process Declaration
-	void blocker_buffer();
-	void blocker_512_main();
+	void imager_buffer();
+	void imager_512_main();
 
 	//Constructor
-	SC_CTOR(blocker_512)
+	SC_CTOR(imager_512)
 	{
 		//Process Registration
-		SC_CTHREAD(blocker_buffer,clock.pos());
+		SC_CTHREAD(imager_buffer,clock.pos());
 		reset_signal_is(reset,true);
 
-		SC_CTHREAD(blocker_512_main,clock.pos());
+		SC_CTHREAD(imager_512_main,clock.pos());
 		reset_signal_is(reset,true);
 	}
 };

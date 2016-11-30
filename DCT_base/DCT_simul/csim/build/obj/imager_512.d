@@ -1,4 +1,4 @@
-obj/Top.o: ../../../../Top.cpp \
+obj/imager_512.o: ../../../../imager_512.cpp ../../../../imager_512.h \
  C:/Xilinx/Vivado_HLS/2015.4/win64/tools/systemc/include/systemc.h \
  C:/Xilinx/Vivado_HLS/2015.4/win64/tools/systemc/include/systemc \
  C:/Xilinx/Vivado_HLS/2015.4/win64/tools/systemc/include/sysc/kernel/sc_cmnhdr.h \
@@ -114,7 +114,6 @@ obj/Top.o: ../../../../Top.cpp \
  C:/Xilinx/Vivado_HLS/2015.4/win64/tools/systemc/include/sysc/packages/boost/config/platform/win32.hpp \
  C:/Xilinx/Vivado_HLS/2015.4/win64/tools/systemc/include/sysc/packages/boost/config/suffix.hpp \
  C:/Xilinx/Vivado_HLS/2015.4/win64/tools/systemc/include/sysc/packages/boost/utility/enable_if.hpp \
- ../../../../Top.h ../../../../blocker_512.h \
  C:/Xilinx/Vivado_HLS/2015.4/win64/tools/systemc/include/tlm.h \
  C:/Xilinx/Vivado_HLS/2015.4/win64/tools/systemc/include/tlm \
  C:/Xilinx/Vivado_HLS/2015.4/win64/tools/systemc/include/systemc \

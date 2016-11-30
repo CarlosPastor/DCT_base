@@ -42,16 +42,6 @@
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/.tcls</location>
 		</link>
 		<link>
-			<name>source/Constants.h</name>
-			<type>1</type>
-			<location>C:/Users/bot/Documents/GitHub/DCT_base/Constants.h</location>
-		</link>
-		<link>
-			<name>source/DFT_block.h</name>
-			<type>1</type>
-			<location>C:/Users/bot/Documents/GitHub/DCT_base/DFT_block.h</location>
-		</link>
-		<link>
 			<name>source/Top.cpp</name>
 			<type>1</type>
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/Top.cpp</location>
@@ -62,14 +52,44 @@
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/Top.h</location>
 		</link>
 		<link>
+			<name>source/blocker_512.cpp</name>
+			<type>1</type>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/blocker_512.cpp</location>
+		</link>
+		<link>
 			<name>source/blocker_512.h</name>
 			<type>1</type>
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/blocker_512.h</location>
 		</link>
 		<link>
-			<name>source/multiply_8F.h.h</name>
+			<name>source/imager_512.cpp</name>
 			<type>1</type>
-			<location>C:/Users/bot/Documents/GitHub/DCT_base/multiply_8F.h.h</location>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/imager_512.cpp</location>
+		</link>
+		<link>
+			<name>source/imager_512.h</name>
+			<type>1</type>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/imager_512.h</location>
+		</link>
+		<link>
+			<name>source/sc_FIFO_DCT.cpp</name>
+			<type>1</type>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/sc_FIFO_DCT.cpp</location>
+		</link>
+		<link>
+			<name>source/sc_FIFO_DCT.h</name>
+			<type>1</type>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/sc_FIFO_DCT.h</location>
+		</link>
+		<link>
+			<name>source/sc_FIFO_IDCT.cpp</name>
+			<type>1</type>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/sc_FIFO_IDCT.cpp</location>
+		</link>
+		<link>
+			<name>source/sc_FIFO_IDCT.h</name>
+			<type>1</type>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/sc_FIFO_IDCT.h</location>
 		</link>
 		<link>
 			<name>testbench/Tasks.cpp</name>

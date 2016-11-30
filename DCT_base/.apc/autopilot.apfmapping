@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="Constants.h" path="C:\Users\bot\Documents\GitHub\DCT_base\Constants.h"/>
-    <originFiles name="DFT_block.h" path="C:\Users\bot\Documents\GitHub\DCT_base\DFT_block.h"/>
     <originFiles name="Top.cpp" path="C:\Users\bot\Documents\GitHub\DCT_base\Top.cpp"/>
     <originFiles name="Top.h" path="C:\Users\bot\Documents\GitHub\DCT_base\Top.h"/>
     <originFiles name="blocker_512.h" path="C:\Users\bot\Documents\GitHub\DCT_base\blocker_512.h"/>
-    <originFiles name="multiply_8F.h.h" path="C:\Users\bot\Documents\GitHub\DCT_base\multiply_8F.h.h"/>
+    <originFiles name="sc_FIFO_IDCT.cpp" path="C:\Users\bot\Documents\GitHub\DCT_base\sc_FIFO_IDCT.cpp"/>
+    <originFiles name="sc_FIFO_DCT.cpp" path="C:\Users\bot\Documents\GitHub\DCT_base\sc_FIFO_DCT.cpp"/>
+    <originFiles name="sc_FIFO_DCT.h" path="C:\Users\bot\Documents\GitHub\DCT_base\sc_FIFO_DCT.h"/>
+    <originFiles name="sc_FIFO_IDCT.h" path="C:\Users\bot\Documents\GitHub\DCT_base\sc_FIFO_IDCT.h"/>
+    <originFiles name="blocker_512.cpp" path="C:\Users\bot\Documents\GitHub\DCT_base\blocker_512.cpp"/>
+    <originFiles name="imager_512.cpp" path="C:\Users\bot\Documents\GitHub\DCT_base\imager_512.cpp"/>
+    <originFiles name="imager_512.h" path="C:\Users\bot\Documents\GitHub\DCT_base\imager_512.h"/>
   </source>
   <testbench>
     <originFiles name="Tasks.cpp" path="C:\Users\bot\Documents\GitHub\DCT_base\Tasks.cpp"/>

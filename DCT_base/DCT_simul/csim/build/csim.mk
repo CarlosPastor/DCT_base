@@ -21,7 +21,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../Tasks.cpp ../../../../qdbmp.cpp ../../../../testbench_Top.cpp ../../../../Top.cpp
+HLS_SOURCES = ../../../../Tasks.cpp ../../../../qdbmp.cpp ../../../../testbench_Top.cpp ../../../../Top.cpp ../../../../blocker_512.cpp ../../../../imager_512.cpp ../../../../sc_FIFO_DCT.cpp ../../../../sc_FIFO_IDCT.cpp
 
 TARGET := csim.exe
 
@@ -97,3 +97,27 @@ $(ObjDir)/Top.o: ../../../../Top.cpp $(ObjDir)/.dir
 	$(Verb)  $(CC) -c -MMD    $(IFLAG) $(DFLAG)  $< -o $@ ; \
 
 -include $(ObjDir)/Top.d
+
+$(ObjDir)/blocker_512.o: ../../../../blocker_512.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../blocker_512.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) -c -MMD    $(IFLAG) $(DFLAG)  $< -o $@ ; \
+
+-include $(ObjDir)/blocker_512.d
+
+$(ObjDir)/imager_512.o: ../../../../imager_512.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../imager_512.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) -c -MMD    $(IFLAG) $(DFLAG)  $< -o $@ ; \
+
+-include $(ObjDir)/imager_512.d
+
+$(ObjDir)/sc_FIFO_DCT.o: ../../../../sc_FIFO_DCT.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../sc_FIFO_DCT.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) -c -MMD    $(IFLAG) $(DFLAG)  $< -o $@ ; \
+
+-include $(ObjDir)/sc_FIFO_DCT.d
+
+$(ObjDir)/sc_FIFO_IDCT.o: ../../../../sc_FIFO_IDCT.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../sc_FIFO_IDCT.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) -c -MMD    $(IFLAG) $(DFLAG)  $< -o $@ ; \
+
+-include $(ObjDir)/sc_FIFO_IDCT.d

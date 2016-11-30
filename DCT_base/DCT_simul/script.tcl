@@ -5,12 +5,16 @@
 ############################################################
 open_project DCT_base
 set_top main
-add_files Constants.h
-add_files DFT_block.h
 add_files Top.cpp
 add_files Top.h
+add_files blocker_512.cpp
 add_files blocker_512.h
-add_files multiply_8F.h.h
+add_files imager_512.cpp
+add_files imager_512.h
+add_files sc_FIFO_DCT.cpp
+add_files sc_FIFO_DCT.h
+add_files sc_FIFO_IDCT.cpp
+add_files sc_FIFO_IDCT.h
 add_files -tb Tasks.cpp
 add_files -tb Tasks.h
 add_files -tb qdbmp.cpp

@@ -4,6 +4,10 @@
 #include"Top.h"
 #include"qdbmp.h"
 #include"Tasks.h"
+//#include"blocker_512"
+//#include"imager_512"
+//#include"sc_FIFO_IDTC"
+//#include"sc_FIFO_DTC"
 
 //Development glogal dependecies
 BMP*    bmp;
@@ -20,10 +24,54 @@ UCHAR image_tonal_data_bss[512 * 512];		//8bit...+250kByte
 UCHAR image_tonal_data_blk[512 * 512];		//8bit...+250kByte
 float image_tonal_data_csn[512 * 512];		//8bit...+250kByte
 
-
-
 int main(int argc, char* argv[])
 {
+//	//Specific
+//	sc_report_handler::set_actions("/IEEE_Std_1666/deprecated", SC_DO_NOTHING);
+//	sc_report_handler::set_actions( SC_ID_LOGIC_X_TO_BOOL_, SC_LOG);
+//	sc_report_handler::set_actions( SC_ID_VECTOR_CONTAINS_LOGIC_VALUE_, SC_LOG);
+//	sc_report_handler::set_actions( SC_ID_OBJECT_EXISTS_, SC_LOG);
+//	//Variables
+//	sc_signal<bool>     	s_reset;
+//	sc_signal<bool>			s_start;
+//	sc_signal<bool>			s_done;
+//	//FIFO
+//	sc_fifo <double>		dout("dout_fifo",512 * 512);
+//	sc_fifo <double>		dinter_2("dinter_2_fifo",512 * 512);
+//	sc_fifo <double>		dcomp("dcomp_fifo",512 * 512);
+//	sc_fifo <double>		dinter_1("dinter_1_fifo",512 * 512);
+//	sc_fifo <double>		din("din_fifo",512 * 512);
+	//active signals
+//	sc_clock s_clk("s_clk",10,SC_NS);       // Create a 10ns period clock signal
+//
+//	blocker_512		U1("U_1");
+//	sc_FIFO_DCT		U2("U_2");
+//	sc_FIFO_IDCT	U3("U_3");
+//	imager_512		U4("U_3");
+
+	// Generate a clock and reset to drive the sim
+//	U1.clk(s_clk);
+//	U1.reset(s_reset);
+//	U1.start(s_start);
+//
+//	// Connect the DUT
+//	U_dut.clock(s_clk);
+//	U_dut.reset(s_reset);
+//	U_dut.done(s_done);
+//	U_dut.start(s_start);
+//	U_dut.dout(dout);
+//	U_dut.din(din);
+//
+//	// Drive stimuli from dat* ports
+//	// Capture results at out* ports
+//	U_tb_driver.clk(s_clk);
+//	U_tb_driver.reset(s_reset);
+//	U_tb_driver.start(s_start);
+//	U_tb_driver.done(s_done);
+//	U_tb_driver.dout(dout);
+//	U_tb_driver.din(din);
+
+	//Component declarations
 
 	char buff[100];
 	sprintf(buff, "lena512.bmp");		//target img
