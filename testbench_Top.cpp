@@ -194,7 +194,7 @@ int main(int argc, char* argv[])
 	debug_outputBPM(image_tonal_data_bss, "csnti");
 
 	// Sim
-	int end_time = 2;
+	int end_time = 5;
 
 	cout << "INFO: Simulating " << endl;
 
@@ -205,7 +205,10 @@ int main(int argc, char* argv[])
 
 	for(int i=0; i<512*512; i++)
 	{
-		image_tonal_data_bss[i] = 255;
+		image_tonal_data_bss[i] = 0;
+	}
+	for(int i=0; i<512*503; i++)
+	{
 		image_tonal_data_bss[i] = dout.read();
 	}
 	debug_outputBPM(image_tonal_data_bss, "hwsim_out");
