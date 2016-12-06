@@ -28,7 +28,6 @@ void sc_FIFO_IDCT::Prc1()
    while(true)
    {
       while (din.num_available() < 64 ) wait();
-      write_done = false;
 
       for(int i=0;i<64; i++)
         mA[i] = din.read();
@@ -51,29 +50,28 @@ void sc_FIFO_IDCT::Prc2()
 
    while(true)
    {
-      while (!start.read()) wait();
-      wait();
-      while (!write_done) wait();
+//while (!start.read()) wait();
+while (!write_done) wait();
 
+for (i0 = 0; i0 < 8; i0++) {
+for (i1 = 0; i1 < 8; i1++) {
+a[i0 + (i1 << 3)] = 0.0;
+for (i2 = 0; i2 < 8; i2++) {
+a[i0 + (i1 << 3)] += b_a[i0 + (i2 << 3)] * mA[i2 + (i1 << 3)];
+}
+}
 
-      for (i0 = 0; i0 < 8; i0++) {
-		  for (i1 = 0; i1 < 8; i1++) {
-			a[i0 + (i1 << 3)] = 0.0;
-			for (i2 = 0; i2 < 8; i2++) {
-			  a[i0 + (i1 << 3)] += b_a[i0 + (i2 << 3)] * mA[i2 + (i1 << 3)];
-			}
-		  }
-
-		  for (i1 = 0; i1 < 8; i1++) {
-			mB[i0 + (i1 << 3)] = 0.0;
-			for (i2 = 0; i2 < 8; i2++) {
-			  mB[i0 + (i1 << 3)] += a[i0 + (i2 << 3)] * b[i2 + (i1 << 3)];
-			}
-			dout.write(mB[i0 + (i1 << 3)]);
-		  }
-		}
-
+for (i1 = 0; i1 < 8; i1++) {
+mB[i0 + (i1 << 3)] = 0.0;
+for (i2 = 0; i2 < 8; i2++) {
+mB[i0 + (i1 << 3)] += a[i0 + (i2 << 3)] * b[i2 + (i1 << 3)];
+}
+dout.write(mB[i0 + (i1 << 3)]);
+}
+}
+      write_done = false;
       done = true;
+      cout << "Simulating IDCT" << (exec_cnt++) << endl;
       wait();
    } //end of while(true)
 }

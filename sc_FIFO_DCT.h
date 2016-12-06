@@ -20,6 +20,7 @@ SC_MODULE(sc_FIFO_DCT)
 	double mA[100];
 	double mB[100];
 	bool write_done;
+	int exec_cnt;
 
 	//Process Declaration
 	void Prc1();
@@ -28,6 +29,8 @@ SC_MODULE(sc_FIFO_DCT)
 	//Constructor
 	SC_CTOR(sc_FIFO_DCT)
 	{
+		exec_cnt = 0;
+		write_done = false;
 
 		//Process Registration
 		SC_CTHREAD(Prc1,clock.pos());

@@ -12,7 +12,6 @@ void blocker_512::blocker_buffer()
    {
 	  while (din.num_available() < 512*8 ) wait();
 	  while (!b_done) wait();
-	  write_done = false;
 
 	  for(int i = 0; i < 512*8; i++)
 		{
@@ -32,8 +31,8 @@ void blocker_512::blocker_512_main()
 	while(true)
 	{
 
-		while (!start.read()) wait();
-		wait();
+		//while (!start.read()) wait();
+		//wait();
 		while (!write_done) wait();
 		b_done = false;
 
@@ -44,7 +43,7 @@ void blocker_512::blocker_512_main()
 				dout.write(img_data[block_pattern[k] + 8*j]);
 			}
 		}
-
+		write_done = false;
 		done = true;
 		b_done = true;
 		wait();

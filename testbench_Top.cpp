@@ -29,6 +29,7 @@ float image_tonal_data_csn[512 * 512];		//8bit...+250kByte
 
 int main(int argc, char* argv[])
 {
+
 	//Specific
 	sc_report_handler::set_actions("/IEEE_Std_1666/deprecated", SC_DO_NOTHING);
 	sc_report_handler::set_actions( SC_ID_LOGIC_X_TO_BOOL_, SC_LOG);
@@ -90,29 +91,12 @@ int main(int argc, char* argv[])
 
 	U4.clock(s_clk);
 	U4.reset(s_reset);
-	U4.start(s_start);
+	U4.start(s_done_u3u4);
 	U4.done(s_done);
 	U4.din(dinter_2);
 	U4.dout(dout);
 
-//	// Connect the DUT
-//	U_dut.clock(s_clk);
-//	U_dut.reset(s_reset);
-//	U_dut.done(s_done);
-//	U_dut.start(s_start);
-//	U_dut.dout(dout);
-//	U_dut.din(din);
-//
-//	// Drive stimuli from dat* ports
-//	// Capture results at out* ports
-//	U_tb_driver.clk(s_clk);
-//	U_tb_driver.reset(s_reset);
-//	U_tb_driver.start(s_start);
-//	U_tb_driver.done(s_done);
-//	U_tb_driver.dout(dout);
-//	U_tb_driver.din(din);
-//
-//	Component declarations
+//	Component declarations end
 
 	char buff[100];
 	sprintf(buff, "lena512.bmp");		//target img
@@ -138,10 +122,11 @@ int main(int argc, char* argv[])
 		{
 			/* Get pixel's RGB values */
 			BMP_GetPixelIndex(bmp, w, h, &image_tonal_data_bss[w + width*h]);
-			din.write((double)image_tonal_data_bss[w + width*h]);
 		}
 	}
 
+	for(int i = 0; i<512*512; i++)
+		din.write((double)image_tonal_data_bss[i]);
 
 	//  Make blocks ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -209,7 +194,7 @@ int main(int argc, char* argv[])
 	debug_outputBPM(image_tonal_data_bss, "csnti");
 
 	// Sim
-	int end_time = 10;
+	int end_time = 2;
 
 	cout << "INFO: Simulating " << endl;
 
@@ -217,13 +202,14 @@ int main(int argc, char* argv[])
 	sc_start(end_time, SC_MS);
 
 	cout<<"READ:" <<endl;
-	while (!s_done_u3u4) wait();
 
 	for(int i=0; i<512*512; i++)
 	{
+		image_tonal_data_bss[i] = 255;
 		image_tonal_data_bss[i] = dout.read();
 	}
-	debug_outputBPM(image_tonal_data_bss, "hwsim");
+	debug_outputBPM(image_tonal_data_bss, "hwsim_out");
+
 
 	////////////////////////////////////////////////////////////////////////////////////////
 
