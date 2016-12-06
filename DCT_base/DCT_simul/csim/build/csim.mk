@@ -21,7 +21,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../Tasks.cpp ../../../../qdbmp.cpp ../../../../testbench_Top.cpp ../../../../Top.cpp ../../../../blocker_512.cpp ../../../../imager_512.cpp ../../../../sc_FIFO_DCT.cpp ../../../../sc_FIFO_IDCT.cpp
+HLS_SOURCES = ../../../../Tasks.cpp ../../../../qdbmp.cpp ../../../../tb_init.cpp ../../../../testbench_Top.cpp ../../../../Top.cpp ../../../../blocker_512.cpp ../../../../imager_512.cpp ../../../../sc_FIFO_DCT.cpp ../../../../sc_FIFO_IDCT.cpp
 
 TARGET := csim.exe
 
@@ -85,6 +85,12 @@ $(ObjDir)/qdbmp.o: ../../../../qdbmp.cpp $(ObjDir)/.dir
 	$(Verb)  $(CC) -c -MMD   $(IFLAG) $(DFLAG)  $< -o $@ ; \
 
 -include $(ObjDir)/qdbmp.d
+
+$(ObjDir)/tb_init.o: ../../../../tb_init.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../tb_init.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) -c -MMD   $(IFLAG) $(DFLAG)  $< -o $@ ; \
+
+-include $(ObjDir)/tb_init.d
 
 $(ObjDir)/testbench_Top.o: ../../../../testbench_Top.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../testbench_Top.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)

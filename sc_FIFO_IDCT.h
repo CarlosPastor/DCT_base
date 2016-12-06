@@ -16,10 +16,9 @@ SC_MODULE(sc_FIFO_IDCT)
 	sc_fifo_out<double> dout;
 	sc_fifo_in<double> din;
 
-
 	//Variables
-	double A[100];
-	double B[100];
+	double mA[100];
+	double mB[100];
 	bool write_done;
 
 	//Process Declaration

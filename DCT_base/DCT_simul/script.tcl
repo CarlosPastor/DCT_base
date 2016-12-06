@@ -19,6 +19,8 @@ add_files -tb Tasks.cpp
 add_files -tb Tasks.h
 add_files -tb qdbmp.cpp
 add_files -tb qdbmp.h
+add_files -tb tb_init.cpp
+add_files -tb tb_init.h
 add_files -tb testbench_Top.cpp
 open_solution "DCT_simul"
 set_part {xc7a35ticsg324-1l}

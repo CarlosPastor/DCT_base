@@ -1,10 +1,5 @@
-<project xmlns="com.autoesl.autopilot.project" top="main" name="DCT_base">
+<project xmlns="com.autoesl.autopilot.project" name="DCT_base" top="main">
     <files>
-        <file name="../../Tasks.cpp" sc="0" tb="1" cflags=""/>
-        <file name="../../Tasks.h" sc="0" tb="1" cflags=""/>
-        <file name="../../qdbmp.cpp" sc="0" tb="1" cflags=""/>
-        <file name="../../qdbmp.h" sc="0" tb="1" cflags=""/>
-        <file name="../../testbench_Top.cpp" sc="0" tb="1" cflags=""/>
         <file name="Top.cpp" sc="0" tb="false" cflags=""/>
         <file name="Top.h" sc="0" tb="false" cflags=""/>
         <file name="blocker_512.cpp" sc="0" tb="false" cflags=""/>
@@ -15,6 +10,13 @@
         <file name="sc_FIFO_DCT.h" sc="0" tb="false" cflags=""/>
         <file name="sc_FIFO_IDCT.cpp" sc="0" tb="false" cflags=""/>
         <file name="sc_FIFO_IDCT.h" sc="0" tb="false" cflags=""/>
+        <file name="../../Tasks.cpp" sc="0" tb="1" cflags=""/>
+        <file name="../../Tasks.h" sc="0" tb="1" cflags=""/>
+        <file name="../../qdbmp.cpp" sc="0" tb="1" cflags=""/>
+        <file name="../../qdbmp.h" sc="0" tb="1" cflags=""/>
+        <file name="../../tb_init.cpp" sc="0" tb="1" cflags=""/>
+        <file name="../../tb_init.h" sc="0" tb="1" cflags=""/>
+        <file name="../../testbench_Top.cpp" sc="0" tb="1" cflags=""/>
     </files>
     <includePaths/>
     <libraryPaths/>

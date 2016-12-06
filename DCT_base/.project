@@ -112,6 +112,16 @@
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/qdbmp.h</location>
 		</link>
 		<link>
+			<name>testbench/tb_init.cpp</name>
+			<type>1</type>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/tb_init.cpp</location>
+		</link>
+		<link>
+			<name>testbench/tb_init.h</name>
+			<type>1</type>
+			<location>C:/Users/bot/Documents/GitHub/DCT_base/tb_init.h</location>
+		</link>
+		<link>
 			<name>testbench/testbench_Top.cpp</name>
 			<type>1</type>
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/testbench_Top.cpp</location>
