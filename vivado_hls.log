@@ -1,0 +1,63 @@
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado_HLS/2016.3/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'alienBot' on host 'desktop-6hiu1pq' (Windows NT_amd64 version 6.2) on Thu Jan 12 02:47:30 +0100 2017
+INFO: [HLS 200-10] In directory 'C:/Users/alienBot/Documents/GitHub/DCT_base'
+INFO: [HLS 200-10] Opening project 'C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base'.
+WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found.
+INFO: [HLS 200-10] Adding design file 'Top.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'Top.h' to the project
+INFO: [HLS 200-10] Adding design file 'blocker_512.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'blocker_512.h' to the project
+INFO: [HLS 200-10] Adding design file 'imager_512.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'imager_512.h' to the project
+INFO: [HLS 200-10] Adding design file 'sc_FIFO_DCT.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sc_FIFO_DCT.h' to the project
+INFO: [HLS 200-10] Adding design file 'sc_FIFO_IDCT.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'sc_FIFO_IDCT.h' to the project
+INFO: [HLS 200-10] Adding test bench file 'Tasks.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'Tasks.h' to the project
+INFO: [HLS 200-10] Adding test bench file 'lena512.bmp' to the project
+INFO: [HLS 200-10] Adding test bench file 'qdbmp.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'qdbmp.h' to the project
+INFO: [HLS 200-10] Adding test bench file 'tb_init.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'tb_init.h' to the project
+INFO: [HLS 200-10] Adding test bench file 'testbench_Top.cpp' to the project
+INFO: [HLS 200-10] Opening solution 'C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35ticpg236-1l'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Analyzing design file 'sc_FIFO_IDCT.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'sc_FIFO_DCT.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'imager_512.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'blocker_512.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'Top.cpp' ... 
+INFO: [HLS 200-10] Validating synthesis directives ...
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:11 ; elapsed = 00:03:18 . Memory (MB): peak = 108.320 ; gain = 59.488
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:11 ; elapsed = 00:03:20 . Memory (MB): peak = 108.320 ; gain = 59.488
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:11 ; elapsed = 00:03:21 . Memory (MB): peak = 119.984 ; gain = 71.152
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:12 ; elapsed = 00:03:21 . Memory (MB): peak = 139.098 ; gain = 90.266
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:14 ; elapsed = 00:03:24 . Memory (MB): peak = 183.266 ; gain = 134.434
+WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_IDCT.cpp:79:9) in function 'sc_FIFO_IDCT::Prc2' is an infinite loop.
+WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_IDCT.cpp:53:18) in function 'sc_FIFO_IDCT::Prc1' is an infinite loop.
+WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:79:9) in function 'sc_FIFO_DCT::Prc2' is an infinite loop.
+WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:54:18) in function 'sc_FIFO_DCT::Prc1' is an infinite loop.
+WARNING: [XFORM 203-561] 'Loop-1' (imager_512.cpp:14:17) in function 'imager_512::imager_buffer' is an infinite loop.
+WARNING: [XFORM 203-561] 'Loop-1' (imager_512.cpp:37:17) in function 'imager_512::imager_512_main' is an infinite loop.
+WARNING: [XFORM 203-561] 'Loop-1' (blocker_512.cpp:16:17) in function 'blocker_512::blocker_buffer' is an infinite loop.
+WARNING: [XFORM 203-561] 'Loop-1' (blocker_512.cpp:39:17) in function 'blocker_512::blocker_512_main' is an infinite loop.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:15 ; elapsed = 00:03:25 . Memory (MB): peak = 291.617 ; gain = 242.785
+INFO: [HLS 200-10] Starting hardware synthesis ...
+ERROR: [SCA 200-203] Cannot find top module 'main', please check the specified module name.
+command 'sc_get_modules' returned error code
+SystemC analyzing failed
+    while executing
+"source C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT/csynth.tcl"
+    invoked from within
+"hls::main C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT/csynth.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel 1 hls::main {*}$args"
+    (procedure "hls_proc" line 5)
+    invoked from within
+"hls_proc $argv"

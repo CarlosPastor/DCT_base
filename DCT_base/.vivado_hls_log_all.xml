@@ -2,7 +2,9 @@
 <vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
   <errorLogs>
     <logs>
-      <synLog/>
+      <synLog>
+        <logs message="ERROR: [SCA 200-203] Cannot find top module 'main', please check the specified module name.&#xD;&#xA;command 'sc_get_modules' returned error code&#xD;&#xA;SystemC analyzing failed&#xD;&#xA;    while executing&#xD;&#xA;&quot;source C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT/csynth.tcl&quot;&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls::main C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT/csynth.tcl&quot;&#xD;&#xA;    (&quot;uplevel&quot; body line 1)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xD;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls_proc $argv&quot;&#xD;&#xA;" projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:55.176+0100"/>
+      </synLog>
       <simLog/>
       <mgLog/>
       <packageLog/>
@@ -19,7 +21,17 @@
   </errorLogs>
   <warningLogs>
     <logs>
-      <synLog/>
+      <synLog>
+        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (blocker_512.cpp:39:17) in function 'blocker_512::blocker_512_main' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:54.833+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (blocker_512.cpp:16:17) in function 'blocker_512::blocker_buffer' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:53.772+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (imager_512.cpp:37:17) in function 'imager_512::imager_512_main' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:53.762+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (imager_512.cpp:14:17) in function 'imager_512::imager_buffer' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:53.745+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:54:18) in function 'sc_FIFO_DCT::Prc1' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:53.733+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:79:9) in function 'sc_FIFO_DCT::Prc2' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:53.722+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_IDCT.cpp:53:18) in function 'sc_FIFO_IDCT::Prc1' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:53.711+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_IDCT.cpp:79:9) in function 'sc_FIFO_IDCT::Prc2' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:53.699+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:47:30.744+0100" type="Warning"/>
+      </synLog>
       <simLog/>
       <mgLog/>
       <packageLog/>

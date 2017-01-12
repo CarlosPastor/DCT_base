@@ -13,12 +13,12 @@ SC_MODULE(sc_FIFO_DCT)
 	sc_in <bool>  reset;
 	sc_in <bool>  start;
 	sc_out<bool>  done;
-	sc_fifo_out<double> dout;
-	sc_fifo_in<double> din;
+	sc_fifo_out< sc_uint<8> > dout;
+	sc_fifo_in< sc_uint<8> > din;
 
 	//Variables
-	double mA[100];
-	double mB[100];
+	int mA[100];
+	int mB[100];
 	bool write_done;
 	int exec_cnt;
 

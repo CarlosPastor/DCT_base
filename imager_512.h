@@ -12,11 +12,11 @@ SC_MODULE(imager_512)
 	sc_in <bool>  reset;
 	sc_in <bool>  start;
 	sc_out<bool>  done;
-	sc_fifo_out<double> dout;
-	sc_fifo_in<double> din;
+	sc_fifo_out< sc_uint<8> > dout;
+	sc_fifo_in< sc_uint<8> > din;
 
 	//Variables
-	int img_data[512*8];
+	sc_uint<8> img_data[512*8];
 	bool write_done;
 	bool b_done;
 

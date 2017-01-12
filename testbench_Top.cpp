@@ -1,13 +1,14 @@
 #include<stdio.h>
 #include<math.h>
 #include<systemc.h>
+
 #include"Top.h"
 #include"qdbmp.h"
 #include"Tasks.h"
 
-#include"sc_FIFO_DCT.h"
 #include"blocker_512.h"
 #include"imager_512.h"
+#include"sc_FIFO_DCT.h"
 #include"sc_FIFO_IDCT.h"
 
 #include"tb_init.h"
@@ -27,7 +28,7 @@ UCHAR image_tonal_data_bss[512 * 512];		//8bit...+250kByte
 UCHAR image_tonal_data_blk[512 * 512];		//8bit...+250kByte
 float image_tonal_data_csn[512 * 512];		//8bit...+250kByte
 
-int main(int argc, char* argv[])
+int sc_main(int argc, char* argv[])
 {
 
 	//Specific
@@ -37,11 +38,11 @@ int main(int argc, char* argv[])
 	sc_report_handler::set_actions( SC_ID_OBJECT_EXISTS_, SC_LOG);
 
 	//FIFO
-	sc_fifo <double>		dout("dout_fifo",512 * 512);
-	sc_fifo <double>		dinter_2("dinter_2_fifo",512 * 512);
-	sc_fifo <double>		dcomp("dcomp_fifo",512 * 512);
-	sc_fifo <double>		dinter_1("dinter_1_fifo",512 * 512);
-	sc_fifo <double>		din("din_fifo",512 * 512);
+	sc_fifo < sc_uint< 8 > >		dout("dout_fifo",512 * 512);
+	sc_fifo < sc_uint< 8 > >		dinter_2("dinter_2_fifo",512 * 512);
+	sc_fifo < sc_uint< 8 > >		dcomp("dcomp_fifo",512 * 512);
+	sc_fifo < sc_uint< 8 > >		dinter_1("dinter_1_fifo",512 * 512);
+	sc_fifo < sc_uint< 8 > >		din("din_fifo",512 * 512);
 
 	//active signals
 	sc_clock s_clk("s_clk",10,SC_NS);       // Create a 10ns period clock signal
@@ -105,7 +106,7 @@ int main(int argc, char* argv[])
 
 	int nblocks = 0;		//Needed??
 
-	// Load file and extract data ///////////////////////////////////////////////////////////////////////////////////////
+	// Load file and extract data /////////////////////////////////////////
 
 
 	/* Read an image file */
@@ -126,7 +127,7 @@ int main(int argc, char* argv[])
 	}
 
 	for(int i = 0; i<512*512; i++)
-		din.write((double)image_tonal_data_bss[i]);
+		din.write((sc_uint<8>)image_tonal_data_bss[i]);
 
 	//  Make blocks ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -209,12 +210,11 @@ int main(int argc, char* argv[])
 	}
 	for(int i=0; i<512*503; i++)
 	{
-		image_tonal_data_bss[i] = dout.read();
+		image_tonal_data_bss[i] = (UCHAR)(dout.read());
 	}
-	debug_outputBPM(image_tonal_data_bss, "hwsim_out");
+	debug_outputBPM(image_tonal_data_bss, "hwsim_out_int");
 
-
-	////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 
 	/* Free all memory allocated for the image */
 	BMP_Free(bmp);
