@@ -5,9 +5,26 @@
 #include"tlm.h"
 using namespace tlm;
 
+/*
+Modulo imager_512
+-----------------
+
+Entradas:
+- Señal de reloj - boolean
+- Señal de reset - boolean
+- Señal de start - boolean
+- FIFO de 1byte - din -> será la FIFO donde se colocarán los píxeles colocados en bloques de 8x8.
+						 Estos píxeles vendrán de la DCT.
+
+Salidas
+- Señal done - boolean
+- FIFO de 1byte - dout -> será la FIFO donde colocaremos los píxeles colocados para una correcta
+						  visualización de la imagen recuperada.
+
+*/
 SC_MODULE(imager_512)
 {
-	//Ports
+	//Puertos
 	sc_in <bool>  clock;
 	sc_in <bool>  reset;
 	sc_in <bool>  start;
@@ -20,7 +37,7 @@ SC_MODULE(imager_512)
 	bool write_done;
 	bool b_done;
 
-	//Process Declaration
+	//Declaración de procesos
 	void imager_buffer();
 	void imager_512_main();
 

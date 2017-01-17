@@ -5,9 +5,26 @@
 #include"tlm.h"
 using namespace tlm;
 
+/*
+Modulo blocker_512
+------------------
+
+Entradas:
+- Señal de reloj - boolean
+- Señal de reset - boolean
+- Señal de start - boolean
+- FIFO de 1byte - din -> será la FIFO donde se colocarán los píxeles de la imagen que queremos tratar.
+
+Salidas
+- Señal done - boolean
+- FIFO de 1byte - dout -> será la FIFO donde colocaremos los píxeles colocados en bloques de 8x8 para
+realizar la DCT
+
+*/
+
 SC_MODULE(blocker_512)
 {
-	//Ports
+	//Puertos
 	sc_in <bool>  clock;
 	sc_in <bool>  reset;
 	sc_in <bool>  start;
@@ -20,7 +37,7 @@ SC_MODULE(blocker_512)
 	bool write_done;
 	bool b_done;
 
-	//Process Declaration
+	//Declaración de los procesos
 	void blocker_buffer();
 	void blocker_512_main();
 
