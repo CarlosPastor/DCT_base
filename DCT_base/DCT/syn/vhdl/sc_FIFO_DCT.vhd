@@ -13,104 +13,165 @@ entity sc_FIFO_DCT is
 port (
     clock : IN STD_LOGIC;
     reset : IN STD_LOGIC;
-    sync : IN STD_LOGIC;
-    data_ok : OUT STD_LOGIC;
-    done : OUT STD_LOGIC := '0';
-    error : OUT STD_LOGIC;
-    din : IN STD_LOGIC_VECTOR (7 downto 0);
-    dout : OUT STD_LOGIC_VECTOR (7 downto 0) );
+    enable : IN STD_LOGIC;
+    dout_din : OUT STD_LOGIC_VECTOR (7 downto 0);
+    dout_full_n : IN STD_LOGIC;
+    dout_write : OUT STD_LOGIC;
+    din_dout : IN STD_LOGIC_VECTOR (7 downto 0);
+    din_empty_n : IN STD_LOGIC;
+    din_read : OUT STD_LOGIC );
 end;
 
 
 architecture behav of sc_FIFO_DCT is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "sc_FIFO_DCT,hls_ip_2016_3,{HLS_INPUT_TYPE=sc,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7a35ticpg236-1l,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.463000,HLS_SYN_LAT=857,HLS_SYN_TPT=none,HLS_SYN_MEM=3,HLS_SYN_DSP=2,HLS_SYN_FF=242,HLS_SYN_LUT=314}";
+    "sc_FIFO_DCT,hls_ip_2016_3,{HLS_INPUT_TYPE=sc,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7a35ticpg236-1l,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.620000,HLS_SYN_LAT=106,HLS_SYN_TPT=none,HLS_SYN_MEM=6,HLS_SYN_DSP=64,HLS_SYN_FF=2835,HLS_SYN_LUT=1809}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
+    constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
     constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
     constant ap_const_lv2_0 : STD_LOGIC_VECTOR (1 downto 0) := "00";
     constant ap_const_logic_0 : STD_LOGIC := '0';
 
-    signal sc_FIFO_DCT_mA_V_address0 : STD_LOGIC_VECTOR (5 downto 0);
-    signal sc_FIFO_DCT_mA_V_ce0 : STD_LOGIC;
-    signal sc_FIFO_DCT_mA_V_q0 : STD_LOGIC_VECTOR (17 downto 0);
-    signal sc_FIFO_DCT_ssdm_s_load_fu_146_p1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal sc_FIFO_DCT_mA_address0 : STD_LOGIC_VECTOR (5 downto 0);
+    signal sc_FIFO_DCT_mA_ce0 : STD_LOGIC;
+    signal sc_FIFO_DCT_mA_q0 : STD_LOGIC_VECTOR (31 downto 0);
+    signal sc_FIFO_DCT_mA_q1 : STD_LOGIC_VECTOR (31 downto 0);
+    signal sc_FIFO_DCT_mC_address0 : STD_LOGIC_VECTOR (5 downto 0);
+    signal sc_FIFO_DCT_mC_ce0 : STD_LOGIC;
+    signal sc_FIFO_DCT_mC_q0 : STD_LOGIC_VECTOR (31 downto 0);
+    signal sc_FIFO_DCT_ssdm_s_load_fu_260_p1 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_CS_fsm : STD_LOGIC_VECTOR (1 downto 0);
     attribute fsm_encoding : string;
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_data_ok : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_data_ok_ap_vld : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_done : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_done_ap_vld : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_dout : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_dout_ap_vld : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_s_start_i : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_s_start_o : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_s_start_o_ap_vld : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_s_working : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_s_working_ap_vld : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_address0 : STD_LOGIC_VECTOR (5 downto 0);
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_ce0 : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_address0 : STD_LOGIC_VECTOR (5 downto 0);
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_ce0 : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_we0 : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_d0 : STD_LOGIC_VECTOR (17 downto 0);
-    signal grp_sc_FIFO_DCT_Prc1_fu_118_error : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc1_fu_118_error_ap_vld : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc1_fu_118_s_start : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc1_fu_118_s_start_ap_vld : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc1_fu_118_s_working : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_address0 : STD_LOGIC_VECTOR (5 downto 0);
-    signal grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_ce0 : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_we0 : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_d0 : STD_LOGIC_VECTOR (17 downto 0);
+    signal ap_CS_fsm_state1 : STD_LOGIC_VECTOR (0 downto 0);
+    attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
+    signal sc_FIFO_DCT_ssdm_1_load_fu_264_p1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_sc_FIFO_DCT_data_out_fu_160_dout_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_sc_FIFO_DCT_data_out_fu_160_dout_write : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_address0 : STD_LOGIC_VECTOR (5 downto 0);
+    signal grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_ce0 : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_data_out_fu_160_s_DCT : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_data_out_fu_160_s_done : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_data_out_fu_160_s_done_ap_vld : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address0 : STD_LOGIC_VECTOR (5 downto 0);
+    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0 : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address1 : STD_LOGIC_VECTOR (5 downto 0);
+    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce1 : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_address0 : STD_LOGIC_VECTOR (5 downto 0);
+    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_ce0 : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_we0 : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_d0 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_address0 : STD_LOGIC_VECTOR (5 downto 0);
+    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_ce0 : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_we0 : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_d0 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_exec_cnt_o : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_exec_cnt_o_ap_vld : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_DCT_fu_192_s_buffered : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_DCT_fu_192_s_working : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_DCT_fu_192_s_working_ap_vld : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_DCT_fu_192_s_DCT : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_DCT_fu_192_s_DCT_ap_vld : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_DCT_fu_192_s_done : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_buffering_fu_228_din_read : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_address0 : STD_LOGIC_VECTOR (5 downto 0);
+    signal grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_ce0 : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_we0 : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_d0 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_sc_FIFO_DCT_buffering_fu_228_s_buffered : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_buffering_fu_228_s_buffered_ap_vld : STD_LOGIC;
+    signal grp_sc_FIFO_DCT_buffering_fu_228_s_working : STD_LOGIC;
     signal ap_CS_fsm_state2 : STD_LOGIC_VECTOR (0 downto 0);
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
-    signal s_start : STD_LOGIC_VECTOR (0 downto 0);
+    signal sc_FIFO_DCT_exec_cnt : STD_LOGIC_VECTOR (31 downto 0);
+    signal s_buffered : STD_LOGIC_VECTOR (0 downto 0);
     signal s_working : STD_LOGIC_VECTOR (0 downto 0);
+    signal s_DCT : STD_LOGIC_VECTOR (0 downto 0);
+    signal s_done : STD_LOGIC_VECTOR (0 downto 0);
+    signal sc_FIFO_DCT_ssdm_2_load_fu_268_p1 : STD_LOGIC_VECTOR (0 downto 0);
 
-    component sc_FIFO_DCT_Prc2 IS
+    component sc_FIFO_DCT_data_out IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
-        data_ok : OUT STD_LOGIC;
-        data_ok_ap_vld : OUT STD_LOGIC;
-        done : OUT STD_LOGIC;
-        done_ap_vld : OUT STD_LOGIC;
-        dout : OUT STD_LOGIC_VECTOR (7 downto 0);
-        dout_ap_vld : OUT STD_LOGIC;
-        s_start_i : IN STD_LOGIC;
-        s_start_o : OUT STD_LOGIC;
-        s_start_o_ap_vld : OUT STD_LOGIC;
-        s_working : OUT STD_LOGIC;
-        s_working_ap_vld : OUT STD_LOGIC;
-        sc_FIFO_DCT_mA_V_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
-        sc_FIFO_DCT_mA_V_ce0 : OUT STD_LOGIC;
-        sc_FIFO_DCT_mA_V_q0 : IN STD_LOGIC_VECTOR (17 downto 0);
-        sc_FIFO_DCT_mB_V_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
-        sc_FIFO_DCT_mB_V_ce0 : OUT STD_LOGIC;
-        sc_FIFO_DCT_mB_V_we0 : OUT STD_LOGIC;
-        sc_FIFO_DCT_mB_V_d0 : OUT STD_LOGIC_VECTOR (17 downto 0) );
+        dout_din : OUT STD_LOGIC_VECTOR (7 downto 0);
+        dout_full_n : IN STD_LOGIC;
+        dout_write : OUT STD_LOGIC;
+        sc_FIFO_DCT_mC_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
+        sc_FIFO_DCT_mC_ce0 : OUT STD_LOGIC;
+        sc_FIFO_DCT_mC_q0 : IN STD_LOGIC_VECTOR (31 downto 0);
+        s_DCT : IN STD_LOGIC;
+        s_done : OUT STD_LOGIC;
+        s_done_ap_vld : OUT STD_LOGIC );
     end component;
 
 
-    component sc_FIFO_DCT_Prc1 IS
+    component sc_FIFO_DCT_DCT IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
-        sync : IN STD_LOGIC;
-        error : OUT STD_LOGIC;
-        error_ap_vld : OUT STD_LOGIC;
-        din : IN STD_LOGIC_VECTOR (7 downto 0);
-        s_start : OUT STD_LOGIC;
-        s_start_ap_vld : OUT STD_LOGIC;
-        s_working : IN STD_LOGIC;
-        sc_FIFO_DCT_mA_V_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
-        sc_FIFO_DCT_mA_V_ce0 : OUT STD_LOGIC;
-        sc_FIFO_DCT_mA_V_we0 : OUT STD_LOGIC;
-        sc_FIFO_DCT_mA_V_d0 : OUT STD_LOGIC_VECTOR (17 downto 0) );
+        sc_FIFO_DCT_mA_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
+        sc_FIFO_DCT_mA_ce0 : OUT STD_LOGIC;
+        sc_FIFO_DCT_mA_q0 : IN STD_LOGIC_VECTOR (31 downto 0);
+        sc_FIFO_DCT_mA_address1 : OUT STD_LOGIC_VECTOR (5 downto 0);
+        sc_FIFO_DCT_mA_ce1 : OUT STD_LOGIC;
+        sc_FIFO_DCT_mA_q1 : IN STD_LOGIC_VECTOR (31 downto 0);
+        sc_FIFO_DCT_mB_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
+        sc_FIFO_DCT_mB_ce0 : OUT STD_LOGIC;
+        sc_FIFO_DCT_mB_we0 : OUT STD_LOGIC;
+        sc_FIFO_DCT_mB_d0 : OUT STD_LOGIC_VECTOR (31 downto 0);
+        sc_FIFO_DCT_mC_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
+        sc_FIFO_DCT_mC_ce0 : OUT STD_LOGIC;
+        sc_FIFO_DCT_mC_we0 : OUT STD_LOGIC;
+        sc_FIFO_DCT_mC_d0 : OUT STD_LOGIC_VECTOR (31 downto 0);
+        sc_FIFO_DCT_exec_cnt_i : IN STD_LOGIC_VECTOR (31 downto 0);
+        sc_FIFO_DCT_exec_cnt_o : OUT STD_LOGIC_VECTOR (31 downto 0);
+        sc_FIFO_DCT_exec_cnt_o_ap_vld : OUT STD_LOGIC;
+        s_buffered : IN STD_LOGIC;
+        s_working : OUT STD_LOGIC;
+        s_working_ap_vld : OUT STD_LOGIC;
+        s_DCT : OUT STD_LOGIC;
+        s_DCT_ap_vld : OUT STD_LOGIC;
+        s_done : IN STD_LOGIC );
+    end component;
+
+
+    component sc_FIFO_DCT_buffering IS
+    port (
+        ap_clk : IN STD_LOGIC;
+        ap_rst : IN STD_LOGIC;
+        din_dout : IN STD_LOGIC_VECTOR (7 downto 0);
+        din_empty_n : IN STD_LOGIC;
+        din_read : OUT STD_LOGIC;
+        sc_FIFO_DCT_mA_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
+        sc_FIFO_DCT_mA_ce0 : OUT STD_LOGIC;
+        sc_FIFO_DCT_mA_we0 : OUT STD_LOGIC;
+        sc_FIFO_DCT_mA_d0 : OUT STD_LOGIC_VECTOR (31 downto 0);
+        s_buffered : OUT STD_LOGIC;
+        s_buffered_ap_vld : OUT STD_LOGIC;
+        s_working : IN STD_LOGIC );
+    end component;
+
+
+    component sc_FIFO_DCT_sc_FIdEe IS
+    generic (
+        DataWidth : INTEGER;
+        AddressRange : INTEGER;
+        AddressWidth : INTEGER );
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        address0 : IN STD_LOGIC_VECTOR (5 downto 0);
+        ce0 : IN STD_LOGIC;
+        we0 : IN STD_LOGIC;
+        d0 : IN STD_LOGIC_VECTOR (31 downto 0);
+        q0 : OUT STD_LOGIC_VECTOR (31 downto 0);
+        address1 : IN STD_LOGIC_VECTOR (5 downto 0);
+        ce1 : IN STD_LOGIC;
+        q1 : OUT STD_LOGIC_VECTOR (31 downto 0) );
     end component;
 
 
@@ -125,8 +186,7 @@ architecture behav of sc_FIFO_DCT is
         address0 : IN STD_LOGIC_VECTOR (5 downto 0);
         ce0 : IN STD_LOGIC;
         we0 : IN STD_LOGIC;
-        d0 : IN STD_LOGIC_VECTOR (17 downto 0);
-        q0 : OUT STD_LOGIC_VECTOR (17 downto 0) );
+        d0 : IN STD_LOGIC_VECTOR (31 downto 0) );
     end component;
 
 
@@ -141,133 +201,149 @@ architecture behav of sc_FIFO_DCT is
         address0 : IN STD_LOGIC_VECTOR (5 downto 0);
         ce0 : IN STD_LOGIC;
         we0 : IN STD_LOGIC;
-        d0 : IN STD_LOGIC_VECTOR (17 downto 0) );
+        d0 : IN STD_LOGIC_VECTOR (31 downto 0);
+        q0 : OUT STD_LOGIC_VECTOR (31 downto 0) );
     end component;
 
 
 
 begin
-    sc_FIFO_DCT_mA_V_U : component sc_FIFO_DCT_sc_FIeOg
+    sc_FIFO_DCT_mA_U : component sc_FIFO_DCT_sc_FIdEe
     generic map (
-        DataWidth => 18,
+        DataWidth => 32,
         AddressRange => 64,
         AddressWidth => 6)
     port map (
         clk => clock,
         reset => reset,
-        address0 => sc_FIFO_DCT_mA_V_address0,
-        ce0 => sc_FIFO_DCT_mA_V_ce0,
-        we0 => grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_we0,
-        d0 => grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_d0,
-        q0 => sc_FIFO_DCT_mA_V_q0);
+        address0 => sc_FIFO_DCT_mA_address0,
+        ce0 => sc_FIFO_DCT_mA_ce0,
+        we0 => grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_we0,
+        d0 => grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_d0,
+        q0 => sc_FIFO_DCT_mA_q0,
+        address1 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address1,
+        ce1 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce1,
+        q1 => sc_FIFO_DCT_mA_q1);
 
-    sc_FIFO_DCT_mB_V_U : component sc_FIFO_DCT_sc_FIfYi
+    sc_FIFO_DCT_mB_U : component sc_FIFO_DCT_sc_FIeOg
     generic map (
-        DataWidth => 18,
+        DataWidth => 32,
         AddressRange => 64,
         AddressWidth => 6)
     port map (
         clk => clock,
         reset => reset,
-        address0 => grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_address0,
-        ce0 => grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_ce0,
-        we0 => grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_we0,
-        d0 => grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_d0);
+        address0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_address0,
+        ce0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_ce0,
+        we0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_we0,
+        d0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_d0);
 
-    grp_sc_FIFO_DCT_Prc2_fu_86 : component sc_FIFO_DCT_Prc2
+    sc_FIFO_DCT_mC_U : component sc_FIFO_DCT_sc_FIfYi
+    generic map (
+        DataWidth => 32,
+        AddressRange => 64,
+        AddressWidth => 6)
+    port map (
+        clk => clock,
+        reset => reset,
+        address0 => sc_FIFO_DCT_mC_address0,
+        ce0 => sc_FIFO_DCT_mC_ce0,
+        we0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_we0,
+        d0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_d0,
+        q0 => sc_FIFO_DCT_mC_q0);
+
+    grp_sc_FIFO_DCT_data_out_fu_160 : component sc_FIFO_DCT_data_out
     port map (
         ap_clk => clock,
         ap_rst => reset,
-        data_ok => grp_sc_FIFO_DCT_Prc2_fu_86_data_ok,
-        data_ok_ap_vld => grp_sc_FIFO_DCT_Prc2_fu_86_data_ok_ap_vld,
-        done => grp_sc_FIFO_DCT_Prc2_fu_86_done,
-        done_ap_vld => grp_sc_FIFO_DCT_Prc2_fu_86_done_ap_vld,
-        dout => grp_sc_FIFO_DCT_Prc2_fu_86_dout,
-        dout_ap_vld => grp_sc_FIFO_DCT_Prc2_fu_86_dout_ap_vld,
-        s_start_i => grp_sc_FIFO_DCT_Prc2_fu_86_s_start_i,
-        s_start_o => grp_sc_FIFO_DCT_Prc2_fu_86_s_start_o,
-        s_start_o_ap_vld => grp_sc_FIFO_DCT_Prc2_fu_86_s_start_o_ap_vld,
-        s_working => grp_sc_FIFO_DCT_Prc2_fu_86_s_working,
-        s_working_ap_vld => grp_sc_FIFO_DCT_Prc2_fu_86_s_working_ap_vld,
-        sc_FIFO_DCT_mA_V_address0 => grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_address0,
-        sc_FIFO_DCT_mA_V_ce0 => grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_ce0,
-        sc_FIFO_DCT_mA_V_q0 => sc_FIFO_DCT_mA_V_q0,
-        sc_FIFO_DCT_mB_V_address0 => grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_address0,
-        sc_FIFO_DCT_mB_V_ce0 => grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_ce0,
-        sc_FIFO_DCT_mB_V_we0 => grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_we0,
-        sc_FIFO_DCT_mB_V_d0 => grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_d0);
+        dout_din => grp_sc_FIFO_DCT_data_out_fu_160_dout_din,
+        dout_full_n => dout_full_n,
+        dout_write => grp_sc_FIFO_DCT_data_out_fu_160_dout_write,
+        sc_FIFO_DCT_mC_address0 => grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_address0,
+        sc_FIFO_DCT_mC_ce0 => grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_ce0,
+        sc_FIFO_DCT_mC_q0 => sc_FIFO_DCT_mC_q0,
+        s_DCT => grp_sc_FIFO_DCT_data_out_fu_160_s_DCT,
+        s_done => grp_sc_FIFO_DCT_data_out_fu_160_s_done,
+        s_done_ap_vld => grp_sc_FIFO_DCT_data_out_fu_160_s_done_ap_vld);
 
-    grp_sc_FIFO_DCT_Prc1_fu_118 : component sc_FIFO_DCT_Prc1
+    grp_sc_FIFO_DCT_DCT_fu_192 : component sc_FIFO_DCT_DCT
     port map (
         ap_clk => clock,
         ap_rst => reset,
-        sync => sync,
-        error => grp_sc_FIFO_DCT_Prc1_fu_118_error,
-        error_ap_vld => grp_sc_FIFO_DCT_Prc1_fu_118_error_ap_vld,
-        din => din,
-        s_start => grp_sc_FIFO_DCT_Prc1_fu_118_s_start,
-        s_start_ap_vld => grp_sc_FIFO_DCT_Prc1_fu_118_s_start_ap_vld,
-        s_working => grp_sc_FIFO_DCT_Prc1_fu_118_s_working,
-        sc_FIFO_DCT_mA_V_address0 => grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_address0,
-        sc_FIFO_DCT_mA_V_ce0 => grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_ce0,
-        sc_FIFO_DCT_mA_V_we0 => grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_we0,
-        sc_FIFO_DCT_mA_V_d0 => grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_d0);
+        sc_FIFO_DCT_mA_address0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address0,
+        sc_FIFO_DCT_mA_ce0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0,
+        sc_FIFO_DCT_mA_q0 => sc_FIFO_DCT_mA_q0,
+        sc_FIFO_DCT_mA_address1 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address1,
+        sc_FIFO_DCT_mA_ce1 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce1,
+        sc_FIFO_DCT_mA_q1 => sc_FIFO_DCT_mA_q1,
+        sc_FIFO_DCT_mB_address0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_address0,
+        sc_FIFO_DCT_mB_ce0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_ce0,
+        sc_FIFO_DCT_mB_we0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_we0,
+        sc_FIFO_DCT_mB_d0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_d0,
+        sc_FIFO_DCT_mC_address0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_address0,
+        sc_FIFO_DCT_mC_ce0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_ce0,
+        sc_FIFO_DCT_mC_we0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_we0,
+        sc_FIFO_DCT_mC_d0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_d0,
+        sc_FIFO_DCT_exec_cnt_i => sc_FIFO_DCT_exec_cnt,
+        sc_FIFO_DCT_exec_cnt_o => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_exec_cnt_o,
+        sc_FIFO_DCT_exec_cnt_o_ap_vld => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_exec_cnt_o_ap_vld,
+        s_buffered => grp_sc_FIFO_DCT_DCT_fu_192_s_buffered,
+        s_working => grp_sc_FIFO_DCT_DCT_fu_192_s_working,
+        s_working_ap_vld => grp_sc_FIFO_DCT_DCT_fu_192_s_working_ap_vld,
+        s_DCT => grp_sc_FIFO_DCT_DCT_fu_192_s_DCT,
+        s_DCT_ap_vld => grp_sc_FIFO_DCT_DCT_fu_192_s_DCT_ap_vld,
+        s_done => grp_sc_FIFO_DCT_DCT_fu_192_s_done);
+
+    grp_sc_FIFO_DCT_buffering_fu_228 : component sc_FIFO_DCT_buffering
+    port map (
+        ap_clk => clock,
+        ap_rst => reset,
+        din_dout => din_dout,
+        din_empty_n => din_empty_n,
+        din_read => grp_sc_FIFO_DCT_buffering_fu_228_din_read,
+        sc_FIFO_DCT_mA_address0 => grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_address0,
+        sc_FIFO_DCT_mA_ce0 => grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_ce0,
+        sc_FIFO_DCT_mA_we0 => grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_we0,
+        sc_FIFO_DCT_mA_d0 => grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_d0,
+        s_buffered => grp_sc_FIFO_DCT_buffering_fu_228_s_buffered,
+        s_buffered_ap_vld => grp_sc_FIFO_DCT_buffering_fu_228_s_buffered_ap_vld,
+        s_working => grp_sc_FIFO_DCT_buffering_fu_228_s_working);
 
 
 
 
 
-    data_ok_assign_proc : process(clock)
+    s_DCT_assign_proc : process(clock)
     begin
         if (clock'event and clock =  '1') then
-            if ((ap_const_logic_1 = grp_sc_FIFO_DCT_Prc2_fu_86_data_ok_ap_vld)) then 
-                data_ok <= grp_sc_FIFO_DCT_Prc2_fu_86_data_ok;
+            if (((ap_CS_fsm_state1 = ap_const_lv1_1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_s_load_fu_260_p1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_1_load_fu_264_p1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_2_load_fu_268_p1))) then 
+                s_DCT <= ap_const_lv1_0;
+            elsif ((ap_const_logic_1 = grp_sc_FIFO_DCT_DCT_fu_192_s_DCT_ap_vld)) then 
+                s_DCT <= (0=>grp_sc_FIFO_DCT_DCT_fu_192_s_DCT, others=>'-');
             end if; 
         end if;
     end process;
 
 
-    done_assign_proc : process(clock)
+    s_buffered_assign_proc : process(clock)
     begin
         if (clock'event and clock =  '1') then
-            if (reset = '1') then
-                done <= ap_const_logic_0;
-            else
-                if ((ap_const_logic_1 = grp_sc_FIFO_DCT_Prc2_fu_86_done_ap_vld)) then 
-                    done <= grp_sc_FIFO_DCT_Prc2_fu_86_done;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    dout_assign_proc : process(clock)
-    begin
-        if (clock'event and clock =  '1') then
-            if ((ap_const_logic_1 = grp_sc_FIFO_DCT_Prc2_fu_86_dout_ap_vld)) then 
-                dout <= grp_sc_FIFO_DCT_Prc2_fu_86_dout;
+            if (((ap_CS_fsm_state1 = ap_const_lv1_1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_s_load_fu_260_p1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_1_load_fu_264_p1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_2_load_fu_268_p1))) then 
+                s_buffered <= ap_const_lv1_0;
+            elsif ((ap_const_logic_1 = grp_sc_FIFO_DCT_buffering_fu_228_s_buffered_ap_vld)) then 
+                s_buffered <= (0=>grp_sc_FIFO_DCT_buffering_fu_228_s_buffered, others=>'-');
             end if; 
         end if;
     end process;
 
 
-    error_assign_proc : process(clock)
+    s_done_assign_proc : process(clock)
     begin
         if (clock'event and clock =  '1') then
-            if ((ap_const_logic_1 = grp_sc_FIFO_DCT_Prc1_fu_118_error_ap_vld)) then 
-                error <= grp_sc_FIFO_DCT_Prc1_fu_118_error;
-            end if; 
-        end if;
-    end process;
-
-
-    s_start_assign_proc : process(clock)
-    begin
-        if (clock'event and clock =  '1') then
-            if ((ap_const_logic_1 = grp_sc_FIFO_DCT_Prc1_fu_118_s_start_ap_vld)) then 
-                s_start <= (0=>grp_sc_FIFO_DCT_Prc1_fu_118_s_start, others=>'-');
-            elsif ((ap_const_logic_1 = grp_sc_FIFO_DCT_Prc2_fu_86_s_start_o_ap_vld)) then 
-                s_start <= (0=>grp_sc_FIFO_DCT_Prc2_fu_86_s_start_o, others=>'-');
+            if (((ap_CS_fsm_state1 = ap_const_lv1_1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_s_load_fu_260_p1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_1_load_fu_264_p1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_2_load_fu_268_p1))) then 
+                s_done <= ap_const_lv1_0;
+            elsif ((ap_const_logic_1 = grp_sc_FIFO_DCT_data_out_fu_160_s_done_ap_vld)) then 
+                s_done <= (0=>grp_sc_FIFO_DCT_data_out_fu_160_s_done, others=>'-');
             end if; 
         end if;
     end process;
@@ -276,39 +352,85 @@ begin
     s_working_assign_proc : process(clock)
     begin
         if (clock'event and clock =  '1') then
-            if ((ap_const_logic_1 = grp_sc_FIFO_DCT_Prc2_fu_86_s_working_ap_vld)) then 
-                s_working <= (0=>grp_sc_FIFO_DCT_Prc2_fu_86_s_working, others=>'-');
+            if (((ap_CS_fsm_state1 = ap_const_lv1_1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_s_load_fu_260_p1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_1_load_fu_264_p1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_2_load_fu_268_p1))) then 
+                s_working <= ap_const_lv1_0;
+            elsif ((ap_const_logic_1 = grp_sc_FIFO_DCT_DCT_fu_192_s_working_ap_vld)) then 
+                s_working <= (0=>grp_sc_FIFO_DCT_DCT_fu_192_s_working, others=>'-');
+            end if; 
+        end if;
+    end process;
+
+
+    sc_FIFO_DCT_exec_cnt_assign_proc : process(clock)
+    begin
+        if (clock'event and clock =  '1') then
+            if (((ap_CS_fsm_state1 = ap_const_lv1_1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_s_load_fu_260_p1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_1_load_fu_264_p1) and (ap_const_lv1_0 = sc_FIFO_DCT_ssdm_2_load_fu_268_p1))) then 
+                sc_FIFO_DCT_exec_cnt <= ap_const_lv32_0;
+            elsif ((ap_const_logic_1 = grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_exec_cnt_o_ap_vld)) then 
+                sc_FIFO_DCT_exec_cnt <= grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_exec_cnt_o;
             end if; 
         end if;
     end process;
 
     ap_CS_fsm <= ap_const_lv2_0;
+    ap_CS_fsm_state1 <= ap_CS_fsm(0 downto 0);
     ap_CS_fsm_state2 <= ap_CS_fsm(1 downto 1);
-    grp_sc_FIFO_DCT_Prc1_fu_118_s_working <= s_working(0);
-    grp_sc_FIFO_DCT_Prc2_fu_86_s_start_i <= s_start(0);
+    din_read <= grp_sc_FIFO_DCT_buffering_fu_228_din_read;
+    dout_din <= grp_sc_FIFO_DCT_data_out_fu_160_dout_din;
+    dout_write <= grp_sc_FIFO_DCT_data_out_fu_160_dout_write;
+    grp_sc_FIFO_DCT_DCT_fu_192_s_buffered <= s_buffered(0);
+    grp_sc_FIFO_DCT_DCT_fu_192_s_done <= s_done(0);
+    grp_sc_FIFO_DCT_buffering_fu_228_s_working <= s_working(0);
+    grp_sc_FIFO_DCT_data_out_fu_160_s_DCT <= s_DCT(0);
 
-    sc_FIFO_DCT_mA_V_address0_assign_proc : process(grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_address0, grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_ce0, grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_address0, grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_ce0)
+    sc_FIFO_DCT_mA_address0_assign_proc : process(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address0, grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0, grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_address0, grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_ce0)
     begin
-        if ((ap_const_logic_1 = grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_ce0)) then 
-            sc_FIFO_DCT_mA_V_address0 <= grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_address0;
-        elsif ((ap_const_logic_1 = grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_ce0)) then 
-            sc_FIFO_DCT_mA_V_address0 <= grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_address0;
+        if ((ap_const_logic_1 = grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_ce0)) then 
+            sc_FIFO_DCT_mA_address0 <= grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_address0;
+        elsif ((ap_const_logic_1 = grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0)) then 
+            sc_FIFO_DCT_mA_address0 <= grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address0;
         else 
-            sc_FIFO_DCT_mA_V_address0 <= "XXXXXX";
+            sc_FIFO_DCT_mA_address0 <= "XXXXXX";
         end if; 
     end process;
 
 
-    sc_FIFO_DCT_mA_V_ce0_assign_proc : process(grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_ce0, grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_ce0)
+    sc_FIFO_DCT_mA_ce0_assign_proc : process(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0, grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_ce0)
     begin
-        if ((ap_const_logic_1 = grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_ce0)) then 
-            sc_FIFO_DCT_mA_V_ce0 <= grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_ce0;
-        elsif ((ap_const_logic_1 = grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_ce0)) then 
-            sc_FIFO_DCT_mA_V_ce0 <= grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_ce0;
+        if ((ap_const_logic_1 = grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_ce0)) then 
+            sc_FIFO_DCT_mA_ce0 <= grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_ce0;
+        elsif ((ap_const_logic_1 = grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0)) then 
+            sc_FIFO_DCT_mA_ce0 <= grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0;
         else 
-            sc_FIFO_DCT_mA_V_ce0 <= 'X';
+            sc_FIFO_DCT_mA_ce0 <= 'X';
         end if; 
     end process;
 
-    sc_FIFO_DCT_ssdm_s_load_fu_146_p1 <= ap_const_lv1_0;
+
+    sc_FIFO_DCT_mC_address0_assign_proc : process(grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_address0, grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_ce0, grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_address0, grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_ce0)
+    begin
+        if ((ap_const_logic_1 = grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_ce0)) then 
+            sc_FIFO_DCT_mC_address0 <= grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_address0;
+        elsif ((ap_const_logic_1 = grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_ce0)) then 
+            sc_FIFO_DCT_mC_address0 <= grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_address0;
+        else 
+            sc_FIFO_DCT_mC_address0 <= "XXXXXX";
+        end if; 
+    end process;
+
+
+    sc_FIFO_DCT_mC_ce0_assign_proc : process(grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_ce0, grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_ce0)
+    begin
+        if ((ap_const_logic_1 = grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_ce0)) then 
+            sc_FIFO_DCT_mC_ce0 <= grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_ce0;
+        elsif ((ap_const_logic_1 = grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_ce0)) then 
+            sc_FIFO_DCT_mC_ce0 <= grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_ce0;
+        else 
+            sc_FIFO_DCT_mC_ce0 <= 'X';
+        end if; 
+    end process;
+
+    sc_FIFO_DCT_ssdm_1_load_fu_264_p1 <= ap_const_lv1_0;
+    sc_FIFO_DCT_ssdm_2_load_fu_268_p1 <= ap_const_lv1_0;
+    sc_FIFO_DCT_ssdm_s_load_fu_260_p1 <= ap_const_lv1_0;
 end behav;

@@ -7,20 +7,162 @@ Copyright (C) 1986-2016 Xilinx, Inc. All Rights Reserved.
 
 @I [SYN-201] Setting up clock 'default' with a period of 10ns.
 @I [HLS-10] Setting target device to 'xc7a35ticpg236-1l'
-@I [SIM-2] *************** CSIM start ***************
-@W [SIM-51] HLS only supports CLANG compiler in Linux.
-@I [SIM-4] CSIM will launch GCC as the compiler.
-@E Simulation failed: Function 'main' returns nonzero value '3'.
-@E [SIM-100] 'csim_design' failed: nonzero return value.
-@I [SIM-3] *************** CSIM finish ***************
-4
-    while executing
-"source C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT/csim.tcl"
-    invoked from within
-"hls::main C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT/csim.tcl"
-    ("uplevel" body line 1)
-    invoked from within
-"uplevel 1 hls::main {*}$args"
-    (procedure "hls_proc" line 5)
-    invoked from within
-"hls_proc $argv"
+@I [HLS-10] Analyzing design file 'sc_FIFO_DCT.cpp' ... 
+@I [HLS-10] Validating synthesis directives ...
+@I [HLS-111] Finished Checking Pragmas Time (s): cpu = 00:00:03 ; elapsed = 00:00:42 . Memory (MB): peak = 110.141 ; gain = 60.672
+@I [HLS-111] Finished Linking Time (s): cpu = 00:00:03 ; elapsed = 00:00:42 . Memory (MB): peak = 110.141 ; gain = 60.672
+@I [HLS-10] Starting code transformations ...
+@W [XFORM-503] Ignored unroll directive 'DCT_loop' (sc_FIFO_DCT.cpp:77) in function 'sc_FIFO_DCT::DCT()': multiple loop unroll directives in one loop, use the first one and ignore the rest.
+@I [HLS-111] Finished Standard Transforms Time (s): cpu = 00:00:04 ; elapsed = 00:00:43 . Memory (MB): peak = 110.141 ; gain = 60.672
+@I [HLS-10] Checking synthesizability ...
+@I [HLS-111] Finished Checking Synthesizability Time (s): cpu = 00:00:04 ; elapsed = 00:00:43 . Memory (MB): peak = 110.141 ; gain = 60.672
+@I [XFORM-502] Unrolling all sub-loops inside loop 'TA' (sc_FIFO_DCT.cpp:80) in function 'sc_FIFO_DCT::DCT' for pipelining.
+@I [XFORM-502] Unrolling all sub-loops inside loop 'AT' (sc_FIFO_DCT.cpp:93) in function 'sc_FIFO_DCT::DCT' for pipelining.
+@I [XFORM-501] Unrolling loop 'DCT_loop' (sc_FIFO_DCT.cpp:77) in function 'sc_FIFO_DCT::DCT' partially with a factor of 2.
+@I [XFORM-501] Unrolling loop 'multTA' (sc_FIFO_DCT.cpp:83) in function 'sc_FIFO_DCT::DCT' completely.
+@I [XFORM-501] Unrolling loop 'sumTA' (sc_FIFO_DCT.cpp:87) in function 'sc_FIFO_DCT::DCT' completely.
+@I [XFORM-501] Unrolling loop 'multAT' (sc_FIFO_DCT.cpp:96) in function 'sc_FIFO_DCT::DCT' completely.
+@I [XFORM-501] Unrolling loop 'sumAT' (sc_FIFO_DCT.cpp:101) in function 'sc_FIFO_DCT::DCT' completely.
+@W [XFORM-105] Ignored array partition directive (sc_FIFO_DCT.cpp:62:1) : cannot locate the real object(s).
+@W [XFORM-105] Ignored array partition directive (sc_FIFO_DCT.cpp:64:1) : cannot locate the real object(s).
+@W [XFORM-105] Ignored array partition directive (sc_FIFO_DCT.cpp:66:1) : cannot locate the real object(s).
+@I [XFORM-101] Partitioning array 's' (sc_FIFO_DCT.cpp:59) in dimension 1 completely.
+@I [XFORM-11] Balancing expressions in function 'sc_FIFO_DCT::DCT' (sc_FIFO_DCT.cpp:55:30)...40 expression(s) balanced.
+@I [HLS-111] Finished Pre-synthesis Time (s): cpu = 00:00:05 ; elapsed = 00:00:44 . Memory (MB): peak = 131.730 ; gain = 82.262
+@W [XFORM-561] 'Loop-1' (sc_FIFO_DCT.cpp:136:17) in function 'sc_FIFO_DCT::data_out' is an infinite loop.
+@W [XFORM-561] 'Loop-1' (sc_FIFO_DCT.cpp:43:3) in function 'sc_FIFO_DCT::buffering' is an infinite loop.
+@W [XFORM-542] Cannot flatten a loop nest 'DCT_loop' (sc_FIFO_DCT.cpp:77:6) in function 'sc_FIFO_DCT::DCT' : 
+               more than one sub loop.
+@W [XFORM-561] 'Loop-1' (sc_FIFO_DCT.cpp:76:19) in function 'sc_FIFO_DCT::DCT' is an infinite loop.
+@W [XFORM-542] Cannot flatten a loop nest 'Loop-1' (sc_FIFO_DCT.cpp:76:19) in function 'sc_FIFO_DCT::DCT' : 
+               the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+@I [HLS-111] Finished Architecture Synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:45 . Memory (MB): peak = 158.375 ; gain = 108.906
+@I [HLS-10] Starting hardware synthesis ...
+@I [SCA-201] Elaborating SystemC module 'sc_FIFO_DCT'.
+@I [SCA-201] Performing SystemC synthesis linting.
+@I [SCA-201] Analyzing ports and processes.
+@I [SCA-201] Found the clock port of process 'sc_FIFO_DCT::buffering': 'clock'.
+@I [SCA-201] Found the reset port of process 'sc_FIFO_DCT::buffering': 'reset'.
+@I [SCA-201] Found the clock port of process 'sc_FIFO_DCT::DCT': 'clock'.
+@I [SCA-201] Found the reset port of process 'sc_FIFO_DCT::DCT': 'reset'.
+@I [SCA-201] Found the clock port of process 'sc_FIFO_DCT::data_out': 'clock'.
+@I [SCA-201] Found the reset port of process 'sc_FIFO_DCT::data_out': 'reset'.
+@W [SCA-202] Signal 'sc_FIFO_DCT_exec_cnt' has no reset.
+@W [SCA-202] Found reading to uninitialized signal/variable 'sc_FIFO_DCT_exec_cnt'('sc_FIFO_DCT_exec_cnt_1', sc_FIFO_DCT.cpp:110), the signal/variable should be written or reset firstly, or it may introduce RTL simulation mismatch.
+@W [SCA-202] Signal 's_buffered' has no reset.
+@W [SCA-202] Signal 's_working' has no reset.
+@W [SCA-202] Signal 's_DCT' has no reset.
+@W [SCA-202] Signal 's_done' has no reset.
+@I [HLS-10] Synthesizing SystemC module [ sc_FIFO_DCT ]
+@I [HLS-10] Found SystemC process: 'sc_FIFO_DCT_DCT' 
+@I [HLS-10] Synthesizing 'sc_FIFO_DCT_DCT' ...
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Implementing module 'sc_FIFO_DCT_DCT' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [SCHED-11] Starting scheduling ...
+@I [SCHED-61] Pipelining loop 'TA'.
+@W [SCHED-69] Unable to schedule 'load' operation ('sc_FIFO_DCT_mA_load_4', sc_FIFO_DCT.cpp:84) on array 'sc_FIFO_DCT_mA' due to limited memory ports.
+@I [SCHED-61] Pipelining result: Target II: 1, Final II: 4, Depth: 10.
+@I [SCHED-61] Pipelining loop 'AT'.
+@I [SCHED-61] Pipelining result: Target II: 1, Final II: 1, Depth: 8.
+@I [SCHED-61] Pipelining loop 'TA'.
+@W [SCHED-69] Unable to schedule 'load' operation ('sc_FIFO_DCT_mA_load_10', sc_FIFO_DCT.cpp:84) on array 'sc_FIFO_DCT_mA' due to limited memory ports.
+@I [SCHED-61] Pipelining result: Target II: 1, Final II: 4, Depth: 10.
+@I [SCHED-61] Pipelining loop 'AT'.
+@I [SCHED-61] Pipelining result: Target II: 1, Final II: 1, Depth: 8.
+@I [SCHED-11] Finished scheduling.
+@I [HLS-111]  Elapsed time: 45.842 seconds; current allocated memory: 127.253 MB.
+@I [BIND-100] Starting micro-architecture generation ...
+@I [BIND-101] Performing variable lifetime analysis.
+@I [BIND-101] Exploring resource sharing.
+@I [BIND-101] Binding ...
+@I [BIND-100] Finished micro-architecture generation.
+@I [HLS-111]  Elapsed time: 0.659 seconds; current allocated memory: 126.979 MB.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'sc_FIFO_DCT_DCT' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [SYN-210] Renamed object name 'sc_FIFO_DCT_mul_8s_32s_32_4' to 'sc_FIFO_DCT_mul_8bkb' due to the length limit 20
+@I [SYN-210] Renamed object name 'sc_FIFO_DCT_mul_32s_8s_32_4' to 'sc_FIFO_DCT_mul_3cud' due to the length limit 20
+@I [RTGEN-100] Generating core module 'sc_FIFO_DCT_mul_3cud': 8 instance(s).
+@I [RTGEN-100] Generating core module 'sc_FIFO_DCT_mul_8bkb': 24 instance(s).
+@I [RTGEN-100] Finished creating RTL model for 'sc_FIFO_DCT_DCT'.
+@I [HLS-111]  Elapsed time: 0.85 seconds; current allocated memory: 129.767 MB.
+@I [HLS-10] Found SystemC process: 'sc_FIFO_DCT_buffering' 
+@I [HLS-10] Synthesizing 'sc_FIFO_DCT_buffering' ...
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Implementing module 'sc_FIFO_DCT_buffering' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [SCHED-11] Starting scheduling ...
+@I [SCHED-11] Finished scheduling.
+@I [HLS-111]  Elapsed time: 2.121 seconds; current allocated memory: 131.943 MB.
+@I [BIND-100] Starting micro-architecture generation ...
+@I [BIND-101] Performing variable lifetime analysis.
+@I [BIND-101] Exploring resource sharing.
+@I [BIND-101] Binding ...
+@I [BIND-100] Finished micro-architecture generation.
+@I [HLS-111]  Elapsed time: 0.099 seconds; current allocated memory: 131.882 MB.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'sc_FIFO_DCT_buffering' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [RTGEN-100] Finished creating RTL model for 'sc_FIFO_DCT_buffering'.
+@I [HLS-111]  Elapsed time: 0.08 seconds; current allocated memory: 131.795 MB.
+@I [HLS-10] Found SystemC process: 'sc_FIFO_DCT_data_out' 
+@I [HLS-10] Synthesizing 'sc_FIFO_DCT_data_out' ...
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Implementing module 'sc_FIFO_DCT_data_out' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [SCHED-11] Starting scheduling ...
+@I [SCHED-11] Finished scheduling.
+@I [HLS-111]  Elapsed time: 0.24 seconds; current allocated memory: 131.738 MB.
+@I [BIND-100] Starting micro-architecture generation ...
+@I [BIND-101] Performing variable lifetime analysis.
+@I [BIND-101] Exploring resource sharing.
+@I [BIND-101] Binding ...
+@I [BIND-100] Finished micro-architecture generation.
+@I [HLS-111]  Elapsed time: 0.052 seconds; current allocated memory: 131.836 MB.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'sc_FIFO_DCT_data_out' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [RTGEN-100] Finished creating RTL model for 'sc_FIFO_DCT_data_out'.
+@I [HLS-111]  Elapsed time: 0.071 seconds; current allocated memory: 131.783 MB.
+@I [HLS-10] Synthesizing 'sc_FIFO_DCT' ...
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Implementing module 'sc_FIFO_DCT' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [SCHED-11] Starting scheduling ...
+@I [SCHED-11] Finished scheduling.
+@I [HLS-111]  Elapsed time: 0.172 seconds; current allocated memory: 131.650 MB.
+@I [BIND-100] Starting micro-architecture generation ...
+@I [BIND-101] Performing variable lifetime analysis.
+@I [BIND-101] Exploring resource sharing.
+@I [BIND-101] Binding ...
+@I [BIND-100] Finished micro-architecture generation.
+@I [HLS-111]  Elapsed time: 0.121 seconds; current allocated memory: 131.607 MB.
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'sc_FIFO_DCT' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [RTGEN-500] Setting interface mode on port 'sc_FIFO_DCT/clock' to 'ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'sc_FIFO_DCT/reset' to 'ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'sc_FIFO_DCT/enable' to 'ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'sc_FIFO_DCT/dout' to 'ap_fifo'.
+@I [RTGEN-500] Setting interface mode on port 'sc_FIFO_DCT/din' to 'ap_fifo'.
+@I [SYN-210] Renamed object name 'sc_FIFO_DCT_sc_FIFO_DCT_mA' to 'sc_FIFO_DCT_sc_FIdEe' due to the length limit 20
+@I [SYN-210] Renamed object name 'sc_FIFO_DCT_sc_FIFO_DCT_mB' to 'sc_FIFO_DCT_sc_FIeOg' due to the length limit 20
+@I [SYN-210] Renamed object name 'sc_FIFO_DCT_sc_FIFO_DCT_mC' to 'sc_FIFO_DCT_sc_FIfYi' due to the length limit 20
+@W [RTGEN-101] Port 'sc_FIFO_DCT/enable' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+@I [RTGEN-100] Finished creating RTL model for 'sc_FIFO_DCT'.
+@I [HLS-111]  Elapsed time: 0.272 seconds; current allocated memory: 131.771 MB.
+@I [RTMG-282] Generating pipelined core: 'sc_FIFO_DCT_mul_8bkb_MulnS_0'
+@I [RTMG-282] Generating pipelined core: 'sc_FIFO_DCT_mul_3cud_MulnS_1'
+@I [RTMG-279] Implementing memory 'sc_FIFO_DCT_DCT_b_a_rom' using distributed ROMs.
+@I [RTMG-279] Implementing memory 'sc_FIFO_DCT_DCT_b_rom' using distributed ROMs.
+@I [RTMG-278] Implementing memory 'sc_FIFO_DCT_DCT_a_ram' using block RAMs.
+@I [RTMG-278] Implementing memory 'sc_FIFO_DCT_sc_FIdEe_ram' using block RAMs.
+@I [RTMG-278] Implementing memory 'sc_FIFO_DCT_sc_FIeOg_ram' using block RAMs.
+@I [RTMG-278] Implementing memory 'sc_FIFO_DCT_sc_FIfYi_ram' using block RAMs.
+@I [HLS-111] Finished generating all RTL models Time (s): cpu = 00:00:10 ; elapsed = 00:00:52 . Memory (MB): peak = 179.945 ; gain = 130.477
+@I [SYSC-301] Generating SystemC RTL for sc_FIFO_DCT.
+@I [VHDL-304] Generating VHDL RTL for sc_FIFO_DCT.
+@I [VLOG-307] Generating Verilog RTL for sc_FIFO_DCT.
+@I [HLS-112] Total elapsed time: 52.017 seconds; peak allocated memory: 131.943 MB.

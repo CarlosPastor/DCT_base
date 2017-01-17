@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="blocker_512.cpp" path="C:\Users\alienBot\Documents\GitHub\DCT_base\blocker_512.cpp"/>
-    <originFiles name="blocker_512.h" path="C:\Users\alienBot\Documents\GitHub\DCT_base\blocker_512.h"/>
-    <originFiles name="imager_512.cpp" path="C:\Users\alienBot\Documents\GitHub\DCT_base\imager_512.cpp"/>
-    <originFiles name="imager_512.h" path="C:\Users\alienBot\Documents\GitHub\DCT_base\imager_512.h"/>
-    <originFiles name="sc_FIFO_DCT.cpp" path="C:\Users\alienBot\Documents\GitHub\DCT_base\sc_FIFO_DCT.cpp"/>
-    <originFiles name="sc_FIFO_DCT.h" path="C:\Users\alienBot\Documents\GitHub\DCT_base\sc_FIFO_DCT.h"/>
-    <originFiles name="sc_FIFO_IDCT.cpp" path="C:\Users\alienBot\Documents\GitHub\DCT_base\sc_FIFO_IDCT.cpp"/>
-    <originFiles name="sc_FIFO_IDCT.h" path="C:\Users\alienBot\Documents\GitHub\DCT_base\sc_FIFO_IDCT.h"/>
+    <originFiles name="sc_FIFO_DCT.cpp" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\sc_FIFO_DCT.cpp"/>
+    <originFiles name="sc_FIFO_DCT.h" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\sc_FIFO_DCT.h"/>
   </source>
   <testbench>
-    <originFiles name="Tasks.cpp" path="C:\Users\alienBot\Documents\GitHub\DCT_base\Tasks.cpp"/>
-    <originFiles name="Tasks.h" path="C:\Users\alienBot\Documents\GitHub\DCT_base\Tasks.h"/>
-    <originFiles name="lena512.bmp" path="C:\Users\alienBot\Documents\GitHub\DCT_base\lena512.bmp"/>
-    <originFiles name="main.cpp" path="C:\Users\alienBot\Documents\GitHub\DCT_base\main.cpp"/>
-    <originFiles name="qdbmp.cpp" path="C:\Users\alienBot\Documents\GitHub\DCT_base\qdbmp.cpp"/>
-    <originFiles name="qdbmp.h" path="C:\Users\alienBot\Documents\GitHub\DCT_base\qdbmp.h"/>
-    <originFiles name="tb_init.cpp" path="C:\Users\alienBot\Documents\GitHub\DCT_base\tb_init.cpp"/>
-    <originFiles name="tb_init.h" path="C:\Users\alienBot\Documents\GitHub\DCT_base\tb_init.h"/>
+    <originFiles name="Tasks.cpp" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\Tasks.cpp"/>
+    <originFiles name="Tasks.h" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\Tasks.h"/>
+    <originFiles name="blocker_512.cpp" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\blocker_512.cpp"/>
+    <originFiles name="blocker_512.h" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\blocker_512.h"/>
+    <originFiles name="imager_512.cpp" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\imager_512.cpp"/>
+    <originFiles name="imager_512.h" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\imager_512.h"/>
+    <originFiles name="lena512.bmp" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\lena512.bmp"/>
+    <originFiles name="qdbmp.cpp" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\qdbmp.cpp"/>
+    <originFiles name="qdbmp.h" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\qdbmp.h"/>
+    <originFiles name="sc_FIFO_IDCT.cpp" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\sc_FIFO_IDCT.cpp"/>
+    <originFiles name="sc_FIFO_IDCT.h" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\sc_FIFO_IDCT.h"/>
+    <originFiles name="tb_init.cpp" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\tb_init.cpp"/>
+    <originFiles name="tb_init.h" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\tb_init.h"/>
+    <originFiles name="testbench_Top.cpp" path="C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master\testbench_Top.cpp"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

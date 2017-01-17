@@ -21,7 +21,7 @@ using namespace sc_dt;
 
 struct sc_FIFO_DCT_sc_FIeOg_ram : public sc_core::sc_module {
 
-  static const unsigned DataWidth = 18;
+  static const unsigned DataWidth = 32;
   static const unsigned AddressRange = 64;
   static const unsigned AddressWidth = 6;
 
@@ -30,7 +30,6 @@ struct sc_FIFO_DCT_sc_FIeOg_ram : public sc_core::sc_module {
 //output_reg = 0
 sc_core::sc_in <sc_lv<AddressWidth> > address0;
 sc_core::sc_in <sc_logic> ce0;
-sc_core::sc_out <sc_lv<DataWidth> > q0;
 sc_core::sc_in<sc_logic> we0;
 sc_core::sc_in<sc_lv<DataWidth> > d0;
 sc_core::sc_in<sc_logic> reset;
@@ -57,16 +56,7 @@ void prc_write_0()
            if(address0.read().is_01() && address0.read().to_uint()<AddressRange)
            {
               ram[address0.read().to_uint()] = d0.read(); 
-              q0 = d0.read();
            }
-           else
-              q0 = sc_lv<DataWidth>();
-        }
-        else {
-            if(address0.read().is_01() && address0.read().to_uint()<AddressRange)
-              q0 = ram[address0.read().to_uint()];
-            else
-              q0 = sc_lv<DataWidth>();
         }
     }
 }
@@ -78,13 +68,12 @@ void prc_write_0()
 SC_MODULE(sc_FIFO_DCT_sc_FIeOg) {
 
 
-static const unsigned DataWidth = 18;
+static const unsigned DataWidth = 32;
 static const unsigned AddressRange = 64;
 static const unsigned AddressWidth = 6;
 
 sc_core::sc_in <sc_lv<AddressWidth> > address0;
 sc_core::sc_in<sc_logic> ce0;
-sc_core::sc_out <sc_lv<DataWidth> > q0;
 sc_core::sc_in<sc_logic> we0;
 sc_core::sc_in<sc_lv<DataWidth> > d0;
 sc_core::sc_in<sc_logic> reset;
@@ -98,7 +87,6 @@ SC_CTOR(sc_FIFO_DCT_sc_FIeOg) {
 meminst = new sc_FIFO_DCT_sc_FIeOg_ram("sc_FIFO_DCT_sc_FIeOg_ram");
 meminst->address0(address0);
 meminst->ce0(ce0);
-meminst->q0(q0);
 meminst->we0(we0);
 meminst->d0(d0);
 

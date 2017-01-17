@@ -34807,35 +34807,49 @@ struct sc_FIFO_DCT : ::sc_core::sc_module
  //Ports
  sc_in <bool> clock;
  sc_in <bool> reset;
- sc_in <bool> sync;
- sc_out<bool> data_ok;
- sc_out<bool> done;
- sc_out<bool> error;
+ sc_in <bool> enable;
 
- sc_in < sc_uint<8> > din;
- sc_out < sc_uint<8> > dout;
-
- //Signals
- sc_signal<bool> s_start;
- sc_signal<bool> s_working;
+ sc_fifo_out< sc_uint<8> > dout;
+ sc_fifo_in< sc_uint<8> > din;
 
  //Variables
- sc_uint<18> mA[64];
- sc_uint<18> mB[64];
+ int mA[64];
+ int mB[64];
+ int mC[64];
+
+ // for debug
+ int exec_cnt;
+
+ // Signals
+ sc_signal<bool> s_buffering;
+ sc_signal<bool> s_buffered;
+ sc_signal<bool> s_working;
+ sc_signal<bool> s_DCT;
+ sc_signal<bool> s_done;
 
  //Process Declaration
- void Prc1(void);
- void Prc2(void);
+ void buffering();
+ void DCT();
+ void data_out();
 
  //Constructor
  typedef sc_FIFO_DCT SC_CURRENT_USER_MODULE; sc_FIFO_DCT( ::sc_core::sc_module_name )
  {
+  exec_cnt = 0;
+  s_buffering = false;
+  s_buffered = false;
+  s_working = false;
+  s_DCT = false;
+  s_done = false;
 
   //Process Registration
-  { ::sc_core::sc_cthread_process* Prc1_handle = simcontext()->register_cthread_process("Prc1", (void (::sc_core::sc_process_host::*)())(&SC_CURRENT_USER_MODULE::Prc1), this ); sensitive.operator() ( Prc1_handle, clock.pos() ); };
+  { ::sc_core::sc_cthread_process* buffering_handle = simcontext()->register_cthread_process("buffering", (void (::sc_core::sc_process_host::*)())(&SC_CURRENT_USER_MODULE::buffering), this ); sensitive.operator() ( buffering_handle, clock.pos() ); };
   watching(reset.delayed() == true);
 
-  { ::sc_core::sc_cthread_process* Prc2_handle = simcontext()->register_cthread_process("Prc2", (void (::sc_core::sc_process_host::*)())(&SC_CURRENT_USER_MODULE::Prc2), this ); sensitive.operator() ( Prc2_handle, clock.pos() ); };
+  { ::sc_core::sc_cthread_process* DCT_handle = simcontext()->register_cthread_process("DCT", (void (::sc_core::sc_process_host::*)())(&SC_CURRENT_USER_MODULE::DCT), this ); sensitive.operator() ( DCT_handle, clock.pos() ); };
+  watching(reset.delayed() == true);
+
+  { ::sc_core::sc_cthread_process* data_out_handle = simcontext()->register_cthread_process("data_out", (void (::sc_core::sc_process_host::*)())(&SC_CURRENT_USER_MODULE::data_out), this ); sensitive.operator() ( data_out_handle, clock.pos() ); };
   watching(reset.delayed() == true);
  }
 };
@@ -34863,82 +34877,126 @@ static const int b_a[] = {
   90, -125, 118, -106, 90, -71, 48, -24,
 };
 
-void sc_FIFO_DCT::Prc1()
+void sc_FIFO_DCT::buffering()
 {
  //Initialization
- int i0 = 0;
+ int i = 0;
+
  wait();
  while(true)
  {
-  if(sync == true)
+  // If DCT is working no data is bufered
+   ap_wait_until(!(s_working.read()));
+
+  // 64 values are read from the FIFO
+   ap_wait_until(!(din->num_available() == 0));
+
+  mA[i] = (int) din->read();
+  i++;
+
+  //When a complete block is read the sincronization process signals the DCT process
+  if(i == 64)
   {
-   //If the DCT is working and the block receives new data
-   if(s_working == true)
-    error = true;
-   //Else it puts new data in the mA buffer
-   else
-   {
-     mA[i0] = din->read();
-     i0++;
-   }
+   i = 0;
+   s_buffered.write(true);
+    ap_wait_until(!(!s_working.read()));
+   s_buffered.write(false);
   }
-  //when a full block of data is received the operation starts
-  if(i0 == 64)
-  {
-   i0 = 0;
-   s_start = true;
-  }
-  //Waits for the next clock edge
   wait();
- }
+   } //end of while(true)
 }
 
-void sc_FIFO_DCT::Prc2()
+void sc_FIFO_DCT::DCT()
 {
    //Initialization
-   done = false;
    int a[64];
-   int i0 = 0;
-   int i1 = 0;
-   int i2 = 0;
 
-   wait();
+   int s[8];
+#pragma HLS ARRAY_PARTITION variable=s dim=1
+ int i0 = 0;
+#pragma HLS ARRAY_PARTITION variable=i0 dim=1
+ int i1 = 0;
+#pragma HLS ARRAY_PARTITION variable=i1 dim=1
+ int i2 = 0;
+#pragma HLS ARRAY_PARTITION variable=i2 dim=1
+
+ wait();
 
    while(true)
    {
-   //waits for the data to be in the buffer to stat operating
-     ap_wait_until(!(!s_start));
-   //starts operating
-   s_start = false;
-   s_working = true;
+    //while (!start.read()) wait();
+     ap_wait_until(!(!s_buffered.read()));
+    s_working.write(true);
 
-   for (i0 = 0; i0 < 8; i0++) {
-    for (i1 = 0; i1 < 8; i1++) {
-     a[i0 + (i1 << 3)] = 0;
-     for (i2 = 0; i2 < 8; i2++) {
-      a[i0 + (i1 << 3)] += b_a[i0 + (i2 << 3)] * ( mA[i2 + (i1 << 3)] );
+    DCT_loop:for (i0 = 0; i0 < 8; i0++)
+    {
+#pragma HLS UNROLL factor = 2
+ TA:for (i1 = 0; i1 < 8; i1++)
+     {
+#pragma HLS PIPELINE
+ multTA:for (i2 = 0; i2 < 8; i2++)
+      {
+       s[i2] = b_a[i0 + (i2 << 3)] * ( mA[i2 + (i1 << 3)] );
+      }
+      sumTA:for (i2 = 1; i2 < 8; i2++)
+      {
+       s[0] += s[i2];
+      }
+      a[i0 + (i1 << 3)] = s[0];
+     }
+     AT:for (i1 = 0; i1 < 8; i1++)
+     {
+#pragma HLS PIPELINE
+ multAT:for (i2 = 0; i2 < 8; i2++)
+      {
+
+       s[i2] = a[i0 + (i2 << 3)] * b[i2 + (i1 << 3)];
+      }
+      sumAT:for (i2 = 1; i2 < 8; i2++)
+      {
+       s[0] += s[i2];
+      }
+      mB[i0 + (i1 << 3)] = s[0];
+      //Se escala y se pone un ofset para meter el valor en un int
+      mC[i1 + (i0 << 3)] = ((mB[i0 + (i1 << 3)]/65536)/8 + 127);
      }
     }
-    for (i1 = 0; i1 < 8; i1++) {
-     mB[i0 + (i1 << 3)] = 0.0;
-     for (i2 = 0; i2 < 8; i2++) {
-      mB[i0 + (i1 << 3)] += a[i0 + (i2 << 3)] * b[i2 + (i1 << 3)];
-     }
-     dout->write((mB[i0 + (i1 << 3)]/65536)/8 + 127);
-     //syncronizes the data output generating
-     //a pulse each time a number is ready
-     data_ok = true;
-     wait();
-     data_ok = false;
-    }
-   }
 
-   s_working = false;
-      done = true;
-   //for simulation
-       //cout << "Simulating DCT" << (exec_cnt++) << endl;
-   //
-      wait();
+    cout << "Simulating DCT" << (exec_cnt++) << endl;
+    wait();
+
+    s_DCT.write(true);
+    s_working.write(false);
+     ap_wait_until(!(!s_done.read()));
+    s_DCT.write(false);
+    wait();
+
+   } //end of while(true)
+}
+
+void sc_FIFO_DCT::data_out()
+{
+ //Initialization
+ int i0 = 0;
+ int i1 = 0;
+
+ wait();
+
+ while(true)
+ {
+  // If DCT is working no data is bufered
+   ap_wait_until(!(!s_DCT.read()));
+
+  // 64 values are writen from the FIFO
+     for(int i=0;i<64; i++)
+         dout->write((sc_uint<8>) mC[i]);
+
+  //When a complete block is read the sincronization process signals the DCT process
+  s_done.write(true);
+   ap_wait_until(!(s_DCT.read()));
+  s_done.write(false);
+
+  wait();
 
    } //end of while(true)
 }

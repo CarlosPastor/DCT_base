@@ -7,207 +7,293 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="sc_FIFO_DCT,hls_ip_2016_3,{HLS_INPUT_TYPE=sc,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7a35ticpg236-1l,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.463000,HLS_SYN_LAT=857,HLS_SYN_TPT=none,HLS_SYN_MEM=3,HLS_SYN_DSP=2,HLS_SYN_FF=242,HLS_SYN_LUT=314}" *)
+(* CORE_GENERATION_INFO="sc_FIFO_DCT,hls_ip_2016_3,{HLS_INPUT_TYPE=sc,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7a35ticpg236-1l,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.620000,HLS_SYN_LAT=106,HLS_SYN_TPT=none,HLS_SYN_MEM=6,HLS_SYN_DSP=64,HLS_SYN_FF=2835,HLS_SYN_LUT=1809}" *)
 
 module sc_FIFO_DCT (
         clock,
         reset,
-        sync,
-        data_ok,
-        done,
-        error,
-        din,
-        dout
+        enable,
+        dout_din,
+        dout_full_n,
+        dout_write,
+        din_dout,
+        din_empty_n,
+        din_read
 );
 
+parameter    ap_const_lv32_0 = 32'b00000000000000000000000000000000;
 parameter    ap_const_lv32_1 = 32'b1;
 parameter    ap_const_lv2_0 = 2'b00;
 
 input   clock;
 input   reset;
-input   sync;
-output   data_ok;
-output   done;
-output   error;
-input  [7:0] din;
-output  [7:0] dout;
+input   enable;
+output  [7:0] dout_din;
+input   dout_full_n;
+output   dout_write;
+input  [7:0] din_dout;
+input   din_empty_n;
+output   din_read;
 
-reg data_ok;
-reg done = 1'b0;
-reg error;
-reg[7:0] dout;
-
-reg   [5:0] sc_FIFO_DCT_mA_V_address0;
-reg    sc_FIFO_DCT_mA_V_ce0;
-wire   [17:0] sc_FIFO_DCT_mA_V_q0;
-wire   [0:0] sc_FIFO_DCT_ssdm_s_load_fu_146_p1;
+reg   [5:0] sc_FIFO_DCT_mA_address0;
+reg    sc_FIFO_DCT_mA_ce0;
+wire   [31:0] sc_FIFO_DCT_mA_q0;
+wire   [31:0] sc_FIFO_DCT_mA_q1;
+reg   [5:0] sc_FIFO_DCT_mC_address0;
+reg    sc_FIFO_DCT_mC_ce0;
+wire   [31:0] sc_FIFO_DCT_mC_q0;
+wire   [0:0] sc_FIFO_DCT_ssdm_s_load_fu_260_p1;
 wire   [1:0] ap_CS_fsm;
-wire    grp_sc_FIFO_DCT_Prc2_fu_86_data_ok;
-wire    grp_sc_FIFO_DCT_Prc2_fu_86_data_ok_ap_vld;
-wire    grp_sc_FIFO_DCT_Prc2_fu_86_done;
-wire    grp_sc_FIFO_DCT_Prc2_fu_86_done_ap_vld;
-wire   [7:0] grp_sc_FIFO_DCT_Prc2_fu_86_dout;
-wire    grp_sc_FIFO_DCT_Prc2_fu_86_dout_ap_vld;
-wire    grp_sc_FIFO_DCT_Prc2_fu_86_s_start_i;
-wire    grp_sc_FIFO_DCT_Prc2_fu_86_s_start_o;
-wire    grp_sc_FIFO_DCT_Prc2_fu_86_s_start_o_ap_vld;
-wire    grp_sc_FIFO_DCT_Prc2_fu_86_s_working;
-wire    grp_sc_FIFO_DCT_Prc2_fu_86_s_working_ap_vld;
-wire   [5:0] grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_address0;
-wire    grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_ce0;
-wire   [5:0] grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_address0;
-wire    grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_ce0;
-wire    grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_we0;
-wire   [17:0] grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_d0;
-wire    grp_sc_FIFO_DCT_Prc1_fu_118_error;
-wire    grp_sc_FIFO_DCT_Prc1_fu_118_error_ap_vld;
-wire    grp_sc_FIFO_DCT_Prc1_fu_118_s_start;
-wire    grp_sc_FIFO_DCT_Prc1_fu_118_s_start_ap_vld;
-wire    grp_sc_FIFO_DCT_Prc1_fu_118_s_working;
-wire   [5:0] grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_address0;
-wire    grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_ce0;
-wire    grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_we0;
-wire   [17:0] grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_d0;
+wire   [0:0] ap_CS_fsm_state1;
+wire   [0:0] sc_FIFO_DCT_ssdm_1_load_fu_264_p1;
+wire   [7:0] grp_sc_FIFO_DCT_data_out_fu_160_dout_din;
+wire    grp_sc_FIFO_DCT_data_out_fu_160_dout_write;
+wire   [5:0] grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_address0;
+wire    grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_ce0;
+wire    grp_sc_FIFO_DCT_data_out_fu_160_s_DCT;
+wire    grp_sc_FIFO_DCT_data_out_fu_160_s_done;
+wire    grp_sc_FIFO_DCT_data_out_fu_160_s_done_ap_vld;
+wire   [5:0] grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address0;
+wire    grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0;
+wire   [5:0] grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address1;
+wire    grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce1;
+wire   [5:0] grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_address0;
+wire    grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_ce0;
+wire    grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_we0;
+wire   [31:0] grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_d0;
+wire   [5:0] grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_address0;
+wire    grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_ce0;
+wire    grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_we0;
+wire   [31:0] grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_d0;
+wire   [31:0] grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_exec_cnt_o;
+wire    grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_exec_cnt_o_ap_vld;
+wire    grp_sc_FIFO_DCT_DCT_fu_192_s_buffered;
+wire    grp_sc_FIFO_DCT_DCT_fu_192_s_working;
+wire    grp_sc_FIFO_DCT_DCT_fu_192_s_working_ap_vld;
+wire    grp_sc_FIFO_DCT_DCT_fu_192_s_DCT;
+wire    grp_sc_FIFO_DCT_DCT_fu_192_s_DCT_ap_vld;
+wire    grp_sc_FIFO_DCT_DCT_fu_192_s_done;
+wire    grp_sc_FIFO_DCT_buffering_fu_228_din_read;
+wire   [5:0] grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_address0;
+wire    grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_ce0;
+wire    grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_we0;
+wire   [31:0] grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_d0;
+wire    grp_sc_FIFO_DCT_buffering_fu_228_s_buffered;
+wire    grp_sc_FIFO_DCT_buffering_fu_228_s_buffered_ap_vld;
+wire    grp_sc_FIFO_DCT_buffering_fu_228_s_working;
 wire   [0:0] ap_CS_fsm_state2;
-reg   [0:0] s_start;
+reg   [31:0] sc_FIFO_DCT_exec_cnt;
+reg   [0:0] s_buffered;
 reg   [0:0] s_working;
+reg   [0:0] s_DCT;
+reg   [0:0] s_done;
+wire   [0:0] sc_FIFO_DCT_ssdm_2_load_fu_268_p1;
 
-sc_FIFO_DCT_sc_FIeOg #(
-    .DataWidth( 18 ),
+sc_FIFO_DCT_sc_FIdEe #(
+    .DataWidth( 32 ),
     .AddressRange( 64 ),
     .AddressWidth( 6 ))
-sc_FIFO_DCT_mA_V_U(
+sc_FIFO_DCT_mA_U(
     .clk(clock),
     .reset(reset),
-    .address0(sc_FIFO_DCT_mA_V_address0),
-    .ce0(sc_FIFO_DCT_mA_V_ce0),
-    .we0(grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_we0),
-    .d0(grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_d0),
-    .q0(sc_FIFO_DCT_mA_V_q0)
+    .address0(sc_FIFO_DCT_mA_address0),
+    .ce0(sc_FIFO_DCT_mA_ce0),
+    .we0(grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_we0),
+    .d0(grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_d0),
+    .q0(sc_FIFO_DCT_mA_q0),
+    .address1(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address1),
+    .ce1(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce1),
+    .q1(sc_FIFO_DCT_mA_q1)
+);
+
+sc_FIFO_DCT_sc_FIeOg #(
+    .DataWidth( 32 ),
+    .AddressRange( 64 ),
+    .AddressWidth( 6 ))
+sc_FIFO_DCT_mB_U(
+    .clk(clock),
+    .reset(reset),
+    .address0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_address0),
+    .ce0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_ce0),
+    .we0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_we0),
+    .d0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_d0)
 );
 
 sc_FIFO_DCT_sc_FIfYi #(
-    .DataWidth( 18 ),
+    .DataWidth( 32 ),
     .AddressRange( 64 ),
     .AddressWidth( 6 ))
-sc_FIFO_DCT_mB_V_U(
+sc_FIFO_DCT_mC_U(
     .clk(clock),
     .reset(reset),
-    .address0(grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_address0),
-    .ce0(grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_ce0),
-    .we0(grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_we0),
-    .d0(grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_d0)
+    .address0(sc_FIFO_DCT_mC_address0),
+    .ce0(sc_FIFO_DCT_mC_ce0),
+    .we0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_we0),
+    .d0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_d0),
+    .q0(sc_FIFO_DCT_mC_q0)
 );
 
-sc_FIFO_DCT_Prc2 grp_sc_FIFO_DCT_Prc2_fu_86(
+sc_FIFO_DCT_data_out grp_sc_FIFO_DCT_data_out_fu_160(
     .ap_clk(clock),
     .ap_rst(reset),
-    .data_ok(grp_sc_FIFO_DCT_Prc2_fu_86_data_ok),
-    .data_ok_ap_vld(grp_sc_FIFO_DCT_Prc2_fu_86_data_ok_ap_vld),
-    .done(grp_sc_FIFO_DCT_Prc2_fu_86_done),
-    .done_ap_vld(grp_sc_FIFO_DCT_Prc2_fu_86_done_ap_vld),
-    .dout(grp_sc_FIFO_DCT_Prc2_fu_86_dout),
-    .dout_ap_vld(grp_sc_FIFO_DCT_Prc2_fu_86_dout_ap_vld),
-    .s_start_i(grp_sc_FIFO_DCT_Prc2_fu_86_s_start_i),
-    .s_start_o(grp_sc_FIFO_DCT_Prc2_fu_86_s_start_o),
-    .s_start_o_ap_vld(grp_sc_FIFO_DCT_Prc2_fu_86_s_start_o_ap_vld),
-    .s_working(grp_sc_FIFO_DCT_Prc2_fu_86_s_working),
-    .s_working_ap_vld(grp_sc_FIFO_DCT_Prc2_fu_86_s_working_ap_vld),
-    .sc_FIFO_DCT_mA_V_address0(grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_address0),
-    .sc_FIFO_DCT_mA_V_ce0(grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_ce0),
-    .sc_FIFO_DCT_mA_V_q0(sc_FIFO_DCT_mA_V_q0),
-    .sc_FIFO_DCT_mB_V_address0(grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_address0),
-    .sc_FIFO_DCT_mB_V_ce0(grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_ce0),
-    .sc_FIFO_DCT_mB_V_we0(grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_we0),
-    .sc_FIFO_DCT_mB_V_d0(grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mB_V_d0)
+    .dout_din(grp_sc_FIFO_DCT_data_out_fu_160_dout_din),
+    .dout_full_n(dout_full_n),
+    .dout_write(grp_sc_FIFO_DCT_data_out_fu_160_dout_write),
+    .sc_FIFO_DCT_mC_address0(grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_address0),
+    .sc_FIFO_DCT_mC_ce0(grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_ce0),
+    .sc_FIFO_DCT_mC_q0(sc_FIFO_DCT_mC_q0),
+    .s_DCT(grp_sc_FIFO_DCT_data_out_fu_160_s_DCT),
+    .s_done(grp_sc_FIFO_DCT_data_out_fu_160_s_done),
+    .s_done_ap_vld(grp_sc_FIFO_DCT_data_out_fu_160_s_done_ap_vld)
 );
 
-sc_FIFO_DCT_Prc1 grp_sc_FIFO_DCT_Prc1_fu_118(
+sc_FIFO_DCT_DCT grp_sc_FIFO_DCT_DCT_fu_192(
     .ap_clk(clock),
     .ap_rst(reset),
-    .sync(sync),
-    .error(grp_sc_FIFO_DCT_Prc1_fu_118_error),
-    .error_ap_vld(grp_sc_FIFO_DCT_Prc1_fu_118_error_ap_vld),
-    .din(din),
-    .s_start(grp_sc_FIFO_DCT_Prc1_fu_118_s_start),
-    .s_start_ap_vld(grp_sc_FIFO_DCT_Prc1_fu_118_s_start_ap_vld),
-    .s_working(grp_sc_FIFO_DCT_Prc1_fu_118_s_working),
-    .sc_FIFO_DCT_mA_V_address0(grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_address0),
-    .sc_FIFO_DCT_mA_V_ce0(grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_ce0),
-    .sc_FIFO_DCT_mA_V_we0(grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_we0),
-    .sc_FIFO_DCT_mA_V_d0(grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_d0)
+    .sc_FIFO_DCT_mA_address0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address0),
+    .sc_FIFO_DCT_mA_ce0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0),
+    .sc_FIFO_DCT_mA_q0(sc_FIFO_DCT_mA_q0),
+    .sc_FIFO_DCT_mA_address1(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address1),
+    .sc_FIFO_DCT_mA_ce1(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce1),
+    .sc_FIFO_DCT_mA_q1(sc_FIFO_DCT_mA_q1),
+    .sc_FIFO_DCT_mB_address0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_address0),
+    .sc_FIFO_DCT_mB_ce0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_ce0),
+    .sc_FIFO_DCT_mB_we0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_we0),
+    .sc_FIFO_DCT_mB_d0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_d0),
+    .sc_FIFO_DCT_mC_address0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_address0),
+    .sc_FIFO_DCT_mC_ce0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_ce0),
+    .sc_FIFO_DCT_mC_we0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_we0),
+    .sc_FIFO_DCT_mC_d0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_d0),
+    .sc_FIFO_DCT_exec_cnt_i(sc_FIFO_DCT_exec_cnt),
+    .sc_FIFO_DCT_exec_cnt_o(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_exec_cnt_o),
+    .sc_FIFO_DCT_exec_cnt_o_ap_vld(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_exec_cnt_o_ap_vld),
+    .s_buffered(grp_sc_FIFO_DCT_DCT_fu_192_s_buffered),
+    .s_working(grp_sc_FIFO_DCT_DCT_fu_192_s_working),
+    .s_working_ap_vld(grp_sc_FIFO_DCT_DCT_fu_192_s_working_ap_vld),
+    .s_DCT(grp_sc_FIFO_DCT_DCT_fu_192_s_DCT),
+    .s_DCT_ap_vld(grp_sc_FIFO_DCT_DCT_fu_192_s_DCT_ap_vld),
+    .s_done(grp_sc_FIFO_DCT_DCT_fu_192_s_done)
+);
+
+sc_FIFO_DCT_buffering grp_sc_FIFO_DCT_buffering_fu_228(
+    .ap_clk(clock),
+    .ap_rst(reset),
+    .din_dout(din_dout),
+    .din_empty_n(din_empty_n),
+    .din_read(grp_sc_FIFO_DCT_buffering_fu_228_din_read),
+    .sc_FIFO_DCT_mA_address0(grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_address0),
+    .sc_FIFO_DCT_mA_ce0(grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_ce0),
+    .sc_FIFO_DCT_mA_we0(grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_we0),
+    .sc_FIFO_DCT_mA_d0(grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_d0),
+    .s_buffered(grp_sc_FIFO_DCT_buffering_fu_228_s_buffered),
+    .s_buffered_ap_vld(grp_sc_FIFO_DCT_buffering_fu_228_s_buffered_ap_vld),
+    .s_working(grp_sc_FIFO_DCT_buffering_fu_228_s_working)
 );
 
 always @ (posedge clock) begin
-    if ((1'b1 == grp_sc_FIFO_DCT_Prc2_fu_86_data_ok_ap_vld)) begin
-        data_ok <= grp_sc_FIFO_DCT_Prc2_fu_86_data_ok;
+    if (((ap_CS_fsm_state1 == 1'b1) & (1'b0 == sc_FIFO_DCT_ssdm_s_load_fu_260_p1) & (1'b0 == sc_FIFO_DCT_ssdm_1_load_fu_264_p1) & (1'b0 == sc_FIFO_DCT_ssdm_2_load_fu_268_p1))) begin
+        s_DCT <= 1'b0;
+    end else if ((1'b1 == grp_sc_FIFO_DCT_DCT_fu_192_s_DCT_ap_vld)) begin
+        s_DCT <= grp_sc_FIFO_DCT_DCT_fu_192_s_DCT;
     end
 end
 
 always @ (posedge clock) begin
-    if (reset == 1'b1) begin
-        done <= 1'b0;
-    end else begin
-        if ((1'b1 == grp_sc_FIFO_DCT_Prc2_fu_86_done_ap_vld)) begin
-            done <= grp_sc_FIFO_DCT_Prc2_fu_86_done;
-        end
+    if (((ap_CS_fsm_state1 == 1'b1) & (1'b0 == sc_FIFO_DCT_ssdm_s_load_fu_260_p1) & (1'b0 == sc_FIFO_DCT_ssdm_1_load_fu_264_p1) & (1'b0 == sc_FIFO_DCT_ssdm_2_load_fu_268_p1))) begin
+        s_buffered <= 1'b0;
+    end else if ((1'b1 == grp_sc_FIFO_DCT_buffering_fu_228_s_buffered_ap_vld)) begin
+        s_buffered <= grp_sc_FIFO_DCT_buffering_fu_228_s_buffered;
     end
 end
 
 always @ (posedge clock) begin
-    if ((1'b1 == grp_sc_FIFO_DCT_Prc2_fu_86_dout_ap_vld)) begin
-        dout <= grp_sc_FIFO_DCT_Prc2_fu_86_dout;
+    if (((ap_CS_fsm_state1 == 1'b1) & (1'b0 == sc_FIFO_DCT_ssdm_s_load_fu_260_p1) & (1'b0 == sc_FIFO_DCT_ssdm_1_load_fu_264_p1) & (1'b0 == sc_FIFO_DCT_ssdm_2_load_fu_268_p1))) begin
+        s_done <= 1'b0;
+    end else if ((1'b1 == grp_sc_FIFO_DCT_data_out_fu_160_s_done_ap_vld)) begin
+        s_done <= grp_sc_FIFO_DCT_data_out_fu_160_s_done;
     end
 end
 
 always @ (posedge clock) begin
-    if ((1'b1 == grp_sc_FIFO_DCT_Prc1_fu_118_error_ap_vld)) begin
-        error <= grp_sc_FIFO_DCT_Prc1_fu_118_error;
+    if (((ap_CS_fsm_state1 == 1'b1) & (1'b0 == sc_FIFO_DCT_ssdm_s_load_fu_260_p1) & (1'b0 == sc_FIFO_DCT_ssdm_1_load_fu_264_p1) & (1'b0 == sc_FIFO_DCT_ssdm_2_load_fu_268_p1))) begin
+        s_working <= 1'b0;
+    end else if ((1'b1 == grp_sc_FIFO_DCT_DCT_fu_192_s_working_ap_vld)) begin
+        s_working <= grp_sc_FIFO_DCT_DCT_fu_192_s_working;
     end
 end
 
 always @ (posedge clock) begin
-    if ((1'b1 == grp_sc_FIFO_DCT_Prc1_fu_118_s_start_ap_vld)) begin
-        s_start <= grp_sc_FIFO_DCT_Prc1_fu_118_s_start;
-    end else if ((1'b1 == grp_sc_FIFO_DCT_Prc2_fu_86_s_start_o_ap_vld)) begin
-        s_start <= grp_sc_FIFO_DCT_Prc2_fu_86_s_start_o;
-    end
-end
-
-always @ (posedge clock) begin
-    if ((1'b1 == grp_sc_FIFO_DCT_Prc2_fu_86_s_working_ap_vld)) begin
-        s_working <= grp_sc_FIFO_DCT_Prc2_fu_86_s_working;
+    if (((ap_CS_fsm_state1 == 1'b1) & (1'b0 == sc_FIFO_DCT_ssdm_s_load_fu_260_p1) & (1'b0 == sc_FIFO_DCT_ssdm_1_load_fu_264_p1) & (1'b0 == sc_FIFO_DCT_ssdm_2_load_fu_268_p1))) begin
+        sc_FIFO_DCT_exec_cnt <= ap_const_lv32_0;
+    end else if ((1'b1 == grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_exec_cnt_o_ap_vld)) begin
+        sc_FIFO_DCT_exec_cnt <= grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_exec_cnt_o;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_ce0)) begin
-        sc_FIFO_DCT_mA_V_address0 = grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_address0;
-    end else if ((1'b1 == grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_ce0)) begin
-        sc_FIFO_DCT_mA_V_address0 = grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_address0;
+    if ((1'b1 == grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_ce0)) begin
+        sc_FIFO_DCT_mA_address0 = grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_address0;
+    end else if ((1'b1 == grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0)) begin
+        sc_FIFO_DCT_mA_address0 = grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address0;
     end else begin
-        sc_FIFO_DCT_mA_V_address0 = 'bx;
+        sc_FIFO_DCT_mA_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_ce0)) begin
-        sc_FIFO_DCT_mA_V_ce0 = grp_sc_FIFO_DCT_Prc1_fu_118_sc_FIFO_DCT_mA_V_ce0;
-    end else if ((1'b1 == grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_ce0)) begin
-        sc_FIFO_DCT_mA_V_ce0 = grp_sc_FIFO_DCT_Prc2_fu_86_sc_FIFO_DCT_mA_V_ce0;
+    if ((1'b1 == grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_ce0)) begin
+        sc_FIFO_DCT_mA_ce0 = grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_ce0;
+    end else if ((1'b1 == grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0)) begin
+        sc_FIFO_DCT_mA_ce0 = grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0;
     end else begin
-        sc_FIFO_DCT_mA_V_ce0 = 'bx;
+        sc_FIFO_DCT_mA_ce0 = 'bx;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_ce0)) begin
+        sc_FIFO_DCT_mC_address0 = grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_address0;
+    end else if ((1'b1 == grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_ce0)) begin
+        sc_FIFO_DCT_mC_address0 = grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_address0;
+    end else begin
+        sc_FIFO_DCT_mC_address0 = 'bx;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_ce0)) begin
+        sc_FIFO_DCT_mC_ce0 = grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mC_ce0;
+    end else if ((1'b1 == grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_ce0)) begin
+        sc_FIFO_DCT_mC_ce0 = grp_sc_FIFO_DCT_data_out_fu_160_sc_FIFO_DCT_mC_ce0;
+    end else begin
+        sc_FIFO_DCT_mC_ce0 = 'bx;
     end
 end
 
 assign ap_CS_fsm = ap_const_lv2_0;
 
+assign ap_CS_fsm_state1 = ap_CS_fsm[ap_const_lv32_0];
+
 assign ap_CS_fsm_state2 = ap_CS_fsm[ap_const_lv32_1];
 
-assign grp_sc_FIFO_DCT_Prc1_fu_118_s_working = s_working;
+assign din_read = grp_sc_FIFO_DCT_buffering_fu_228_din_read;
 
-assign grp_sc_FIFO_DCT_Prc2_fu_86_s_start_i = s_start;
+assign dout_din = grp_sc_FIFO_DCT_data_out_fu_160_dout_din;
 
-assign sc_FIFO_DCT_ssdm_s_load_fu_146_p1 = 1'b0;
+assign dout_write = grp_sc_FIFO_DCT_data_out_fu_160_dout_write;
+
+assign grp_sc_FIFO_DCT_DCT_fu_192_s_buffered = s_buffered;
+
+assign grp_sc_FIFO_DCT_DCT_fu_192_s_done = s_done;
+
+assign grp_sc_FIFO_DCT_buffering_fu_228_s_working = s_working;
+
+assign grp_sc_FIFO_DCT_data_out_fu_160_s_DCT = s_DCT;
+
+assign sc_FIFO_DCT_ssdm_1_load_fu_264_p1 = 1'b0;
+
+assign sc_FIFO_DCT_ssdm_2_load_fu_268_p1 = 1'b0;
+
+assign sc_FIFO_DCT_ssdm_s_load_fu_260_p1 = 1'b0;
 
 endmodule //sc_FIFO_DCT

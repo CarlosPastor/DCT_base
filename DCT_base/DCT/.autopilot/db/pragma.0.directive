@@ -5,5 +5,40 @@
 <option name="complete" positionalBoolean="type" value=""/>
 </pragma>
 </directive>
+<directive functionLabel="" functionName="sc_FIFO_DCT::DCT" label="">
+<pragma name="ARRAY_PARTITION">
+<option name="variable" positionalBoolean="4" value="s"/>
+<option name="dim" value="1"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="sc_FIFO_DCT::DCT" label="">
+<pragma name="ARRAY_PARTITION">
+<option name="variable" positionalBoolean="4" value="i0"/>
+<option name="dim" value="1"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="sc_FIFO_DCT::DCT" label="">
+<pragma name="ARRAY_PARTITION">
+<option name="variable" positionalBoolean="4" value="i1"/>
+<option name="dim" value="1"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="sc_FIFO_DCT::DCT" label="">
+<pragma name="ARRAY_PARTITION">
+<option name="variable" positionalBoolean="4" value="i2"/>
+<option name="dim" value="1"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="sc_FIFO_DCT::DCT" label="">
+<pragma name="UNROLL">
+<option name="factor" value="2"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="sc_FIFO_DCT::DCT" label="">
+<pragma name="PIPELINE"/>
+</directive>
+<directive functionLabel="" functionName="sc_FIFO_DCT::DCT" label="">
+<pragma name="PIPELINE"/>
+</directive>
 </sourceFile>
 </AutoPilot:ProjectResources>

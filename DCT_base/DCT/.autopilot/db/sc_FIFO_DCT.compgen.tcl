@@ -1,11 +1,11 @@
 # This script segment is generated automatically by AutoPilot
 
 # Memory (RAM/ROM)  definition:
-set ID 18
-set MemName sc_FIFO_DCT_sc_FIeOg
+set ID 51
+set MemName sc_FIFO_DCT_sc_FIdEe
 set CoreName ap_simcore_mem
-set PortList { 2 3 }
-set DataWd 18
+set PortList { 2 1 }
+set DataWd 32
 set AddrRange 64
 set AddrWd 6
 set impl_style block
@@ -84,11 +84,94 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 19
-set MemName sc_FIFO_DCT_sc_FIfYi
+set ID 52
+set MemName sc_FIFO_DCT_sc_FIeOg
 set CoreName ap_simcore_mem
 set PortList { 0 3 }
-set DataWd 18
+set DataWd 32
+set AddrRange 64
+set AddrWd 6
+set impl_style block
+set TrueReset 0
+set IsROM 0
+set ROMData { }
+set HasInitializer 0
+set Initializer $ROMData
+set NumOfStage 2
+set MaxLatency -1
+set DelayBudget 2.71
+set ClkPeriod 10
+set RegisteredInput 0
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
+    eval "ap_gen_simcore_mem { \
+    id ${ID} \
+    name ${MemName} \
+    corename ${CoreName}  \
+    op mem \
+    reset_level 1 \
+    sync_rst true \
+    stage_num ${NumOfStage}  \
+    registered_input ${RegisteredInput} \
+    port_num 2 \
+    port_list \{${PortList}\} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    addr_range ${AddrRange} \
+    style ${impl_style} \
+    true_reset ${TrueReset} \
+    delay_budget ${DelayBudget} \
+    clk_period ${ClkPeriod} \
+    HasInitializer ${HasInitializer} \
+    rom_data \{${ROMData}\} \
+ } "
+} else {
+    puts "@W \[IMPL-102\] Cannot find ap_gen_simcore_mem, check your platform lib"
+}
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+  ::AP::rtl_comp_handler $MemName
+}
+
+
+set CoreName RAM
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RAM"} {
+    eval "::AESL_LIB_VIRTEX::xil_gen_RAM { \
+    id ${ID} \
+    name ${MemName} \
+    corename ${CoreName}  \
+    op mem \
+    reset_level 1 \
+    sync_rst true \
+    stage_num ${NumOfStage}  \
+    registered_input ${RegisteredInput} \
+    port_num 2 \
+    port_list \{${PortList}\} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    addr_range ${AddrRange} \
+    style ${impl_style} \
+    true_reset ${TrueReset} \
+    delay_budget ${DelayBudget} \
+    clk_period ${ClkPeriod} \
+    HasInitializer ${HasInitializer} \
+    rom_data \{${ROMData}\} \
+ } "
+  } else {
+    puts "@W \[IMPL-104\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_RAM, check your platform lib"
+  }
+}
+
+
+# Memory (RAM/ROM)  definition:
+set ID 53
+set MemName sc_FIFO_DCT_sc_FIfYi
+set CoreName ap_simcore_mem
+set PortList { 2 3 }
+set DataWd 32
 set AddrRange 64
 set AddrWd 6
 set impl_style block
@@ -176,90 +259,45 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 20 \
-    name sync \
+    id 54 \
+    name enable \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_sync \
+    corename dc_enable \
     op interface \
-    ports { sync { I 1 bit } } \
+    ports { enable { I 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 21 \
-    name data_ok \
-    type other \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_data_ok \
-    op interface \
-    ports { data_ok { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 22 \
-    name done \
-    type other \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_done \
-    op interface \
-    ports { done { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 23 \
-    name error \
-    type other \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_error \
-    op interface \
-    ports { error { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 24 \
-    name din \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_din \
-    op interface \
-    ports { din { I 8 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 25 \
+    id 55 \
     name dout \
-    type other \
+    type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
     corename dc_dout \
     op interface \
-    ports { dout { O 8 vector } } \
+    ports { dout_din { O 8 vector } dout_full_n { I 1 bit } dout_write { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 56 \
+    name din \
+    type fifo \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_din \
+    op interface \
+    ports { din_dout { I 8 vector } din_empty_n { I 1 bit } din_read { O 1 bit } } \
 } "
 }
 
