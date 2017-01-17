@@ -27,6 +27,9 @@ SC_MODULE(imager_512)
 	//Constructor
 	SC_CTOR(imager_512)
 	{
+		write_done =  false;
+		b_done = true;
+
 		//Process Registration
 		SC_CTHREAD(imager_buffer,clock.pos());
 		reset_signal_is(reset,true);

@@ -47,16 +47,6 @@
 			<location>C:/Users/bot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/.tcls</location>
 		</link>
 		<link>
-			<name>source/Top.cpp</name>
-			<type>1</type>
-			<location>C:/Users/alienBot/Documents/GitHub/DCT_base/Top.cpp</location>
-		</link>
-		<link>
-			<name>source/Top.h</name>
-			<type>1</type>
-			<location>C:/Users/alienBot/Documents/GitHub/DCT_base/Top.h</location>
-		</link>
-		<link>
 			<name>source/blocker_512.cpp</name>
 			<type>1</type>
 			<location>C:/Users/alienBot/Documents/GitHub/DCT_base/blocker_512.cpp</location>
@@ -112,6 +102,11 @@
 			<location>C:/Users/alienBot/Documents/GitHub/DCT_base/lena512.bmp</location>
 		</link>
 		<link>
+			<name>testbench/main.cpp</name>
+			<type>1</type>
+			<location>C:/Users/alienBot/Documents/GitHub/DCT_base/main.cpp</location>
+		</link>
+		<link>
 			<name>testbench/qdbmp.cpp</name>
 			<type>1</type>
 			<location>C:/Users/alienBot/Documents/GitHub/DCT_base/qdbmp.cpp</location>
@@ -130,11 +125,6 @@
 			<name>testbench/tb_init.h</name>
 			<type>1</type>
 			<location>C:/Users/alienBot/Documents/GitHub/DCT_base/tb_init.h</location>
-		</link>
-		<link>
-			<name>testbench/testbench_Top.cpp</name>
-			<type>1</type>
-			<location>C:/Users/alienBot/Documents/GitHub/DCT_base/testbench_Top.cpp</location>
 		</link>
 		<link>
 			<name>DCT/constraints/.xml.directive</name>

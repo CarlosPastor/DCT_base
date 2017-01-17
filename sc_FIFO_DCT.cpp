@@ -22,78 +22,126 @@ static const int b_a[] = {
 		90, -125,  118, -106,   90, -71,   48, -24,
 };
 
-// static const double b_a[] = { 0.3536, 0.4904, 0.4619, 0.4157, 0.3536, 0.2778,
-// 		0.1913, 0.0975, 0.3536, 0.4157, 0.1913, -0.0975, -0.3536, -0.4904, -0.4619,
-// 		-0.2778, 0.3536, 0.2778, -0.1913, -0.4904, -0.3536, 0.0975, 0.4619, 0.4157,
-// 		0.3536, 0.0975, -0.4619, -0.2778, 0.3536, 0.4157, -0.1913, -0.4904, 0.3536,
-// 		-0.0975, -0.4619, 0.2778, 0.3536, -0.4157, -0.1913, 0.4904, 0.3536, -0.2778,
-// 		-0.1913, 0.4904, -0.3536, -0.0975, 0.4619, -0.4157, 0.3536, -0.4157, 0.1913,
-// 		0.0975, -0.3536, 0.4904, -0.4619, 0.2778, 0.3536, -0.4904, 0.4619, -0.4157,
-// 		0.3536, -0.2778, 0.1913, -0.0975 };
-//
-// static const double b[] = { 0.3536, 0.3536, 0.3536, 0.3536, 0.3536, 0.3536,
-// 		0.3536, 0.3536, 0.4904, 0.4157, 0.2778, 0.0975, -0.0975, -0.2778, -0.4157,
-// 		-0.4904, 0.4619, 0.1913, -0.1913, -0.4619, -0.4619, -0.1913, 0.1913, 0.4619,
-// 		0.4157, -0.0975, -0.4904, -0.2778, 0.2778, 0.4904, 0.0975, -0.4157, 0.3536,
-// 		-0.3536, -0.3536, 0.3536, 0.3536, -0.3536, -0.3536, 0.3536, 0.2778, -0.4904,
-// 		0.0975, 0.4157, -0.4157, -0.0975, 0.4904, -0.2778, 0.1913, -0.4619, 0.4619,
-// 		-0.1913, -0.1913, 0.4619, -0.4619, 0.1913, 0.0975, -0.2778, 0.4157, -0.4904,
-// 		0.4904, -0.4157, 0.2778, -0.0975 };
-
-
-void sc_FIFO_DCT::Prc1()
+void sc_FIFO_DCT::buffering()
 {
-   //Initialization
-   write_done = false;
+	//Initialization
+	int i = 0;
 
-   wait();
-   while(true)
-   {
-      while (din.num_available() < 64 ) wait();
+	wait();
+	while(true)
+	{
+		// If DCT is working no data is bufered
+		while(s_working.read()) wait();
 
-      for(int i=0;i<64; i++)
-        mA[i] = (int) din.read();
+		// 64 values are read from the FIFO
+		while(din->num_available() == 0) wait();
 
-      write_done = true;
-      wait();
-			write_done = false;
+		mA[i] = (int) din->read();
+		i++;
+
+		//When a complete block is read the sincronization process signals the DCT process
+		if(i == 64)
+		{
+			i = 0;
+			s_buffered.write(true);
+			while(!s_working.read()) wait();
+			s_buffered.write(false);
+		}
+		wait();
    } //end of while(true)
 }
 
-void sc_FIFO_DCT::Prc2()
+void sc_FIFO_DCT::DCT()
 {
    //Initialization
-   done = false;
    int a[64];
+
+   int s[8];
+#pragma HLS ARRAY_PARTITION variable=s dim=1
    int i0 = 0;
+#pragma HLS ARRAY_PARTITION variable=i0 dim=1
    int i1 = 0;
+#pragma HLS ARRAY_PARTITION variable=i1 dim=1
    int i2 = 0;
+#pragma HLS ARRAY_PARTITION variable=i2 dim=1
 
    wait();
 
    while(true)
    {
-      //while (!start.read()) wait();
-      while (!write_done) wait();
+	   //while (!start.read()) wait();
+	   while (!s_buffered.read()) wait();
+	   s_working.write(true);
 
-			for (i0 = 0; i0 < 8; i0++) {
-				for (i1 = 0; i1 < 8; i1++) {
-					a[i0 + (i1 << 3)] = 0.0;
-					for (i2 = 0; i2 < 8; i2++) {
-						a[i0 + (i1 << 3)] += b_a[i0 + (i2 << 3)] * ( mA[i2 + (i1 << 3)] );
-					}
-				}
-				for (i1 = 0; i1 < 8; i1++) {
-					mB[i0 + (i1 << 3)] = 0.0;
-					for (i2 = 0; i2 < 8; i2++) {
-						mB[i0 + (i1 << 3)] += a[i0 + (i2 << 3)] * b[i2 + (i1 << 3)];
-					}
-					dout.write( (sc_uint<8>)((mB[i0 + (i1 << 3)]/65536)/8 + 127));
-				}
-			}
+	   DCT_loop:for (i0 = 0; i0 < 8; i0++)
+	   {
+#pragma HLS UNROLL factor = 2
+		   TA:for (i1 = 0; i1 < 8; i1++)
+		   {
+#pragma HLS PIPELINE
+			   multTA:for (i2 = 0; i2 < 8; i2++)
+			   {
+				   s[i2] = b_a[i0 + (i2 << 3)] * ( mA[i2 + (i1 << 3)] );
+			   }
+			   sumTA:for (i2 = 1; i2 < 8; i2++)
+			   {
+				   s[0] += s[i2];
+			   }
+			   a[i0 + (i1 << 3)] = s[0];
+		   }
+		   AT:for (i1 = 0; i1 < 8; i1++)
+		   {
+#pragma HLS PIPELINE
+			   multAT:for (i2 = 0; i2 < 8; i2++)
+			   {
 
-      done = true;
-      cout << "Simulating DCT" << (exec_cnt++) << endl;
-      wait();
+				   s[i2] = a[i0 + (i2 << 3)] * b[i2 + (i1 << 3)];
+			   }
+			   sumAT:for (i2 = 1; i2 < 8; i2++)
+			   {
+				   s[0] += s[i2];
+			   }
+			   mB[i0 + (i1 << 3)] = s[0];
+			   //Se escala y se pone un ofset para meter el valor en un int
+			   mC[i1 + (i0 << 3)] = ((mB[i0 + (i1 << 3)]/65536)/8 + 127);
+		   }
+	   }
+
+	   cout << "Simulating DCT" << (exec_cnt++) << endl;
+	   wait();
+
+	   s_DCT.write(true);
+	   s_working.write(false);
+	   while (!s_done.read()) wait();
+	   s_DCT.write(false);
+	   wait();
+
+   } //end of while(true)
+}
+
+void sc_FIFO_DCT::data_out()
+{
+	//Initialization
+	int i0 = 0;
+	int i1 = 0;
+
+	wait();
+
+	while(true)
+	{
+		// If DCT is working no data is bufered
+		while(!s_DCT.read()) wait();
+
+		// 64 values are writen from the FIFO
+	    for(int i=0;i<64; i++)
+	        dout->write((sc_uint<8>) mC[i]);
+
+		//When a complete block is read the sincronization process signals the DCT process
+		s_done.write(true);
+		while(s_DCT.read()) wait();
+		s_done.write(false);
+
+		wait();
+
    } //end of while(true)
 }

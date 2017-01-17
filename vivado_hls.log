@@ -1,63 +1,183 @@
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado_HLS/2016.3/bin/unwrapped/win64.o/vivado_hls.exe'
-INFO: [HLS 200-10] For user 'alienBot' on host 'desktop-6hiu1pq' (Windows NT_amd64 version 6.2) on Thu Jan 12 02:47:30 +0100 2017
-INFO: [HLS 200-10] In directory 'C:/Users/alienBot/Documents/GitHub/DCT_base'
-INFO: [HLS 200-10] Opening project 'C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base'.
-WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found.
-INFO: [HLS 200-10] Adding design file 'Top.cpp' to the project
-INFO: [HLS 200-10] Adding design file 'Top.h' to the project
-INFO: [HLS 200-10] Adding design file 'blocker_512.cpp' to the project
-INFO: [HLS 200-10] Adding design file 'blocker_512.h' to the project
-INFO: [HLS 200-10] Adding design file 'imager_512.cpp' to the project
-INFO: [HLS 200-10] Adding design file 'imager_512.h' to the project
+INFO: [HLS 200-10] For user 'alienBot' on host 'desktop-6hiu1pq' (Windows NT_amd64 version 6.2) on Tue Jan 17 02:07:22 +0100 2017
+INFO: [HLS 200-10] In directory 'C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master'
+INFO: [HLS 200-10] Opening project 'C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base'.
+WARNING: [HLS 200-40] No C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT_simul/DCT_simul.aps file found.
 INFO: [HLS 200-10] Adding design file 'sc_FIFO_DCT.cpp' to the project
 INFO: [HLS 200-10] Adding design file 'sc_FIFO_DCT.h' to the project
-INFO: [HLS 200-10] Adding design file 'sc_FIFO_IDCT.cpp' to the project
-INFO: [HLS 200-10] Adding design file 'sc_FIFO_IDCT.h' to the project
 INFO: [HLS 200-10] Adding test bench file 'Tasks.cpp' to the project
 INFO: [HLS 200-10] Adding test bench file 'Tasks.h' to the project
+INFO: [HLS 200-10] Adding test bench file 'blocker_512.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'blocker_512.h' to the project
+INFO: [HLS 200-10] Adding test bench file 'imager_512.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'imager_512.h' to the project
 INFO: [HLS 200-10] Adding test bench file 'lena512.bmp' to the project
 INFO: [HLS 200-10] Adding test bench file 'qdbmp.cpp' to the project
 INFO: [HLS 200-10] Adding test bench file 'qdbmp.h' to the project
+INFO: [HLS 200-10] Adding test bench file 'sc_FIFO_IDCT.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'sc_FIFO_IDCT.h' to the project
 INFO: [HLS 200-10] Adding test bench file 'tb_init.cpp' to the project
 INFO: [HLS 200-10] Adding test bench file 'tb_init.h' to the project
 INFO: [HLS 200-10] Adding test bench file 'testbench_Top.cpp' to the project
-INFO: [HLS 200-10] Opening solution 'C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT'.
+INFO: [HLS 200-10] Opening solution 'C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 INFO: [HLS 200-10] Setting target device to 'xc7a35ticpg236-1l'
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [HLS 200-10] Analyzing design file 'sc_FIFO_IDCT.cpp' ... 
 INFO: [HLS 200-10] Analyzing design file 'sc_FIFO_DCT.cpp' ... 
-INFO: [HLS 200-10] Analyzing design file 'imager_512.cpp' ... 
-INFO: [HLS 200-10] Analyzing design file 'blocker_512.cpp' ... 
-INFO: [HLS 200-10] Analyzing design file 'Top.cpp' ... 
 INFO: [HLS 200-10] Validating synthesis directives ...
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:11 ; elapsed = 00:03:18 . Memory (MB): peak = 108.320 ; gain = 59.488
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:11 ; elapsed = 00:03:20 . Memory (MB): peak = 108.320 ; gain = 59.488
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:03 ; elapsed = 00:00:42 . Memory (MB): peak = 110.141 ; gain = 60.672
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:03 ; elapsed = 00:00:42 . Memory (MB): peak = 110.141 ; gain = 60.672
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:11 ; elapsed = 00:03:21 . Memory (MB): peak = 119.984 ; gain = 71.152
+WARNING: [XFORM 203-503] Ignored unroll directive 'DCT_loop' (sc_FIFO_DCT.cpp:77) in function 'sc_FIFO_DCT::DCT()': multiple loop unroll directives in one loop, use the first one and ignore the rest.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:04 ; elapsed = 00:00:43 . Memory (MB): peak = 110.141 ; gain = 60.672
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:12 ; elapsed = 00:03:21 . Memory (MB): peak = 139.098 ; gain = 90.266
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:14 ; elapsed = 00:03:24 . Memory (MB): peak = 183.266 ; gain = 134.434
-WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_IDCT.cpp:79:9) in function 'sc_FIFO_IDCT::Prc2' is an infinite loop.
-WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_IDCT.cpp:53:18) in function 'sc_FIFO_IDCT::Prc1' is an infinite loop.
-WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:79:9) in function 'sc_FIFO_DCT::Prc2' is an infinite loop.
-WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:54:18) in function 'sc_FIFO_DCT::Prc1' is an infinite loop.
-WARNING: [XFORM 203-561] 'Loop-1' (imager_512.cpp:14:17) in function 'imager_512::imager_buffer' is an infinite loop.
-WARNING: [XFORM 203-561] 'Loop-1' (imager_512.cpp:37:17) in function 'imager_512::imager_512_main' is an infinite loop.
-WARNING: [XFORM 203-561] 'Loop-1' (blocker_512.cpp:16:17) in function 'blocker_512::blocker_buffer' is an infinite loop.
-WARNING: [XFORM 203-561] 'Loop-1' (blocker_512.cpp:39:17) in function 'blocker_512::blocker_512_main' is an infinite loop.
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:15 ; elapsed = 00:03:25 . Memory (MB): peak = 291.617 ; gain = 242.785
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:04 ; elapsed = 00:00:43 . Memory (MB): peak = 110.141 ; gain = 60.672
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'TA' (sc_FIFO_DCT.cpp:80) in function 'sc_FIFO_DCT::DCT' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'AT' (sc_FIFO_DCT.cpp:93) in function 'sc_FIFO_DCT::DCT' for pipelining.
+INFO: [XFORM 203-501] Unrolling loop 'DCT_loop' (sc_FIFO_DCT.cpp:77) in function 'sc_FIFO_DCT::DCT' partially with a factor of 2.
+INFO: [XFORM 203-501] Unrolling loop 'multTA' (sc_FIFO_DCT.cpp:83) in function 'sc_FIFO_DCT::DCT' completely.
+INFO: [XFORM 203-501] Unrolling loop 'sumTA' (sc_FIFO_DCT.cpp:87) in function 'sc_FIFO_DCT::DCT' completely.
+INFO: [XFORM 203-501] Unrolling loop 'multAT' (sc_FIFO_DCT.cpp:96) in function 'sc_FIFO_DCT::DCT' completely.
+INFO: [XFORM 203-501] Unrolling loop 'sumAT' (sc_FIFO_DCT.cpp:101) in function 'sc_FIFO_DCT::DCT' completely.
+WARNING: [XFORM 203-105] Ignored array partition directive (sc_FIFO_DCT.cpp:62:1) : cannot locate the real object(s).
+WARNING: [XFORM 203-105] Ignored array partition directive (sc_FIFO_DCT.cpp:64:1) : cannot locate the real object(s).
+WARNING: [XFORM 203-105] Ignored array partition directive (sc_FIFO_DCT.cpp:66:1) : cannot locate the real object(s).
+INFO: [XFORM 203-101] Partitioning array 's' (sc_FIFO_DCT.cpp:59) in dimension 1 completely.
+INFO: [XFORM 203-11] Balancing expressions in function 'sc_FIFO_DCT::DCT' (sc_FIFO_DCT.cpp:55:30)...40 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:05 ; elapsed = 00:00:44 . Memory (MB): peak = 131.730 ; gain = 82.262
+WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:136:17) in function 'sc_FIFO_DCT::data_out' is an infinite loop.
+WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:43:3) in function 'sc_FIFO_DCT::buffering' is an infinite loop.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'DCT_loop' (sc_FIFO_DCT.cpp:77:6) in function 'sc_FIFO_DCT::DCT' : 
+WARNING: [XFORM 203-542] more than one sub loop.
+WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:76:19) in function 'sc_FIFO_DCT::DCT' is an infinite loop.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'Loop-1' (sc_FIFO_DCT.cpp:76:19) in function 'sc_FIFO_DCT::DCT' : 
+WARNING: [XFORM 203-542] the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:45 . Memory (MB): peak = 158.375 ; gain = 108.906
 INFO: [HLS 200-10] Starting hardware synthesis ...
-ERROR: [SCA 200-203] Cannot find top module 'main', please check the specified module name.
-command 'sc_get_modules' returned error code
-SystemC analyzing failed
-    while executing
-"source C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT/csynth.tcl"
-    invoked from within
-"hls::main C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT/csynth.tcl"
-    ("uplevel" body line 1)
-    invoked from within
-"uplevel 1 hls::main {*}$args"
-    (procedure "hls_proc" line 5)
-    invoked from within
-"hls_proc $argv"
+INFO: [SCA 200-201] Elaborating SystemC module 'sc_FIFO_DCT'.
+INFO: [SCA 200-201] Performing SystemC synthesis linting.
+INFO: [SCA 200-201] Analyzing ports and processes.
+INFO: [SCA 200-201] Found the clock port of process 'sc_FIFO_DCT::buffering': 'clock'.
+INFO: [SCA 200-201] Found the reset port of process 'sc_FIFO_DCT::buffering': 'reset'.
+INFO: [SCA 200-201] Found the clock port of process 'sc_FIFO_DCT::DCT': 'clock'.
+INFO: [SCA 200-201] Found the reset port of process 'sc_FIFO_DCT::DCT': 'reset'.
+INFO: [SCA 200-201] Found the clock port of process 'sc_FIFO_DCT::data_out': 'clock'.
+INFO: [SCA 200-201] Found the reset port of process 'sc_FIFO_DCT::data_out': 'reset'.
+WARNING: [SCA 200-202] Signal 'sc_FIFO_DCT_exec_cnt' has no reset.
+WARNING: [SCA 200-202] Found reading to uninitialized signal/variable 'sc_FIFO_DCT_exec_cnt'('sc_FIFO_DCT_exec_cnt_1', sc_FIFO_DCT.cpp:110), the signal/variable should be written or reset firstly, or it may introduce RTL simulation mismatch.
+WARNING: [SCA 200-202] Signal 's_buffered' has no reset.
+WARNING: [SCA 200-202] Signal 's_working' has no reset.
+WARNING: [SCA 200-202] Signal 's_DCT' has no reset.
+WARNING: [SCA 200-202] Signal 's_done' has no reset.
+INFO: [HLS 200-10] Synthesizing SystemC module [ sc_FIFO_DCT ]
+INFO: [HLS 200-10] Found SystemC process: 'sc_FIFO_DCT_DCT' 
+INFO: [HLS 200-10] Synthesizing 'sc_FIFO_DCT_DCT' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'sc_FIFO_DCT_DCT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'TA'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('sc_FIFO_DCT_mA_load_4', sc_FIFO_DCT.cpp:84) on array 'sc_FIFO_DCT_mA' due to limited memory ports.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 4, Depth: 10.
+INFO: [SCHED 204-61] Pipelining loop 'AT'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 8.
+INFO: [SCHED 204-61] Pipelining loop 'TA'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('sc_FIFO_DCT_mA_load_10', sc_FIFO_DCT.cpp:84) on array 'sc_FIFO_DCT_mA' due to limited memory ports.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 4, Depth: 10.
+INFO: [SCHED 204-61] Pipelining loop 'AT'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 8.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 45.842 seconds; current allocated memory: 127.253 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.659 seconds; current allocated memory: 126.979 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sc_FIFO_DCT_DCT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'sc_FIFO_DCT_mul_8s_32s_32_4' to 'sc_FIFO_DCT_mul_8bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sc_FIFO_DCT_mul_32s_8s_32_4' to 'sc_FIFO_DCT_mul_3cud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'sc_FIFO_DCT_mul_3cud': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sc_FIFO_DCT_mul_8bkb': 24 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sc_FIFO_DCT_DCT'.
+INFO: [HLS 200-111]  Elapsed time: 0.85 seconds; current allocated memory: 129.767 MB.
+INFO: [HLS 200-10] Found SystemC process: 'sc_FIFO_DCT_buffering' 
+INFO: [HLS 200-10] Synthesizing 'sc_FIFO_DCT_buffering' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'sc_FIFO_DCT_buffering' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.121 seconds; current allocated memory: 131.943 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.099 seconds; current allocated memory: 131.882 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sc_FIFO_DCT_buffering' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sc_FIFO_DCT_buffering'.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 131.795 MB.
+INFO: [HLS 200-10] Found SystemC process: 'sc_FIFO_DCT_data_out' 
+INFO: [HLS 200-10] Synthesizing 'sc_FIFO_DCT_data_out' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'sc_FIFO_DCT_data_out' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 131.738 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.052 seconds; current allocated memory: 131.836 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sc_FIFO_DCT_data_out' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sc_FIFO_DCT_data_out'.
+INFO: [HLS 200-111]  Elapsed time: 0.071 seconds; current allocated memory: 131.783 MB.
+INFO: [HLS 200-10] Synthesizing 'sc_FIFO_DCT' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'sc_FIFO_DCT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.172 seconds; current allocated memory: 131.650 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.121 seconds; current allocated memory: 131.607 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sc_FIFO_DCT' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'sc_FIFO_DCT/clock' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sc_FIFO_DCT/reset' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sc_FIFO_DCT/enable' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sc_FIFO_DCT/dout' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sc_FIFO_DCT/din' to 'ap_fifo'.
+INFO: [SYN 201-210] Renamed object name 'sc_FIFO_DCT_sc_FIFO_DCT_mA' to 'sc_FIFO_DCT_sc_FIdEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sc_FIFO_DCT_sc_FIFO_DCT_mB' to 'sc_FIFO_DCT_sc_FIeOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sc_FIFO_DCT_sc_FIFO_DCT_mC' to 'sc_FIFO_DCT_sc_FIfYi' due to the length limit 20
+WARNING: [RTGEN 206-101] Port 'sc_FIFO_DCT/enable' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sc_FIFO_DCT'.
+INFO: [HLS 200-111]  Elapsed time: 0.272 seconds; current allocated memory: 131.771 MB.
+INFO: [RTMG 210-282] Generating pipelined core: 'sc_FIFO_DCT_mul_8bkb_MulnS_0'
+INFO: [RTMG 210-282] Generating pipelined core: 'sc_FIFO_DCT_mul_3cud_MulnS_1'
+INFO: [RTMG 210-279] Implementing memory 'sc_FIFO_DCT_DCT_b_a_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'sc_FIFO_DCT_DCT_b_rom' using distributed ROMs.
+INFO: [RTMG 210-278] Implementing memory 'sc_FIFO_DCT_DCT_a_ram' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'sc_FIFO_DCT_sc_FIdEe_ram' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'sc_FIFO_DCT_sc_FIeOg_ram' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'sc_FIFO_DCT_sc_FIfYi_ram' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:10 ; elapsed = 00:00:52 . Memory (MB): peak = 179.945 ; gain = 130.477
+INFO: [SYSC 207-301] Generating SystemC RTL for sc_FIFO_DCT.
+INFO: [VHDL 208-304] Generating VHDL RTL for sc_FIFO_DCT.
+INFO: [VLOG 209-307] Generating Verilog RTL for sc_FIFO_DCT.
+INFO: [HLS 200-112] Total elapsed time: 52.017 seconds; peak allocated memory: 131.943 MB.

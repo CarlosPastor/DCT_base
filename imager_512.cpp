@@ -4,6 +4,7 @@ void imager_512::imager_buffer()
 {
    //Initialization
    write_done = false;
+   b_done = true;
 
    wait();
    while(true)

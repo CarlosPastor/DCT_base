@@ -1,0 +1,278 @@
+
+
+================================================================
+== Vivado HLS Report for 'sc_FIFO_DCT_Prc1'
+================================================================
+* Date:           Sat Jan 14 22:16:06 2017
+
+* Version:        2016.3 (Build 1682563 on Mon Oct 10 19:41:59 MDT 2016)
+* Project:        DCT_base
+* Solution:       DCT
+* Product family: artix7
+* Target device:  xc7a35ticpg236-1l
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.46|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    3|    3|    3|    3|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    1|    1|         1|          -|          -|  inf |    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 0
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 3
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	3  / true
+* FSM state operations: 
+
+ <State 1>: 0.00ns
+ST_1: StgValue_4 (13)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:0  call void (...)* @_ssdm_op_SpecBitsMap(i1* %clock), !map !411
+
+ST_1: StgValue_5 (14)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:1  call void (...)* @_ssdm_op_SpecBitsMap(i1* %reset), !map !415
+
+ST_1: StgValue_6 (15)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:2  call void (...)* @_ssdm_op_SpecBitsMap(i1* %sync), !map !419
+
+ST_1: StgValue_7 (16)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:3  call void (...)* @_ssdm_op_SpecBitsMap(i1* %data_ok), !map !423
+
+ST_1: StgValue_8 (17)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:4  call void (...)* @_ssdm_op_SpecBitsMap(i1* %done), !map !427
+
+ST_1: StgValue_9 (18)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:5  call void (...)* @_ssdm_op_SpecBitsMap(i1* %error), !map !431
+
+ST_1: StgValue_10 (19)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:6  call void (...)* @_ssdm_op_SpecBitsMap(i8* %din), !map !435
+
+ST_1: StgValue_11 (20)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:7  call void (...)* @_ssdm_op_SpecBitsMap(i8* %dout), !map !439
+
+ST_1: StgValue_12 (21)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:8  call void (...)* @_ssdm_op_SpecBitsMap(i1* %s_start), !map !443
+
+ST_1: StgValue_13 (22)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:9  call void (...)* @_ssdm_op_SpecBitsMap(i1* %s_working), !map !447
+
+ST_1: StgValue_14 (23)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:10  call void (...)* @_ssdm_op_SpecBitsMap([64 x i18]* %sc_FIFO_DCT_mA_V), !map !451
+
+ST_1: StgValue_15 (24)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:11  call void (...)* @_ssdm_op_SpecBitsMap([64 x i18]* %sc_FIFO_DCT_mB_V), !map !457
+
+ST_1: StgValue_16 (25)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:26
+_ZN7_ap_sc_7sc_core4waitEi.exit:12  call void (...)* @_ssdm_op_SpecPort([12 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [6 x i8]* @p_str2, i32 0, i32 0, i1* %clock) nounwind
+
+ST_1: StgValue_17 (26)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:27
+_ZN7_ap_sc_7sc_core4waitEi.exit:13  call void (...)* @_ssdm_op_SpecPort([12 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [6 x i8]* @p_str3, i32 0, i32 0, i1* %reset) nounwind
+
+ST_1: StgValue_18 (27)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:28
+_ZN7_ap_sc_7sc_core4waitEi.exit:14  call void (...)* @_ssdm_op_SpecPort([12 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [5 x i8]* @p_str4, i32 0, i32 0, i1* %sync) nounwind
+
+ST_1: StgValue_19 (28)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:29
+_ZN7_ap_sc_7sc_core4waitEi.exit:15  call void (...)* @_ssdm_op_SpecPort([12 x i8]* @p_str, i32 1, [7 x i8]* @p_str1, [8 x i8]* @p_str5, i32 0, i32 0, i1* %data_ok) nounwind
+
+ST_1: StgValue_20 (29)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:30
+_ZN7_ap_sc_7sc_core4waitEi.exit:16  call void (...)* @_ssdm_op_SpecPort([12 x i8]* @p_str, i32 1, [7 x i8]* @p_str1, [5 x i8]* @p_str6, i32 0, i32 0, i1* %done) nounwind
+
+ST_1: StgValue_21 (30)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:31
+_ZN7_ap_sc_7sc_core4waitEi.exit:17  call void (...)* @_ssdm_op_SpecPort([12 x i8]* @p_str, i32 1, [7 x i8]* @p_str1, [6 x i8]* @p_str7, i32 0, i32 0, i1* %error) nounwind
+
+ST_1: StgValue_22 (31)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:32
+_ZN7_ap_sc_7sc_core4waitEi.exit:18  call void (...)* @_ssdm_op_SpecPort([12 x i8]* @p_str, i32 0, [13 x i8]* @p_str8, [4 x i8]* @p_str9, i32 0, i32 0, i8* %din) nounwind
+
+ST_1: StgValue_23 (32)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:33
+_ZN7_ap_sc_7sc_core4waitEi.exit:19  call void (...)* @_ssdm_op_SpecPort([12 x i8]* @p_str, i32 1, [13 x i8]* @p_str8, [5 x i8]* @p_str10, i32 0, i32 0, i8* %dout) nounwind
+
+ST_1: StgValue_24 (33)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:34
+_ZN7_ap_sc_7sc_core4waitEi.exit:20  call void (...)* @_ssdm_op_SpecProcessDef([12 x i8]* @p_str, i32 2, [5 x i8]* @p_str11) nounwind
+
+ST_1: tmp_8 (34)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:34
+_ZN7_ap_sc_7sc_core4waitEi.exit:21  %tmp_8 = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str12)
+
+ST_1: StgValue_26 (35)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:34
+_ZN7_ap_sc_7sc_core4waitEi.exit:22  call void (...)* @_ssdm_op_SpecProtocol(i32 1, [1 x i8]* @p_str13) nounwind
+
+ST_1: p_ssdm_reset_v (36)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:34
+_ZN7_ap_sc_7sc_core4waitEi.exit:23  %p_ssdm_reset_v = call i32 (...)* @_ssdm_op_SpecStateBegin(i32 0, i32 0, i32 1) nounwind
+
+ST_1: empty (37)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:28
+_ZN7_ap_sc_7sc_core4waitEi.exit:24  %empty = call i32 (...)* @_ssdm_op_SpecStateEnd(i32 %p_ssdm_reset_v) nounwind
+
+ST_1: empty_9 (38)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:28
+_ZN7_ap_sc_7sc_core4waitEi.exit:25  %empty_9 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str12, i32 %tmp_8)
+
+
+ <State 2>: 1.57ns
+ST_2: StgValue_30 (39)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:29
+_ZN7_ap_sc_7sc_core4waitEi.exit:26  call void (...)* @_ssdm_op_Wait(i32 1) nounwind
+
+ST_2: StgValue_31 (40)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:30
+_ZN7_ap_sc_7sc_core4waitEi.exit:27  br label %0
+
+
+ <State 3>: 8.46ns
+ST_3: i0 (42)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:41
+:0  %i0 = phi i32 [ 0, %_ZN7_ap_sc_7sc_core4waitEi.exit ], [ %i0_3, %_ZN7_ap_sc_7sc_core4waitEi.exit2 ]
+
+ST_3: tmp (43)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:32
+:1  %tmp = call i1 @_ssdm_op_Read.ap_auto.volatile.i1P(i1* %sync)
+
+ST_3: StgValue_34 (44)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:32
+:2  br i1 %tmp, label %1, label %._crit_edge
+
+ST_3: tmp_21 (46)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:35
+:0  %tmp_21 = call i1 @_ssdm_op_Read.ap_auto.volatile.i1P(i1* %s_working)
+
+ST_3: StgValue_36 (47)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:35
+:1  br i1 %tmp_21, label %2, label %3
+
+ST_3: val_V (49)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:40
+:0  %val_V = call i8 @_ssdm_op_Read.ap_auto.volatile.i8P(i8* %din)
+
+ST_3: tmp_s (50)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:40
+:1  %tmp_s = zext i8 %val_V to i18
+
+ST_3: sc_FIFO_DCT_mA_V_add (51)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:40
+:2  %sc_FIFO_DCT_mA_V_add = getelementptr [64 x i18]* %sc_FIFO_DCT_mA_V, i32 0, i32 %i0
+
+ST_3: StgValue_40 (52)  [1/1] 2.71ns  loc: sc_FIFO_DCT.cpp:40
+:3  store i18 %tmp_s, i18* %sc_FIFO_DCT_mA_V_add, align 4
+
+ST_3: i0_4 (53)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:41
+:4  %i0_4 = add nsw i32 %i0, 1
+
+ST_3: StgValue_42 (54)  [1/1] 1.57ns
+:5  br label %._crit_edge
+
+ST_3: StgValue_43 (56)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:36
+:0  call void @_ssdm_op_Write.ap_auto.volatile.i1P(i1* %error, i1 true)
+
+ST_3: StgValue_44 (57)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:36
+:1  br label %._crit_edge
+
+ST_3: i0_2 (59)  [1/1] 0.00ns
+._crit_edge:0  %i0_2 = phi i32 [ %i0, %2 ], [ %i0_4, %3 ], [ %i0, %0 ]
+
+ST_3: tmp_16 (60)  [1/1] 2.93ns  loc: sc_FIFO_DCT.cpp:45
+._crit_edge:1  %tmp_16 = icmp eq i32 %i0_2, 64
+
+ST_3: StgValue_47 (61)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:45
+._crit_edge:2  br i1 %tmp_16, label %4, label %_ZN7_ap_sc_7sc_core4waitEi.exit2
+
+ST_3: StgValue_48 (63)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:48
+:0  call void @_ssdm_op_Write.ap_auto.volatile.i1P(i1* %s_start, i1 true)
+
+ST_3: StgValue_49 (64)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:49
+:1  br label %_ZN7_ap_sc_7sc_core4waitEi.exit2
+
+ST_3: i0_3 (66)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:41
+_ZN7_ap_sc_7sc_core4waitEi.exit2:0  %i0_3 = phi i32 [ 0, %4 ], [ %i0_2, %._crit_edge ]
+
+ST_3: StgValue_51 (67)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:51
+_ZN7_ap_sc_7sc_core4waitEi.exit2:1  call void (...)* @_ssdm_op_Wait(i32 1) nounwind
+
+ST_3: StgValue_52 (68)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:52
+_ZN7_ap_sc_7sc_core4waitEi.exit2:2  br label %0
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i0', sc_FIFO_DCT.cpp:41) with incoming values : ('i0', sc_FIFO_DCT.cpp:41) [42]  (1.57 ns)
+
+ <State 3>: 8.46ns
+The critical path consists of the following:
+	'phi' operation ('i0', sc_FIFO_DCT.cpp:41) with incoming values : ('i0', sc_FIFO_DCT.cpp:41) [42]  (0 ns)
+	'add' operation ('i0', sc_FIFO_DCT.cpp:41) [53]  (2.39 ns)
+	multiplexor before 'phi' operation ('i0') with incoming values : ('i0', sc_FIFO_DCT.cpp:41) [59]  (1.57 ns)
+	'phi' operation ('i0') with incoming values : ('i0', sc_FIFO_DCT.cpp:41) [59]  (0 ns)
+	'icmp' operation ('tmp_16', sc_FIFO_DCT.cpp:45) [60]  (2.93 ns)
+	multiplexor before 'phi' operation ('i0_3', sc_FIFO_DCT.cpp:41) with incoming values : ('i0', sc_FIFO_DCT.cpp:41) [66]  (1.57 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

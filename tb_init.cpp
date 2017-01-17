@@ -98,13 +98,14 @@ void tb_init::prc_reset() {
 
            reset = false;
            wait(10,SC_NS);
+
 #ifndef __SYNTHESIS__
          cout<<"Reset Off  ="<< reset <<" : "<< sc_time_stamp()<<endl;
 #endif
 
            start = true;
            wait(40,SC_NS);
-           start = false;
+
 #ifndef __SYNTHESIS__
          cout<<"Start On   ="<< start <<" : "<< sc_time_stamp()<<endl;
          cout<< " " <<endl;

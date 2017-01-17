@@ -2,13 +2,50 @@
 <vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
   <errorLogs>
     <logs>
-      <synLog>
-        <logs message="ERROR: [SCA 200-203] Cannot find top module 'main', please check the specified module name.&#xD;&#xA;command 'sc_get_modules' returned error code&#xD;&#xA;SystemC analyzing failed&#xD;&#xA;    while executing&#xD;&#xA;&quot;source C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT/csynth.tcl&quot;&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls::main C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT/csynth.tcl&quot;&#xD;&#xA;    (&quot;uplevel&quot; body line 1)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xD;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls_proc $argv&quot;&#xD;&#xA;" projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:55.176+0100"/>
-      </synLog>
+      <synLog/>
       <simLog/>
       <mgLog/>
       <packageLog/>
       <csimLog>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:18:52.639+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '3'." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:18:52.625+0100"/>
+        <logs message="  what():  Error: (E109) complete binding failed: port not bound: port 'U_4.port_6' (sc_out)&#xD;&#xA;In file: ../../../../src/sysc/communication/sc_port.cpp:230" projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:18:52.596+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:18:15.887+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:15:52.430+0100"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '3'." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:15:52.420+0100"/>
+        <logs message="  what():  Error: (E109) complete binding failed: port not bound: port 'U_4.port_7' (sc_out)&#xD;&#xA;In file: ../../../../src/sysc/communication/sc_port.cpp:230" projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:15:52.412+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:12:29.646+0100"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:12:29.637+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:05:06.046+0100"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:05:06.035+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:00:13.995+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:53:34.274+0100"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:53:34.248+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:45:54.295+0100"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:45:54.290+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:42:33.235+0100"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:42:33.225+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:36:43.115+0100"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:26:52.468+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:24:52.271+0100"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:24:52.265+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:23:36.165+0100"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:23:36.159+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:05:21.270+0100"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:05:21.263+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:58:06.003+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:56:00.746+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:53:40.897+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:52:24.519+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:51:55.844+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:50:59.073+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:49:58.362+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:48:29.887+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:47:28.924+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:45:55.615+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:20:04.737+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:16:00.381+0100"/>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:14:06.092+0100"/>
         <logs message="@E [SIM-1] CSim file generation failed: compilation error(s).&#xD;&#xA;5&#xD;&#xA;    while executing&#xD;&#xA;&quot;source C:/Users/bot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/csim.tcl&quot;&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls::main C:/Users/bot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/csim.tcl&quot;&#xD;&#xA;    (&quot;uplevel&quot; body line 1)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xD;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls_proc $argv&quot;&#xD;&#xA;" projectName="DCT_base" solutionName="DCT_simul" date="2016-12-06T15:05:42.604+0100"/>
         <logs message="@E [SIM-1] CSim file generation failed: compilation error(s).&#xD;&#xA;5&#xD;&#xA;    while executing&#xD;&#xA;&quot;source C:/Users/bot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/csim.tcl&quot;&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls::main C:/Users/bot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/csim.tcl&quot;&#xD;&#xA;    (&quot;uplevel&quot; body line 1)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xD;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls_proc $argv&quot;&#xD;&#xA;" projectName="DCT_base" solutionName="DCT_simul" date="2016-12-06T12:39:03.809+0100"/>
         <logs message="@E [SIM-1] CSim file generation failed: compilation error(s).&#xD;&#xA;5&#xD;&#xA;    while executing&#xD;&#xA;&quot;source C:/Users/bot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/csim.tcl&quot;&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls::main C:/Users/bot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/csim.tcl&quot;&#xD;&#xA;    (&quot;uplevel&quot; body line 1)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xD;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls_proc $argv&quot;&#xD;&#xA;" projectName="DCT_base" solutionName="DCT_simul" date="2016-12-06T12:36:57.530+0100"/>
@@ -22,20 +59,74 @@
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (blocker_512.cpp:39:17) in function 'blocker_512::blocker_512_main' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:54.833+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (blocker_512.cpp:16:17) in function 'blocker_512::blocker_buffer' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:53.772+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (imager_512.cpp:37:17) in function 'imager_512::imager_512_main' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:53.762+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (imager_512.cpp:14:17) in function 'imager_512::imager_buffer' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:53.745+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:54:18) in function 'sc_FIFO_DCT::Prc1' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:53.733+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:79:9) in function 'sc_FIFO_DCT::Prc2' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:53.722+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_IDCT.cpp:53:18) in function 'sc_FIFO_IDCT::Prc1' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:53.711+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_IDCT.cpp:79:9) in function 'sc_FIFO_IDCT::Prc2' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:50:53.699+0100" type="Warning"/>
-        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-12T02:47:30.744+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Signal 's_working' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-14T22:16:06.851+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Found reading to uninitialized signal/variable 's_start'('tmp', sc_FIFO_DCT.cpp:69), the signal/variable should be written or reset firstly, or it may introduce RTL simulation mismatch." projectName="DCT_base" solutionName="DCT" date="2017-01-14T22:16:06.845+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Signal 's_start' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-14T22:16:06.839+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Port 'dout' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-14T22:16:06.834+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Port 'error' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-14T22:16:06.829+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Port 'data_ok' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-14T22:16:06.825+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Process writer[2]: 'sc_FIFO_DCT_Prc2' (SC_CTHREAD)" projectName="DCT_base" solutionName="DCT" date="2017-01-14T22:16:06.821+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Process writer[1]: 'sc_FIFO_DCT_Prc1' (SC_CTHREAD)" projectName="DCT_base" solutionName="DCT" date="2017-01-14T22:16:06.815+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Found 2 SC_CTHREAD writers to signal 's_start', there should have handshakings among the writers." projectName="DCT_base" solutionName="DCT" date="2017-01-14T22:16:06.811+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:32:6) in function 'sc_FIFO_DCT::Prc1' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-14T22:16:06.805+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:74:9) in function 'sc_FIFO_DCT::Prc2' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-14T22:16:06.439+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-14T22:15:18.218+0100" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>
       <packageLog/>
-      <csimLog/>
+      <csimLog>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:18:42.363+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:18:14.196+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:15:39.267+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:12:11.746+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:06:40.304+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:04:48.291+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:03:12.779+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-16T00:00:12.556+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:55:56.312+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:53:16.014+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:48:32.389+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:45:44.170+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:41:05.651+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:40:29.345+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:36:41.111+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:26:50.402+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:24:34.212+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:23:18.067+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:03:52.330+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:03:51.771+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:03:24.543+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T23:03:24.037+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:59:11.427+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:59:10.830+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:56:25.361+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:56:24.816+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:55:58.993+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:55:58.471+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:53:26.867+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:53:26.347+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:52:22.768+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:52:22.253+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:51:54.117+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:51:53.594+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:50:57.243+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:50:56.720+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:49:53.493+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:49:52.989+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:48:28.178+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:48:27.660+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:47:27.168+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:47:26.677+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:45:49.141+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:45:48.614+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:19:59.579+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:19:59.039+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:15:47.503+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:15:46.970+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:14:04.363+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-15T22:14:03.784+0100" type="Warning"/>
+      </csimLog>
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>

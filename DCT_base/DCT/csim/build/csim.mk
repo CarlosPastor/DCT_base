@@ -19,7 +19,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../Tasks.cpp ../../../../qdbmp.cpp ../../../../tb_init.cpp ../../../../testbench_Top.cpp ../../../../Top.cpp ../../../../blocker_512.cpp ../../../../imager_512.cpp ../../../../sc_FIFO_DCT.cpp ../../../../sc_FIFO_IDCT.cpp
+HLS_SOURCES = ../../../../Tasks.cpp ../../../../main.cpp ../../../../qdbmp.cpp ../../../../tb_init.cpp ../../../../blocker_512.cpp ../../../../imager_512.cpp ../../../../sc_FIFO_DCT.cpp ../../../../sc_FIFO_IDCT.cpp
 
 TARGET := csim.exe
 
@@ -55,6 +55,7 @@ IFLAG += -D__SIM_FIR__
 
 IFLAG += -D__SIM_DDS__
 
+LFLAG += -L$(AUTOPILOT_TOOL)/systemc/lib -lsystemc_debug
 IFLAG += -g
 IFLAG += -DNT
 LFLAG += -Wl,--enable-auto-import 
@@ -75,6 +76,12 @@ $(ObjDir)/Tasks.o: ../../../../Tasks.cpp $(ObjDir)/.dir
 
 -include $(ObjDir)/Tasks.d
 
+$(ObjDir)/main.o: ../../../../main.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../main.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+
+-include $(ObjDir)/main.d
+
 $(ObjDir)/qdbmp.o: ../../../../qdbmp.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../qdbmp.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
@@ -86,18 +93,6 @@ $(ObjDir)/tb_init.o: ../../../../tb_init.cpp $(ObjDir)/.dir
 	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/tb_init.d
-
-$(ObjDir)/testbench_Top.o: ../../../../testbench_Top.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../testbench_Top.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/testbench_Top.d
-
-$(ObjDir)/Top.o: ../../../../Top.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../Top.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/Top.d
 
 $(ObjDir)/blocker_512.o: ../../../../blocker_512.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../blocker_512.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)

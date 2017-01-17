@@ -34807,26 +34807,29 @@ struct sc_FIFO_DCT : ::sc_core::sc_module
  //Ports
  sc_in <bool> clock;
  sc_in <bool> reset;
- sc_in <bool> start;
+ sc_in <bool> sync;
+ sc_out<bool> data_ok;
  sc_out<bool> done;
- sc_fifo_out< sc_uint<8> > dout;
- sc_fifo_in< sc_uint<8> > din;
+ sc_out<bool> error;
+#pragma empty_line
+ sc_in < sc_uint<8> > din;
+ sc_out < sc_uint<8> > dout;
+#pragma empty_line
+ //Signals
+ sc_signal<bool> s_start;
+ sc_signal<bool> s_working;
 #pragma empty_line
  //Variables
- int mA[100];
- int mB[100];
- bool write_done;
- int exec_cnt;
+ sc_uint<18> mA[64];
+ sc_uint<18> mB[64];
 #pragma empty_line
  //Process Declaration
- void Prc1();
- void Prc2();
+ void Prc1(void);
+ void Prc2(void);
 #pragma empty_line
  //Constructor
  typedef sc_FIFO_DCT SC_CURRENT_USER_MODULE; sc_FIFO_DCT( ::sc_core::sc_module_name )
  {
-  exec_cnt = 0;
-  write_done = false;
 #pragma empty_line
   //Process Registration
   { ::sc_core::sc_cthread_process* Prc1_handle = simcontext()->register_cthread_process("Prc1", (void (::sc_core::sc_process_host::*)())(&SC_CURRENT_USER_MODULE::Prc1), this ); sensitive.operator() ( Prc1_handle, clock.pos() ); };
@@ -34860,42 +34863,34 @@ static const int b_a[] = {
   90, -125, 118, -106, 90, -71, 48, -24,
 };
 #pragma empty_line
-// static const double b_a[] = { 0.3536, 0.4904, 0.4619, 0.4157, 0.3536, 0.2778,
-// 		0.1913, 0.0975, 0.3536, 0.4157, 0.1913, -0.0975, -0.3536, -0.4904, -0.4619,
-// 		-0.2778, 0.3536, 0.2778, -0.1913, -0.4904, -0.3536, 0.0975, 0.4619, 0.4157,
-// 		0.3536, 0.0975, -0.4619, -0.2778, 0.3536, 0.4157, -0.1913, -0.4904, 0.3536,
-// 		-0.0975, -0.4619, 0.2778, 0.3536, -0.4157, -0.1913, 0.4904, 0.3536, -0.2778,
-// 		-0.1913, 0.4904, -0.3536, -0.0975, 0.4619, -0.4157, 0.3536, -0.4157, 0.1913,
-// 		0.0975, -0.3536, 0.4904, -0.4619, 0.2778, 0.3536, -0.4904, 0.4619, -0.4157,
-// 		0.3536, -0.2778, 0.1913, -0.0975 };
-//
-// static const double b[] = { 0.3536, 0.3536, 0.3536, 0.3536, 0.3536, 0.3536,
-// 		0.3536, 0.3536, 0.4904, 0.4157, 0.2778, 0.0975, -0.0975, -0.2778, -0.4157,
-// 		-0.4904, 0.4619, 0.1913, -0.1913, -0.4619, -0.4619, -0.1913, 0.1913, 0.4619,
-// 		0.4157, -0.0975, -0.4904, -0.2778, 0.2778, 0.4904, 0.0975, -0.4157, 0.3536,
-// 		-0.3536, -0.3536, 0.3536, 0.3536, -0.3536, -0.3536, 0.3536, 0.2778, -0.4904,
-// 		0.0975, 0.4157, -0.4157, -0.0975, 0.4904, -0.2778, 0.1913, -0.4619, 0.4619,
-// 		-0.1913, -0.1913, 0.4619, -0.4619, 0.1913, 0.0975, -0.2778, 0.4157, -0.4904,
-// 		0.4904, -0.4157, 0.2778, -0.0975 };
-#pragma empty_line
-#pragma empty_line
 void sc_FIFO_DCT::Prc1()
 {
-   //Initialization
-   write_done = false;
-#pragma empty_line
-   wait();
-   while(true)
+ //Initialization
+ int i0 = 0;
+ wait();
+ while(true)
+ {
+  if(sync == true)
+  {
+   //If the DCT is working and the block receives new data
+   if(s_working == true)
+    error = true;
+   //Else it puts new data in the mA buffer
+   else
    {
-       ap_wait_until(!(din.num_available() < 64));
-#pragma empty_line
-      for(int i=0;i<64; i++)
-        mA[i] = (int) din.read();
-#pragma empty_line
-      write_done = true;
-      wait();
-   write_done = false;
-   } //end of while(true)
+     mA[i0] = din->read();
+     i0++;
+   }
+  }
+  //when a full block of data is received the operation starts
+  if(i0 == 64)
+  {
+   i0 = 0;
+   s_start = true;
+  }
+  //Waits for the next clock edge
+  wait();
+ }
 }
 #pragma empty_line
 void sc_FIFO_DCT::Prc2()
@@ -34911,12 +34906,15 @@ void sc_FIFO_DCT::Prc2()
 #pragma empty_line
    while(true)
    {
-      //while (!start.read()) wait();
-       ap_wait_until(!(!write_done));
+   //waits for the data to be in the buffer to stat operating
+     ap_wait_until(!(!s_start));
+   //starts operating
+   s_start = false;
+   s_working = true;
 #pragma empty_line
    for (i0 = 0; i0 < 8; i0++) {
     for (i1 = 0; i1 < 8; i1++) {
-     a[i0 + (i1 << 3)] = 0.0;
+     a[i0 + (i1 << 3)] = 0;
      for (i2 = 0; i2 < 8; i2++) {
       a[i0 + (i1 << 3)] += b_a[i0 + (i2 << 3)] * ( mA[i2 + (i1 << 3)] );
      }
@@ -34926,13 +34924,22 @@ void sc_FIFO_DCT::Prc2()
      for (i2 = 0; i2 < 8; i2++) {
       mB[i0 + (i1 << 3)] += a[i0 + (i2 << 3)] * b[i2 + (i1 << 3)];
      }
-     dout.write( (sc_uint<8>)((mB[i0 + (i1 << 3)]/65536)/8 + 127));
+     dout->write((mB[i0 + (i1 << 3)]/65536)/8 + 127);
+     //syncronizes the data output generating
+     //a pulse each time a number is ready
+     data_ok = true;
+     wait();
+     data_ok = false;
     }
    }
 #pragma empty_line
+   s_working = false;
       done = true;
-      cout << "Simulating DCT" << (exec_cnt++) << endl;
+   //for simulation
+       //cout << "Simulating DCT" << (exec_cnt++) << endl;
+   //
       wait();
+#pragma empty_line
    } //end of while(true)
 }
 #pragma empty_line

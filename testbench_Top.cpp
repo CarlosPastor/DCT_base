@@ -58,17 +58,19 @@ int sc_main(int argc, char* argv[])
 	//Bloques
 
 	blocker_512		U1("U_1");
-	sc_FIFO_DCT		U2("U_2");
+	sc_FIFO_DCT		DCT("U_2");
 	sc_FIFO_IDCT	U3("U_3");
 	imager_512		U4("U_4");
 	tb_init			UI("U_I");
 
 	//Conexiones
 
+	// Testbench
 	UI.clk(s_clk);
 	UI.reset(s_reset);
 	UI.start(s_start);
 
+	// blocker
 	U1.clock(s_clk);
 	U1.reset(s_reset);
 	U1.start(s_start);
@@ -76,17 +78,20 @@ int sc_main(int argc, char* argv[])
 	U1.din(din);
 	U1.dout(dinter_1);
 
-	U2.clock(s_clk);
-	U2.reset(s_reset);
-	U2.start(s_done_u1u2);
-	U2.done(s_done_u2u3);
-	U2.din(dinter_1);
-	U2.dout(dcomp);
+	// Signals
+	DCT.clock(s_clk);
+	DCT.reset(s_reset);
+	DCT.enable(s_start);
+	// fifos
+	DCT.din(dinter_1);
+	DCT.dout(dcomp);
 
+	// Signals
 	U3.clock(s_clk);
 	U3.reset(s_reset);
 	U3.start(s_done_u2u3);
 	U3.done(s_done_u3u4);
+	// fifos
 	U3.din(dcomp);
 	U3.dout(dinter_2);
 
