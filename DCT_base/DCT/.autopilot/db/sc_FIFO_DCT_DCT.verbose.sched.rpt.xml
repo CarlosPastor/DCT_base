@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'sc_FIFO_DCT_DCT'" level="0">
-<item name = "Date">Tue Jan 17 02:08:07 2017
+<item name = "Date">Tue Jan 17 18:16:30 2017
 </item>
 <item name = "Version">2016.3 (Build 1682563 on Mon Oct 10 19:41:59 MDT 2016)</item>
 <item name = "Project">DCT_base</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">491, 491, 491, 491, none</column>
+<column name="">7583, 7583, 7583, 7583, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,12 +35,12 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">489, 489, 489, -, -, inf, no</column>
-<column name=" + DCT_loop">484, 484, 121, -, -, 4, no</column>
-<column name="  ++ TA">37, 37, 10, 4, 1, 8, yes</column>
-<column name="  ++ AT">14, 14, 8, 1, 1, 8, yes</column>
-<column name="  ++ TA">37, 37, 10, 4, 1, 8, yes</column>
-<column name="  ++ AT">14, 14, 8, 1, 1, 8, yes</column>
+<column name="- Loop 1">7581, 7581, 7581, -, -, inf, no</column>
+<column name=" + DCT_loop">7576, 7576, 947, -, -, 8, no</column>
+<column name="  ++ TA">472, 472, 59, -, -, 8, no</column>
+<column name="   +++ multTA">56, 56, 7, -, -, 8, no</column>
+<column name="  ++ AT">472, 472, 59, -, -, 8, no</column>
+<column name="   +++ multAT">56, 56, 7, -, -, 8, no</column>
 </table>
 </item>
 </section>

@@ -26,7 +26,7 @@ end;
 architecture behav of sc_FIFO_DCT is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "sc_FIFO_DCT,hls_ip_2016_3,{HLS_INPUT_TYPE=sc,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7a35ticpg236-1l,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.620000,HLS_SYN_LAT=106,HLS_SYN_TPT=none,HLS_SYN_MEM=6,HLS_SYN_DSP=64,HLS_SYN_FF=2835,HLS_SYN_LUT=1809}";
+    "sc_FIFO_DCT,hls_ip_2016_3,{HLS_INPUT_TYPE=sc,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7a35ticpg236-1l,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.620000,HLS_SYN_LAT=1288,HLS_SYN_TPT=none,HLS_SYN_MEM=4,HLS_SYN_DSP=4,HLS_SYN_FF=1980,HLS_SYN_LUT=2992}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
@@ -38,7 +38,6 @@ architecture behav of sc_FIFO_DCT is
     signal sc_FIFO_DCT_mA_address0 : STD_LOGIC_VECTOR (5 downto 0);
     signal sc_FIFO_DCT_mA_ce0 : STD_LOGIC;
     signal sc_FIFO_DCT_mA_q0 : STD_LOGIC_VECTOR (31 downto 0);
-    signal sc_FIFO_DCT_mA_q1 : STD_LOGIC_VECTOR (31 downto 0);
     signal sc_FIFO_DCT_mC_address0 : STD_LOGIC_VECTOR (5 downto 0);
     signal sc_FIFO_DCT_mC_ce0 : STD_LOGIC;
     signal sc_FIFO_DCT_mC_q0 : STD_LOGIC_VECTOR (31 downto 0);
@@ -58,8 +57,6 @@ architecture behav of sc_FIFO_DCT is
     signal grp_sc_FIFO_DCT_data_out_fu_160_s_done_ap_vld : STD_LOGIC;
     signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address0 : STD_LOGIC_VECTOR (5 downto 0);
     signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0 : STD_LOGIC;
-    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address1 : STD_LOGIC_VECTOR (5 downto 0);
-    signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce1 : STD_LOGIC;
     signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_address0 : STD_LOGIC_VECTOR (5 downto 0);
     signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_ce0 : STD_LOGIC;
     signal grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_we0 : STD_LOGIC;
@@ -116,9 +113,6 @@ architecture behav of sc_FIFO_DCT is
         sc_FIFO_DCT_mA_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
         sc_FIFO_DCT_mA_ce0 : OUT STD_LOGIC;
         sc_FIFO_DCT_mA_q0 : IN STD_LOGIC_VECTOR (31 downto 0);
-        sc_FIFO_DCT_mA_address1 : OUT STD_LOGIC_VECTOR (5 downto 0);
-        sc_FIFO_DCT_mA_ce1 : OUT STD_LOGIC;
-        sc_FIFO_DCT_mA_q1 : IN STD_LOGIC_VECTOR (31 downto 0);
         sc_FIFO_DCT_mB_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
         sc_FIFO_DCT_mB_ce0 : OUT STD_LOGIC;
         sc_FIFO_DCT_mB_we0 : OUT STD_LOGIC;
@@ -156,7 +150,7 @@ architecture behav of sc_FIFO_DCT is
     end component;
 
 
-    component sc_FIFO_DCT_sc_FIdEe IS
+    component sc_FIFO_DCT_DCT_a IS
     generic (
         DataWidth : INTEGER;
         AddressRange : INTEGER;
@@ -168,10 +162,7 @@ architecture behav of sc_FIFO_DCT is
         ce0 : IN STD_LOGIC;
         we0 : IN STD_LOGIC;
         d0 : IN STD_LOGIC_VECTOR (31 downto 0);
-        q0 : OUT STD_LOGIC_VECTOR (31 downto 0);
-        address1 : IN STD_LOGIC_VECTOR (5 downto 0);
-        ce1 : IN STD_LOGIC;
-        q1 : OUT STD_LOGIC_VECTOR (31 downto 0) );
+        q0 : OUT STD_LOGIC_VECTOR (31 downto 0) );
     end component;
 
 
@@ -190,25 +181,9 @@ architecture behav of sc_FIFO_DCT is
     end component;
 
 
-    component sc_FIFO_DCT_sc_FIfYi IS
-    generic (
-        DataWidth : INTEGER;
-        AddressRange : INTEGER;
-        AddressWidth : INTEGER );
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        address0 : IN STD_LOGIC_VECTOR (5 downto 0);
-        ce0 : IN STD_LOGIC;
-        we0 : IN STD_LOGIC;
-        d0 : IN STD_LOGIC_VECTOR (31 downto 0);
-        q0 : OUT STD_LOGIC_VECTOR (31 downto 0) );
-    end component;
-
-
 
 begin
-    sc_FIFO_DCT_mA_U : component sc_FIFO_DCT_sc_FIdEe
+    sc_FIFO_DCT_mA_U : component sc_FIFO_DCT_DCT_a
     generic map (
         DataWidth => 32,
         AddressRange => 64,
@@ -220,10 +195,7 @@ begin
         ce0 => sc_FIFO_DCT_mA_ce0,
         we0 => grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_we0,
         d0 => grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_d0,
-        q0 => sc_FIFO_DCT_mA_q0,
-        address1 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address1,
-        ce1 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce1,
-        q1 => sc_FIFO_DCT_mA_q1);
+        q0 => sc_FIFO_DCT_mA_q0);
 
     sc_FIFO_DCT_mB_U : component sc_FIFO_DCT_sc_FIeOg
     generic map (
@@ -238,7 +210,7 @@ begin
         we0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_we0,
         d0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_d0);
 
-    sc_FIFO_DCT_mC_U : component sc_FIFO_DCT_sc_FIfYi
+    sc_FIFO_DCT_mC_U : component sc_FIFO_DCT_DCT_a
     generic map (
         DataWidth => 32,
         AddressRange => 64,
@@ -273,9 +245,6 @@ begin
         sc_FIFO_DCT_mA_address0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address0,
         sc_FIFO_DCT_mA_ce0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0,
         sc_FIFO_DCT_mA_q0 => sc_FIFO_DCT_mA_q0,
-        sc_FIFO_DCT_mA_address1 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address1,
-        sc_FIFO_DCT_mA_ce1 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce1,
-        sc_FIFO_DCT_mA_q1 => sc_FIFO_DCT_mA_q1,
         sc_FIFO_DCT_mB_address0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_address0,
         sc_FIFO_DCT_mB_ce0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_ce0,
         sc_FIFO_DCT_mB_we0 => grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_we0,

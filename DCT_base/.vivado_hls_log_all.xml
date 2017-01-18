@@ -20,32 +20,32 @@
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Port 'sc_FIFO_DCT/enable' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:12.280+0100" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('sc_FIFO_DCT_mA_load_10', sc_FIFO_DCT.cpp:84) on array 'sc_FIFO_DCT_mA' due to limited memory ports." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:07.485+0100" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('sc_FIFO_DCT_mA_load_4', sc_FIFO_DCT.cpp:84) on array 'sc_FIFO_DCT_mA' due to limited memory ports." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:07.464+0100" type="Warning"/>
-        <logs message="WARNING: [SCA 200-202] Signal 's_done' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:06.729+0100" type="Warning"/>
-        <logs message="WARNING: [SCA 200-202] Signal 's_DCT' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:06.724+0100" type="Warning"/>
-        <logs message="WARNING: [SCA 200-202] Signal 's_working' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:06.720+0100" type="Warning"/>
-        <logs message="WARNING: [SCA 200-202] Signal 's_buffered' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:06.716+0100" type="Warning"/>
-        <logs message="WARNING: [SCA 200-202] Found reading to uninitialized signal/variable 'sc_FIFO_DCT_exec_cnt'('sc_FIFO_DCT_exec_cnt_1', sc_FIFO_DCT.cpp:110), the signal/variable should be written or reset firstly, or it may introduce RTL simulation mismatch." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:06.712+0100" type="Warning"/>
-        <logs message="WARNING: [SCA 200-202] Signal 'sc_FIFO_DCT_exec_cnt' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:06.706+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-542] the outer loop is not a perfect loop because there is nontrivial logic in the loop latch." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:06.697+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-542] Cannot flatten a loop nest 'Loop-1' (sc_FIFO_DCT.cpp:76:19) in function 'sc_FIFO_DCT::DCT' : " projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:06.061+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:76:19) in function 'sc_FIFO_DCT::DCT' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:06.058+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-542] more than one sub loop." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:06.055+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-542] Cannot flatten a loop nest 'DCT_loop' (sc_FIFO_DCT.cpp:77:6) in function 'sc_FIFO_DCT::DCT' : " projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:06.051+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:43:3) in function 'sc_FIFO_DCT::buffering' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:06.048+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:136:17) in function 'sc_FIFO_DCT::data_out' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:06.044+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-105] Ignored array partition directive (sc_FIFO_DCT.cpp:66:1) : cannot locate the real object(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:05.087+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-105] Ignored array partition directive (sc_FIFO_DCT.cpp:64:1) : cannot locate the real object(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:05.037+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-105] Ignored array partition directive (sc_FIFO_DCT.cpp:62:1) : cannot locate the real object(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:05.033+0100" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-503] Ignored unroll directive 'DCT_loop' (sc_FIFO_DCT.cpp:77) in function 'sc_FIFO_DCT::DCT()': multiple loop unroll directives in one loop, use the first one and ignore the rest." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:08:04.404+0100" type="Warning"/>
-        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-17T02:07:22.518+0100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'sc_FIFO_DCT/enable' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:33.525+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Signal 's_done' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:30.585+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Signal 's_DCT' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:30.577+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Signal 's_working' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:30.570+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Signal 's_buffered' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:30.564+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Found reading to uninitialized signal/variable 'sc_FIFO_DCT_exec_cnt'('sc_FIFO_DCT_exec_cnt_1', sc_FIFO_DCT.cpp:111), the signal/variable should be written or reset firstly, or it may introduce RTL simulation mismatch." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:30.557+0100" type="Warning"/>
+        <logs message="WARNING: [SCA 200-202] Signal 'sc_FIFO_DCT_exec_cnt' has no reset." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:30.551+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:76:19) in function 'sc_FIFO_DCT::DCT' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:30.544+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:43:3) in function 'sc_FIFO_DCT::buffering' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:30.035+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] 'Loop-1' (sc_FIFO_DCT.cpp:137:17) in function 'sc_FIFO_DCT::data_out' is an infinite loop." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:30.030+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-105] Ignored array partition directive (sc_FIFO_DCT.cpp:66:1) : cannot locate the real object(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:29.208+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-105] Ignored array partition directive (sc_FIFO_DCT.cpp:64:1) : cannot locate the real object(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:29.166+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-105] Ignored array partition directive (sc_FIFO_DCT.cpp:62:1) : cannot locate the real object(s)." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:29.161+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-503] Ignored unroll directive 'sumAT' (sc_FIFO_DCT.cpp:101) in function 'sc_FIFO_DCT::DCT()': multiple loop unroll directives in one loop, use the first one and ignore the rest." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:28.467+0100" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-503] Ignored unroll directive 'sumTA' (sc_FIFO_DCT.cpp:87) in function 'sc_FIFO_DCT::DCT()': multiple loop unroll directives in one loop, use the first one and ignore the rest." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:16:28.273+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-17T18:15:47.326+0100" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>
       <packageLog/>
-      <csimLog/>
+      <csimLog>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-18T22:39:36.542+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-18T22:39:35.924+0100" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="DCT_base" solutionName="DCT" date="2017-01-18T22:36:29.085+0100" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] No C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT_simul/DCT_simul.aps file found." projectName="DCT_base" solutionName="DCT" date="2017-01-18T22:36:27.976+0100" type="Warning"/>
+      </csimLog>
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>

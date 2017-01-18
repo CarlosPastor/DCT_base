@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'sc_FIFO_DCT'" level="0">
-<item name = "Date">Tue Jan 17 02:08:11 2017
+<item name = "Date">Tue Jan 17 18:16:33 2017
 </item>
 <item name = "Version">2016.3 (Build 1682563 on Mon Oct 10 19:41:59 MDT 2016)</item>
 <item name = "Project">DCT_base</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">0, 492, 1, 493, none</column>
+<column name="">0, 7584, 1, 7585, none</column>
 </table>
 </item>
 <item name = "Detail">

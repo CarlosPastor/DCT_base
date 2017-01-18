@@ -161,14 +161,14 @@
 						<id>39</id>
 						<name>sc_FIFO_DCT_ssdm_s</name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>33</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item class_id="10" tracking_level="0" version="0">
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second class_id="11" tracking_level="0" version="0">
 									<count>1</count>
 									<item_version>0</item_version>
@@ -203,14 +203,14 @@
 						<id>40</id>
 						<name></name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>33</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -247,14 +247,14 @@
 						<id>45</id>
 						<name>sc_FIFO_DCT_ssdm_1</name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>36</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -289,14 +289,14 @@
 						<id>46</id>
 						<name></name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>36</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -333,14 +333,14 @@
 						<id>51</id>
 						<name>sc_FIFO_DCT_ssdm_2</name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>39</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -375,14 +375,14 @@
 						<id>52</id>
 						<name></name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>39</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -419,14 +419,14 @@
 						<id>69</id>
 						<name></name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>54</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -463,14 +463,14 @@
 						<id>70</id>
 						<name></name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>55</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -507,14 +507,14 @@
 						<id>71</id>
 						<name></name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>56</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -551,14 +551,14 @@
 						<id>72</id>
 						<name></name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>57</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -595,14 +595,14 @@
 						<id>73</id>
 						<name></name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>58</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -639,14 +639,14 @@
 						<id>74</id>
 						<name></name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>59</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -683,14 +683,14 @@
 						<id>75</id>
 						<name></name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>58</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -724,14 +724,14 @@
 						<id>77</id>
 						<name></name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>39</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -808,14 +808,14 @@
 						<id>80</id>
 						<name></name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>36</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -894,14 +894,14 @@
 						<id>83</id>
 						<name></name>
 						<fileName>./sc_FIFO_DCT.h</fileName>
-						<fileDirectory>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</fileDirectory>
+						<fileDirectory>C:\Users\alienBot\Documents\GitHub\DCT_base</fileDirectory>
 						<lineNumber>33</lineNumber>
 						<contextFuncName>sc_FIFO_DCT</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+								<first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1848,7 +1848,7 @@
 			<mDepth>-1</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>492</mMinLatency>
+			<mMinLatency>7584</mMinLatency>
 			<mMaxLatency>-1</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>

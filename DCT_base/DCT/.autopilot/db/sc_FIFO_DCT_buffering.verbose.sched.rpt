@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'sc_FIFO_DCT_buffering'
 ================================================================
-* Date:           Tue Jan 17 02:08:11 2017
+* Date:           Tue Jan 17 18:16:32 2017
 
 * Version:        2016.3 (Build 1682563 on Mon Oct 10 19:41:59 MDT 2016)
 * Project:        DCT_base
@@ -166,8 +166,8 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:23  %p_ssdm_reset_v = call i32 (...)* @_ssdm_op_
 ST_1: empty (39)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:28
 _ZN7_ap_sc_7sc_core4waitEi.exit:24  %empty = call i32 (...)* @_ssdm_op_SpecStateEnd(i32 %p_ssdm_reset_v) nounwind
 
-ST_1: empty_10 (40)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:28
-_ZN7_ap_sc_7sc_core4waitEi.exit:25  %empty_10 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str8, i32 %tmp_7)
+ST_1: empty_8 (40)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:28
+_ZN7_ap_sc_7sc_core4waitEi.exit:25  %empty_8 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str8, i32 %tmp_7)
 
 
  <State 2>: 1.57ns
@@ -284,7 +284,6 @@ The critical path consists of the following:
 The critical path consists of the following:
 	wire read on port 's_working' (sc_FIFO_DCT.cpp:34) [47]  (0 ns)
 	'xor' operation ('tmp_4', sc_FIFO_DCT.cpp:34) [48]  (1.37 ns)
-	'poll' operation (sc_FIFO_DCT.cpp:34) [49]  (0 ns)
 
  <State 4>: 7.09ns
 The critical path consists of the following:

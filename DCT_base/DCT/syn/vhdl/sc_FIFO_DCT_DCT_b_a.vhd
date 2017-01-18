@@ -19,27 +19,6 @@ entity sc_FIFO_DCT_DCT_b_a_rom is
           addr0      : in std_logic_vector(awidth-1 downto 0); 
           ce0       : in std_logic; 
           q0         : out std_logic_vector(dwidth-1 downto 0);
-          addr1      : in std_logic_vector(awidth-1 downto 0); 
-          ce1       : in std_logic; 
-          q1         : out std_logic_vector(dwidth-1 downto 0);
-          addr2      : in std_logic_vector(awidth-1 downto 0); 
-          ce2       : in std_logic; 
-          q2         : out std_logic_vector(dwidth-1 downto 0);
-          addr3      : in std_logic_vector(awidth-1 downto 0); 
-          ce3       : in std_logic; 
-          q3         : out std_logic_vector(dwidth-1 downto 0);
-          addr4      : in std_logic_vector(awidth-1 downto 0); 
-          ce4       : in std_logic; 
-          q4         : out std_logic_vector(dwidth-1 downto 0);
-          addr5      : in std_logic_vector(awidth-1 downto 0); 
-          ce5       : in std_logic; 
-          q5         : out std_logic_vector(dwidth-1 downto 0);
-          addr6      : in std_logic_vector(awidth-1 downto 0); 
-          ce6       : in std_logic; 
-          q6         : out std_logic_vector(dwidth-1 downto 0);
-          addr7      : in std_logic_vector(awidth-1 downto 0); 
-          ce7       : in std_logic; 
-          q7         : out std_logic_vector(dwidth-1 downto 0);
           clk       : in std_logic
     ); 
 end entity; 
@@ -48,66 +27,8 @@ end entity;
 architecture rtl of sc_FIFO_DCT_DCT_b_a_rom is 
 
 signal addr0_tmp : std_logic_vector(awidth-1 downto 0); 
-signal addr1_tmp : std_logic_vector(awidth-1 downto 0); 
-signal addr2_tmp : std_logic_vector(awidth-1 downto 0); 
-signal addr3_tmp : std_logic_vector(awidth-1 downto 0); 
-signal addr4_tmp : std_logic_vector(awidth-1 downto 0); 
-signal addr5_tmp : std_logic_vector(awidth-1 downto 0); 
-signal addr6_tmp : std_logic_vector(awidth-1 downto 0); 
-signal addr7_tmp : std_logic_vector(awidth-1 downto 0); 
 type mem_array is array (0 to mem_size-1) of std_logic_vector (dwidth-1 downto 0); 
-signal mem0 : mem_array := (
-    0 => "01011010", 1 => "01111101", 2 => "01110110", 3 => "01101010", 
-    4 => "01011010", 5 => "01000111", 6 => "00110000", 7 => "00011000", 
-    8 => "01011010", 9 => "01101010", 10 => "00110000", 11 => "11101000", 
-    12 => "10100110", 13 => "10000011", 14 => "10001010", 15 => "10111001", 
-    16 => "01011010", 17 => "01000111", 18 => "11010000", 19 => "10000011", 
-    20 => "10100110", 21 => "00011000", 22 => "01110110", 23 => "01101010", 
-    24 => "01011010", 25 => "00011000", 26 => "10001010", 27 => "10111001", 
-    28 => "01011010", 29 => "01101010", 30 => "11010000", 31 => "10000011", 
-    32 => "01011010", 33 => "11101000", 34 => "10001010", 35 => "01000111", 
-    36 => "01011010", 37 => "10010110", 38 => "11010000", 39 => "01111101", 
-    40 => "01011010", 41 => "10111001", 42 => "11010000", 43 => "01111101", 
-    44 => "10100110", 45 => "11101000", 46 => "01110110", 47 => "10010110", 
-    48 => "01011010", 49 => "10010110", 50 => "00110000", 51 => "00011000", 
-    52 => "10100110", 53 => "01111101", 54 => "10001010", 55 => "01000111", 
-    56 => "01011010", 57 => "10000011", 58 => "01110110", 59 => "10010110", 
-    60 => "01011010", 61 => "10111001", 62 => "00110000", 63 => "11101000" );
-signal mem1 : mem_array := (
-    0 => "01011010", 1 => "01111101", 2 => "01110110", 3 => "01101010", 
-    4 => "01011010", 5 => "01000111", 6 => "00110000", 7 => "00011000", 
-    8 => "01011010", 9 => "01101010", 10 => "00110000", 11 => "11101000", 
-    12 => "10100110", 13 => "10000011", 14 => "10001010", 15 => "10111001", 
-    16 => "01011010", 17 => "01000111", 18 => "11010000", 19 => "10000011", 
-    20 => "10100110", 21 => "00011000", 22 => "01110110", 23 => "01101010", 
-    24 => "01011010", 25 => "00011000", 26 => "10001010", 27 => "10111001", 
-    28 => "01011010", 29 => "01101010", 30 => "11010000", 31 => "10000011", 
-    32 => "01011010", 33 => "11101000", 34 => "10001010", 35 => "01000111", 
-    36 => "01011010", 37 => "10010110", 38 => "11010000", 39 => "01111101", 
-    40 => "01011010", 41 => "10111001", 42 => "11010000", 43 => "01111101", 
-    44 => "10100110", 45 => "11101000", 46 => "01110110", 47 => "10010110", 
-    48 => "01011010", 49 => "10010110", 50 => "00110000", 51 => "00011000", 
-    52 => "10100110", 53 => "01111101", 54 => "10001010", 55 => "01000111", 
-    56 => "01011010", 57 => "10000011", 58 => "01110110", 59 => "10010110", 
-    60 => "01011010", 61 => "10111001", 62 => "00110000", 63 => "11101000" );
-signal mem2 : mem_array := (
-    0 => "01011010", 1 => "01111101", 2 => "01110110", 3 => "01101010", 
-    4 => "01011010", 5 => "01000111", 6 => "00110000", 7 => "00011000", 
-    8 => "01011010", 9 => "01101010", 10 => "00110000", 11 => "11101000", 
-    12 => "10100110", 13 => "10000011", 14 => "10001010", 15 => "10111001", 
-    16 => "01011010", 17 => "01000111", 18 => "11010000", 19 => "10000011", 
-    20 => "10100110", 21 => "00011000", 22 => "01110110", 23 => "01101010", 
-    24 => "01011010", 25 => "00011000", 26 => "10001010", 27 => "10111001", 
-    28 => "01011010", 29 => "01101010", 30 => "11010000", 31 => "10000011", 
-    32 => "01011010", 33 => "11101000", 34 => "10001010", 35 => "01000111", 
-    36 => "01011010", 37 => "10010110", 38 => "11010000", 39 => "01111101", 
-    40 => "01011010", 41 => "10111001", 42 => "11010000", 43 => "01111101", 
-    44 => "10100110", 45 => "11101000", 46 => "01110110", 47 => "10010110", 
-    48 => "01011010", 49 => "10010110", 50 => "00110000", 51 => "00011000", 
-    52 => "10100110", 53 => "01111101", 54 => "10001010", 55 => "01000111", 
-    56 => "01011010", 57 => "10000011", 58 => "01110110", 59 => "10010110", 
-    60 => "01011010", 61 => "10111001", 62 => "00110000", 63 => "11101000" );
-signal mem3 : mem_array := (
+signal mem : mem_array := (
     0 => "01011010", 1 => "01111101", 2 => "01110110", 3 => "01101010", 
     4 => "01011010", 5 => "01000111", 6 => "00110000", 7 => "00011000", 
     8 => "01011010", 9 => "01101010", 10 => "00110000", 11 => "11101000", 
@@ -126,15 +47,9 @@ signal mem3 : mem_array := (
     60 => "01011010", 61 => "10111001", 62 => "00110000", 63 => "11101000" );
 
 attribute syn_rom_style : string;
-attribute syn_rom_style of mem0 : signal is "select_rom";
-attribute syn_rom_style of mem1 : signal is "select_rom";
-attribute syn_rom_style of mem2 : signal is "select_rom";
-attribute syn_rom_style of mem3 : signal is "select_rom";
+attribute syn_rom_style of mem : signal is "select_rom";
 attribute ROM_STYLE : string;
-attribute ROM_STYLE of mem0 : signal is "distributed";
-attribute ROM_STYLE of mem1 : signal is "distributed";
-attribute ROM_STYLE of mem2 : signal is "distributed";
-attribute ROM_STYLE of mem3 : signal is "distributed";
+attribute ROM_STYLE of mem : signal is "distributed";
 
 attribute EQUIVALENT_REGISTER_REMOVAL : string;
 begin 
@@ -152,116 +67,11 @@ begin
 --synthesis translate_on
 end process;
 
-memory_access_guard_1: process (addr1) 
-begin
-      addr1_tmp <= addr1;
---synthesis translate_off
-      if (CONV_INTEGER(addr1) > mem_size-1) then
-           addr1_tmp <= (others => '0');
-      else 
-           addr1_tmp <= addr1;
-      end if;
---synthesis translate_on
-end process;
-
-memory_access_guard_2: process (addr2) 
-begin
-      addr2_tmp <= addr2;
---synthesis translate_off
-      if (CONV_INTEGER(addr2) > mem_size-1) then
-           addr2_tmp <= (others => '0');
-      else 
-           addr2_tmp <= addr2;
-      end if;
---synthesis translate_on
-end process;
-
-memory_access_guard_3: process (addr3) 
-begin
-      addr3_tmp <= addr3;
---synthesis translate_off
-      if (CONV_INTEGER(addr3) > mem_size-1) then
-           addr3_tmp <= (others => '0');
-      else 
-           addr3_tmp <= addr3;
-      end if;
---synthesis translate_on
-end process;
-
-memory_access_guard_4: process (addr4) 
-begin
-      addr4_tmp <= addr4;
---synthesis translate_off
-      if (CONV_INTEGER(addr4) > mem_size-1) then
-           addr4_tmp <= (others => '0');
-      else 
-           addr4_tmp <= addr4;
-      end if;
---synthesis translate_on
-end process;
-
-memory_access_guard_5: process (addr5) 
-begin
-      addr5_tmp <= addr5;
---synthesis translate_off
-      if (CONV_INTEGER(addr5) > mem_size-1) then
-           addr5_tmp <= (others => '0');
-      else 
-           addr5_tmp <= addr5;
-      end if;
---synthesis translate_on
-end process;
-
-memory_access_guard_6: process (addr6) 
-begin
-      addr6_tmp <= addr6;
---synthesis translate_off
-      if (CONV_INTEGER(addr6) > mem_size-1) then
-           addr6_tmp <= (others => '0');
-      else 
-           addr6_tmp <= addr6;
-      end if;
---synthesis translate_on
-end process;
-
-memory_access_guard_7: process (addr7) 
-begin
-      addr7_tmp <= addr7;
---synthesis translate_off
-      if (CONV_INTEGER(addr7) > mem_size-1) then
-           addr7_tmp <= (others => '0');
-      else 
-           addr7_tmp <= addr7;
-      end if;
---synthesis translate_on
-end process;
-
 p_rom_access: process (clk)  
 begin 
     if (clk'event and clk = '1') then
         if (ce0 = '1') then 
-            q0 <= mem0(CONV_INTEGER(addr0_tmp)); 
-        end if;
-        if (ce1 = '1') then 
-            q1 <= mem0(CONV_INTEGER(addr1_tmp)); 
-        end if;
-        if (ce2 = '1') then 
-            q2 <= mem1(CONV_INTEGER(addr2_tmp)); 
-        end if;
-        if (ce3 = '1') then 
-            q3 <= mem1(CONV_INTEGER(addr3_tmp)); 
-        end if;
-        if (ce4 = '1') then 
-            q4 <= mem2(CONV_INTEGER(addr4_tmp)); 
-        end if;
-        if (ce5 = '1') then 
-            q5 <= mem2(CONV_INTEGER(addr5_tmp)); 
-        end if;
-        if (ce6 = '1') then 
-            q6 <= mem3(CONV_INTEGER(addr6_tmp)); 
-        end if;
-        if (ce7 = '1') then 
-            q7 <= mem3(CONV_INTEGER(addr7_tmp)); 
+            q0 <= mem(CONV_INTEGER(addr0_tmp)); 
         end if;
     end if;
 end process;
@@ -282,28 +92,7 @@ entity sc_FIFO_DCT_DCT_b_a is
         clk : IN STD_LOGIC;
         address0 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
         ce0 : IN STD_LOGIC;
-        q0 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
-        address1 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
-        ce1 : IN STD_LOGIC;
-        q1 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
-        address2 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
-        ce2 : IN STD_LOGIC;
-        q2 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
-        address3 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
-        ce3 : IN STD_LOGIC;
-        q3 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
-        address4 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
-        ce4 : IN STD_LOGIC;
-        q4 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
-        address5 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
-        ce5 : IN STD_LOGIC;
-        q5 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
-        address6 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
-        ce6 : IN STD_LOGIC;
-        q6 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
-        address7 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
-        ce7 : IN STD_LOGIC;
-        q7 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0));
+        q0 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0));
 end entity;
 
 architecture arch of sc_FIFO_DCT_DCT_b_a is
@@ -312,28 +101,7 @@ architecture arch of sc_FIFO_DCT_DCT_b_a is
             clk : IN STD_LOGIC;
             addr0 : IN STD_LOGIC_VECTOR;
             ce0 : IN STD_LOGIC;
-            q0 : OUT STD_LOGIC_VECTOR;
-            addr1 : IN STD_LOGIC_VECTOR;
-            ce1 : IN STD_LOGIC;
-            q1 : OUT STD_LOGIC_VECTOR;
-            addr2 : IN STD_LOGIC_VECTOR;
-            ce2 : IN STD_LOGIC;
-            q2 : OUT STD_LOGIC_VECTOR;
-            addr3 : IN STD_LOGIC_VECTOR;
-            ce3 : IN STD_LOGIC;
-            q3 : OUT STD_LOGIC_VECTOR;
-            addr4 : IN STD_LOGIC_VECTOR;
-            ce4 : IN STD_LOGIC;
-            q4 : OUT STD_LOGIC_VECTOR;
-            addr5 : IN STD_LOGIC_VECTOR;
-            ce5 : IN STD_LOGIC;
-            q5 : OUT STD_LOGIC_VECTOR;
-            addr6 : IN STD_LOGIC_VECTOR;
-            ce6 : IN STD_LOGIC;
-            q6 : OUT STD_LOGIC_VECTOR;
-            addr7 : IN STD_LOGIC_VECTOR;
-            ce7 : IN STD_LOGIC;
-            q7 : OUT STD_LOGIC_VECTOR);
+            q0 : OUT STD_LOGIC_VECTOR);
     end component;
 
 
@@ -344,28 +112,7 @@ begin
         clk => clk,
         addr0 => address0,
         ce0 => ce0,
-        q0 => q0,
-        addr1 => address1,
-        ce1 => ce1,
-        q1 => q1,
-        addr2 => address2,
-        ce2 => ce2,
-        q2 => q2,
-        addr3 => address3,
-        ce3 => ce3,
-        q3 => q3,
-        addr4 => address4,
-        ce4 => ce4,
-        q4 => q4,
-        addr5 => address5,
-        ce5 => ce5,
-        q5 => q5,
-        addr6 => address6,
-        ce6 => ce6,
-        q6 => q6,
-        addr7 => address7,
-        ce7 => ce7,
-        q7 => q7);
+        q0 => q0);
 
 end architecture;
 

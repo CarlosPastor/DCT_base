@@ -34930,31 +34930,32 @@ _ssdm_SpecArrayPartition( i2, 1, "complete", 0, "");
 #pragma empty_line
     DCT_loop:for (i0 = 0; i0 < 8; i0++)
     {
-_ssdm_Unroll(1, 0, 2, "");
- TA:for (i1 = 0; i1 < 8; i1++)
+     TA:for (i1 = 0; i1 < 8; i1++)
      {
-_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
- multTA:for (i2 = 0; i2 < 8; i2++)
+//#pragma HLS PIPELINE
+      multTA:for (i2 = 0; i2 < 8; i2++)
       {
+//#pragma HLS PIPELINE
        s[i2] = b_a[i0 + (i2 << 3)] * ( mA[i2 + (i1 << 3)] );
       }
       sumTA:for (i2 = 1; i2 < 8; i2++)
       {
-       s[0] += s[i2];
+_ssdm_Unroll(0,0,0, "");
+ s[0] += s[i2];
       }
       a[i0 + (i1 << 3)] = s[0];
      }
      AT:for (i1 = 0; i1 < 8; i1++)
      {
-_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
- multAT:for (i2 = 0; i2 < 8; i2++)
+      multAT:for (i2 = 0; i2 < 8; i2++)
       {
-#pragma empty_line
+//#pragma HLS PIPELINE
        s[i2] = a[i0 + (i2 << 3)] * b[i2 + (i1 << 3)];
       }
       sumAT:for (i2 = 1; i2 < 8; i2++)
       {
-       s[0] += s[i2];
+_ssdm_Unroll(0,0,0, "");
+ s[0] += s[i2];
       }
       mB[i0 + (i1 << 3)] = s[0];
       //Se escala y se pone un ofset para meter el valor en un int

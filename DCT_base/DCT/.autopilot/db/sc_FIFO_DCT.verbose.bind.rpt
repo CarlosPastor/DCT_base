@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'sc_FIFO_DCT'
 ================================================================
-* Date:           Tue Jan 17 02:08:12 2017
+* Date:           Tue Jan 17 18:16:33 2017
 
 * Version:        2016.3 (Build 1682563 on Mon Oct 10 19:41:59 MDT 2016)
 * Project:        DCT_base
@@ -25,23 +25,23 @@
 
 + Latency (clock cycles): 
     * Summary: 
-    +-----+-----+-----+-----+---------+
-    |  Latency  |  Interval | Pipeline|
-    | min | max | min | max |   Type  |
-    +-----+-----+-----+-----+---------+
-    |    0|  492|    1|  493|   none  |
-    +-----+-----+-----+-----+---------+
+    +-----+------+-----+------+---------+
+    |   Latency  |  Interval  | Pipeline|
+    | min |  max | min |  max |   Type  |
+    +-----+------+-----+------+---------+
+    |    0|  7584|    1|  7585|   none  |
+    +-----+------+-----+------+---------+
 
     + Detail: 
         * Instance: 
-        +----------------------------------+-----------------------+-----+-----+-----+-----+---------+
-        |                                  |                       |  Latency  |  Interval | Pipeline|
-        |             Instance             |         Module        | min | max | min | max |   Type  |
-        +----------------------------------+-----------------------+-----+-----+-----+-----+---------+
-        |grp_sc_FIFO_DCT_data_out_fu_160   |sc_FIFO_DCT_data_out   |  134|  134|  134|  134|   none  |
-        |grp_sc_FIFO_DCT_DCT_fu_192        |sc_FIFO_DCT_DCT        |  491|  491|  491|  491|   none  |
-        |grp_sc_FIFO_DCT_buffering_fu_228  |sc_FIFO_DCT_buffering  |    5|    6|    5|    6|   none  |
-        +----------------------------------+-----------------------+-----+-----+-----+-----+---------+
+        +----------------------------------+-----------------------+------+------+------+------+---------+
+        |                                  |                       |   Latency   |   Interval  | Pipeline|
+        |             Instance             |         Module        |  min |  max |  min |  max |   Type  |
+        +----------------------------------+-----------------------+------+------+------+------+---------+
+        |grp_sc_FIFO_DCT_data_out_fu_160   |sc_FIFO_DCT_data_out   |   134|   134|   134|   134|   none  |
+        |grp_sc_FIFO_DCT_DCT_fu_192        |sc_FIFO_DCT_DCT        |  7583|  7583|  7583|  7583|   none  |
+        |grp_sc_FIFO_DCT_buffering_fu_228  |sc_FIFO_DCT_buffering  |     5|     6|     5|     6|   none  |
+        +----------------------------------+-----------------------+------+------+------+------+---------+
 
         * Loop: 
         N/A
@@ -293,7 +293,7 @@ Port [ reset]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; exte
 Port [ enable]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
 Port [ dout]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
 Port [ din]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
-Port [ sc_FIFO_DCT_mA]:  wired=1; compound=1; hidden=1; nouse=0; global=0; static=0; extern=0; dir=2; type=1; pingpong=0; private_global=0; MemPort=[21]; IO mode=ap_memory:ce=0
+Port [ sc_FIFO_DCT_mA]:  wired=1; compound=1; hidden=1; nouse=0; global=0; static=0; extern=0; dir=2; type=1; pingpong=0; private_global=0; MemPort=[23]; IO mode=ap_memory:ce=0
 Port [ sc_FIFO_DCT_mB]:  wired=1; compound=1; hidden=1; nouse=0; global=0; static=0; extern=0; dir=1; type=1; pingpong=0; private_global=0; MemPort=[03]; IO mode=ap_memory:ce=0
 Port [ sc_FIFO_DCT_mC]:  wired=1; compound=1; hidden=1; nouse=0; global=0; static=0; extern=0; dir=2; type=1; pingpong=0; private_global=0; MemPort=[23]; IO mode=ap_memory:ce=0
 Port [ sc_FIFO_DCT_exec_cnt]:  wired=1; compound=0; hidden=1; nouse=0; global=0; static=0; extern=0; dir=2; type=0; pingpong=0; private_global=0; IO mode=ap_ovld:ce=0
@@ -304,8 +304,8 @@ Port [ s_DCT]:  wired=1; compound=0; hidden=1; nouse=0; global=0; static=0; exte
 Port [ s_done]:  wired=1; compound=0; hidden=1; nouse=0; global=0; static=0; extern=0; dir=2; type=0; pingpong=0; private_global=0; IO mode=ap_ovld:ce=0
 Port [ sc_FIFO_DCT_ssdm_thread_M_buffering]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=0; extern=1; dir=0; type=0; pingpong=0; private_global=1; linkage=0; visibility=0; IO mode=ap_none:ce=0
 Port [ sc_FIFO_DCT_ssdm_thread_M_DCT]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=0; extern=1; dir=0; type=0; pingpong=0; private_global=1; linkage=0; visibility=0; IO mode=ap_none:ce=0
-Port [ b_a]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[11111111]; IO mode=ap_memory:ce=0
-Port [ b]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[11111111]; IO mode=ap_memory:ce=0
+Port [ b_a]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ b]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
 Port [ sc_FIFO_DCT_ssdm_thread_M_data_out]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=0; extern=1; dir=0; type=0; pingpong=0; private_global=1; linkage=0; visibility=0; IO mode=ap_none:ce=0
 ---------------- STG Properties END ------------------
 
@@ -428,7 +428,7 @@ StgValue_65        (unreachable    ) [ 000]
 <pin id="11" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="sc_FIFO_DCT_mA"/><MemPortTyVec>2 1 </MemPortTyVec>
+<StgValue><ssdm name="sc_FIFO_DCT_mA"/><MemPortTyVec>2 3 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
@@ -530,7 +530,7 @@ StgValue_65        (unreachable    ) [ 000]
 <pin id="33" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="b_a"/><MemPortTyVec>1 1 1 1 1 1 1 1 </MemPortTyVec>
+<StgValue><ssdm name="b_a"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
@@ -540,7 +540,7 @@ StgValue_65        (unreachable    ) [ 000]
 <pin id="35" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="b"/><MemPortTyVec>1 1 1 1 1 1 1 1 </MemPortTyVec>
+<StgValue><ssdm name="b"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
@@ -1286,7 +1286,7 @@ StgValue_65        (unreachable    ) [ 000]
 | Operation|          Functional Unit         |   BRAM  |  DSP48E |  Delay  |    FF   |   LUT   |
 |----------|----------------------------------|---------|---------|---------|---------|---------|
 |          |  grp_sc_FIFO_DCT_data_out_fu_160 |    0    |    0    |  3.142  |    20   |    17   |
-|   call   |    grp_sc_FIFO_DCT_DCT_fu_192    |    2    |    64   |  80.843 |   3924  |   1516  |
+|   call   |    grp_sc_FIFO_DCT_DCT_fu_192    |    1    |    4    |  14.139 |   2457  |   1793  |
 |          | grp_sc_FIFO_DCT_buffering_fu_228 |    0    |    0    |  1.571  |    32   |    44   |
 |----------|----------------------------------|---------|---------|---------|---------|---------|
 |          |     StgValue_49_write_fu_112     |    0    |    0    |    0    |    0    |    0    |
@@ -1296,20 +1296,20 @@ StgValue_65        (unreachable    ) [ 000]
 |          |     StgValue_53_write_fu_144     |    0    |    0    |    0    |    0    |    0    |
 |          |     StgValue_54_write_fu_152     |    0    |    0    |    0    |    0    |    0    |
 |----------|----------------------------------|---------|---------|---------|---------|---------|
-|   Total  |                                  |    2    |    64   |  85.556 |   3976  |   1577  |
+|   Total  |                                  |    1    |    4    |  18.852 |   2509  |   1854  |
 |----------|----------------------------------|---------|---------|---------|---------|---------|
 
 Memories:
 +--------------+--------+--------+--------+
 |              |  BRAM  |   FF   |   LUT  |
 +--------------+--------+--------+--------+
-|       b      |    0   |   64   |    8   |
-|      b_a     |    0   |   64   |    8   |
-|sc_FIFO_DCT_mA|    2   |    0   |    0   |
+|       b      |    0   |    8   |    8   |
+|      b_a     |    0   |    8   |    8   |
+|sc_FIFO_DCT_mA|    1   |    0   |    0   |
 |sc_FIFO_DCT_mB|    1   |    0   |    0   |
 |sc_FIFO_DCT_mC|    1   |    0   |    0   |
 +--------------+--------+--------+--------+
-|     Total    |    4   |   128  |   16   |
+|     Total    |    3   |   16   |   16   |
 +--------------+--------+--------+--------+
 
 * Register list:
@@ -1335,10 +1335,10 @@ Memories:
 +-----------+--------+--------+--------+--------+--------+
 |           |  BRAM  | DSP48E |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+--------+--------+
-|  Function |    2   |   64   |   85   |  3976  |  1577  |
-|   Memory  |    4   |    -   |    -   |   128  |   16   |
+|  Function |    1   |    4   |   18   |  2509  |  1854  |
+|   Memory  |    3   |    -   |    -   |   16   |   16   |
 |Multiplexer|    -   |    -   |    -   |    -   |    -   |
 |  Register |    -   |    -   |    -   |    2   |    -   |
 +-----------+--------+--------+--------+--------+--------+
-|   Total   |    6   |   64   |   85   |  4106  |  1593  |
+|   Total   |    4   |    4   |   18   |  2527  |  1870  |
 +-----------+--------+--------+--------+--------+--------+

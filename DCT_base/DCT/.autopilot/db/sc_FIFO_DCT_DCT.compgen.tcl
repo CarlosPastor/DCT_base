@@ -67,7 +67,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_multicycle_mul, che
 }
 
 
-set id 16
+set id 1
 set name sc_FIFO_DCT_mul_3cud
 set corename simcore_mul
 set op mul
@@ -135,10 +135,10 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_multicycle_mul, che
 
 
 # Memory (RAM/ROM)  definition:
-set ID 32
+set ID 2
 set MemName sc_FIFO_DCT_DCT_b_a
 set CoreName ap_simcore_mem
-set PortList { 1 1 1 1 1 1 1 1 }
+set PortList { 1 }
 set DataWd 8
 set AddrRange 64
 set AddrWd 6
@@ -163,7 +163,7 @@ if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
     sync_rst true \
     stage_num ${NumOfStage}  \
     registered_input ${RegisteredInput} \
-    port_num 8 \
+    port_num 1 \
     port_list \{${PortList}\} \
     data_wd ${DataWd} \
     addr_wd ${AddrWd} \
@@ -197,7 +197,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_ROM] == "::AESL_LIB_VIRTEX::xil_gen_RO
     sync_rst true \
     stage_num ${NumOfStage}  \
     registered_input ${RegisteredInput} \
-    port_num 8 \
+    port_num 1 \
     port_list \{${PortList}\} \
     data_wd ${DataWd} \
     addr_wd ${AddrWd} \
@@ -215,10 +215,10 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_ROM] == "::AESL_LIB_VIRTEX::xil_gen_RO
 
 
 # Memory (RAM/ROM)  definition:
-set ID 33
+set ID 3
 set MemName sc_FIFO_DCT_DCT_b
 set CoreName ap_simcore_mem
-set PortList { 1 1 1 1 1 1 1 1 }
+set PortList { 1 }
 set DataWd 8
 set AddrRange 64
 set AddrWd 6
@@ -243,7 +243,7 @@ if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
     sync_rst true \
     stage_num ${NumOfStage}  \
     registered_input ${RegisteredInput} \
-    port_num 8 \
+    port_num 1 \
     port_list \{${PortList}\} \
     data_wd ${DataWd} \
     addr_wd ${AddrWd} \
@@ -277,7 +277,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_ROM] == "::AESL_LIB_VIRTEX::xil_gen_RO
     sync_rst true \
     stage_num ${NumOfStage}  \
     registered_input ${RegisteredInput} \
-    port_num 8 \
+    port_num 1 \
     port_list \{${PortList}\} \
     data_wd ${DataWd} \
     addr_wd ${AddrWd} \
@@ -295,10 +295,10 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_ROM] == "::AESL_LIB_VIRTEX::xil_gen_RO
 
 
 # Memory (RAM/ROM)  definition:
-set ID 34
+set ID 4
 set MemName sc_FIFO_DCT_DCT_a
 set CoreName ap_simcore_mem
-set PortList { 2 2 }
+set PortList { 2 3 }
 set DataWd 32
 set AddrRange 64
 set AddrWd 6
@@ -387,14 +387,14 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 35 \
+    id 5 \
     name sc_FIFO_DCT_mA \
     reset_level 1 \
     sync_rst true \
     dir I \
     corename sc_FIFO_DCT_mA \
     op interface \
-    ports { sc_FIFO_DCT_mA_address0 { O 6 vector } sc_FIFO_DCT_mA_ce0 { O 1 bit } sc_FIFO_DCT_mA_q0 { I 32 vector } sc_FIFO_DCT_mA_address1 { O 6 vector } sc_FIFO_DCT_mA_ce1 { O 1 bit } sc_FIFO_DCT_mA_q1 { I 32 vector } } \
+    ports { sc_FIFO_DCT_mA_address0 { O 6 vector } sc_FIFO_DCT_mA_ce0 { O 1 bit } sc_FIFO_DCT_mA_q0 { I 32 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'sc_FIFO_DCT_mA'"
@@ -406,7 +406,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 36 \
+    id 6 \
     name sc_FIFO_DCT_mB \
     reset_level 1 \
     sync_rst true \
@@ -425,7 +425,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 37 \
+    id 7 \
     name sc_FIFO_DCT_mC \
     reset_level 1 \
     sync_rst true \
@@ -443,7 +443,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 38 \
+    id 8 \
     name sc_FIFO_DCT_exec_cnt \
     type other \
     dir IO \
@@ -458,7 +458,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 39 \
+    id 9 \
     name s_buffered \
     type other \
     dir I \
@@ -473,7 +473,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 40 \
+    id 10 \
     name s_working \
     type other \
     dir O \
@@ -488,7 +488,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 41 \
+    id 11 \
     name s_DCT \
     type other \
     dir O \
@@ -503,7 +503,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 42 \
+    id 12 \
     name s_done \
     type other \
     dir I \

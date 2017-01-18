@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="sc_FIFO_DCT,hls_ip_2016_3,{HLS_INPUT_TYPE=sc,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7a35ticpg236-1l,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.620000,HLS_SYN_LAT=106,HLS_SYN_TPT=none,HLS_SYN_MEM=6,HLS_SYN_DSP=64,HLS_SYN_FF=2835,HLS_SYN_LUT=1809}" *)
+(* CORE_GENERATION_INFO="sc_FIFO_DCT,hls_ip_2016_3,{HLS_INPUT_TYPE=sc,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7a35ticpg236-1l,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.620000,HLS_SYN_LAT=1288,HLS_SYN_TPT=none,HLS_SYN_MEM=4,HLS_SYN_DSP=4,HLS_SYN_FF=1980,HLS_SYN_LUT=2992}" *)
 
 module sc_FIFO_DCT (
         clock,
@@ -38,7 +38,6 @@ output   din_read;
 reg   [5:0] sc_FIFO_DCT_mA_address0;
 reg    sc_FIFO_DCT_mA_ce0;
 wire   [31:0] sc_FIFO_DCT_mA_q0;
-wire   [31:0] sc_FIFO_DCT_mA_q1;
 reg   [5:0] sc_FIFO_DCT_mC_address0;
 reg    sc_FIFO_DCT_mC_ce0;
 wire   [31:0] sc_FIFO_DCT_mC_q0;
@@ -55,8 +54,6 @@ wire    grp_sc_FIFO_DCT_data_out_fu_160_s_done;
 wire    grp_sc_FIFO_DCT_data_out_fu_160_s_done_ap_vld;
 wire   [5:0] grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address0;
 wire    grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0;
-wire   [5:0] grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address1;
-wire    grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce1;
 wire   [5:0] grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_address0;
 wire    grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_ce0;
 wire    grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_we0;
@@ -89,7 +86,7 @@ reg   [0:0] s_DCT;
 reg   [0:0] s_done;
 wire   [0:0] sc_FIFO_DCT_ssdm_2_load_fu_268_p1;
 
-sc_FIFO_DCT_sc_FIdEe #(
+sc_FIFO_DCT_DCT_a #(
     .DataWidth( 32 ),
     .AddressRange( 64 ),
     .AddressWidth( 6 ))
@@ -100,10 +97,7 @@ sc_FIFO_DCT_mA_U(
     .ce0(sc_FIFO_DCT_mA_ce0),
     .we0(grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_we0),
     .d0(grp_sc_FIFO_DCT_buffering_fu_228_sc_FIFO_DCT_mA_d0),
-    .q0(sc_FIFO_DCT_mA_q0),
-    .address1(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address1),
-    .ce1(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce1),
-    .q1(sc_FIFO_DCT_mA_q1)
+    .q0(sc_FIFO_DCT_mA_q0)
 );
 
 sc_FIFO_DCT_sc_FIeOg #(
@@ -119,7 +113,7 @@ sc_FIFO_DCT_mB_U(
     .d0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_d0)
 );
 
-sc_FIFO_DCT_sc_FIfYi #(
+sc_FIFO_DCT_DCT_a #(
     .DataWidth( 32 ),
     .AddressRange( 64 ),
     .AddressWidth( 6 ))
@@ -153,9 +147,6 @@ sc_FIFO_DCT_DCT grp_sc_FIFO_DCT_DCT_fu_192(
     .sc_FIFO_DCT_mA_address0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address0),
     .sc_FIFO_DCT_mA_ce0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0),
     .sc_FIFO_DCT_mA_q0(sc_FIFO_DCT_mA_q0),
-    .sc_FIFO_DCT_mA_address1(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address1),
-    .sc_FIFO_DCT_mA_ce1(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce1),
-    .sc_FIFO_DCT_mA_q1(sc_FIFO_DCT_mA_q1),
     .sc_FIFO_DCT_mB_address0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_address0),
     .sc_FIFO_DCT_mB_ce0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_ce0),
     .sc_FIFO_DCT_mB_we0(grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_we0),

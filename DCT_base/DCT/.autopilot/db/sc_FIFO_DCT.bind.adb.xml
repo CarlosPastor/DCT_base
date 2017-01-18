@@ -1084,7 +1084,7 @@ UnifiedUnreachableBlock:0  unreachable
 <core>FIFO</core><StgValue><ssdm name="din"/></StgValue>
 </port>
 <port id="77" name="sc_FIFO_DCT_mA" dir="2" iftype="1">
-<core>RAM</core><StgValue><ssdm name="sc_FIFO_DCT_mA"/><MemPortTyVec>2 1 </MemPortTyVec>
+<core>RAM</core><StgValue><ssdm name="sc_FIFO_DCT_mA"/><MemPortTyVec>2 3 </MemPortTyVec>
 </StgValue>
 </port>
 <port id="78" name="sc_FIFO_DCT_mB" dir="1" iftype="1">
@@ -1120,11 +1120,11 @@ UnifiedUnreachableBlock:0  unreachable
 <core>NULL</core><StgValue><ssdm name="sc_FIFO_DCT_ssdm_thread_M_DCT"/></StgValue>
 </port>
 <port id="88" name="b_a" dir="0" iftype="1">
-<core>ROM_nP</core><StgValue><ssdm name="b_a"/><MemPortTyVec>1 1 1 1 1 1 1 1 </MemPortTyVec>
+<core>ROM_nP</core><StgValue><ssdm name="b_a"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </port>
 <port id="89" name="b" dir="0" iftype="1">
-<core>ROM_nP</core><StgValue><ssdm name="b"/><MemPortTyVec>1 1 1 1 1 1 1 1 </MemPortTyVec>
+<core>ROM_nP</core><StgValue><ssdm name="b"/><MemPortTyVec>1 </MemPortTyVec>
 </StgValue>
 </port>
 <port id="90" name="sc_FIFO_DCT_ssdm_thread_M_data_out" dir="0" iftype="0">

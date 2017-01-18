@@ -561,10 +561,10 @@
 #pragma line 66 "sc_FIFO_DCT.cpp" ::: 34163
 #pragma line 68 "sc_FIFO_DCT.cpp" ::: 34165
 #pragma line 71 "sc_FIFO_DCT.cpp" ::: 34168
-#pragma line 122 "sc_FIFO_DCT.cpp" ::: 34221
-#pragma line 125 "sc_FIFO_DCT.cpp" ::: 34244
-#pragma line 126 "sc_FIFO_DCT.cpp" ::: 34246
-#pragma line 128 "sc_FIFO_DCT.cpp" ::: 34248
-#pragma line 131 "sc_FIFO_DCT.cpp" ::: 34251
-#pragma line 149 "sc_FIFO_DCT.cpp" ::: 34271
-#pragma line 156 "sc_FIFO_DCT.cpp" ::: 34279
+#pragma line 123 "sc_FIFO_DCT.cpp" ::: 34222
+#pragma line 126 "sc_FIFO_DCT.cpp" ::: 34245
+#pragma line 127 "sc_FIFO_DCT.cpp" ::: 34247
+#pragma line 129 "sc_FIFO_DCT.cpp" ::: 34249
+#pragma line 132 "sc_FIFO_DCT.cpp" ::: 34252
+#pragma line 150 "sc_FIFO_DCT.cpp" ::: 34272
+#pragma line 157 "sc_FIFO_DCT.cpp" ::: 34280

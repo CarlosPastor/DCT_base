@@ -1,14 +1,5 @@
 <project xmlns="com.autoesl.autopilot.project" name="DCT_base" top="sc_FIFO_DCT" projectType="SystemC">
-    <includePaths/>
-    <libraryPaths/>
-    <Simulation>
-        <SimFlow name="csim" csimMode="0" lastCsimMode="0"/>
-    </Simulation>
-    <solutions xmlns="">
-        <solution name="DCT_simul" status="inactive"/>
-        <solution name="DCT" status="active"/>
-    </solutions>
-    <files xmlns="">
+    <files>
         <file name="../../testbench_Top.cpp" sc="1" tb="1" cflags=" "/>
         <file name="../../tb_init.h" sc="1" tb="1" cflags=" "/>
         <file name="../../tb_init.cpp" sc="1" tb="1" cflags=" "/>
@@ -26,5 +17,14 @@
         <file name="sc_FIFO_DCT.h" sc="1" tb="false" cflags=""/>
         <file name="sc_FIFO_DCT.cpp" sc="1" tb="false" cflags=""/>
     </files>
+    <includePaths/>
+    <libraryPaths/>
+    <Simulation>
+        <SimFlow name="csim" csimMode="0" lastCsimMode="0"/>
+    </Simulation>
+    <solutions xmlns="">
+        <solution name="DCT_simul" status="inactive"/>
+        <solution name="DCT" status="active"/>
+    </solutions>
 </project>
 

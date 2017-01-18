@@ -168,7 +168,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item class_id="10" tracking_level="0" version="0">
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second class_id="11" tracking_level="0" version="0">
                     <count>1</count>
                     <item_version>0</item_version>
@@ -210,7 +210,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -254,7 +254,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -296,7 +296,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -340,7 +340,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -382,7 +382,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -426,7 +426,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -470,7 +470,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -514,7 +514,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -558,7 +558,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -602,7 +602,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -646,7 +646,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -690,7 +690,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -731,7 +731,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -815,7 +815,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -901,7 +901,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>C:\Users\alienBot\Desktop\DCT_base-master\DCT_base-master</first>
+                  <first>C:\Users\alienBot\Documents\GitHub\DCT_base</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -1848,7 +1848,7 @@
         <mDepth>-1</mDepth>
         <mMinTripCount>-1</mMinTripCount>
         <mMaxTripCount>-1</mMaxTripCount>
-        <mMinLatency>492</mMinLatency>
+        <mMinLatency>7584</mMinLatency>
         <mMaxLatency>-1</mMaxLatency>
         <mIsDfPipe>0</mIsDfPipe>
         <mDfPipe class_id="-1"/>
@@ -2248,19 +2248,19 @@
             <item_version>0</item_version>
             <item class_id="40" tracking_level="0" version="0">
               <first>BRAM</first>
-              <second>2</second>
+              <second>1</second>
             </item>
             <item>
               <first>DSP48E</first>
-              <second>64</second>
+              <second>4</second>
             </item>
             <item>
               <first>FF</first>
-              <second>2740</second>
+              <second>1885</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>1657</second>
+              <second>2840</second>
             </item>
           </second>
         </item>
@@ -2329,7 +2329,7 @@
             </item>
             <item>
               <first>BRAM</first>
-              <second>2</second>
+              <second>1</second>
             </item>
             <item>
               <first>FF</first>
@@ -2774,7 +2774,7 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>30</item>
+            <item>27</item>
           </second>
         </item>
         <item>
@@ -2782,7 +2782,7 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>39</item>
+            <item>35</item>
           </second>
         </item>
       </dp_memory_map>

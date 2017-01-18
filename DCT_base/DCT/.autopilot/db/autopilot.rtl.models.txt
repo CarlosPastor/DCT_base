@@ -6,7 +6,5 @@ sc_FIFO_DCT_DCT_a
 sc_FIFO_DCT_DCT
 sc_FIFO_DCT_buffering
 sc_FIFO_DCT_data_out
-sc_FIFO_DCT_sc_FIdEe
 sc_FIFO_DCT_sc_FIeOg
-sc_FIFO_DCT_sc_FIfYi
 sc_FIFO_DCT

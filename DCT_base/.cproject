@@ -29,9 +29,9 @@
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/Users/alienBot/Documents/GitHub/DCT_base"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/include/ap_sysc"/>
-									<listOptionValue builtIn="false" value="C:/Users/bot/Documents/GitHub/DCT_base"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/win64/tools/systemc/include"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/include"/>
+									<listOptionValue builtIn="false" value="C:/Users/bot/Documents/GitHub/DCT_base"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.636957461" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AESL_TB"/>
@@ -48,9 +48,9 @@
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/Users/alienBot/Documents/GitHub/DCT_base"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/include/ap_sysc"/>
-									<listOptionValue builtIn="false" value="C:/Users/bot/Documents/GitHub/DCT_base"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/win64/tools/systemc/include"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/include"/>
+									<listOptionValue builtIn="false" value="C:/Users/bot/Documents/GitHub/DCT_base"/>
 								</option>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.718787124" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AESL_TB"/>
@@ -121,9 +121,9 @@
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/Users/alienBot/Documents/GitHub/DCT_base"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/include/ap_sysc"/>
-									<listOptionValue builtIn="false" value="C:/Users/bot/Documents/GitHub/DCT_base"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/win64/tools/systemc/include"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/include"/>
+									<listOptionValue builtIn="false" value="C:/Users/bot/Documents/GitHub/DCT_base"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1960481241" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -135,9 +135,9 @@
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/Users/alienBot/Documents/GitHub/DCT_base"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/include/ap_sysc"/>
-									<listOptionValue builtIn="false" value="C:/Users/bot/Documents/GitHub/DCT_base"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/win64/tools/systemc/include"/>
 									<listOptionValue builtIn="false" value="C:/Xilinx/Vivado_HLS/2016.3/include"/>
+									<listOptionValue builtIn="false" value="C:/Users/bot/Documents/GitHub/DCT_base"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.762724453" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>

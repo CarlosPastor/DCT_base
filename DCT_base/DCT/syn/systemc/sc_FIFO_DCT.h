@@ -14,9 +14,8 @@
 #include "sc_FIFO_DCT_data_out.h"
 #include "sc_FIFO_DCT_DCT.h"
 #include "sc_FIFO_DCT_buffering.h"
-#include "sc_FIFO_DCT_sc_FIdEe.h"
+#include "sc_FIFO_DCT_DCT_a.h"
 #include "sc_FIFO_DCT_sc_FIeOg.h"
-#include "sc_FIFO_DCT_sc_FIfYi.h"
 
 namespace ap_rtl {
 
@@ -43,16 +42,15 @@ struct sc_FIFO_DCT : public sc_module {
 
     ofstream mHdltvinHandle;
     ofstream mHdltvoutHandle;
-    sc_FIFO_DCT_sc_FIdEe* sc_FIFO_DCT_mA_U;
+    sc_FIFO_DCT_DCT_a* sc_FIFO_DCT_mA_U;
     sc_FIFO_DCT_sc_FIeOg* sc_FIFO_DCT_mB_U;
-    sc_FIFO_DCT_sc_FIfYi* sc_FIFO_DCT_mC_U;
+    sc_FIFO_DCT_DCT_a* sc_FIFO_DCT_mC_U;
     sc_FIFO_DCT_data_out* grp_sc_FIFO_DCT_data_out_fu_160;
     sc_FIFO_DCT_DCT* grp_sc_FIFO_DCT_DCT_fu_192;
     sc_FIFO_DCT_buffering* grp_sc_FIFO_DCT_buffering_fu_228;
     sc_signal< sc_lv<6> > sc_FIFO_DCT_mA_address0;
     sc_signal< sc_logic > sc_FIFO_DCT_mA_ce0;
     sc_signal< sc_lv<32> > sc_FIFO_DCT_mA_q0;
-    sc_signal< sc_lv<32> > sc_FIFO_DCT_mA_q1;
     sc_signal< sc_lv<6> > sc_FIFO_DCT_mC_address0;
     sc_signal< sc_logic > sc_FIFO_DCT_mC_ce0;
     sc_signal< sc_lv<32> > sc_FIFO_DCT_mC_q0;
@@ -69,8 +67,6 @@ struct sc_FIFO_DCT : public sc_module {
     sc_signal< sc_logic > grp_sc_FIFO_DCT_data_out_fu_160_s_done_ap_vld;
     sc_signal< sc_lv<6> > grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address0;
     sc_signal< sc_logic > grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce0;
-    sc_signal< sc_lv<6> > grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_address1;
-    sc_signal< sc_logic > grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mA_ce1;
     sc_signal< sc_lv<6> > grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_address0;
     sc_signal< sc_logic > grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_ce0;
     sc_signal< sc_logic > grp_sc_FIFO_DCT_DCT_fu_192_sc_FIFO_DCT_mB_we0;

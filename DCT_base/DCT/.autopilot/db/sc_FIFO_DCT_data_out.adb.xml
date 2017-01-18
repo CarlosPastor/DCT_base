@@ -429,10 +429,10 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:23  %empty = call i32 (...)* @_ssdm_op_SpecState
 
 <Node id="39" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32">
 <![CDATA[
-_ZN7_ap_sc_7sc_core4waitEi.exit:24  %empty_8 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str8, i32 %tmp_3)
+_ZN7_ap_sc_7sc_core4waitEi.exit:24  %empty_6 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str8, i32 %tmp_3)
 
 ]]></Node>
-<StgValue><ssdm name="empty_8"/></StgValue>
+<StgValue><ssdm name="empty_6"/></StgValue>
 </operation>
 </state>
 
@@ -603,10 +603,10 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:26  br label %0
 
 <Node id="52" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-:3  %empty_9 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)
+:3  %empty_7 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)
 
 ]]></Node>
-<StgValue><ssdm name="empty_9"/></StgValue>
+<StgValue><ssdm name="empty_7"/></StgValue>
 </operation>
 
 <operation id="44" st_id="4" stage="1" lat="1">
@@ -1114,11 +1114,11 @@ _ZN7_ap_sc_7sc_core4waitEi.exit2:7  br label %0
 </dataflow>
 <dataflow id="204" from="p_ssdm_reset_v" to="empty" fromId="30" toId="31">
 </dataflow>
-<dataflow id="206" from="_ssdm_op_SpecRegionEnd" to="empty_8" fromId="205" toId="32">
+<dataflow id="206" from="_ssdm_op_SpecRegionEnd" to="empty_6" fromId="205" toId="32">
 </dataflow>
-<dataflow id="207" from="p_str8" to="empty_8" fromId="190" toId="32">
+<dataflow id="207" from="p_str8" to="empty_6" fromId="190" toId="32">
 </dataflow>
-<dataflow id="208" from="tmp_3" to="empty_8" fromId="28" toId="32">
+<dataflow id="208" from="tmp_3" to="empty_6" fromId="28" toId="32">
 </dataflow>
 <dataflow id="210" from="_ssdm_op_Wait" to="StgValue_33" fromId="209" toId="33">
 </dataflow>
@@ -1160,13 +1160,13 @@ _ZN7_ap_sc_7sc_core4waitEi.exit2:7  br label %0
 </dataflow>
 <dataflow id="230" from="StgValue_229" to="exitcond" fromId="229" toId="42">
 </dataflow>
-<dataflow id="232" from="_ssdm_op_SpecLoopTripCount" to="empty_9" fromId="231" toId="43">
+<dataflow id="232" from="_ssdm_op_SpecLoopTripCount" to="empty_7" fromId="231" toId="43">
 </dataflow>
-<dataflow id="234" from="StgValue_233" to="empty_9" fromId="233" toId="43">
+<dataflow id="234" from="StgValue_233" to="empty_7" fromId="233" toId="43">
 </dataflow>
-<dataflow id="235" from="StgValue_233" to="empty_9" fromId="233" toId="43">
+<dataflow id="235" from="StgValue_233" to="empty_7" fromId="233" toId="43">
 </dataflow>
-<dataflow id="236" from="StgValue_233" to="empty_9" fromId="233" toId="43">
+<dataflow id="236" from="StgValue_233" to="empty_7" fromId="233" toId="43">
 </dataflow>
 <dataflow id="237" from="i" to="i_1" fromId="40" toId="44">
 </dataflow>

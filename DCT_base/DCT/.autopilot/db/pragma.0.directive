@@ -30,15 +30,10 @@
 </pragma>
 </directive>
 <directive functionLabel="" functionName="sc_FIFO_DCT::DCT" label="">
-<pragma name="UNROLL">
-<option name="factor" value="2"/>
-</pragma>
+<pragma name="UNROLL"/>
 </directive>
 <directive functionLabel="" functionName="sc_FIFO_DCT::DCT" label="">
-<pragma name="PIPELINE"/>
-</directive>
-<directive functionLabel="" functionName="sc_FIFO_DCT::DCT" label="">
-<pragma name="PIPELINE"/>
+<pragma name="UNROLL"/>
 </directive>
 </sourceFile>
 </AutoPilot:ProjectResources>

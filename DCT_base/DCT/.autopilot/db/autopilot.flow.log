@@ -1,4 +1,4 @@
-@I [HLS-0] Workspace C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT opened at Tue Jan 17 02:07:23 +0100 2017
+@I [HLS-0] Workspace C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT opened at Wed Jan 18 22:39:35 +0100 2017
 @I [HLS-100] Execute     config_clock -quiet -name default -period 10 -default=false 
 @I [SYN-201] Setting up clock 'default' with a period of 10ns.
 @I [HLS-100] Command     config_clock returned 0; 0 sec.
@@ -8,82 +8,82 @@
 @I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx.lib 
 @I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/xilinx_interface.lib 
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/plb46.lib 
-@I [HLS-100] Command           ap_source returned 0; 0.002 sec.
-@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/fsl.lib 
 @I [HLS-100] Command           ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/fsl.lib 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/axi4.lib 
-@I [HLS-100] Command           ap_source returned 0; 0.002 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.001 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/maxi.lib 
 @I [HLS-100] Command           ap_source returned 0; 0.001 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/saxilite.lib 
 @I [HLS-100] Command           ap_source returned 0; 0.001 sec.
-@I [HLS-100] Command         ap_source returned 0; 0.013 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.005 sec.
 @I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/dsp48.lib 
-@I [HLS-100] Command         ap_source returned 0; 0.002 sec.
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
 @I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/dds_compiler.lib 
-@I [HLS-100] Command         ap_source returned 0; 0.002 sec.
-@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/xfft.lib 
-@I [HLS-100] Command         ap_source returned 0; 0.002 sec.
-@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/xfir.lib 
 @I [HLS-100] Command         ap_source returned 0; 0.001 sec.
-@I [HLS-100] Command       ap_source returned 0; 0.031 sec.
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/xfft.lib 
+@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/xfir.lib 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.012 sec.
 @I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx_old.lib 
-@I [HLS-100] Command       ap_source returned 0; 0.002 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
 @I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx_vivado.lib 
-@I [HLS-100] Command       ap_source returned 0; 0.002 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
 @I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx.hlp 
 @I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/target_info.tcl 
-@I [HLS-100] Command         ap_source returned 0; 0.002 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
 @I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/xilinx_interface.hlp 
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/maxi.hlp 
 @I [HLS-100] Command           ap_source returned 0; 0.001 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/saxilite.hlp 
-@I [HLS-100] Command           ap_source returned 0; 0.001 sec.
-@I [HLS-100] Command         ap_source returned 0; 0.003 sec.
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
 @I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/dsp48.hlp 
-@I [HLS-100] Command         ap_source returned 0; 0.002 sec.
-@I [HLS-100] Command       ap_source returned 0; 0.01 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.005 sec.
 @I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/artix7/dsp48e1.hlp 
 @I [HLS-100] Command       ap_source returned 0; 0.001 sec.
 @I [HLS-100] Execute       get_default_platform 
 @I [HLS-100] Command       get_default_platform returned 0; 0 sec.
 @I [HLS-100] Execute       config_chip_info -quiet -resource  {SLICE 15850} {LUT 63400}     {FF 126800} {DSP48E 240}    {BRAM 270}  
-@I [HLS-100] Command       config_chip_info returned 0; 0 sec.
+@I [HLS-100] Command       config_chip_info returned 0; 0.001 sec.
 @I [HLS-100] Execute       config_chip_info -quiet -speed medium 
 @I [HLS-100] Command       config_chip_info returned 0; 0 sec.
-@I [HLS-100] Command     import_lib returned 0; 0.06 sec.
+@I [HLS-100] Command     import_lib returned 0; 0.028 sec.
 @I [HLS-100] Execute     source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/artix7/artix7.gen 
 @I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/virtex.gen 
 @I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx.gen 
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/plb46.gen 
 @I [HLS-100] Command           ap_source returned 0; 0.001 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/fsl.gen 
-@I [HLS-100] Command           ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/axi4.gen 
-@I [HLS-100] Command           ap_source returned 0; 0.003 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.002 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/nativeAXI4.gen 
 @I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/saxilite.gen 
 @I [HLS-100] Command             ap_source returned 0; 0.004 sec.
 @I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/maxi.gen 
-@I [HLS-100] Command             ap_source returned 0; 0.008 sec.
-@I [HLS-100] Command           ap_source returned 0; 0.014 sec.
+@I [HLS-100] Command             ap_source returned 0; 0.009 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.015 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/scripts/xilinxcoregen.gen 
-@I [HLS-100] Command           ap_source returned 0; 0.01 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.011 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-@I [HLS-100] Command           ap_source returned 0; 0.009 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.01 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/dds_compiler.gen 
 @I [HLS-100] Command           ap_source returned 0; 0.004 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/util.gen 
 @I [HLS-100] Command           ap_source returned 0; 0 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/xfft.gen 
-@I [HLS-100] Command           ap_source returned 0; 0.103 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.123 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/xfir.gen 
-@I [HLS-100] Command           ap_source returned 0; 0.002 sec.
-@I [HLS-100] Command         ap_source returned 0; 0.151 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.171 sec.
 @I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/dsp48.gen 
 @I [HLS-100] Command         ap_source returned 0; 0 sec.
-@I [HLS-100] Command       ap_source returned 0; 0.156 sec.
-@I [HLS-100] Command     ap_source returned 0; 0.156 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.174 sec.
+@I [HLS-100] Command     ap_source returned 0; 0.174 sec.
 @I [HLS-100] Execute     open_platform DefaultPlatform 
 @I [HLS-100] Command     open_platform returned 0; 0 sec.
 @I [HLS-100] Execute     import_lib C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/artix7/artix7_fpv6 
@@ -94,7 +94,7 @@
 @I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx_fpv.hlp 
 @I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx.hlp 
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/target_info.tcl 
-@I [HLS-100] Command           ap_source returned 0; 0.004 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.027 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/xilinx_interface.hlp 
 @I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/maxi.hlp 
 @I [HLS-100] Command             ap_source returned 0; 0 sec.
@@ -102,22 +102,22 @@
 @I [HLS-100] Command             ap_source returned 0; 0 sec.
 @I [HLS-100] Command           ap_source returned 0; 0.002 sec.
 @I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/dsp48.hlp 
-@I [HLS-100] Command           ap_source returned 0; 0.002 sec.
-@I [HLS-100] Command         ap_source returned 0; 0.009 sec.
-@I [HLS-100] Command       ap_source returned 0; 0.01 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.032 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.033 sec.
 @I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/artix7/artix7_hp.hlp 
 @I [HLS-100] Command       ap_source returned 0; 0.002 sec.
-@I [HLS-100] Command     import_lib returned 0; 0.028 sec.
+@I [HLS-100] Command     import_lib returned 0; 0.05 sec.
 @I [HLS-100] Execute     source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/artix7/artix7_fpv6.gen 
 @I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx_fpv6.gen 
 @I [HLS-100] Command       ap_source returned 0; 0.002 sec.
-@I [HLS-100] Command     ap_source returned 0; 0.002 sec.
+@I [HLS-100] Command     ap_source returned 0; 0.003 sec.
 @I [HLS-100] Execute     set_part xc7a35ticpg236-1l 
 @I [HLS-100] Execute       add_library xilinx/artix7/artix7:xc7a35ti:cpg236:-1l 
 @I [HLS-100] Execute         get_default_platform 
 @I [HLS-100] Command         get_default_platform returned 0; 0 sec.
 @I [HLS-100] Execute         license_isbetapart xc7a35ti 
-@I [HLS-100] Command         license_isbetapart returned 1; 0.016 sec.
+@I [HLS-100] Command         license_isbetapart returned 1; 0.017 sec.
 @I [HLS-100] Execute         get_default_platform 
 @I [HLS-100] Command         get_default_platform returned 0; 0 sec.
 @I [HLS-100] Execute         config_chip_info -quiet -resource  {SLICE 5200}  {LUT 20800}     {FF 41600}  {DSP48E 90}     {BRAM 100}  
@@ -128,7 +128,7 @@
 @I [HLS-100] Execute       add_library xilinx/artix7/artix7_fpv6 
 @I [HLS-100] Execute         get_default_platform 
 @I [HLS-100] Command         get_default_platform returned 0; 0 sec.
-@I [HLS-100] Command       add_library returned 0; 0.002 sec.
+@I [HLS-100] Command       add_library returned 0; 0.003 sec.
 @I [HLS-10] Setting target device to 'xc7a35ticpg236-1l'
 @I [HLS-100] Command     set_part returned 0; 0.032 sec.
 @I [HLS-100] Execute     get_default_platform 
@@ -137,858 +137,84 @@
 @I [HLS-100] Command     config_chip_info returned 0; 0 sec.
 @I [HLS-100] Execute     config_chip_info -quiet -speed slow 
 @I [HLS-100] Command     config_chip_info returned 0; 0 sec.
-@I [HLS-100] Command   open_solution returned 0; 0.374 sec.
-@I [HLS-100] Execute   set_part xc7a35ticpg236-1l -tool vivado 
-@I [HLS-100] Execute     add_library xilinx/artix7/artix7:xc7a35ti:cpg236:-1l 
-@I [HLS-100] Execute       get_default_platform 
-@I [HLS-100] Command       get_default_platform returned 0; 0 sec.
-@I [HLS-100] Execute       license_isbetapart xc7a35ti 
-@I [HLS-100] Command       license_isbetapart returned 1; 0 sec.
-@I [HLS-100] Execute       get_default_platform 
-@I [HLS-100] Command       get_default_platform returned 0; 0 sec.
-@I [HLS-100] Execute       config_chip_info -quiet -resource  {SLICE 5200}  {LUT 20800}     {FF 41600}  {DSP48E 90}     {BRAM 100}  
-@I [HLS-100] Command       config_chip_info returned 0; 0 sec.
-@I [HLS-100] Execute       config_chip_info -quiet -speed slow 
-@I [HLS-100] Command       config_chip_info returned 0; 0 sec.
-@I [HLS-100] Command     add_library returned 0; 0.004 sec.
-@I [HLS-100] Execute     add_library xilinx/artix7/artix7_fpv6 
-@I [HLS-100] Execute       get_default_platform 
-@I [HLS-100] Command       get_default_platform returned 0; 0 sec.
-@I [HLS-100] Command     add_library returned 0; 0.002 sec.
-@I [HLS-100] Command   set_part returned 0; 0.01 sec.
-@I [HLS-100] Execute   create_clock -period 10 -name default 
-@I [HLS-100] Command   create_clock returned 0; 0.001 sec.
-@I [HLS-100] Execute   csynth_design 
-@I [HLS-100] Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -lm=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 
-@I [HLS-10] Analyzing design file 'sc_FIFO_DCT.cpp' ... 
-@I [HLS-0] Compiling one TU...
-@I [HLS-0] Handling sc_FIFO_DCT.cpp as C++
-@I [HLS-0] Syntax Checking before pre-processing...
-@I [HLS-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado_HLS/2016.3/msys" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -Wno-attributes -Wno-gcc-compat -D__cdecl=   -I "C:/Xilinx/Vivado_HLS/2016.3/win64/tools/systemc/include" -I "C:/Xilinx/Vivado_HLS/2016.3/include" -I "C:/Xilinx/Vivado_HLS/2016.3/include/ap_sysc" -fexceptions -I "C:/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot" -include etc/autopilot_ssdm_op.h "sc_FIFO_DCT.cpp"  -o "C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pp.00.o" 
-@I [HLS-100] Command       clang returned 0; 0.842 sec.
-@I [HLS-100] Execute       is_encrypted C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pp.00.o 
-@I [HLS-100] Command       is_encrypted returned 0; 0.001 sec.
-@I [HLS-0] Source preprocessing
-@I [HLS-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado_HLS/2016.3/msys" -hls -fno-exceptions  -D__llvm__  -CC -E "sc_FIFO_DCT.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -Wno-attributes -Wno-gcc-compat -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot" -I "C:/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pp.0.cpp" 
-@I [HLS-100] Command       clang returned 0; 0.305 sec.
-@I [HLS-0] GCC PP time: 0 seconds per iteration
-@I [HLS-100] Execute       list_core -type functional_unit 
-@I [HLS-100] Command       list_core returned 0; 0 sec.
-@I [HLS-0] CDT Preprocessing...
-@I [HLS-0] Marker-Pragma convertor: C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pp.0.cpp C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pp.0.cpp.ap-line.cpp C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pp.0.cpp.ap-line.cpp.CXX 1
-@I [HLS-0] Converting Markers to Pragmas...
-@I [HLS-100] Execute       cdt  "C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pp.0.cpp.ap-line.cpp"  -m "sc_FIFO_DCT" -o "C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pp.0.cpp.ap-cdt.cpp" --pp --directive C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/DCT.directive --source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/sc_FIFO_DCT.cpp --error C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db --funcunit "AddSub AddSub_DSP AddSubnS DAddSub_fulldsp DAddSub_nodsp DDiv DExp_fulldsp DExp_meddsp DExp_nodsp DLog_fulldsp DLog_meddsp DLog_nodsp DMul_fulldsp DMul_maxdsp DMul_meddsp DMul_nodsp DRSqrt DRecip DSqrt DivnS FAddSub_fulldsp FAddSub_nodsp FDiv FExp_fulldsp FExp_meddsp FExp_nodsp FLog_fulldsp FLog_meddsp FLog_nodsp FMul_fulldsp FMul_maxdsp FMul_meddsp FMul_nodsp FRSqrt_fulldsp FRSqrt_nodsp FRecip_fulldsp FRecip_nodsp FSqrt HAddSub_nodsp HDiv HMul_fulldsp HMul_maxdsp HMul_nodsp HSqrt Mul Mul2S Mul3S Mul4S Mul5S Mul6S Mul_LUT MulnS MuxnS" --ve --vetcl C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db --ca --es --gf --pd --p2d C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db --sd --scff C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/.systemc_flag --ad 
-@I [HLS-100] Command       cdt returned 0; 6.351 sec.
-@I [HLS-0] Marker-Pragma convertor: C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pp.0.cpp.ap-cdt.cpp C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pragma.0.cpp C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pragma.0.cpp.ap-line.CXX 0
-@I [HLS-0] Converting Pragmas to Markers...
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/pragma.status.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.004 sec.
-@I [HLS-0] Pragma Handling...
-@I [HLS-0] SystemC Checker
-@I [HLS-100] Execute       ap_eval exec clang++ -gcc-toolchain C:/Xilinx/Vivado_HLS/2016.3/msys -hls -DAP_PRE  -I "C:/Xilinx/Vivado_HLS/2016.3/win64/tools/systemc/include" -I "C:/Xilinx/Vivado_HLS/2016.3/include" -I "C:/Xilinx/Vivado_HLS/2016.3/include/ap_sysc" -S "sc_FIFO_DCT.cpp" -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pp.00.o 
-@I [HLS-100] Command       ap_eval returned 0; 0.798 sec.
-@I [HLS-0] Marker-Pragma convertor: C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pragma.1.cpp C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.scpp.0.cpp C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.scpp.0.cpp.line_pre.CXX 1
-@I [HLS-0] Converting Markers to Pragmas...
-@I [HLS-0] SystemC preprocessor
-@I [HLS-100] Execute       ap_eval exec C:/Xilinx/Vivado_HLS/2016.3/tps/win64/jre/bin/java -Xmx512m -classpath "C:/Xilinx/Vivado_HLS/2016.3/lib/classes/org.eclipse.cdt.core_5.0.0.200806171202.jar;C:/Xilinx/Vivado_HLS/2016.3/lib/classes/jargs.jar;C:/Xilinx/Vivado_HLS/2016.3/lib/classes/org.eclipse.core.runtime_3.4.0.v20080512.jar;C:/Xilinx/Vivado_HLS/2016.3/lib/classes/org.eclipse.equinox.common_3.4.0.v20080421-2006.jar;C:/Xilinx/Vivado_HLS/2016.3/lib/classes/autopilot.scelaborator.jar"  autopilot.scelaborator.ScParser  -S "C:/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot/ap_sysc" --force-inline  -o "C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/" "C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.scpp.0.cpp" --mi-suffix=0 -d -t 
-@I [HLS-100] Command       ap_eval returned 1; 27.75 sec.
-@I [HLS-0] Marker-Pragma convertor: C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.scpp.0.cpp.ssdm.cpp C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.scpp.1.cpp C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.scpp.1.cpp.line_post.CXX 0
-@I [HLS-0] Converting Pragmas to Markers...
-@I [HLS-0] Source preprocessing
-@I [HLS-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado_HLS/2016.3/msys" -hls -fno-exceptions  -D__llvm__  -CC -E "C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pragma.1.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -Wno-attributes -Wno-gcc-compat -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot" -I "C:/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h  -o "C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pragma.2.cpp" 
-@I [HLS-100] Command       clang returned 0; 0.3 sec.
-@I [HLS-0] Processing labels
-@I [HLS-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado_HLS/2016.3/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot" -I "C:/Xilinx/Vivado_HLS/2016.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -g -o "C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.g.bc" 
-@I [HLS-100] Command       clang returned 0; 0.699 sec.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/ve_warning.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.005 sec.
-@I [HLS-10] Validating synthesis directives ...
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/pragma.status.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
-@I [HLS-111] Finished Checking Pragmas Time (s): cpu = 00:00:03 ; elapsed = 00:00:42 . Memory (MB): peak = 110.141 ; gain = 60.672
-@I [HLS-0] Linking Release ...
-@I [HLS-100] Execute       llvm-ld C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.bc -disable-opt -LC:/Xilinx/Vivado_HLS/2016.3/win64/lib -lm_basic -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o 
-@I [HLS-100] Command       llvm-ld returned 0; 0.177 sec.
-@I [HLS-100] Execute       disassemble C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o 
-@I [HLS-100] Execute         is_encrypted C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.bc 
-@I [HLS-100] Command         is_encrypted returned 0; 0 sec.
-@I [HLS-100] Command       disassemble returned 0; 0.091 sec.
-@I [HLS-0] Disassemble time: 0 seconds per iteration
-@I [HLS-0] Linking Debug ...
-@I [HLS-100] Execute       llvm-ld C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.g.bc -disable-opt -LC:/Xilinx/Vivado_HLS/2016.3/win64/lib -lm_basic -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g 
-@I [HLS-100] Command       llvm-ld returned 0; 0.189 sec.
-@I [HLS-100] Execute       disassemble C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g 
-@I [HLS-100] Execute         is_encrypted C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g.bc 
-@I [HLS-100] Command         is_encrypted returned 0; 0 sec.
-@I [HLS-100] Command       disassemble returned 0; 0.093 sec.
-@I [HLS-0] Disassemble time: 0 seconds per iteration
-@I [HLS-111] Finished Linking Time (s): cpu = 00:00:03 ; elapsed = 00:00:42 . Memory (MB): peak = 110.141 ; gain = 60.672
-@I [HLS-100] Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
-@I [HLS-100] Execute         cleanup_all_models 
-@I [HLS-100] Command         cleanup_all_models returned 0; 0 sec.
-@I [HLS-10] Starting code transformations ...
-@I [HLS-100] Execute         transform -promote-dbg-pointer C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.pp.bc -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.pp.0.bc -f 
-@I [HLS-100] Command         transform returned 0; 0.026 sec.
-@I [HLS-100] Execute         llvm-ld C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.pp.0.bc -disable-opt -LC:/Xilinx/Vivado_HLS/2016.3/win64/lib -lfloatconversion -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g.0 
-@I [HLS-100] Command         llvm-ld returned 0; 0.188 sec.
-@I [HLS-0] Running Standard Transforms...
-@I [HLS-100] Execute         transform -hls -share-std-xform -always-inline -promote-dbg-pointer -interface-preproc -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top sc_FIFO_DCT -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -promote-dbg-pointer -norm-name C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g.0.bc -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g.1.bc -f -phase std-opt 
-@W [XFORM-503] Ignored unroll directive 'DCT_loop' (sc_FIFO_DCT.cpp:77) in function 'sc_FIFO_DCT::DCT()': multiple loop unroll directives in one loop, use the first one and ignore the rest.
-@I [HLS-100] Command         transform returned 0; 0.177 sec.
-@I [HLS-100] Execute         disassemble C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g.1 C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g.1 
-@I [HLS-100] Execute           is_encrypted C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g.1.bc 
-@I [HLS-100] Command           is_encrypted returned 0; 0.005 sec.
-@I [HLS-100] Command         disassemble returned 0; 0.118 sec.
-@I [HLS-111] Finished Standard Transforms Time (s): cpu = 00:00:04 ; elapsed = 00:00:43 . Memory (MB): peak = 110.141 ; gain = 60.672
-@I [HLS-10] Checking synthesizability ...
-@I [HLS-0] Checking Synthesizability 1/2..
-@I [HLS-100] Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -array-normalize -instcombine -dce -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g.1.bc -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g.2.prechk.bc -f 
-@I [HLS-100] Command         transform returned 0; 0.228 sec.
-@I [HLS-0] Checking Synthesizability 2/2..
-@I [HLS-100] Execute         transform -syn-check C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g.2.prechk.bc -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g.2.bc -f -phase syn-check 
-@I [HLS-100] Command         transform returned 0; 0.038 sec.
-@I [HLS-111] Finished Checking Synthesizability Time (s): cpu = 00:00:04 ; elapsed = 00:00:43 . Memory (MB): peak = 110.141 ; gain = 60.672
-@I [HLS-0] Compiler optimizing ...
-@I [HLS-0] Share syncheck's 1.bc for syn flow: copy C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.g.1.bc to C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.1.bc
-@I [HLS-0] Presyn 1...
-@I [HLS-100] Execute         transform -hls -tmp C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -auto-rom-infer -dce -function-uniquify -resource-proc -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -clib-intrinsic-prepare -dce -func-buffer -dce -array-normalize -func-legal -instcombine -gvn -constprop -dce -ptrArgReplace -mem2reg -instcombine -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -simplifycfg -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -instcombine -dce -global-constprop -deadargelim -mem2reg -instcombine -simplifycfg -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -mem-intrinsic-preproc -dce -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -instcombine -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -inst-simplify -dce -norm-name -function-inline -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.1.bc -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.1.tmp.bc -f 
-@I [XFORM-502] Unrolling all sub-loops inside loop 'TA' (sc_FIFO_DCT.cpp:80) in function 'sc_FIFO_DCT::DCT' for pipelining.
-@I [XFORM-502] Unrolling all sub-loops inside loop 'AT' (sc_FIFO_DCT.cpp:93) in function 'sc_FIFO_DCT::DCT' for pipelining.
-@I [XFORM-501] Unrolling loop 'DCT_loop' (sc_FIFO_DCT.cpp:77) in function 'sc_FIFO_DCT::DCT' partially with a factor of 2.
-@I [XFORM-501] Unrolling loop 'multTA' (sc_FIFO_DCT.cpp:83) in function 'sc_FIFO_DCT::DCT' completely.
-@I [XFORM-501] Unrolling loop 'sumTA' (sc_FIFO_DCT.cpp:87) in function 'sc_FIFO_DCT::DCT' completely.
-@I [XFORM-501] Unrolling loop 'multAT' (sc_FIFO_DCT.cpp:96) in function 'sc_FIFO_DCT::DCT' completely.
-@I [XFORM-501] Unrolling loop 'sumAT' (sc_FIFO_DCT.cpp:101) in function 'sc_FIFO_DCT::DCT' completely.
-@W [XFORM-105] Ignored array partition directive (sc_FIFO_DCT.cpp:62:1) : cannot locate the real object(s).
-@W [XFORM-105] Ignored array partition directive (sc_FIFO_DCT.cpp:64:1) : cannot locate the real object(s).
-@W [XFORM-105] Ignored array partition directive (sc_FIFO_DCT.cpp:66:1) : cannot locate the real object(s).
-@I [XFORM-101] Partitioning array 's' (sc_FIFO_DCT.cpp:59) in dimension 1 completely.
-@I [HLS-100] Command         transform returned 0; 0.691 sec.
-@I [HLS-0] Presyn 2...
-@I [HLS-100] Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.1.tmp.bc -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.2.bc -f -phase presyn 
-@I [XFORM-11] Balancing expressions in function 'sc_FIFO_DCT::DCT' (sc_FIFO_DCT.cpp:55:30)...40 expression(s) balanced.
-@I [HLS-100] Command         transform returned 0; 0.394 sec.
-@I [HLS-100] Execute         disassemble C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.2 C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.2 
-@I [HLS-100] Execute           is_encrypted C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.2.bc 
-@I [HLS-100] Command           is_encrypted returned 0; 0.058 sec.
-@I [HLS-100] Command         disassemble returned 0; 0.146 sec.
-@I [HLS-111] Finished Pre-synthesis Time (s): cpu = 00:00:05 ; elapsed = 00:00:44 . Memory (MB): peak = 131.730 ; gain = 82.262
-@I [HLS-0] Building ssdm...
-@I [HLS-100] Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -instcombine -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -interface-preproc -interface-gen -deadargelim -directive-preproc -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -read-loop-dep -dce -bitwidth -loop-dep -norm-name -legalize -cdfg-build C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.2.bc -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
-@W [XFORM-561] 'Loop-1' (sc_FIFO_DCT.cpp:136:17) in function 'sc_FIFO_DCT::data_out' is an infinite loop.
-@W [XFORM-561] 'Loop-1' (sc_FIFO_DCT.cpp:43:3) in function 'sc_FIFO_DCT::buffering' is an infinite loop.
-@W [XFORM-542] Cannot flatten a loop nest 'DCT_loop' (sc_FIFO_DCT.cpp:77:6) in function 'sc_FIFO_DCT::DCT' : 
-               more than one sub loop.
-@W [XFORM-561] 'Loop-1' (sc_FIFO_DCT.cpp:76:19) in function 'sc_FIFO_DCT::DCT' is an infinite loop.
-@W [XFORM-542] Cannot flatten a loop nest 'Loop-1' (sc_FIFO_DCT.cpp:76:19) in function 'sc_FIFO_DCT::DCT' : 
-               the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
-@I [HLS-100] Command         transform returned 0; 0.646 sec.
-@I [HLS-100] Execute         disassemble C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.3 C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.3 
-@I [HLS-100] Execute           is_encrypted C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.3.bc 
-@I [HLS-100] Command           is_encrypted returned 0; 0.008 sec.
-@I [HLS-100] Command         disassemble returned 0; 0.071 sec.
-@I [HLS-111] Finished Architecture Synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:45 . Memory (MB): peak = 158.375 ; gain = 108.906
-@I [HLS-0] Finish building internal data model.
-@I [HLS-100] Command       opt_and_import_c returned 0; 2.818 sec.
-@I [HLS-100] Command     elaborate returned 0; 42.886 sec.
-@I [HLS-100] Execute     autosyn 
-@I [HLS-10] Starting hardware synthesis ...
-@I [HLS-0] Synthesizing SystemC design ...
-@I [HLS-100] Execute       sc_get_modules -debug sc_FIFO_DCT 
-@I [SCA-201] Elaborating SystemC module 'sc_FIFO_DCT'.
-@I [SCA-201] Performing SystemC synthesis linting.
-@I [SCA-201] Analyzing ports and processes.
-@I [SCA-201] Found the clock port of process 'sc_FIFO_DCT::buffering': 'clock'.
-@I [SCA-201] Found the reset port of process 'sc_FIFO_DCT::buffering': 'reset'.
-@I [SCA-201] Found the clock port of process 'sc_FIFO_DCT::DCT': 'clock'.
-@I [SCA-201] Found the reset port of process 'sc_FIFO_DCT::DCT': 'reset'.
-@I [SCA-201] Found the clock port of process 'sc_FIFO_DCT::data_out': 'clock'.
-@I [SCA-201] Found the reset port of process 'sc_FIFO_DCT::data_out': 'reset'.
-@W [SCA-202] Signal 'sc_FIFO_DCT_exec_cnt' has no reset.
-@W [SCA-202] Found reading to uninitialized signal/variable 'sc_FIFO_DCT_exec_cnt'('sc_FIFO_DCT_exec_cnt_1', sc_FIFO_DCT.cpp:110), the signal/variable should be written or reset firstly, or it may introduce RTL simulation mismatch.
-@W [SCA-202] Signal 's_buffered' has no reset.
-@W [SCA-202] Signal 's_working' has no reset.
-@W [SCA-202] Signal 's_DCT' has no reset.
-@W [SCA-202] Signal 's_done' has no reset.
-@I [HLS-100] Command       sc_get_modules returned 0; 0.003 sec.
-@I [HLS-100] Execute       export_ssdm C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.o.sce.ll 
-@I [HLS-100] Command       export_ssdm returned 0; 0.009 sec.
-@I [HLS-0] SystemC Modules: { sc_FIFO_DCT }
-@I [HLS-100] Execute       ap_set_top_model sc_FIFO_DCT 
-@I [HLS-100] Command       ap_set_top_model returned 0; 0 sec.
-@I [HLS-100] Execute       cdfg_preprocess -model sc_FIFO_DCT 
-@I [HLS-100] Command       cdfg_preprocess returned 0; 0.001 sec.
-@I [HLS-100] Execute       ap_set_top_model sc_FIFO_DCT 
-@I [HLS-100] Command       ap_set_top_model returned 0; 0 sec.
-@I [HLS-100] Execute       sc_get_processes sc_FIFO_DCT 
-@I [HLS-100] Command       sc_get_processes returned 0; 0 sec.
-@I [HLS-10] Synthesizing SystemC module [ sc_FIFO_DCT ]
-@I [HLS-0] SystemC module [sc_FIFO_DCT] has process(es): { DCT buffering data_out }
-@I [HLS-10] Found SystemC process: 'sc_FIFO_DCT_DCT' 
-@I [HLS-10] Synthesizing 'sc_FIFO_DCT_DCT' ...
-@I [HLS-100] Execute       get_model_list sc_FIFO_DCT_DCT -filter all-wo-channel -topdown 
-@I [HLS-100] Command       get_model_list returned 0; 0 sec.
-@I [HLS-100] Execute       preproc_iomode -model sc_FIFO_DCT::DCT 
-@I [HLS-100] Command       preproc_iomode returned 0; 0 sec.
-@I [HLS-100] Execute       get_model_list sc_FIFO_DCT_DCT -filter all-wo-channel 
-@I [HLS-100] Command       get_model_list returned 0; 0 sec.
-@I [HLS-0] Model list for configure: sc_FIFO_DCT::DCT
-@I [HLS-0] Configuring Module : sc_FIFO_DCT::DCT ...
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT::DCT 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       apply_spec_resource_limit sc_FIFO_DCT::DCT 
-@I [HLS-100] Command       apply_spec_resource_limit returned 0; 0 sec.
-@I [HLS-0] Model list for preprocess: sc_FIFO_DCT::DCT
-@I [HLS-0] Preprocessing Module: sc_FIFO_DCT::DCT ...
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT::DCT 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       cdfg_preprocess -model sc_FIFO_DCT::DCT 
-@I [HLS-100] Command       cdfg_preprocess returned 0; 0.003 sec.
-@I [HLS-100] Execute       rtl_gen_preprocess sc_FIFO_DCT::DCT 
-@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0.001 sec.
-@I [HLS-0] Model list for synthesis: sc_FIFO_DCT::DCT
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Implementing module 'sc_FIFO_DCT_DCT' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT::DCT 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       schedule -model sc_FIFO_DCT::DCT 
-@I [SCHED-11] Starting scheduling ...
-@I [SCHED-61] Pipelining loop 'TA'.
-@W [SCHED-69] Unable to schedule 'load' operation ('sc_FIFO_DCT_mA_load_4', sc_FIFO_DCT.cpp:84) on array 'sc_FIFO_DCT_mA' due to limited memory ports.
-@I [SCHED-61] Pipelining result: Target II: 1, Final II: 4, Depth: 10.
-@I [SCHED-61] Pipelining loop 'AT'.
-@I [SCHED-61] Pipelining result: Target II: 1, Final II: 1, Depth: 8.
-@I [SCHED-61] Pipelining loop 'TA'.
-@W [SCHED-69] Unable to schedule 'load' operation ('sc_FIFO_DCT_mA_load_10', sc_FIFO_DCT.cpp:84) on array 'sc_FIFO_DCT_mA' due to limited memory ports.
-@I [SCHED-61] Pipelining result: Target II: 1, Final II: 4, Depth: 10.
-@I [SCHED-61] Pipelining loop 'AT'.
-@I [SCHED-61] Pipelining result: Target II: 1, Final II: 1, Depth: 8.
-@I [SCHED-11] Finished scheduling.
-@I [HLS-100] Command       schedule returned 0; 0.806 sec.
-@I [HLS-111]  Elapsed time: 45.842 seconds; current allocated memory: 127.253 MB.
-@I [HLS-100] Execute       report -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_DCT.verbose.sched.rpt -verbose -f 
-@I [HLS-100] Command       report returned 0; 0.242 sec.
-@I [HLS-100] Execute       db_write -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_DCT.sched.adb -f 
-@I [HLS-100] Command       db_write returned 0; 0.216 sec.
-@I [HLS-0] Finish scheduling sc_FIFO_DCT::DCT.
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT::DCT 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       bind -model sc_FIFO_DCT::DCT 
-@I [BIND-110] clear=
-@I [BIND-110] debug=
-@I [BIND-110] drf=
-@I [BIND-110] effort=
-@I [BIND-110] fast_refine=
-@I [BIND-110] fu_weight=[ 0.0 -- 1.0 ]
-@I [BIND-110] global_opt=
-@I [BIND-110] gsearch=
-@I [BIND-110] help=
-@I [BIND-110] help-hidden=
-@I [BIND-110] min_mem_port=
-@I [BIND-110] min_op=
-@I [BIND-110] minreg=
-@I [BIND-110] ml=
-@I [BIND-110] model=sc_FIFO_DCT::DCT
-@I [BIND-110] no_false_path=
-@I [BIND-110] no_min_op=
-@I [BIND-110] normalize=
-@I [BIND-110] quiet=
-@I [BIND-110] refine=
-@I [BIND-110] reg_weight=[ 0.0 -- 1.0 ]
-@I [BIND-110] search=
-@I [BIND-110] tight_delay=
-@I [BIND-110] verbose=
-@I [BIND-110] wFF=
-@I [BIND-110] wFU=
-@I [BIND-110] wMUX=
-@I [BIND-110] wNET=
-@I [BIND-100] Starting micro-architecture generation ...
-@I [BIND-101] Performing variable lifetime analysis.
-@I [BIND-101] Exploring resource sharing.
-@I [BIND-101] Binding ...
-@I [BIND-100] Finished micro-architecture generation.
-@I [HLS-100] Command       bind returned 0; 0.152 sec.
-@I [HLS-111]  Elapsed time: 0.659 seconds; current allocated memory: 126.979 MB.
-@I [HLS-100] Execute       report -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_DCT.verbose.bind.rpt -verbose -f 
-@I [HLS-100] Command       report returned 0; 0.421 sec.
-@I [HLS-100] Execute       db_write -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_DCT.bind.adb -f 
-@I [HLS-100] Command       db_write returned 0; 0.268 sec.
-@I [HLS-0] Finish binding sc_FIFO_DCT::DCT.
-@I [HLS-100] Execute       get_model_list sc_FIFO_DCT_DCT -filter all-wo-channel 
-@I [HLS-100] Command       get_model_list returned 0; 0 sec.
-@I [HLS-0] Preprocessing for RTLGen ...
-@I [HLS-100] Execute       rtl_gen_preprocess sc_FIFO_DCT::DCT 
-@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0 sec.
-@I [HLS-0] Model list for RTL generation: sc_FIFO_DCT::DCT
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Generating RTL for module 'sc_FIFO_DCT_DCT' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-100] Execute       create_rtl_model sc_FIFO_DCT::DCT -vendor xilinx -mg_file C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_DCT.compgen.tcl 
-@I [SYN-210] Renamed object name 'sc_FIFO_DCT_mul_8s_32s_32_4' to 'sc_FIFO_DCT_mul_8bkb' due to the length limit 20
-@I [SYN-210] Renamed object name 'sc_FIFO_DCT_mul_32s_8s_32_4' to 'sc_FIFO_DCT_mul_3cud' due to the length limit 20
-@I [RTGEN-100] Generating core module 'sc_FIFO_DCT_mul_3cud': 8 instance(s).
-@I [RTGEN-100] Generating core module 'sc_FIFO_DCT_mul_8bkb': 24 instance(s).
-@I [RTGEN-100] Finished creating RTL model for 'sc_FIFO_DCT_DCT'.
-@I [HLS-100] Command       create_rtl_model returned 0; 0.132 sec.
-@I [HLS-111]  Elapsed time: 0.85 seconds; current allocated memory: 129.767 MB.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.rtl_wrap.cfg.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
-@I [HLS-100] Execute       gen_rtl sc_FIFO_DCT::DCT -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/systemc/sc_FIFO_DCT_DCT -synmodules sc_FIFO_DCT::DCT 
-@I [HLS-100] Command       gen_rtl returned 0; 0.035 sec.
-@I [HLS-100] Execute       gen_rtl sc_FIFO_DCT::DCT -style xilinx -f -lang vhdl -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/vhdl/sc_FIFO_DCT_DCT 
-@I [HLS-100] Command       gen_rtl returned 0; 0.008 sec.
-@I [HLS-100] Execute       gen_rtl sc_FIFO_DCT::DCT -style xilinx -f -lang vlog -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/verilog/sc_FIFO_DCT_DCT 
-@I [HLS-100] Command       gen_rtl returned 0; 0.009 sec.
-@I [HLS-100] Execute       gen_tb_info sc_FIFO_DCT::DCT -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_DCT -p C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db 
-@I [HLS-100] Command       gen_tb_info returned 0; 0.083 sec.
-@I [HLS-100] Execute       report -model sc_FIFO_DCT::DCT -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/report/sc_FIFO_DCT_DCT_csynth.rpt -f 
-@I [HLS-100] Command       report returned 0; 0.106 sec.
-@I [HLS-100] Execute       report -model sc_FIFO_DCT::DCT -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/report/sc_FIFO_DCT_DCT_csynth.xml -f -x 
-@I [HLS-100] Command       report returned 0; 0.09 sec.
-@I [HLS-100] Execute       report -model sc_FIFO_DCT::DCT -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_DCT.verbose.rpt -verbose -f 
-@I [HLS-100] Command       report returned 0; 0.469 sec.
-@I [HLS-100] Execute       db_write -model sc_FIFO_DCT::DCT -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_DCT.adb -f 
-@I [HLS-100] Command       db_write returned 0; 0.325 sec.
-@I [HLS-0] Model list for RTL component generation: sc_FIFO_DCT::DCT
-@I [HLS-0] Handling components in module [sc_FIFO_DCT_DCT] ... 
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_DCT.compgen.tcl 
-@I [HLS-0] Found component sc_FIFO_DCT_mul_8bkb.
-@I [HLS-0] Append model sc_FIFO_DCT_mul_8bkb
-@I [HLS-0] Found component sc_FIFO_DCT_mul_3cud.
-@I [HLS-0] Append model sc_FIFO_DCT_mul_3cud
-@I [HLS-0] Found component sc_FIFO_DCT_DCT_b_a.
-@I [HLS-0] Append model sc_FIFO_DCT_DCT_b_a
-@I [HLS-0] Found component sc_FIFO_DCT_DCT_b.
-@I [HLS-0] Append model sc_FIFO_DCT_DCT_b
-@I [HLS-0] Found component sc_FIFO_DCT_DCT_a.
-@I [HLS-0] Append model sc_FIFO_DCT_DCT_a
-@I [HLS-100] Command       ap_source returned 0; 0.007 sec.
-@I [HLS-0] Append model sc_FIFO_DCT_DCT
-@I [HLS-0] Generating RTL model list ...
-@I [HLS-0] All models in this session: sc_FIFO_DCT_mul_8bkb sc_FIFO_DCT_mul_3cud sc_FIFO_DCT_DCT_b_a sc_FIFO_DCT_DCT_b sc_FIFO_DCT_DCT_a sc_FIFO_DCT_DCT
-@I [HLS-0] To file: write model sc_FIFO_DCT_mul_8bkb
-@I [HLS-0] To file: write model sc_FIFO_DCT_mul_3cud
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT_b_a
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT_b
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT_a
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT
-@I [HLS-0] Finished generating RTL model list.
-
-
-@I [HLS-0] RTL Generation done.
-@I [HLS-0] CAS Generation done.
-@I [HLS-0] CBC Generation done.
-@I [HLS-100] Execute       export_ssdm C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.export.ll 
-@I [HLS-100] Command       export_ssdm returned 0; 0.013 sec.
-@I [HLS-10] Found SystemC process: 'sc_FIFO_DCT_buffering' 
-@I [HLS-10] Synthesizing 'sc_FIFO_DCT_buffering' ...
-@I [HLS-100] Execute       get_model_list sc_FIFO_DCT_buffering -filter all-wo-channel -topdown 
-@I [HLS-100] Command       get_model_list returned 0; 0 sec.
-@I [HLS-100] Execute       preproc_iomode -model sc_FIFO_DCT::buffering 
-@I [HLS-100] Command       preproc_iomode returned 0; 0 sec.
-@I [HLS-100] Execute       get_model_list sc_FIFO_DCT_buffering -filter all-wo-channel 
-@I [HLS-100] Command       get_model_list returned 0; 0 sec.
-@I [HLS-0] Model list for configure: sc_FIFO_DCT::buffering
-@I [HLS-0] Configuring Module : sc_FIFO_DCT::buffering ...
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT::buffering 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       apply_spec_resource_limit sc_FIFO_DCT::buffering 
-@I [HLS-100] Command       apply_spec_resource_limit returned 0; 0 sec.
-@I [HLS-0] Model list for preprocess: sc_FIFO_DCT::buffering
-@I [HLS-0] Preprocessing Module: sc_FIFO_DCT::buffering ...
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT::buffering 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       cdfg_preprocess -model sc_FIFO_DCT::buffering 
-@I [HLS-100] Command       cdfg_preprocess returned 0; 0.001 sec.
-@I [HLS-100] Execute       rtl_gen_preprocess sc_FIFO_DCT::buffering 
-@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0.001 sec.
-@I [HLS-0] Model list for synthesis: sc_FIFO_DCT::buffering
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Implementing module 'sc_FIFO_DCT_buffering' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT::buffering 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       schedule -model sc_FIFO_DCT::buffering 
-@I [SCHED-11] Starting scheduling ...
-@I [SCHED-11] Finished scheduling.
-@I [HLS-100] Command       schedule returned 0; 0.089 sec.
-@I [HLS-111]  Elapsed time: 2.121 seconds; current allocated memory: 131.943 MB.
-@I [HLS-100] Execute       report -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_buffering.verbose.sched.rpt -verbose -f 
-@I [HLS-100] Command       report returned 0; 0.02 sec.
-@I [HLS-100] Execute       db_write -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_buffering.sched.adb -f 
-@I [HLS-100] Command       db_write returned 0; 0.026 sec.
-@I [HLS-0] Finish scheduling sc_FIFO_DCT::buffering.
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT::buffering 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       bind -model sc_FIFO_DCT::buffering 
-@I [BIND-110] clear=
-@I [BIND-110] debug=
-@I [BIND-110] drf=
-@I [BIND-110] effort=
-@I [BIND-110] fast_refine=
-@I [BIND-110] fu_weight=[ 0.0 -- 1.0 ]
-@I [BIND-110] global_opt=
-@I [BIND-110] gsearch=
-@I [BIND-110] help=
-@I [BIND-110] help-hidden=
-@I [BIND-110] min_mem_port=
-@I [BIND-110] min_op=
-@I [BIND-110] minreg=
-@I [BIND-110] ml=
-@I [BIND-110] model=sc_FIFO_DCT::buffering
-@I [BIND-110] no_false_path=
-@I [BIND-110] no_min_op=
-@I [BIND-110] normalize=
-@I [BIND-110] quiet=
-@I [BIND-110] refine=
-@I [BIND-110] reg_weight=[ 0.0 -- 1.0 ]
-@I [BIND-110] search=
-@I [BIND-110] tight_delay=
-@I [BIND-110] verbose=
-@I [BIND-110] wFF=
-@I [BIND-110] wFU=
-@I [BIND-110] wMUX=
-@I [BIND-110] wNET=
-@I [BIND-100] Starting micro-architecture generation ...
-@I [BIND-101] Performing variable lifetime analysis.
-@I [BIND-101] Exploring resource sharing.
-@I [BIND-101] Binding ...
-@I [BIND-100] Finished micro-architecture generation.
-@I [HLS-100] Command       bind returned 0; 0.004 sec.
-@I [HLS-111]  Elapsed time: 0.099 seconds; current allocated memory: 131.882 MB.
-@I [HLS-100] Execute       report -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_buffering.verbose.bind.rpt -verbose -f 
-@I [HLS-100] Command       report returned 0; 0.023 sec.
-@I [HLS-100] Execute       db_write -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_buffering.bind.adb -f 
-@I [HLS-100] Command       db_write returned 0; 0.027 sec.
-@I [HLS-0] Finish binding sc_FIFO_DCT::buffering.
-@I [HLS-100] Execute       get_model_list sc_FIFO_DCT_buffering -filter all-wo-channel 
-@I [HLS-100] Command       get_model_list returned 0; 0 sec.
-@I [HLS-0] Preprocessing for RTLGen ...
-@I [HLS-100] Execute       rtl_gen_preprocess sc_FIFO_DCT::buffering 
-@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0.001 sec.
-@I [HLS-0] Model list for RTL generation: sc_FIFO_DCT::buffering
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Generating RTL for module 'sc_FIFO_DCT_buffering' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-100] Execute       create_rtl_model sc_FIFO_DCT::buffering -vendor xilinx -mg_file C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_buffering.compgen.tcl 
-@I [RTGEN-100] Finished creating RTL model for 'sc_FIFO_DCT_buffering'.
-@I [HLS-100] Command       create_rtl_model returned 0; 0.006 sec.
-@I [HLS-111]  Elapsed time: 0.08 seconds; current allocated memory: 131.795 MB.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.rtl_wrap.cfg.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
-@I [HLS-100] Execute       gen_rtl sc_FIFO_DCT::buffering -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/systemc/sc_FIFO_DCT_buffering -synmodules sc_FIFO_DCT::buffering 
-@I [HLS-100] Command       gen_rtl returned 0; 0.007 sec.
-@I [HLS-100] Execute       gen_rtl sc_FIFO_DCT::buffering -style xilinx -f -lang vhdl -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/vhdl/sc_FIFO_DCT_buffering 
-@I [HLS-100] Command       gen_rtl returned 0; 0.003 sec.
-@I [HLS-100] Execute       gen_rtl sc_FIFO_DCT::buffering -style xilinx -f -lang vlog -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/verilog/sc_FIFO_DCT_buffering 
-@I [HLS-100] Command       gen_rtl returned 0; 0.003 sec.
-@I [HLS-100] Execute       gen_tb_info sc_FIFO_DCT::buffering -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_buffering -p C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db 
-@I [HLS-100] Command       gen_tb_info returned 0; 0.011 sec.
-@I [HLS-100] Execute       report -model sc_FIFO_DCT::buffering -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/report/sc_FIFO_DCT_buffering_csynth.rpt -f 
-@I [HLS-100] Command       report returned 0; 0.006 sec.
-@I [HLS-100] Execute       report -model sc_FIFO_DCT::buffering -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/report/sc_FIFO_DCT_buffering_csynth.xml -f -x 
-@I [HLS-100] Command       report returned 0; 0.004 sec.
-@I [HLS-100] Execute       report -model sc_FIFO_DCT::buffering -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_buffering.verbose.rpt -verbose -f 
-@I [HLS-100] Command       report returned 0; 0.028 sec.
-@I [HLS-100] Execute       db_write -model sc_FIFO_DCT::buffering -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_buffering.adb -f 
-@I [HLS-100] Command       db_write returned 0; 0.027 sec.
-@I [HLS-0] Model list for RTL component generation: sc_FIFO_DCT::buffering
-@I [HLS-0] Handling components in module [sc_FIFO_DCT_buffering] ... 
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_buffering.compgen.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.004 sec.
-@I [HLS-0] Append model sc_FIFO_DCT_buffering
-@I [HLS-0] Generating RTL model list ...
-@I [HLS-0] All models in this session: sc_FIFO_DCT_mul_8bkb sc_FIFO_DCT_mul_3cud sc_FIFO_DCT_DCT_b_a sc_FIFO_DCT_DCT_b sc_FIFO_DCT_DCT_a sc_FIFO_DCT_DCT sc_FIFO_DCT_buffering
-@I [HLS-0] To file: write model sc_FIFO_DCT_mul_8bkb
-@I [HLS-0] To file: write model sc_FIFO_DCT_mul_3cud
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT_b_a
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT_b
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT_a
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT
-@I [HLS-0] To file: write model sc_FIFO_DCT_buffering
-@I [HLS-0] Finished generating RTL model list.
-
-
-@I [HLS-0] RTL Generation done.
-@I [HLS-0] CAS Generation done.
-@I [HLS-0] CBC Generation done.
-@I [HLS-100] Execute       export_ssdm C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.export.ll 
-@I [HLS-100] Command       export_ssdm returned 0; 0.005 sec.
-@I [HLS-10] Found SystemC process: 'sc_FIFO_DCT_data_out' 
-@I [HLS-10] Synthesizing 'sc_FIFO_DCT_data_out' ...
-@I [HLS-100] Execute       get_model_list sc_FIFO_DCT_data_out -filter all-wo-channel -topdown 
-@I [HLS-100] Command       get_model_list returned 0; 0 sec.
-@I [HLS-100] Execute       preproc_iomode -model sc_FIFO_DCT::data_out 
-@I [HLS-100] Command       preproc_iomode returned 0; 0 sec.
-@I [HLS-100] Execute       get_model_list sc_FIFO_DCT_data_out -filter all-wo-channel 
-@I [HLS-100] Command       get_model_list returned 0; 0 sec.
-@I [HLS-0] Model list for configure: sc_FIFO_DCT::data_out
-@I [HLS-0] Configuring Module : sc_FIFO_DCT::data_out ...
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT::data_out 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       apply_spec_resource_limit sc_FIFO_DCT::data_out 
-@I [HLS-100] Command       apply_spec_resource_limit returned 0; 0 sec.
-@I [HLS-0] Model list for preprocess: sc_FIFO_DCT::data_out
-@I [HLS-0] Preprocessing Module: sc_FIFO_DCT::data_out ...
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT::data_out 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       cdfg_preprocess -model sc_FIFO_DCT::data_out 
-@I [HLS-100] Command       cdfg_preprocess returned 0; 0.001 sec.
-@I [HLS-100] Execute       rtl_gen_preprocess sc_FIFO_DCT::data_out 
-@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0 sec.
-@I [HLS-0] Model list for synthesis: sc_FIFO_DCT::data_out
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Implementing module 'sc_FIFO_DCT_data_out' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT::data_out 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       schedule -model sc_FIFO_DCT::data_out 
-@I [SCHED-11] Starting scheduling ...
-@I [SCHED-11] Finished scheduling.
-@I [HLS-100] Command       schedule returned 0; 0.043 sec.
-@I [HLS-111]  Elapsed time: 0.24 seconds; current allocated memory: 131.738 MB.
-@I [HLS-100] Execute       report -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_data_out.verbose.sched.rpt -verbose -f 
-@I [HLS-100] Command       report returned 0; 0.008 sec.
-@I [HLS-100] Execute       db_write -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_data_out.sched.adb -f 
-@I [HLS-100] Command       db_write returned 0; 0.014 sec.
-@I [HLS-0] Finish scheduling sc_FIFO_DCT::data_out.
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT::data_out 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       bind -model sc_FIFO_DCT::data_out 
-@I [BIND-110] clear=
-@I [BIND-110] debug=
-@I [BIND-110] drf=
-@I [BIND-110] effort=
-@I [BIND-110] fast_refine=
-@I [BIND-110] fu_weight=[ 0.0 -- 1.0 ]
-@I [BIND-110] global_opt=
-@I [BIND-110] gsearch=
-@I [BIND-110] help=
-@I [BIND-110] help-hidden=
-@I [BIND-110] min_mem_port=
-@I [BIND-110] min_op=
-@I [BIND-110] minreg=
-@I [BIND-110] ml=
-@I [BIND-110] model=sc_FIFO_DCT::data_out
-@I [BIND-110] no_false_path=
-@I [BIND-110] no_min_op=
-@I [BIND-110] normalize=
-@I [BIND-110] quiet=
-@I [BIND-110] refine=
-@I [BIND-110] reg_weight=[ 0.0 -- 1.0 ]
-@I [BIND-110] search=
-@I [BIND-110] tight_delay=
-@I [BIND-110] verbose=
-@I [BIND-110] wFF=
-@I [BIND-110] wFU=
-@I [BIND-110] wMUX=
-@I [BIND-110] wNET=
-@I [BIND-100] Starting micro-architecture generation ...
-@I [BIND-101] Performing variable lifetime analysis.
-@I [BIND-101] Exploring resource sharing.
-@I [BIND-101] Binding ...
-@I [BIND-100] Finished micro-architecture generation.
-@I [HLS-100] Command       bind returned 0; 0.003 sec.
-@I [HLS-111]  Elapsed time: 0.052 seconds; current allocated memory: 131.836 MB.
-@I [HLS-100] Execute       report -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_data_out.verbose.bind.rpt -verbose -f 
-@I [HLS-100] Command       report returned 0; 0.017 sec.
-@I [HLS-100] Execute       db_write -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_data_out.bind.adb -f 
-@I [HLS-100] Command       db_write returned 0; 0.014 sec.
-@I [HLS-0] Finish binding sc_FIFO_DCT::data_out.
-@I [HLS-100] Execute       get_model_list sc_FIFO_DCT_data_out -filter all-wo-channel 
-@I [HLS-100] Command       get_model_list returned 0; 0.001 sec.
-@I [HLS-0] Preprocessing for RTLGen ...
-@I [HLS-100] Execute       rtl_gen_preprocess sc_FIFO_DCT::data_out 
-@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0.001 sec.
-@I [HLS-0] Model list for RTL generation: sc_FIFO_DCT::data_out
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Generating RTL for module 'sc_FIFO_DCT_data_out' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-100] Execute       create_rtl_model sc_FIFO_DCT::data_out -vendor xilinx -mg_file C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_data_out.compgen.tcl 
-@I [RTGEN-100] Finished creating RTL model for 'sc_FIFO_DCT_data_out'.
-@I [HLS-100] Command       create_rtl_model returned 0; 0.007 sec.
-@I [HLS-111]  Elapsed time: 0.071 seconds; current allocated memory: 131.783 MB.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.rtl_wrap.cfg.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
-@I [HLS-100] Execute       gen_rtl sc_FIFO_DCT::data_out -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/systemc/sc_FIFO_DCT_data_out -synmodules sc_FIFO_DCT::data_out 
-@I [HLS-100] Command       gen_rtl returned 0; 0.006 sec.
-@I [HLS-100] Execute       gen_rtl sc_FIFO_DCT::data_out -style xilinx -f -lang vhdl -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/vhdl/sc_FIFO_DCT_data_out 
-@I [HLS-100] Command       gen_rtl returned 0; 0.004 sec.
-@I [HLS-100] Execute       gen_rtl sc_FIFO_DCT::data_out -style xilinx -f -lang vlog -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/verilog/sc_FIFO_DCT_data_out 
-@I [HLS-100] Command       gen_rtl returned 0; 0.003 sec.
-@I [HLS-100] Execute       gen_tb_info sc_FIFO_DCT::data_out -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_data_out -p C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db 
-@I [HLS-100] Command       gen_tb_info returned 0; 0.012 sec.
-@I [HLS-100] Execute       report -model sc_FIFO_DCT::data_out -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/report/sc_FIFO_DCT_data_out_csynth.rpt -f 
-@I [HLS-100] Command       report returned 0; 0.006 sec.
-@I [HLS-100] Execute       report -model sc_FIFO_DCT::data_out -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/report/sc_FIFO_DCT_data_out_csynth.xml -f -x 
-@I [HLS-100] Command       report returned 0; 0.005 sec.
-@I [HLS-100] Execute       report -model sc_FIFO_DCT::data_out -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_data_out.verbose.rpt -verbose -f 
-@I [HLS-100] Command       report returned 0; 0.017 sec.
-@I [HLS-100] Execute       db_write -model sc_FIFO_DCT::data_out -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_data_out.adb -f 
-@I [HLS-100] Command       db_write returned 0; 0.018 sec.
-@I [HLS-0] Model list for RTL component generation: sc_FIFO_DCT::data_out
-@I [HLS-0] Handling components in module [sc_FIFO_DCT_data_out] ... 
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_data_out.compgen.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.004 sec.
-@I [HLS-0] Append model sc_FIFO_DCT_data_out
-@I [HLS-0] Generating RTL model list ...
-@I [HLS-0] All models in this session: sc_FIFO_DCT_mul_8bkb sc_FIFO_DCT_mul_3cud sc_FIFO_DCT_DCT_b_a sc_FIFO_DCT_DCT_b sc_FIFO_DCT_DCT_a sc_FIFO_DCT_DCT sc_FIFO_DCT_buffering sc_FIFO_DCT_data_out
-@I [HLS-0] To file: write model sc_FIFO_DCT_mul_8bkb
-@I [HLS-0] To file: write model sc_FIFO_DCT_mul_3cud
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT_b_a
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT_b
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT_a
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT
-@I [HLS-0] To file: write model sc_FIFO_DCT_buffering
-@I [HLS-0] To file: write model sc_FIFO_DCT_data_out
-@I [HLS-0] Finished generating RTL model list.
-
-
-@I [HLS-0] RTL Generation done.
-@I [HLS-0] CAS Generation done.
-@I [HLS-0] CBC Generation done.
-@I [HLS-100] Execute       export_ssdm C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.export.ll 
-@I [HLS-100] Command       export_ssdm returned 0; 0.002 sec.
-@I [HLS-0] SystemC module [sc_FIFO_DCT] is top-level?: true 
-@I [HLS-10] Synthesizing 'sc_FIFO_DCT' ...
-@I [HLS-100] Execute       preproc_iomode -model sc_FIFO_DCT 
-@I [HLS-100] Command       preproc_iomode returned 0; 0 sec.
-@I [HLS-0] Model list for configure: sc_FIFO_DCT
-@I [HLS-0] Configuring Module : sc_FIFO_DCT ...
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT 
-@I [HLS-100] Command       set_default_model returned 0; 0.001 sec.
-@I [HLS-100] Execute       apply_spec_resource_limit sc_FIFO_DCT 
-@I [HLS-100] Command       apply_spec_resource_limit returned 0; 0 sec.
-@I [HLS-0] Model list for preprocess: sc_FIFO_DCT
-@I [HLS-0] Preprocessing Module: sc_FIFO_DCT ...
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       cdfg_preprocess -model sc_FIFO_DCT 
-@I [HLS-100] Command       cdfg_preprocess returned 0; 0.001 sec.
-@I [HLS-100] Execute       rtl_gen_preprocess sc_FIFO_DCT 
-@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0.001 sec.
-@I [HLS-0] Model list for synthesis: sc_FIFO_DCT
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Implementing module 'sc_FIFO_DCT' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       schedule -model sc_FIFO_DCT 
-@I [SCHED-11] Starting scheduling ...
-@I [SCHED-11] Finished scheduling.
-@I [HLS-100] Command       schedule returned 0; 0.009 sec.
-@I [HLS-111]  Elapsed time: 0.172 seconds; current allocated memory: 131.650 MB.
-@I [HLS-100] Execute       report -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.verbose.sched.rpt -verbose -f 
-@I [HLS-100] Command       report returned 0; 0.008 sec.
-@I [HLS-100] Execute       db_write -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.sched.adb -f 
-@I [HLS-100] Command       db_write returned 0; 0.013 sec.
-@I [HLS-0] Finish scheduling sc_FIFO_DCT.
-@I [HLS-100] Execute       set_default_model sc_FIFO_DCT 
-@I [HLS-100] Command       set_default_model returned 0; 0 sec.
-@I [HLS-100] Execute       bind -model sc_FIFO_DCT 
-@I [BIND-110] clear=
-@I [BIND-110] debug=
-@I [BIND-110] drf=
-@I [BIND-110] effort=
-@I [BIND-110] fast_refine=
-@I [BIND-110] fu_weight=[ 0.0 -- 1.0 ]
-@I [BIND-110] global_opt=
-@I [BIND-110] gsearch=
-@I [BIND-110] help=
-@I [BIND-110] help-hidden=
-@I [BIND-110] min_mem_port=
-@I [BIND-110] min_op=
-@I [BIND-110] minreg=
-@I [BIND-110] ml=
-@I [BIND-110] model=sc_FIFO_DCT
-@I [BIND-110] no_false_path=
-@I [BIND-110] no_min_op=
-@I [BIND-110] normalize=
-@I [BIND-110] quiet=
-@I [BIND-110] refine=
-@I [BIND-110] reg_weight=[ 0.0 -- 1.0 ]
-@I [BIND-110] search=
-@I [BIND-110] tight_delay=
-@I [BIND-110] verbose=
-@I [BIND-110] wFF=
-@I [BIND-110] wFU=
-@I [BIND-110] wMUX=
-@I [BIND-110] wNET=
-@I [BIND-100] Starting micro-architecture generation ...
-@I [BIND-101] Performing variable lifetime analysis.
-@I [BIND-101] Exploring resource sharing.
-@I [BIND-101] Binding ...
-@I [BIND-100] Finished micro-architecture generation.
-@I [HLS-100] Command       bind returned 0; 0.073 sec.
-@I [HLS-111]  Elapsed time: 0.121 seconds; current allocated memory: 131.607 MB.
-@I [HLS-100] Execute       report -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.verbose.bind.rpt -verbose -f 
-@I [HLS-100] Command       report returned 0; 0.215 sec.
-@I [HLS-100] Execute       db_write -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.bind.adb -f 
-@I [HLS-100] Command       db_write returned 0; 0.013 sec.
-@I [HLS-0] Finish binding sc_FIFO_DCT.
-@I [HLS-0] Preprocessing for RTLGen ...
-@I [HLS-100] Execute       rtl_gen_preprocess sc_FIFO_DCT 
-@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0.001 sec.
-@I [HLS-0] Model list for RTL generation: sc_FIFO_DCT
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Generating RTL for module 'sc_FIFO_DCT' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-100] Execute       create_rtl_model sc_FIFO_DCT -vendor xilinx -mg_file C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.compgen.tcl 
-@I [RTGEN-500] Setting interface mode on port 'sc_FIFO_DCT/clock' to 'ap_none'.
-@I [RTGEN-500] Setting interface mode on port 'sc_FIFO_DCT/reset' to 'ap_none'.
-@I [RTGEN-500] Setting interface mode on port 'sc_FIFO_DCT/enable' to 'ap_none'.
-@I [RTGEN-500] Setting interface mode on port 'sc_FIFO_DCT/dout' to 'ap_fifo'.
-@I [RTGEN-500] Setting interface mode on port 'sc_FIFO_DCT/din' to 'ap_fifo'.
-@I [SYN-210] Renamed object name 'sc_FIFO_DCT_sc_FIFO_DCT_mA' to 'sc_FIFO_DCT_sc_FIdEe' due to the length limit 20
-@I [SYN-210] Renamed object name 'sc_FIFO_DCT_sc_FIFO_DCT_mB' to 'sc_FIFO_DCT_sc_FIeOg' due to the length limit 20
-@I [SYN-210] Renamed object name 'sc_FIFO_DCT_sc_FIFO_DCT_mC' to 'sc_FIFO_DCT_sc_FIfYi' due to the length limit 20
-@W [RTGEN-101] Port 'sc_FIFO_DCT/enable' has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to.
-@I [RTGEN-100] Finished creating RTL model for 'sc_FIFO_DCT'.
-@I [HLS-100] Command       create_rtl_model returned 0; 0.018 sec.
-@I [HLS-111]  Elapsed time: 0.272 seconds; current allocated memory: 131.771 MB.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.rtl_wrap.cfg.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.002 sec.
-@I [HLS-100] Execute       gen_rtl sc_FIFO_DCT -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/systemc/sc_FIFO_DCT -synmodules sc_FIFO_DCT 
-@I [HLS-100] Command       gen_rtl returned 0; 0.005 sec.
-@I [HLS-100] Execute       gen_rtl sc_FIFO_DCT -istop -style xilinx -f -lang vhdl -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/vhdl/sc_FIFO_DCT 
-@I [HLS-100] Command       gen_rtl returned 0; 0.009 sec.
-@I [HLS-100] Execute       gen_rtl sc_FIFO_DCT -istop -style xilinx -f -lang vlog -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/verilog/sc_FIFO_DCT 
-@I [HLS-100] Command       gen_rtl returned 0; 0.006 sec.
-@I [HLS-100] Execute       export_constraint_db -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.constraint.tcl -f -tool general 
-@I [HLS-100] Command       export_constraint_db returned 0; 0.003 sec.
-@I [HLS-100] Execute       report -model sc_FIFO_DCT -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.design.xml -verbose -f -dv 
-@I [HLS-100] Command       report returned 0; 0.183 sec.
-@I [HLS-100] Execute       report -model sc_FIFO_DCT -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.sdaccel.xml -verbose -f -sdaccel 
-@I [HLS-100] Command       report returned 0; 0.011 sec.
-@I [HLS-100] Execute       gen_tb_info sc_FIFO_DCT -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT -p C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db 
-@I [HLS-100] Command       gen_tb_info returned 0; 0.013 sec.
-@I [HLS-100] Execute       report -model sc_FIFO_DCT -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/report/sc_FIFO_DCT_csynth.rpt -f 
-@I [HLS-100] Command       report returned 0; 0.008 sec.
-@I [HLS-100] Execute       report -model sc_FIFO_DCT -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/syn/report/sc_FIFO_DCT_csynth.xml -f -x 
-@I [HLS-100] Command       report returned 0; 0.005 sec.
-@I [HLS-100] Execute       report -model sc_FIFO_DCT -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.verbose.rpt -verbose -f 
-@I [HLS-100] Command       report returned 0; 0.214 sec.
-@I [HLS-100] Execute       db_write -model sc_FIFO_DCT -o C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.adb -f 
-@I [HLS-100] Command       db_write returned 0; 0.018 sec.
-@I [HLS-100] Execute       sc_get_clocks sc_FIFO_DCT 
-@I [HLS-100] Command       sc_get_clocks returned 0; 0 sec.
-@I [HLS-100] Execute       sc_get_portdomain sc_FIFO_DCT 
-@I [HLS-100] Command       sc_get_portdomain returned 0; 0 sec.
-@I [HLS-0] Model list for RTL component generation: sc_FIFO_DCT
-@I [HLS-0] Handling components in module [sc_FIFO_DCT] ... 
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.compgen.tcl 
-@I [HLS-0] Found component sc_FIFO_DCT_sc_FIdEe.
-@I [HLS-0] Append model sc_FIFO_DCT_sc_FIdEe
-@I [HLS-0] Found component sc_FIFO_DCT_sc_FIeOg.
-@I [HLS-0] Append model sc_FIFO_DCT_sc_FIeOg
-@I [HLS-0] Found component sc_FIFO_DCT_sc_FIfYi.
-@I [HLS-0] Append model sc_FIFO_DCT_sc_FIfYi
-@I [HLS-100] Command       ap_source returned 0; 0.005 sec.
-@I [HLS-0] Append model sc_FIFO_DCT
-@I [HLS-0] Generating RTL model list ...
-@I [HLS-0] All models in this session: sc_FIFO_DCT_mul_8bkb sc_FIFO_DCT_mul_3cud sc_FIFO_DCT_DCT_b_a sc_FIFO_DCT_DCT_b sc_FIFO_DCT_DCT_a sc_FIFO_DCT_DCT sc_FIFO_DCT_buffering sc_FIFO_DCT_data_out sc_FIFO_DCT_sc_FIdEe sc_FIFO_DCT_sc_FIeOg sc_FIFO_DCT_sc_FIfYi sc_FIFO_DCT
-@I [HLS-0] To file: write model sc_FIFO_DCT_mul_8bkb
-@I [HLS-0] To file: write model sc_FIFO_DCT_mul_3cud
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT_b_a
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT_b
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT_a
-@I [HLS-0] To file: write model sc_FIFO_DCT_DCT
-@I [HLS-0] To file: write model sc_FIFO_DCT_buffering
-@I [HLS-0] To file: write model sc_FIFO_DCT_data_out
-@I [HLS-0] To file: write model sc_FIFO_DCT_sc_FIdEe
-@I [HLS-0] To file: write model sc_FIFO_DCT_sc_FIeOg
-@I [HLS-0] To file: write model sc_FIFO_DCT_sc_FIfYi
-@I [HLS-0] To file: write model sc_FIFO_DCT
-@I [HLS-0] Finished generating RTL model list.
-
-
-@I [HLS-0] RTL Generation done.
-@I [HLS-0] CAS Generation done.
-@I [HLS-0] CBC Generation done.
-@I [HLS-100] Execute       export_ssdm C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/a.export.ll 
-@I [HLS-100] Command       export_ssdm returned 0; 0.002 sec.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/global.setting.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
-@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/generic/autopilot/common.gen 
-@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/generic/autopilot/APCoreGen.gen 
-@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
-@I [HLS-100] Command       ap_source returned 0; 0.002 sec.
-@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/generic/autopilot/op.gen 
-@I [HLS-100] Command       ap_source returned 0; 0 sec.
-@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/generic/autopilot/op_simcore.gen 
-@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
-@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/generic/autopilot/interface.gen 
-@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/global.setting.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
-@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/artix7/artix7.gen 
-@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/virtex.gen 
-@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx.gen 
-@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/plb46.gen 
-@I [HLS-100] Command             ap_source returned 0; 0.002 sec.
-@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/fsl.gen 
-@I [HLS-100] Command             ap_source returned 0; 0.001 sec.
-@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/axi4.gen 
-@I [HLS-100] Command             ap_source returned 0; 0.004 sec.
-@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/nativeAXI4.gen 
-@I [HLS-100] Execute               source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/saxilite.gen 
-@I [HLS-100] Command               ap_source returned 0; 0.003 sec.
-@I [HLS-100] Execute               source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/maxi.gen 
-@I [HLS-100] Command               ap_source returned 0; 0.007 sec.
-@I [HLS-100] Command             ap_source returned 0; 0.013 sec.
-@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/scripts/xilinxcoregen.gen 
-@I [HLS-100] Command             ap_source returned 0; 0.011 sec.
-@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-@I [HLS-100] Command             ap_source returned 0; 0.008 sec.
-@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/dds_compiler.gen 
-@I [HLS-100] Command             ap_source returned 0; 0.004 sec.
-@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/util.gen 
-@I [HLS-100] Command             ap_source returned 0; 0 sec.
-@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/xfft.gen 
-@I [HLS-100] Command             ap_source returned 0; 0.102 sec.
-@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/ip/xfir.gen 
-@I [HLS-100] Command             ap_source returned 0; 0.002 sec.
-@I [HLS-100] Command           ap_source returned 0; 0.154 sec.
-@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/dsp48.gen 
-@I [HLS-100] Command           ap_source returned 0; 0 sec.
-@I [HLS-100] Command         ap_source returned 0; 0.157 sec.
-@I [HLS-100] Command       ap_source returned 0; 0.159 sec.
-@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/artix7/artix7_fpv6.gen 
-@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.3/common/technology/xilinx/common/xilinx_fpv6.gen 
-@I [HLS-100] Command         ap_source returned 0; 0.002 sec.
-@I [HLS-100] Command       ap_source returned 0; 0.003 sec.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/global.setting.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.002 sec.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/global.setting.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.002 sec.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/global.setting.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.002 sec.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/global.setting.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.002 sec.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_DCT.compgen.tcl 
-@I [RTMG-282] Generating pipelined core: 'sc_FIFO_DCT_mul_8bkb_MulnS_0'
-@I [RTMG-282] Generating pipelined core: 'sc_FIFO_DCT_mul_3cud_MulnS_1'
-@I [RTMG-279] Implementing memory 'sc_FIFO_DCT_DCT_b_a_rom' using distributed ROMs.
-@I [RTMG-279] Implementing memory 'sc_FIFO_DCT_DCT_b_rom' using distributed ROMs.
-@I [RTMG-278] Implementing memory 'sc_FIFO_DCT_DCT_a_ram' using block RAMs.
-@I [HLS-100] Command       ap_source returned 0; 0.252 sec.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_buffering.compgen.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.002 sec.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT_data_out.compgen.tcl 
-@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
-@I [HLS-100] Execute       source C:/Users/alienBot/Desktop/DCT_base-master/DCT_base-master/DCT_base/DCT/.autopilot/db/sc_FIFO_DCT.compgen.tcl 
-@I [RTMG-278] Implementing memory 'sc_FIFO_DCT_sc_FIdEe_ram' using block RAMs.
-@I [RTMG-278] Implementing memory 'sc_FIFO_DCT_sc_FIeOg_ram' using block RAMs.
-@I [RTMG-278] Implementing memory 'sc_FIFO_DCT_sc_FIfYi_ram' using block RAMs.
-@I [HLS-100] Command       ap_source returned 0; 0.135 sec.
-@I [HLS-111] Finished generating all RTL models Time (s): cpu = 00:00:10 ; elapsed = 00:00:52 . Memory (MB): peak = 179.945 ; gain = 130.477
-@I [SYSC-301] Generating SystemC RTL for sc_FIFO_DCT.
-@I [VHDL-304] Generating VHDL RTL for sc_FIFO_DCT.
-@I [VLOG-307] Generating Verilog RTL for sc_FIFO_DCT.
-@I [HLS-100] Command     autosyn returned 0; 6.962 sec.
-@I [HLS-100] Command   csynth_design returned 0; 49.849 sec.
-@I [HLS-100] Command ap_source returned 0; 51.15 sec.
+@I [HLS-100] Command   open_solution returned 0; 0.345 sec.
+@I [HLS-100] Execute   csim_design -quiet 
+@I [HLS-100] Execute     source C:/Users/alienBot/Documents/GitHub/DCT_base/DCT_base/DCT/.autopilot/db/global.setting.tcl 
+@I [HLS-100] Command     ap_source returned 0; 0.002 sec.
+@I [SIM-2] *************** CSIM start ***************
+@W [SIM-51] HLS only supports CLANG compiler in Linux.
+@I [SIM-4] CSIM will launch GCC as the compiler.
+@I [HLS-100] Execute     source csim/.lst_opt.tcl 
+@I [HLS-100] Command     ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/testbench_Top.cpp 
+@I [HLS-100] Command     is_encrypted returned 0; 0 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/testbench_Top.cpp 
+@I [HLS-100] Command     is_xip returned 0; 0 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/tb_init.h 
+@I [HLS-100] Command     is_encrypted returned 0; 0 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/tb_init.h 
+@I [HLS-100] Command     is_xip returned 0; 0 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/tb_init.cpp 
+@I [HLS-100] Command     is_encrypted returned 0; 0 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/tb_init.cpp 
+@I [HLS-100] Command     is_xip returned 0; 0.001 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/sc_FIFO_IDCT.h 
+@I [HLS-100] Command     is_encrypted returned 0; 0 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/sc_FIFO_IDCT.h 
+@I [HLS-100] Command     is_xip returned 0; 0 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/sc_FIFO_IDCT.cpp 
+@I [HLS-100] Command     is_encrypted returned 0; 0 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/sc_FIFO_IDCT.cpp 
+@I [HLS-100] Command     is_xip returned 0; 0 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/qdbmp.h 
+@I [HLS-100] Command     is_encrypted returned 0; 0 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/qdbmp.h 
+@I [HLS-100] Command     is_xip returned 0; 0.001 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/qdbmp.cpp 
+@I [HLS-100] Command     is_encrypted returned 0; 0.001 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/qdbmp.cpp 
+@I [HLS-100] Command     is_xip returned 0; 0 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/lena512.bmp 
+@I [HLS-100] Command     is_encrypted returned 0; 0 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/lena512.bmp 
+@I [HLS-100] Command     is_xip returned 0; 0 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/imager_512.h 
+@I [HLS-100] Command     is_encrypted returned 0; 0.001 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/imager_512.h 
+@I [HLS-100] Command     is_xip returned 0; 0 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/imager_512.cpp 
+@I [HLS-100] Command     is_encrypted returned 0; 0 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/imager_512.cpp 
+@I [HLS-100] Command     is_xip returned 0; 0.001 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/blocker_512.h 
+@I [HLS-100] Command     is_encrypted returned 0; 0.001 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/blocker_512.h 
+@I [HLS-100] Command     is_xip returned 0; 0 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/blocker_512.cpp 
+@I [HLS-100] Command     is_encrypted returned 0; 0 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/blocker_512.cpp 
+@I [HLS-100] Command     is_xip returned 0; 0.001 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/Tasks.h 
+@I [HLS-100] Command     is_encrypted returned 0; 0 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/Tasks.h 
+@I [HLS-100] Command     is_xip returned 0; 0 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/Tasks.cpp 
+@I [HLS-100] Command     is_encrypted returned 0; 0.001 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/Tasks.cpp 
+@I [HLS-100] Command     is_xip returned 0; 0 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/sc_FIFO_DCT.h 
+@I [HLS-100] Command     is_encrypted returned 0; 0 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/sc_FIFO_DCT.h 
+@I [HLS-100] Command     is_xip returned 0; 0.001 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/alienBot/Documents/GitHub/DCT_base/sc_FIFO_DCT.cpp 
+@I [HLS-100] Command     is_encrypted returned 0; 0.001 sec.
+@I [HLS-100] Execute     is_xip C:/Users/alienBot/Documents/GitHub/DCT_base/sc_FIFO_DCT.cpp 
+@I [HLS-100] Command     is_xip returned 0; 0 sec.
+@I [HLS-100] Execute     source run_sim.tcl 
+@I [HLS-100] Command     ap_source returned 0; 1.334 sec.
+@I [SIM-1] CSim done with 0 errors.
+@I [SIM-3] *************** CSIM finish ***************
+@I [HLS-100] Command   csim_design returned 0; 10.681 sec.
+@I [HLS-100] Command ap_source returned 0; 11.032 sec.
 @I [HLS-100] Execute cleanup_all 
-@I [HLS-100] Command cleanup_all returned 0; 0.014 sec.
+@I [HLS-100] Command cleanup_all returned 0; 0 sec.

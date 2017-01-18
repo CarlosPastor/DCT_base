@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'sc_FIFO_DCT_DCT'
 ================================================================
-* Date:           Tue Jan 17 02:08:07 2017
+* Date:           Tue Jan 17 18:16:30 2017
 
 * Version:        2016.3 (Build 1682563 on Mon Oct 10 19:41:59 MDT 2016)
 * Project:        DCT_base
@@ -25,29 +25,29 @@
 
 + Latency (clock cycles): 
     * Summary: 
-    +-----+-----+-----+-----+---------+
-    |  Latency  |  Interval | Pipeline|
-    | min | max | min | max |   Type  |
-    +-----+-----+-----+-----+---------+
-    |  491|  491|  491|  491|   none  |
-    +-----+-----+-----+-----+---------+
+    +------+------+------+------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    |  min |  max |  min |  max |   Type  |
+    +------+------+------+------+---------+
+    |  7583|  7583|  7583|  7583|   none  |
+    +------+------+------+------+---------+
 
     + Detail: 
         * Instance: 
         N/A
 
         * Loop: 
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
-        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
-        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
-        |- Loop 1     |  489|  489|       489|          -|          -|  inf |    no    |
-        | + DCT_loop  |  484|  484|       121|          -|          -|     4|    no    |
-        |  ++ TA      |   37|   37|        10|          4|          1|     8|    yes   |
-        |  ++ AT      |   14|   14|         8|          1|          1|     8|    yes   |
-        |  ++ TA      |   37|   37|        10|          4|          1|     8|    yes   |
-        |  ++ AT      |   14|   14|         8|          1|          1|     8|    yes   |
-        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        +---------------+------+------+----------+-----------+-----------+------+----------+
+        |               |   Latency   | Iteration|  Initiation Interval  | Trip |          |
+        |   Loop Name   |  min |  max |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------+------+------+----------+-----------+-----------+------+----------+
+        |- Loop 1       |  7581|  7581|      7581|          -|          -|  inf |    no    |
+        | + DCT_loop    |  7576|  7576|       947|          -|          -|     8|    no    |
+        |  ++ TA        |   472|   472|        59|          -|          -|     8|    no    |
+        |   +++ multTA  |    56|    56|         7|          -|          -|     8|    no    |
+        |  ++ AT        |   472|   472|        59|          -|          -|     8|    no    |
+        |   +++ multAT  |    56|    56|         7|          -|          -|     8|    no    |
+        +---------------+------+------+----------+-----------+-----------+------+----------+
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -71,22 +71,12 @@ IsDontTouch: 0
 HasImplIP: 0
 IsGatedGlobalClock: 0
 
-+ Individual pipeline summary: 
-  * Pipeline-0: initiation interval (II) = 4, depth = 10
-  * Pipeline-1: initiation interval (II) = 1, depth = 8
-  * Pipeline-2: initiation interval (II) = 4, depth = 10
-  * Pipeline-3: initiation interval (II) = 1, depth = 8
-
 
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states: 57
-* Pipeline: 4
-  Pipeline-0: II = 4, D = 10, States = { 6 7 8 9 10 11 12 13 14 15 }
-  Pipeline-1: II = 1, D = 8, States = { 21 22 23 24 25 26 27 28 }
-  Pipeline-2: II = 4, D = 10, States = { 31 32 33 34 35 36 37 38 39 40 }
-  Pipeline-3: II = 1, D = 8, States = { 46 47 48 49 50 51 52 53 }
+* Number of FSM states: 25
+* Pipeline: 0
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
@@ -97,13 +87,14 @@ IsGatedGlobalClock: 0
 3 --> 
 	4  / true
 4 --> 
+	23  / (exitcond1)
 	5  / (!exitcond1)
-	55  / (exitcond1)
 5 --> 
-	6  / true
+	6  / (!exitcond2)
+	14  / (exitcond2)
 6 --> 
-	16  / (exitcond2)
-	7  / (!exitcond2)
+	7  / (!exitcond4)
+	13  / (exitcond4)
 7 --> 
 	8  / true
 8 --> 
@@ -115,13 +106,15 @@ IsGatedGlobalClock: 0
 11 --> 
 	12  / true
 12 --> 
-	13  / true
-13 --> 
-	14  / true
-14 --> 
-	15  / true
-15 --> 
 	6  / true
+13 --> 
+	5  / true
+14 --> 
+	15  / (!exitcond3)
+	4  / (exitcond3)
+15 --> 
+	16  / (!exitcond5)
+	22  / (exitcond5)
 16 --> 
 	17  / true
 17 --> 
@@ -133,2097 +126,928 @@ IsGatedGlobalClock: 0
 20 --> 
 	21  / true
 21 --> 
-	29  / (exitcond3)
-	22  / (!exitcond3)
+	15  / true
 22 --> 
-	23  / true
+	14  / true
 23 --> 
 	24  / true
 24 --> 
 	25  / true
 25 --> 
-	26  / true
-26 --> 
-	27  / true
-27 --> 
-	28  / true
-28 --> 
-	21  / true
-29 --> 
-	30  / true
-30 --> 
-	31  / true
-31 --> 
-	41  / (exitcond2_1)
-	32  / (!exitcond2_1)
-32 --> 
-	33  / true
-33 --> 
-	34  / true
-34 --> 
-	35  / true
-35 --> 
-	36  / true
-36 --> 
-	37  / true
-37 --> 
-	38  / true
-38 --> 
-	39  / true
-39 --> 
-	40  / true
-40 --> 
-	31  / true
-41 --> 
-	42  / true
-42 --> 
-	43  / true
-43 --> 
-	44  / true
-44 --> 
-	45  / true
-45 --> 
-	46  / true
-46 --> 
-	54  / (exitcond3_1)
-	47  / (!exitcond3_1)
-47 --> 
-	48  / true
-48 --> 
-	49  / true
-49 --> 
-	50  / true
-50 --> 
-	51  / true
-51 --> 
-	52  / true
-52 --> 
-	53  / true
-53 --> 
-	46  / true
-54 --> 
-	4  / true
-55 --> 
-	56  / true
-56 --> 
-	57  / true
-57 --> 
 	3  / true
 * FSM state operations: 
 
  <State 1>: 0.00ns
-ST_1: StgValue_58 (17)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:0  call void (...)* @_ssdm_op_SpecBitsMap(i1* %clock), !map !74
+ST_1: s_0_1 (17)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:0  %s_0_1 = alloca i32
 
-ST_1: StgValue_59 (18)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:1  call void (...)* @_ssdm_op_SpecBitsMap(i1* %reset), !map !78
+ST_1: s_7_19 (18)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:1  %s_7_19 = alloca i32
 
-ST_1: StgValue_60 (19)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:2  call void (...)* @_ssdm_op_SpecBitsMap(i1* %enable), !map !82
+ST_1: s_7_20 (19)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:2  %s_7_20 = alloca i32
 
-ST_1: StgValue_61 (20)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:3  call void (...)* @_ssdm_op_SpecBitsMap(i8* %dout), !map !86
+ST_1: s_7_21 (20)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:3  %s_7_21 = alloca i32
 
-ST_1: StgValue_62 (21)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:4  call void (...)* @_ssdm_op_SpecBitsMap(i8* %din), !map !90
+ST_1: s_7_22 (21)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:4  %s_7_22 = alloca i32
 
-ST_1: StgValue_63 (22)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:5  call void (...)* @_ssdm_op_SpecBitsMap([64 x i32]* %sc_FIFO_DCT_mA), !map !94
+ST_1: s_7_23 (22)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:5  %s_7_23 = alloca i32
 
-ST_1: StgValue_64 (23)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:6  call void (...)* @_ssdm_op_SpecBitsMap([64 x i32]* %sc_FIFO_DCT_mB), !map !100
+ST_1: s_7_24 (23)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:6  %s_7_24 = alloca i32
 
-ST_1: StgValue_65 (24)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:7  call void (...)* @_ssdm_op_SpecBitsMap([64 x i32]* %sc_FIFO_DCT_mC), !map !104
+ST_1: s_7_25 (24)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:7  %s_7_25 = alloca i32
 
-ST_1: StgValue_66 (25)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:8  call void (...)* @_ssdm_op_SpecBitsMap(i32* %sc_FIFO_DCT_exec_cnt), !map !108
+ST_1: StgValue_34 (25)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:8  call void (...)* @_ssdm_op_SpecBitsMap(i1* %clock), !map !74
 
-ST_1: StgValue_67 (26)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:9  call void (...)* @_ssdm_op_SpecBitsMap(i1* %s_buffering), !map !112
+ST_1: StgValue_35 (26)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:9  call void (...)* @_ssdm_op_SpecBitsMap(i1* %reset), !map !78
 
-ST_1: StgValue_68 (27)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:10  call void (...)* @_ssdm_op_SpecBitsMap(i1* %s_buffered), !map !116
+ST_1: StgValue_36 (27)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:10  call void (...)* @_ssdm_op_SpecBitsMap(i1* %enable), !map !82
 
-ST_1: StgValue_69 (28)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:11  call void (...)* @_ssdm_op_SpecBitsMap(i1* %s_working), !map !120
+ST_1: StgValue_37 (28)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:11  call void (...)* @_ssdm_op_SpecBitsMap(i8* %dout), !map !86
 
-ST_1: StgValue_70 (29)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:12  call void (...)* @_ssdm_op_SpecBitsMap(i1* %s_DCT), !map !124
+ST_1: StgValue_38 (29)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:12  call void (...)* @_ssdm_op_SpecBitsMap(i8* %din), !map !90
 
-ST_1: StgValue_71 (30)  [1/1] 0.00ns
-_ZN7_ap_sc_7sc_core4waitEi.exit:13  call void (...)* @_ssdm_op_SpecBitsMap(i1* %s_done), !map !128
+ST_1: StgValue_39 (30)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:13  call void (...)* @_ssdm_op_SpecBitsMap([64 x i32]* %sc_FIFO_DCT_mA), !map !94
 
-ST_1: a (31)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:57
-_ZN7_ap_sc_7sc_core4waitEi.exit:14  %a = alloca [64 x i32], align 4
+ST_1: StgValue_40 (31)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:14  call void (...)* @_ssdm_op_SpecBitsMap([64 x i32]* %sc_FIFO_DCT_mB), !map !100
 
-ST_1: StgValue_73 (32)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:55
-_ZN7_ap_sc_7sc_core4waitEi.exit:15  call void (...)* @_ssdm_op_SpecPort([12 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [6 x i8]* @p_str2, i32 0, i32 0, i1* %clock) nounwind
+ST_1: StgValue_41 (32)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:15  call void (...)* @_ssdm_op_SpecBitsMap([64 x i32]* %sc_FIFO_DCT_mC), !map !104
 
-ST_1: StgValue_74 (33)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:56
-_ZN7_ap_sc_7sc_core4waitEi.exit:16  call void (...)* @_ssdm_op_SpecPort([12 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [6 x i8]* @p_str3, i32 0, i32 0, i1* %reset) nounwind
+ST_1: StgValue_42 (33)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:16  call void (...)* @_ssdm_op_SpecBitsMap(i32* %sc_FIFO_DCT_exec_cnt), !map !108
 
-ST_1: StgValue_75 (34)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:57
-_ZN7_ap_sc_7sc_core4waitEi.exit:17  call void (...)* @_ssdm_op_SpecPort([12 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [7 x i8]* @p_str4, i32 0, i32 0, i1* %enable) nounwind
+ST_1: StgValue_43 (34)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:17  call void (...)* @_ssdm_op_SpecBitsMap(i1* %s_buffering), !map !112
 
-ST_1: StgValue_76 (35)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:58
-_ZN7_ap_sc_7sc_core4waitEi.exit:18  call void (...)* @_ssdm_op_SpecInterface(i8* %dout, [8 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6, [1 x i8]* @p_str6, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6) nounwind
+ST_1: StgValue_44 (35)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:18  call void (...)* @_ssdm_op_SpecBitsMap(i1* %s_buffered), !map !116
 
-ST_1: StgValue_77 (36)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:59
-_ZN7_ap_sc_7sc_core4waitEi.exit:19  call void (...)* @_ssdm_op_SpecInterface(i8* %din, [8 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6, [1 x i8]* @p_str6, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6) nounwind
+ST_1: StgValue_45 (36)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:19  call void (...)* @_ssdm_op_SpecBitsMap(i1* %s_working), !map !120
 
-ST_1: StgValue_78 (37)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:60
-_ZN7_ap_sc_7sc_core4waitEi.exit:20  call void (...)* @_ssdm_op_SpecProcessDef([12 x i8]* @p_str, i32 2, [4 x i8]* @p_str24) nounwind
+ST_1: StgValue_46 (37)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:20  call void (...)* @_ssdm_op_SpecBitsMap(i1* %s_DCT), !map !124
 
-ST_1: tmp_3 (38)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:60
-_ZN7_ap_sc_7sc_core4waitEi.exit:21  %tmp_3 = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str8)
+ST_1: StgValue_47 (38)  [1/1] 0.00ns
+_ZN7_ap_sc_7sc_core4waitEi.exit:21  call void (...)* @_ssdm_op_SpecBitsMap(i1* %s_done), !map !128
 
-ST_1: StgValue_80 (39)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:60
-_ZN7_ap_sc_7sc_core4waitEi.exit:22  call void (...)* @_ssdm_op_SpecProtocol(i32 1, [1 x i8]* @p_str6) nounwind
+ST_1: a (39)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:57
+_ZN7_ap_sc_7sc_core4waitEi.exit:22  %a = alloca [64 x i32], align 4
 
-ST_1: p_ssdm_reset_v (40)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:60
-_ZN7_ap_sc_7sc_core4waitEi.exit:23  %p_ssdm_reset_v = call i32 (...)* @_ssdm_op_SpecStateBegin(i32 0, i32 0, i32 1) nounwind
+ST_1: StgValue_49 (40)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:55
+_ZN7_ap_sc_7sc_core4waitEi.exit:23  call void (...)* @_ssdm_op_SpecPort([12 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [6 x i8]* @p_str2, i32 0, i32 0, i1* %clock) nounwind
 
-ST_1: empty (41)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:66
-_ZN7_ap_sc_7sc_core4waitEi.exit:24  %empty = call i32 (...)* @_ssdm_op_SpecStateEnd(i32 %p_ssdm_reset_v) nounwind
+ST_1: StgValue_50 (41)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:56
+_ZN7_ap_sc_7sc_core4waitEi.exit:24  call void (...)* @_ssdm_op_SpecPort([12 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [6 x i8]* @p_str3, i32 0, i32 0, i1* %reset) nounwind
 
-ST_1: empty_11 (42)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:66
-_ZN7_ap_sc_7sc_core4waitEi.exit:25  %empty_11 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str8, i32 %tmp_3)
+ST_1: StgValue_51 (42)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:57
+_ZN7_ap_sc_7sc_core4waitEi.exit:25  call void (...)* @_ssdm_op_SpecPort([12 x i8]* @p_str, i32 0, [7 x i8]* @p_str1, [7 x i8]* @p_str4, i32 0, i32 0, i1* %enable) nounwind
+
+ST_1: StgValue_52 (43)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:58
+_ZN7_ap_sc_7sc_core4waitEi.exit:26  call void (...)* @_ssdm_op_SpecInterface(i8* %dout, [8 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6, [1 x i8]* @p_str6, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6) nounwind
+
+ST_1: StgValue_53 (44)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:59
+_ZN7_ap_sc_7sc_core4waitEi.exit:27  call void (...)* @_ssdm_op_SpecInterface(i8* %din, [8 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6, [1 x i8]* @p_str6, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6) nounwind
+
+ST_1: StgValue_54 (45)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:60
+_ZN7_ap_sc_7sc_core4waitEi.exit:28  call void (...)* @_ssdm_op_SpecProcessDef([12 x i8]* @p_str, i32 2, [4 x i8]* @p_str24) nounwind
+
+ST_1: tmp_12 (46)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:60
+_ZN7_ap_sc_7sc_core4waitEi.exit:29  %tmp_12 = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str8)
+
+ST_1: StgValue_56 (47)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:60
+_ZN7_ap_sc_7sc_core4waitEi.exit:30  call void (...)* @_ssdm_op_SpecProtocol(i32 1, [1 x i8]* @p_str6) nounwind
+
+ST_1: p_ssdm_reset_v (48)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:60
+_ZN7_ap_sc_7sc_core4waitEi.exit:31  %p_ssdm_reset_v = call i32 (...)* @_ssdm_op_SpecStateBegin(i32 0, i32 0, i32 1) nounwind
+
+ST_1: empty (49)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:66
+_ZN7_ap_sc_7sc_core4waitEi.exit:32  %empty = call i32 (...)* @_ssdm_op_SpecStateEnd(i32 %p_ssdm_reset_v) nounwind
+
+ST_1: empty_9 (50)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:66
+_ZN7_ap_sc_7sc_core4waitEi.exit:33  %empty_9 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str8, i32 %tmp_12)
 
 
  <State 2>: 0.00ns
-ST_2: StgValue_84 (43)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:68
-_ZN7_ap_sc_7sc_core4waitEi.exit:26  call void (...)* @_ssdm_op_Wait(i32 1) nounwind
+ST_2: StgValue_60 (51)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:68
+_ZN7_ap_sc_7sc_core4waitEi.exit:34  call void (...)* @_ssdm_op_Wait(i32 1) nounwind
 
-ST_2: StgValue_85 (44)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:69
-_ZN7_ap_sc_7sc_core4waitEi.exit:27  br label %0
+ST_2: StgValue_61 (52)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:69
+_ZN7_ap_sc_7sc_core4waitEi.exit:35  br label %0
 
 
  <State 3>: 1.57ns
-ST_3: loop_begin (46)  [1/1] 0.00ns
+ST_3: loop_begin (54)  [1/1] 0.00ns
 :0  %loop_begin = call i32 (...)* @_ssdm_op_SpecLoopBegin() nounwind
 
-ST_3: StgValue_87 (47)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:73
+ST_3: StgValue_63 (55)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:73
 :1  call void (...)* @_ssdm_op_Wait(i32 1) nounwind
 
-ST_3: tmp (48)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:73
+ST_3: tmp (56)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:73
 :2  %tmp = call i1 @_ssdm_op_Read.ap_auto.volatile.i1P(i1* %s_buffered)
 
-ST_3: StgValue_89 (49)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:73
+ST_3: StgValue_65 (57)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:73
 :3  call void (...)* @_ssdm_op_Poll(i1 %tmp)
 
-ST_3: StgValue_90 (50)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:74
+ST_3: StgValue_66 (58)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:74
 :4  call void @_ssdm_op_Write.ap_auto.volatile.i1P(i1* %s_working, i1 true)
 
-ST_3: StgValue_91 (51)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:76
+ST_3: StgValue_67 (59)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:76
 :5  br label %1
 
 
- <State 4>: 4.06ns
-ST_4: i0 (53)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
-:0  %i0 = phi i4 [ 0, %0 ], [ %i0_1_1, %5 ]
+ <State 4>: 2.39ns
+ST_4: i0 (61)  [1/1] 0.00ns
+:0  %i0 = phi i4 [ 0, %0 ], [ %i0_1, %8 ]
 
-ST_4: exitcond1 (54)  [1/1] 2.33ns  loc: sc_FIFO_DCT.cpp:76
-:1  %exitcond1 = icmp eq i4 %i0, -8
+ST_4: s_0_1_load (62)  [1/1] 0.00ns
+:1  %s_0_1_load = load i32* %s_0_1
 
-ST_4: StgValue_94 (55)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
-:2  br i1 %exitcond1, label %_ZN7_ap_sc_7sc_core4waitEi.exit2, label %4
+ST_4: s_7_19_load (63)  [1/1] 0.00ns
+:2  %s_7_19_load = load i32* %s_7_19
 
-ST_4: i0_cast3 (59)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
-:2  %i0_cast3 = zext i4 %i0 to i32
+ST_4: s_7_20_load (64)  [1/1] 0.00ns
+:3  %s_7_20_load = load i32* %s_7_20
 
-ST_4: i0_cast4 (60)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
-:3  %i0_cast4 = zext i4 %i0 to i6
+ST_4: s_7_21_load (65)  [1/1] 0.00ns
+:4  %s_7_21_load = load i32* %s_7_21
 
-ST_4: b_a_addr (65)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:8  %b_a_addr = getelementptr [64 x i8]* @b_a, i32 0, i32 %i0_cast3
+ST_4: s_7_22_load (66)  [1/1] 0.00ns
+:5  %s_7_22_load = load i32* %s_7_22
 
-ST_4: b_a_load (66)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:9  %b_a_load = load i8* %b_a_addr, align 2
+ST_4: s_7_23_load (67)  [1/1] 0.00ns
+:6  %s_7_23_load = load i32* %s_7_23
 
-ST_4: tmp_6_0_1 (68)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:84
-:11  %tmp_6_0_1 = xor i4 %i0, -8
+ST_4: s_7_24_load (68)  [1/1] 0.00ns
+:7  %s_7_24_load = load i32* %s_7_24
 
-ST_4: tmp_6_0_1_cast (69)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:12  %tmp_6_0_1_cast = zext i4 %tmp_6_0_1 to i32
+ST_4: s_7_25_load (69)  [1/1] 0.00ns
+:8  %s_7_25_load = load i32* %s_7_25
 
-ST_4: b_a_addr_1 (70)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:13  %b_a_addr_1 = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_0_1_cast
+ST_4: i0_cast (70)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
+:9  %i0_cast = zext i4 %i0 to i6
 
-ST_4: b_a_load_1 (71)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:14  %b_a_load_1 = load i8* %b_a_addr_1, align 2
+ST_4: exitcond1 (71)  [1/1] 2.33ns  loc: sc_FIFO_DCT.cpp:76
+:10  %exitcond1 = icmp eq i4 %i0, -8
 
-ST_4: tmp_6_0_s (73)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:16  %tmp_6_0_s = call i5 @_ssdm_op_BitConcatenate.i5.i1.i4(i1 true, i4 %i0)
+ST_4: empty_10 (72)  [1/1] 0.00ns
+:11  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
 
-ST_4: tmp_6_0_2_cast (74)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:17  %tmp_6_0_2_cast = zext i5 %tmp_6_0_s to i32
+ST_4: i0_1 (73)  [1/1] 0.75ns  loc: sc_FIFO_DCT.cpp:76
+:12  %i0_1 = add i4 %i0, 1
 
-ST_4: b_a_addr_2 (75)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:18  %b_a_addr_2 = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_0_2_cast
+ST_4: StgValue_81 (74)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
+:13  br i1 %exitcond1, label %_ZN7_ap_sc_7sc_core4waitEi.exit2, label %2
 
-ST_4: b_a_load_2 (76)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:19  %b_a_load_2 = load i8* %b_a_addr_2, align 2
+ST_4: StgValue_82 (76)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:77
+:0  call void (...)* @_ssdm_op_SpecLoopName([9 x i8]* @p_str27) nounwind
 
-ST_4: tmp_6_0_3_cast1 (78)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:21  %tmp_6_0_3_cast1 = sext i4 %tmp_6_0_1 to i5
+ST_4: tmp_17 (77)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:77
+:1  %tmp_17 = call i32 (...)* @_ssdm_op_SpecRegionBegin([9 x i8]* @p_str27)
 
-ST_4: tmp_6_0_3_cast (79)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:22  %tmp_6_0_3_cast = zext i5 %tmp_6_0_3_cast1 to i32
+ST_4: StgValue_84 (78)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:78
+:2  br label %3
 
-ST_4: b_a_addr_3 (80)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:23  %b_a_addr_3 = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_0_3_cast
-
-ST_4: b_a_load_3 (81)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:24  %b_a_load_3 = load i8* %b_a_addr_3, align 2
-
-ST_4: tmp_6_0_2 (83)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:26  %tmp_6_0_2 = call i6 @_ssdm_op_BitConcatenate.i6.i2.i4(i2 -2, i4 %i0)
-
-ST_4: tmp_6_0_4_cast (84)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:27  %tmp_6_0_4_cast = zext i6 %tmp_6_0_2 to i32
-
-ST_4: b_a_addr_4 (85)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:28  %b_a_addr_4 = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_0_4_cast
-
-ST_4: b_a_load_4 (86)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:29  %b_a_load_4 = load i8* %b_a_addr_4, align 2
-
-ST_4: tmp_6_0_5 (88)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:84
-:31  %tmp_6_0_5 = add i6 -24, %i0_cast4
-
-ST_4: tmp_6_0_5_cast (89)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:32  %tmp_6_0_5_cast = zext i6 %tmp_6_0_5 to i32
-
-ST_4: b_a_addr_5 (90)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:33  %b_a_addr_5 = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_0_5_cast
-
-ST_4: b_a_load_5 (91)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:34  %b_a_load_5 = load i8* %b_a_addr_5, align 2
-
-ST_4: tmp_6_0_6_cast1 (93)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:36  %tmp_6_0_6_cast1 = sext i5 %tmp_6_0_s to i6
-
-ST_4: tmp_6_0_6_cast (94)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:37  %tmp_6_0_6_cast = zext i6 %tmp_6_0_6_cast1 to i32
-
-ST_4: b_a_addr_6 (95)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:38  %b_a_addr_6 = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_0_6_cast
-
-ST_4: b_a_load_6 (96)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:39  %b_a_load_6 = load i8* %b_a_addr_6, align 2
-
-ST_4: tmp_6_0_7_cast1 (98)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:41  %tmp_6_0_7_cast1 = sext i4 %tmp_6_0_1 to i6
-
-ST_4: tmp_6_0_7_cast (99)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:42  %tmp_6_0_7_cast = zext i6 %tmp_6_0_7_cast1 to i32
-
-ST_4: b_a_addr_7 (100)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:43  %b_a_addr_7 = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_0_7_cast
-
-ST_4: b_a_load_7 (101)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:44  %b_a_load_7 = load i8* %b_a_addr_7, align 2
-
-ST_4: sc_FIFO_DCT_exec_cnt_1 (495)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:110
+ST_4: sc_FIFO_DCT_exec_cnt_1 (299)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:111
 _ZN7_ap_sc_7sc_core4waitEi.exit2:0  %sc_FIFO_DCT_exec_cnt_1 = call i32 @_ssdm_op_Read.ap_auto.i32P(i32* %sc_FIFO_DCT_exec_cnt)
 
-ST_4: tmp_s (496)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:110
+ST_4: tmp_s (300)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:111
 _ZN7_ap_sc_7sc_core4waitEi.exit2:1  %tmp_s = add nsw i32 %sc_FIFO_DCT_exec_cnt_1, 1
 
-ST_4: StgValue_129 (497)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:110
+ST_4: StgValue_87 (301)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:111
 _ZN7_ap_sc_7sc_core4waitEi.exit2:2  call void @_ssdm_op_Write.ap_auto.i32P(i32* %sc_FIFO_DCT_exec_cnt, i32 %tmp_s)
 
 
- <State 5>: 2.39ns
-ST_5: i0_cast1 (57)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
-:0  %i0_cast1 = zext i4 %i0 to i7
+ <State 5>: 2.33ns
+ST_5: s_7_2 (80)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81
+:0  %s_7_2 = phi i32 [ %s_7_25_load, %2 ], [ %s_7_3, %.preheader36.0 ]
 
-ST_5: tmp_21 (58)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
-:1  %tmp_21 = trunc i4 %i0 to i3
+ST_5: s_6_2 (81)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81
+:1  %s_6_2 = phi i32 [ %s_7_24_load, %2 ], [ %s_6_3, %.preheader36.0 ]
 
-ST_5: i0_cast40_cast (61)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
-:4  %i0_cast40_cast = zext i4 %i0 to i5
+ST_5: s_5_2 (82)  [1/1] 0.00ns
+:2  %s_5_2 = phi i32 [ %s_7_23_load, %2 ], [ %s_7_2_12, %.preheader36.0 ]
 
-ST_5: empty_13 (62)  [1/1] 0.00ns
-:5  %empty_13 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+ST_5: s_4_2 (83)  [1/1] 0.00ns
+:3  %s_4_2 = phi i32 [ %s_7_22_load, %2 ], [ %s_7_4, %.preheader36.0 ]
 
-ST_5: StgValue_134 (63)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:77
-:6  call void (...)* @_ssdm_op_SpecLoopName([9 x i8]* @p_str27) nounwind
+ST_5: s_3_2 (84)  [1/1] 0.00ns
+:4  %s_3_2 = phi i32 [ %s_7_21_load, %2 ], [ %s_7_6, %.preheader36.0 ]
 
-ST_5: tmp_6 (64)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:77
-:7  %tmp_6 = call i32 (...)* @_ssdm_op_SpecRegionBegin([9 x i8]* @p_str27)
+ST_5: s_2_2 (85)  [1/1] 0.00ns
+:5  %s_2_2 = phi i32 [ %s_7_20_load, %2 ], [ %s_7_8, %.preheader36.0 ]
 
-ST_5: b_a_load (66)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:9  %b_a_load = load i8* %b_a_addr, align 2
+ST_5: s_1_2 (86)  [1/1] 0.00ns
+:6  %s_1_2 = phi i32 [ %s_7_19_load, %2 ], [ %s_7_27, %.preheader36.0 ]
 
-ST_5: b_a_load_cast (67)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:10  %b_a_load_cast = sext i8 %b_a_load to i32
+ST_5: s_0_2 (87)  [1/1] 0.00ns
+:7  %s_0_2 = phi i32 [ %s_0_1_load, %2 ], [ %s_0, %.preheader36.0 ]
 
-ST_5: b_a_load_1 (71)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:14  %b_a_load_1 = load i8* %b_a_addr_1, align 2
+ST_5: i1 (88)  [1/1] 0.00ns
+:8  %i1 = phi i4 [ 0, %2 ], [ %i1_2, %.preheader36.0 ]
 
-ST_5: b_a_load_1_cast (72)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:15  %b_a_load_1_cast = sext i8 %b_a_load_1 to i32
+ST_5: exitcond2 (89)  [1/1] 2.33ns  loc: sc_FIFO_DCT.cpp:78
+:9  %exitcond2 = icmp eq i4 %i1, -8
 
-ST_5: b_a_load_2 (76)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:19  %b_a_load_2 = load i8* %b_a_addr_2, align 2
+ST_5: empty_11 (90)  [1/1] 0.00ns
+:10  %empty_11 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
 
-ST_5: b_a_load_2_cast (77)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:20  %b_a_load_2_cast = sext i8 %b_a_load_2 to i32
+ST_5: i1_2 (91)  [1/1] 0.75ns  loc: sc_FIFO_DCT.cpp:78
+:11  %i1_2 = add i4 %i1, 1
 
-ST_5: b_a_load_3 (81)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:24  %b_a_load_3 = load i8* %b_a_addr_3, align 2
+ST_5: StgValue_100 (92)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:78
+:12  br i1 %exitcond2, label %.preheader35.preheader, label %4
 
-ST_5: b_a_load_3_cast (82)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:25  %b_a_load_3_cast = sext i8 %b_a_load_3 to i32
+ST_5: StgValue_101 (94)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:79
+:0  call void (...)* @_ssdm_op_SpecLoopName([3 x i8]* @p_str28) nounwind
 
-ST_5: b_a_load_4 (86)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:29  %b_a_load_4 = load i8* %b_a_addr_4, align 2
+ST_5: tmp_18 (95)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:79
+:1  %tmp_18 = call i32 (...)* @_ssdm_op_SpecRegionBegin([3 x i8]* @p_str28)
 
-ST_5: b_a_load_4_cast (87)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:30  %b_a_load_4_cast = sext i8 %b_a_load_4 to i32
+ST_5: tmp_21 (96)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:78
+:2  %tmp_21 = trunc i4 %i1 to i3
 
-ST_5: b_a_load_5 (91)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:34  %b_a_load_5 = load i8* %b_a_addr_5, align 2
+ST_5: tmp_2 (97)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
+:3  %tmp_2 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_21, i3 0)
 
-ST_5: b_a_load_5_cast (92)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:35  %b_a_load_5_cast = sext i8 %b_a_load_5 to i32
+ST_5: StgValue_105 (98)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:81
+:4  br label %5
 
-ST_5: b_a_load_6 (96)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:39  %b_a_load_6 = load i8* %b_a_addr_6, align 2
+ST_5: tmp_20 (174)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
+.preheader35.preheader:0  %tmp_20 = trunc i4 %i0 to i3
 
-ST_5: b_a_load_6_cast (97)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:40  %b_a_load_6_cast = sext i8 %b_a_load_6 to i32
+ST_5: tmp_1 (175)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:107
+.preheader35.preheader:1  %tmp_1 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_20, i3 0)
 
-ST_5: b_a_load_7 (101)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:44  %b_a_load_7 = load i8* %b_a_addr_7, align 2
-
-ST_5: b_a_load_7_cast (102)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:45  %b_a_load_7_cast = sext i8 %b_a_load_7 to i32
-
-ST_5: StgValue_152 (103)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:79
-:46  br label %3
+ST_5: StgValue_108 (176)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:93
+.preheader35.preheader:2  br label %.preheader35
 
 
- <State 6>: 3.70ns
-ST_6: i1 (105)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:79
-:0  %i1 = phi i4 [ 0, %4 ], [ %i1_2, %.preheader36.preheader.0 ]
+ <State 6>: 6.23ns
+ST_6: s_7_3 (100)  [1/1] 0.00ns
+:0  %s_7_3 = phi i32 [ %s_7_2, %4 ], [ %s_7, %_ifconv ]
 
-ST_6: exitcond2 (106)  [1/1] 2.33ns  loc: sc_FIFO_DCT.cpp:79
-:1  %exitcond2 = icmp eq i4 %i1, -8
+ST_6: s_6_3 (101)  [1/1] 0.00ns
+:1  %s_6_3 = phi i32 [ %s_6_2, %4 ], [ %s_7_1, %_ifconv ]
 
-ST_6: i1_2 (107)  [1/1] 0.75ns  loc: sc_FIFO_DCT.cpp:79
-:2  %i1_2 = add i4 %i1, 1
+ST_6: s_7_2_12 (102)  [1/1] 0.00ns
+:2  %s_7_2_12 = phi i32 [ %s_5_2, %4 ], [ %s_7_3_14, %_ifconv ]
 
-ST_6: StgValue_156 (108)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:79
-:3  br i1 %exitcond2, label %.preheader35.preheader.0, label %.preheader36.preheader.0
+ST_6: s_7_4 (103)  [1/1] 0.00ns
+:3  %s_7_4 = phi i32 [ %s_4_2, %4 ], [ %s_7_5, %_ifconv ]
 
-ST_6: tmp_22 (114)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:79
-.preheader36.preheader.0:4  %tmp_22 = trunc i4 %i1 to i3
+ST_6: s_7_6 (104)  [1/1] 0.00ns
+:4  %s_7_6 = phi i32 [ %s_3_2, %4 ], [ %s_7_7, %_ifconv ]
 
-ST_6: tmp_2 (115)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:5  %tmp_2 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_22, i3 0)
+ST_6: s_7_8 (105)  [1/1] 0.00ns
+:5  %s_7_8 = phi i32 [ %s_2_2, %4 ], [ %s_7_9, %_ifconv ]
 
-ST_6: tmp_2_cast (116)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:6  %tmp_2_cast = zext i6 %tmp_2 to i32
+ST_6: s_7_27 (106)  [1/1] 0.00ns
+:6  %s_7_27 = phi i32 [ %s_1_2, %4 ], [ %s_7_29, %_ifconv ]
 
-ST_6: sc_FIFO_DCT_mA_addr (117)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:7  %sc_FIFO_DCT_mA_addr = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_2_cast
+ST_6: s_7_10 (107)  [1/1] 0.00ns
+:7  %s_7_10 = phi i32 [ %s_0_2, %4 ], [ %s_7_30, %_ifconv ]
 
-ST_6: sc_FIFO_DCT_mA_load (118)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:8  %sc_FIFO_DCT_mA_load = load i32* %sc_FIFO_DCT_mA_addr, align 4
+ST_6: i2 (108)  [1/1] 0.00ns
+:8  %i2 = phi i4 [ 0, %4 ], [ %i2_1, %_ifconv ]
 
-ST_6: tmp_7_0_s (120)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:10  %tmp_7_0_s = or i6 %tmp_2, 1
+ST_6: i2_cast (109)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81
+:9  %i2_cast = zext i4 %i2 to i6
 
-ST_6: tmp_7_0_cast (121)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:11  %tmp_7_0_cast = zext i6 %tmp_7_0_s to i32
+ST_6: exitcond4 (110)  [1/1] 2.33ns  loc: sc_FIFO_DCT.cpp:81
+:10  %exitcond4 = icmp eq i4 %i2, -8
 
-ST_6: sc_FIFO_DCT_mA_addr_1 (122)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:12  %sc_FIFO_DCT_mA_addr_1 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_0_cast
+ST_6: empty_13 (111)  [1/1] 0.00ns
+:11  %empty_13 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
 
-ST_6: sc_FIFO_DCT_mA_load_1 (123)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:13  %sc_FIFO_DCT_mA_load_1 = load i32* %sc_FIFO_DCT_mA_addr_1, align 4
+ST_6: i2_1 (112)  [1/1] 0.75ns  loc: sc_FIFO_DCT.cpp:81
+:12  %i2_1 = add i4 %i2, 1
+
+ST_6: StgValue_122 (113)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81
+:13  br i1 %exitcond4, label %.preheader36.0, label %_ifconv
+
+ST_6: tmp_23 (116)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81
+_ifconv:1  %tmp_23 = trunc i4 %i2 to i3
+
+ST_6: tmp_5 (117)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:2  %tmp_5 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_23, i3 0)
+
+ST_6: tmp_6 (118)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:3  %tmp_6 = add i6 %i0_cast, %tmp_5
+
+ST_6: tmp_6_cast (119)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:4  %tmp_6_cast = zext i6 %tmp_6 to i32
+
+ST_6: b_a_addr (120)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:5  %b_a_addr = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_cast
+
+ST_6: b_a_load (121)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:6  %b_a_load = load i8* %b_a_addr, align 1
+
+ST_6: tmp_7 (123)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:8  %tmp_7 = add i6 %tmp_2, %i2_cast
+
+ST_6: tmp_7_cast (124)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:9  %tmp_7_cast = zext i6 %tmp_7 to i32
+
+ST_6: sc_FIFO_DCT_mA_addr (125)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:10  %sc_FIFO_DCT_mA_addr = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_cast
+
+ST_6: sc_FIFO_DCT_mA_load (126)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:11  %sc_FIFO_DCT_mA_load = load i32* %sc_FIFO_DCT_mA_addr, align 4
+
+ST_6: tmp15 (160)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:89
+.preheader36.0:0  %tmp15 = add i32 %s_7_2_12, %s_6_3
+
+ST_6: tmp16 (161)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:89
+.preheader36.0:1  %tmp16 = add i32 %s_7_4, %s_7_6
+
+ST_6: tmp17 (162)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:89
+.preheader36.0:2  %tmp17 = add i32 %tmp16, %tmp15
+
+ST_6: tmp18 (163)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:89
+.preheader36.0:3  %tmp18 = add i32 %s_7_10, %s_7_8
+
+ST_6: tmp19 (164)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:89
+.preheader36.0:4  %tmp19 = add i32 %s_7_27, %s_7_3
+
+ST_6: tmp20 (165)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:89
+.preheader36.0:5  %tmp20 = add i32 %tmp19, %tmp18
+
+ST_6: s_0 (166)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:89
+.preheader36.0:6  %s_0 = add nsw i32 %tmp20, %tmp17
 
 
  <State 7>: 2.71ns
-ST_7: sc_FIFO_DCT_mA_load (118)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:8  %sc_FIFO_DCT_mA_load = load i32* %sc_FIFO_DCT_mA_addr, align 4
+ST_7: b_a_load (121)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:6  %b_a_load = load i8* %b_a_addr, align 1
 
-ST_7: sc_FIFO_DCT_mA_load_1 (123)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:13  %sc_FIFO_DCT_mA_load_1 = load i32* %sc_FIFO_DCT_mA_addr_1, align 4
-
-ST_7: tmp_7_0_3 (135)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:25  %tmp_7_0_3 = or i6 %tmp_2, 4
-
-ST_7: tmp_7_0_3_cast (136)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:26  %tmp_7_0_3_cast = zext i6 %tmp_7_0_3 to i32
-
-ST_7: sc_FIFO_DCT_mA_addr_4 (137)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:27  %sc_FIFO_DCT_mA_addr_4 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_0_3_cast
-
-ST_7: sc_FIFO_DCT_mA_load_4 (138)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:28  %sc_FIFO_DCT_mA_load_4 = load i32* %sc_FIFO_DCT_mA_addr_4, align 4
-
-ST_7: tmp_7_0_4 (140)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:30  %tmp_7_0_4 = or i6 %tmp_2, 5
-
-ST_7: tmp_7_0_4_cast (141)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:31  %tmp_7_0_4_cast = zext i6 %tmp_7_0_4 to i32
-
-ST_7: sc_FIFO_DCT_mA_addr_5 (142)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:32  %sc_FIFO_DCT_mA_addr_5 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_0_4_cast
-
-ST_7: sc_FIFO_DCT_mA_load_5 (143)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:33  %sc_FIFO_DCT_mA_load_5 = load i32* %sc_FIFO_DCT_mA_addr_5, align 4
+ST_7: sc_FIFO_DCT_mA_load (126)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:11  %sc_FIFO_DCT_mA_load = load i32* %sc_FIFO_DCT_mA_addr, align 4
 
 
  <State 8>: 6.68ns
-ST_8: tmp_8 (119)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:9  %tmp_8 = mul nsw i32 %b_a_load_cast, %sc_FIFO_DCT_mA_load
+ST_8: b_a_load_cast (122)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:7  %b_a_load_cast = sext i8 %b_a_load to i32
 
-ST_8: tmp_8_0_1 (124)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:14  %tmp_8_0_1 = mul nsw i32 %b_a_load_1_cast, %sc_FIFO_DCT_mA_load_1
-
-ST_8: sc_FIFO_DCT_mA_load_4 (138)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:28  %sc_FIFO_DCT_mA_load_4 = load i32* %sc_FIFO_DCT_mA_addr_4, align 4
-
-ST_8: sc_FIFO_DCT_mA_load_5 (143)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:33  %sc_FIFO_DCT_mA_load_5 = load i32* %sc_FIFO_DCT_mA_addr_5, align 4
-
-ST_8: tmp_7_0_5 (145)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:35  %tmp_7_0_5 = or i6 %tmp_2, 6
-
-ST_8: tmp_7_0_5_cast (146)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:36  %tmp_7_0_5_cast = zext i6 %tmp_7_0_5 to i32
-
-ST_8: sc_FIFO_DCT_mA_addr_6 (147)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:37  %sc_FIFO_DCT_mA_addr_6 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_0_5_cast
-
-ST_8: sc_FIFO_DCT_mA_load_6 (148)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:38  %sc_FIFO_DCT_mA_load_6 = load i32* %sc_FIFO_DCT_mA_addr_6, align 4
-
-ST_8: tmp_7_0_6 (150)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:40  %tmp_7_0_6 = or i6 %tmp_2, 7
-
-ST_8: tmp_7_0_6_cast (151)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:41  %tmp_7_0_6_cast = zext i6 %tmp_7_0_6 to i32
-
-ST_8: sc_FIFO_DCT_mA_addr_7 (152)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:42  %sc_FIFO_DCT_mA_addr_7 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_0_6_cast
-
-ST_8: sc_FIFO_DCT_mA_load_7 (153)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:43  %sc_FIFO_DCT_mA_load_7 = load i32* %sc_FIFO_DCT_mA_addr_7, align 4
+ST_8: s_0_5 (127)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:12  %s_0_5 = mul nsw i32 %b_a_load_cast, %sc_FIFO_DCT_mA_load
 
 
  <State 9>: 6.68ns
-ST_9: tmp_8 (119)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:9  %tmp_8 = mul nsw i32 %b_a_load_cast, %sc_FIFO_DCT_mA_load
-
-ST_9: tmp_8_0_1 (124)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:14  %tmp_8_0_1 = mul nsw i32 %b_a_load_1_cast, %sc_FIFO_DCT_mA_load_1
-
-ST_9: tmp_7_0_1 (125)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:15  %tmp_7_0_1 = or i6 %tmp_2, 2
-
-ST_9: tmp_7_0_1_cast (126)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:16  %tmp_7_0_1_cast = zext i6 %tmp_7_0_1 to i32
-
-ST_9: sc_FIFO_DCT_mA_addr_2 (127)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:17  %sc_FIFO_DCT_mA_addr_2 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_0_1_cast
-
-ST_9: sc_FIFO_DCT_mA_load_2 (128)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:18  %sc_FIFO_DCT_mA_load_2 = load i32* %sc_FIFO_DCT_mA_addr_2, align 4
-
-ST_9: tmp_7_0_2 (130)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:20  %tmp_7_0_2 = or i6 %tmp_2, 3
-
-ST_9: tmp_7_0_2_cast (131)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:21  %tmp_7_0_2_cast = zext i6 %tmp_7_0_2 to i32
-
-ST_9: sc_FIFO_DCT_mA_addr_3 (132)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:22  %sc_FIFO_DCT_mA_addr_3 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_0_2_cast
-
-ST_9: sc_FIFO_DCT_mA_load_3 (133)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:23  %sc_FIFO_DCT_mA_load_3 = load i32* %sc_FIFO_DCT_mA_addr_3, align 4
-
-ST_9: tmp_8_0_4 (139)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:29  %tmp_8_0_4 = mul nsw i32 %b_a_load_4_cast, %sc_FIFO_DCT_mA_load_4
-
-ST_9: tmp_8_0_5 (144)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:34  %tmp_8_0_5 = mul nsw i32 %b_a_load_5_cast, %sc_FIFO_DCT_mA_load_5
-
-ST_9: sc_FIFO_DCT_mA_load_6 (148)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:38  %sc_FIFO_DCT_mA_load_6 = load i32* %sc_FIFO_DCT_mA_addr_6, align 4
-
-ST_9: sc_FIFO_DCT_mA_load_7 (153)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:43  %sc_FIFO_DCT_mA_load_7 = load i32* %sc_FIFO_DCT_mA_addr_7, align 4
+ST_9: s_0_5 (127)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:12  %s_0_5 = mul nsw i32 %b_a_load_cast, %sc_FIFO_DCT_mA_load
 
 
  <State 10>: 6.68ns
-ST_10: tmp_8 (119)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:9  %tmp_8 = mul nsw i32 %b_a_load_cast, %sc_FIFO_DCT_mA_load
-
-ST_10: tmp_8_0_1 (124)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:14  %tmp_8_0_1 = mul nsw i32 %b_a_load_1_cast, %sc_FIFO_DCT_mA_load_1
-
-ST_10: sc_FIFO_DCT_mA_load_2 (128)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:18  %sc_FIFO_DCT_mA_load_2 = load i32* %sc_FIFO_DCT_mA_addr_2, align 4
-
-ST_10: sc_FIFO_DCT_mA_load_3 (133)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:23  %sc_FIFO_DCT_mA_load_3 = load i32* %sc_FIFO_DCT_mA_addr_3, align 4
-
-ST_10: tmp_8_0_4 (139)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:29  %tmp_8_0_4 = mul nsw i32 %b_a_load_4_cast, %sc_FIFO_DCT_mA_load_4
-
-ST_10: tmp_8_0_5 (144)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:34  %tmp_8_0_5 = mul nsw i32 %b_a_load_5_cast, %sc_FIFO_DCT_mA_load_5
-
-ST_10: tmp_8_0_6 (149)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:39  %tmp_8_0_6 = mul nsw i32 %b_a_load_6_cast, %sc_FIFO_DCT_mA_load_6
-
-ST_10: tmp_8_0_7 (154)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:44  %tmp_8_0_7 = mul nsw i32 %b_a_load_7_cast, %sc_FIFO_DCT_mA_load_7
+ST_10: s_0_5 (127)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:12  %s_0_5 = mul nsw i32 %b_a_load_cast, %sc_FIFO_DCT_mA_load
 
 
- <State 11>: 6.68ns
-ST_11: tmp_8 (119)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:9  %tmp_8 = mul nsw i32 %b_a_load_cast, %sc_FIFO_DCT_mA_load
+ <State 11>: 8.05ns
+ST_11: s_0_5 (127)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
+_ifconv:12  %s_0_5 = mul nsw i32 %b_a_load_cast, %sc_FIFO_DCT_mA_load
 
-ST_11: tmp_8_0_1 (124)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:14  %tmp_8_0_1 = mul nsw i32 %b_a_load_1_cast, %sc_FIFO_DCT_mA_load_1
+ST_11: sel_tmp (128)  [1/1] 1.94ns  loc: sc_FIFO_DCT.cpp:81
+_ifconv:13  %sel_tmp = icmp eq i3 %tmp_23, -2
 
-ST_11: tmp_8_0_2 (129)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:19  %tmp_8_0_2 = mul nsw i32 %b_a_load_2_cast, %sc_FIFO_DCT_mA_load_2
+ST_11: sel_tmp2 (129)  [1/1] 1.94ns  loc: sc_FIFO_DCT.cpp:81
+_ifconv:14  %sel_tmp2 = icmp eq i3 %tmp_23, -3
 
-ST_11: tmp_8_0_3 (134)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:24  %tmp_8_0_3 = mul nsw i32 %b_a_load_3_cast, %sc_FIFO_DCT_mA_load_3
+ST_11: sel_tmp4 (130)  [1/1] 1.94ns  loc: sc_FIFO_DCT.cpp:81
+_ifconv:15  %sel_tmp4 = icmp eq i3 %tmp_23, -4
 
-ST_11: tmp_8_0_4 (139)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:29  %tmp_8_0_4 = mul nsw i32 %b_a_load_4_cast, %sc_FIFO_DCT_mA_load_4
+ST_11: sel_tmp6 (131)  [1/1] 1.94ns  loc: sc_FIFO_DCT.cpp:81
+_ifconv:16  %sel_tmp6 = icmp eq i3 %tmp_23, 3
 
-ST_11: tmp_8_0_5 (144)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:34  %tmp_8_0_5 = mul nsw i32 %b_a_load_5_cast, %sc_FIFO_DCT_mA_load_5
+ST_11: sel_tmp8 (132)  [1/1] 1.94ns  loc: sc_FIFO_DCT.cpp:81
+_ifconv:17  %sel_tmp8 = icmp eq i3 %tmp_23, 2
 
-ST_11: tmp_8_0_6 (149)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:39  %tmp_8_0_6 = mul nsw i32 %b_a_load_6_cast, %sc_FIFO_DCT_mA_load_6
+ST_11: sel_tmp1 (133)  [1/1] 1.94ns  loc: sc_FIFO_DCT.cpp:81
+_ifconv:18  %sel_tmp1 = icmp eq i3 %tmp_23, 1
 
-ST_11: tmp_8_0_7 (154)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:44  %tmp_8_0_7 = mul nsw i32 %b_a_load_7_cast, %sc_FIFO_DCT_mA_load_7
+ST_11: sel_tmp3 (134)  [1/1] 1.94ns  loc: sc_FIFO_DCT.cpp:81
+_ifconv:19  %sel_tmp3 = icmp eq i3 %tmp_23, 0
 
+ST_11: or_cond (135)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81
+_ifconv:20  %or_cond = or i1 %sel_tmp3, %sel_tmp1
 
- <State 12>: 6.68ns
-ST_12: tmp_8_0_2 (129)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:19  %tmp_8_0_2 = mul nsw i32 %b_a_load_2_cast, %sc_FIFO_DCT_mA_load_2
+ST_11: or_cond1 (136)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81 (grouped into LUT with out node or_cond3)
+_ifconv:21  %or_cond1 = or i1 %sel_tmp8, %sel_tmp6
 
-ST_12: tmp_8_0_3 (134)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:24  %tmp_8_0_3 = mul nsw i32 %b_a_load_3_cast, %sc_FIFO_DCT_mA_load_3
+ST_11: or_cond3 (139)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81 (out node of the LUT)
+_ifconv:24  %or_cond3 = or i1 %or_cond, %or_cond1
 
-ST_12: tmp_8_0_4 (139)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:29  %tmp_8_0_4 = mul nsw i32 %b_a_load_4_cast, %sc_FIFO_DCT_mA_load_4
+ST_11: newSel9 (148)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81 (grouped into LUT with out node s_7_5)
+_ifconv:33  %newSel9 = select i1 %sel_tmp4, i32 %s_0_5, i32 %s_7_4
 
-ST_12: tmp_8_0_5 (144)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:34  %tmp_8_0_5 = mul nsw i32 %b_a_load_5_cast, %sc_FIFO_DCT_mA_load_5
+ST_11: s_7_5 (149)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81 (out node of the LUT)
+_ifconv:34  %s_7_5 = select i1 %or_cond3, i32 %s_7_4, i32 %newSel9
 
-ST_12: tmp_8_0_6 (149)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:39  %tmp_8_0_6 = mul nsw i32 %b_a_load_6_cast, %sc_FIFO_DCT_mA_load_6
+ST_11: newSel8 (153)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81 (grouped into LUT with out node s_7_9)
+_ifconv:38  %newSel8 = select i1 %sel_tmp8, i32 %s_0_5, i32 %s_7_8
 
-ST_12: tmp_8_0_7 (154)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:44  %tmp_8_0_7 = mul nsw i32 %b_a_load_7_cast, %sc_FIFO_DCT_mA_load_7
+ST_11: s_7_9 (154)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81 (out node of the LUT)
+_ifconv:39  %s_7_9 = select i1 %or_cond, i32 %s_7_8, i32 %newSel8
 
-ST_12: tmp2 (155)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:88
-.preheader36.preheader.0:45  %tmp2 = add i32 %tmp_8_0_1, %tmp_8
+ST_11: s_7_28 (155)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81 (grouped into LUT with out node s_7_29)
+_ifconv:40  %s_7_28 = select i1 %sel_tmp1, i32 %s_0_5, i32 %s_7_27
 
+ST_11: s_7_29 (156)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81 (out node of the LUT)
+_ifconv:41  %s_7_29 = select i1 %sel_tmp3, i32 %s_7_27, i32 %s_7_28
 
- <State 13>: 6.68ns
-ST_13: tmp_8_0_2 (129)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:19  %tmp_8_0_2 = mul nsw i32 %b_a_load_2_cast, %sc_FIFO_DCT_mA_load_2
-
-ST_13: tmp_8_0_3 (134)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:24  %tmp_8_0_3 = mul nsw i32 %b_a_load_3_cast, %sc_FIFO_DCT_mA_load_3
-
-ST_13: tmp_8_0_6 (149)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:39  %tmp_8_0_6 = mul nsw i32 %b_a_load_6_cast, %sc_FIFO_DCT_mA_load_6
-
-ST_13: tmp_8_0_7 (154)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:44  %tmp_8_0_7 = mul nsw i32 %b_a_load_7_cast, %sc_FIFO_DCT_mA_load_7
-
-ST_13: tmp5 (158)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:88
-.preheader36.preheader.0:48  %tmp5 = add i32 %tmp_8_0_5, %tmp_8_0_4
-
-ST_13: tmp_9 (162)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:90
-.preheader36.preheader.0:52  %tmp_9 = add i6 %i0_cast4, %tmp_2
+ST_11: s_7_30 (157)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81
+_ifconv:42  %s_7_30 = select i1 %sel_tmp3, i32 %s_0_5, i32 %s_7_10
 
 
- <State 14>: 6.68ns
-ST_14: tmp_8_0_2 (129)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:19  %tmp_8_0_2 = mul nsw i32 %b_a_load_2_cast, %sc_FIFO_DCT_mA_load_2
+ <State 12>: 4.11ns
+ST_12: StgValue_164 (115)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:82
+_ifconv:0  call void (...)* @_ssdm_op_SpecLoopName([7 x i8]* @p_str29) nounwind
 
-ST_14: tmp_8_0_3 (134)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.0:24  %tmp_8_0_3 = mul nsw i32 %b_a_load_3_cast, %sc_FIFO_DCT_mA_load_3
+ST_12: or_cond2 (137)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81
+_ifconv:22  %or_cond2 = or i1 %sel_tmp4, %sel_tmp2
 
-ST_14: tmp6 (159)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:88
-.preheader36.preheader.0:49  %tmp6 = add i32 %tmp_8_0_7, %tmp_8_0_6
+ST_12: newSel (138)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81 (grouped into LUT with out node newSel1)
+_ifconv:23  %newSel = select i1 %sel_tmp, i32 %s_7_3, i32 %s_0_5
+
+ST_12: newSel1 (140)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81 (out node of the LUT)
+_ifconv:25  %newSel1 = select i1 %or_cond2, i32 %s_7_3, i32 %newSel
+
+ST_12: s_7 (141)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81 (out node of the LUT)
+_ifconv:26  %s_7 = select i1 %or_cond3, i32 %s_7_3, i32 %newSel1
+
+ST_12: newSel3 (142)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81 (grouped into LUT with out node newSel4)
+_ifconv:27  %newSel3 = select i1 %sel_tmp, i32 %s_0_5, i32 %s_6_3
+
+ST_12: newSel4 (143)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81 (out node of the LUT)
+_ifconv:28  %newSel4 = select i1 %or_cond2, i32 %s_6_3, i32 %newSel3
+
+ST_12: s_7_1 (144)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81 (out node of the LUT)
+_ifconv:29  %s_7_1 = select i1 %or_cond3, i32 %s_6_3, i32 %newSel4
+
+ST_12: newSel6 (145)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81 (grouped into LUT with out node newSel7)
+_ifconv:30  %newSel6 = select i1 %sel_tmp4, i32 %s_7_2_12, i32 %s_0_5
+
+ST_12: newSel7 (146)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81 (out node of the LUT)
+_ifconv:31  %newSel7 = select i1 %or_cond2, i32 %newSel6, i32 %s_7_2_12
+
+ST_12: s_7_3_14 (147)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81 (out node of the LUT)
+_ifconv:32  %s_7_3_14 = select i1 %or_cond3, i32 %s_7_2_12, i32 %newSel7
+
+ST_12: newSel2 (150)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81 (grouped into LUT with out node newSel5)
+_ifconv:35  %newSel2 = select i1 %sel_tmp8, i32 %s_7_6, i32 %s_0_5
+
+ST_12: newSel5 (151)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81 (out node of the LUT)
+_ifconv:36  %newSel5 = select i1 %or_cond, i32 %s_7_6, i32 %newSel2
+
+ST_12: s_7_7 (152)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:81 (out node of the LUT)
+_ifconv:37  %s_7_7 = select i1 %or_cond3, i32 %newSel5, i32 %s_7_6
+
+ST_12: StgValue_178 (158)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81
+_ifconv:43  br label %5
 
 
- <State 15>: 8.47ns
-ST_15: empty_14 (110)  [1/1] 0.00ns
-.preheader36.preheader.0:0  %empty_14 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
+ <State 13>: 4.38ns
+ST_13: tmp_3 (167)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:91
+.preheader36.0:7  %tmp_3 = add i6 %tmp_2, %i0_cast
 
-ST_15: StgValue_235 (111)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:80
-.preheader36.preheader.0:1  call void (...)* @_ssdm_op_SpecLoopName([3 x i8]* @p_str28) nounwind
+ST_13: tmp_3_cast (168)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:91
+.preheader36.0:8  %tmp_3_cast = zext i6 %tmp_3 to i32
 
-ST_15: tmp_7 (112)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:80
-.preheader36.preheader.0:2  %tmp_7 = call i32 (...)* @_ssdm_op_SpecRegionBegin([3 x i8]* @p_str28)
+ST_13: a_addr_1 (169)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:91
+.preheader36.0:9  %a_addr_1 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_3_cast
 
-ST_15: StgValue_237 (113)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81
-.preheader36.preheader.0:3  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str6) nounwind
+ST_13: StgValue_182 (170)  [1/1] 2.71ns  loc: sc_FIFO_DCT.cpp:91
+.preheader36.0:10  store i32 %s_0, i32* %a_addr_1, align 4
 
-ST_15: tmp3 (156)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:88
-.preheader36.preheader.0:46  %tmp3 = add i32 %tmp_8_0_3, %tmp_8_0_2
+ST_13: empty_15 (171)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:92
+.preheader36.0:11  %empty_15 = call i32 (...)* @_ssdm_op_SpecRegionEnd([3 x i8]* @p_str28, i32 %tmp_18)
 
-ST_15: tmp1 (157)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:88
-.preheader36.preheader.0:47  %tmp1 = add i32 %tmp2, %tmp3
+ST_13: StgValue_184 (172)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:78
+.preheader36.0:12  br label %3
 
-ST_15: tmp4 (160)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:88
-.preheader36.preheader.0:50  %tmp4 = add i32 %tmp5, %tmp6
 
-ST_15: tmp_14_0_6 (161)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:88
-.preheader36.preheader.0:51  %tmp_14_0_6 = add nsw i32 %tmp1, %tmp4
+ <State 14>: 2.33ns
+ST_14: s_7_5_16 (178)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81
+.preheader35:0  %s_7_5_16 = phi i32 [ %s_7_2, %.preheader35.preheader ], [ %s_7_6_19, %.preheader.0 ]
 
-ST_15: tmp_9_cast (163)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:90
-.preheader36.preheader.0:53  %tmp_9_cast = zext i6 %tmp_9 to i32
+ST_14: s_6_5 (179)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81
+.preheader35:1  %s_6_5 = phi i32 [ %s_6_2, %.preheader35.preheader ], [ %s_6_6, %.preheader.0 ]
 
-ST_15: a_addr (164)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:90
-.preheader36.preheader.0:54  %a_addr = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_9_cast
+ST_14: s_5_5 (180)  [1/1] 0.00ns
+.preheader35:2  %s_5_5 = phi i32 [ %s_5_2, %.preheader35.preheader ], [ %s_7_32, %.preheader.0 ]
 
-ST_15: StgValue_244 (165)  [1/1] 2.71ns  loc: sc_FIFO_DCT.cpp:90
-.preheader36.preheader.0:55  store i32 %tmp_14_0_6, i32* %a_addr, align 4
+ST_14: s_4_5 (181)  [1/1] 0.00ns
+.preheader35:3  %s_4_5 = phi i32 [ %s_4_2, %.preheader35.preheader ], [ %s_7_11, %.preheader.0 ]
 
-ST_15: empty_15 (166)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:91
-.preheader36.preheader.0:56  %empty_15 = call i32 (...)* @_ssdm_op_SpecRegionEnd([3 x i8]* @p_str28, i32 %tmp_7)
+ST_14: s_3_5 (182)  [1/1] 0.00ns
+.preheader35:4  %s_3_5 = phi i32 [ %s_3_2, %.preheader35.preheader ], [ %s_7_12, %.preheader.0 ]
 
-ST_15: StgValue_246 (167)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:79
-.preheader36.preheader.0:57  br label %3
+ST_14: s_2_5 (183)  [1/1] 0.00ns
+.preheader35:5  %s_2_5 = phi i32 [ %s_2_2, %.preheader35.preheader ], [ %s_7_13, %.preheader.0 ]
+
+ST_14: s_1_5 (184)  [1/1] 0.00ns
+.preheader35:6  %s_1_5 = phi i32 [ %s_1_2, %.preheader35.preheader ], [ %s_7_14, %.preheader.0 ]
+
+ST_14: s_0_5_17 (185)  [1/1] 0.00ns
+.preheader35:7  %s_0_5_17 = phi i32 [ %s_0_2, %.preheader35.preheader ], [ %s_0_2_21, %.preheader.0 ]
+
+ST_14: i1_1 (186)  [1/1] 0.00ns
+.preheader35:8  %i1_1 = phi i4 [ 0, %.preheader35.preheader ], [ %i1_3, %.preheader.0 ]
+
+ST_14: i1_1_cast (187)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:93
+.preheader35:9  %i1_1_cast = zext i4 %i1_1 to i6
+
+ST_14: exitcond3 (188)  [1/1] 2.33ns  loc: sc_FIFO_DCT.cpp:93
+.preheader35:10  %exitcond3 = icmp eq i4 %i1_1, -8
+
+ST_14: empty_18 (189)  [1/1] 0.00ns
+.preheader35:11  %empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
+
+ST_14: i1_3 (190)  [1/1] 0.75ns  loc: sc_FIFO_DCT.cpp:93
+.preheader35:12  %i1_3 = add i4 %i1_1, 1
+
+ST_14: StgValue_198 (191)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:93
+.preheader35:13  br i1 %exitcond3, label %8, label %6
+
+ST_14: StgValue_199 (193)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:94
+:0  call void (...)* @_ssdm_op_SpecLoopName([3 x i8]* @p_str31) nounwind
+
+ST_14: tmp_19 (194)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:94
+:1  %tmp_19 = call i32 (...)* @_ssdm_op_SpecRegionBegin([3 x i8]* @p_str31)
+
+ST_14: tmp_22 (195)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:93
+:2  %tmp_22 = trunc i4 %i1_1 to i3
+
+ST_14: tmp_4 (196)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
+:3  %tmp_4 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_22, i3 0)
+
+ST_14: StgValue_203 (197)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:95
+:4  br label %7
+
+ST_14: empty_23 (288)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:109
+:0  %empty_23 = call i32 (...)* @_ssdm_op_SpecRegionEnd([9 x i8]* @p_str27, i32 %tmp_17)
+
+ST_14: StgValue_205 (289)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
+:1  store i32 %s_7_5_16, i32* %s_7_25
+
+ST_14: StgValue_206 (290)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
+:2  store i32 %s_6_5, i32* %s_7_24
+
+ST_14: StgValue_207 (291)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
+:3  store i32 %s_5_5, i32* %s_7_23
+
+ST_14: StgValue_208 (292)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
+:4  store i32 %s_4_5, i32* %s_7_22
+
+ST_14: StgValue_209 (293)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
+:5  store i32 %s_3_5, i32* %s_7_21
+
+ST_14: StgValue_210 (294)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
+:6  store i32 %s_2_5, i32* %s_7_20
+
+ST_14: StgValue_211 (295)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
+:7  store i32 %s_1_5, i32* %s_7_19
+
+ST_14: StgValue_212 (296)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:89
+:8  store i32 %s_0_5_17, i32* %s_0_1
+
+ST_14: StgValue_213 (297)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
+:9  br label %1
+
+
+ <State 15>: 8.62ns
+ST_15: s_7_6_19 (199)  [1/1] 0.00ns
+:0  %s_7_6_19 = phi i32 [ %s_7_5_16, %6 ], [ %s_7_16, %_ifconv112 ]
+
+ST_15: s_6_6 (200)  [1/1] 0.00ns
+:1  %s_6_6 = phi i32 [ %s_6_5, %6 ], [ %s_7_17, %_ifconv112 ]
+
+ST_15: s_7_32 (201)  [1/1] 0.00ns
+:2  %s_7_32 = phi i32 [ %s_5_5, %6 ], [ %s_7_33, %_ifconv112 ]
+
+ST_15: s_7_11 (202)  [1/1] 0.00ns
+:3  %s_7_11 = phi i32 [ %s_4_5, %6 ], [ %s_7_34, %_ifconv112 ]
+
+ST_15: s_7_12 (203)  [1/1] 0.00ns
+:4  %s_7_12 = phi i32 [ %s_3_5, %6 ], [ %s_7_35, %_ifconv112 ]
+
+ST_15: s_7_13 (204)  [1/1] 0.00ns
+:5  %s_7_13 = phi i32 [ %s_2_5, %6 ], [ %s_7_36, %_ifconv112 ]
+
+ST_15: s_7_14 (205)  [1/1] 0.00ns
+:6  %s_7_14 = phi i32 [ %s_1_5, %6 ], [ %s_7_38, %_ifconv112 ]
+
+ST_15: s_7_15 (206)  [1/1] 0.00ns
+:7  %s_7_15 = phi i32 [ %s_0_5_17, %6 ], [ %s_7_39, %_ifconv112 ]
+
+ST_15: i2_2 (207)  [1/1] 0.00ns
+:8  %i2_2 = phi i4 [ 0, %6 ], [ %i2_3, %_ifconv112 ]
+
+ST_15: i2_2_cast (208)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:95
+:9  %i2_2_cast = zext i4 %i2_2 to i6
+
+ST_15: exitcond5 (209)  [1/1] 2.33ns  loc: sc_FIFO_DCT.cpp:95
+:10  %exitcond5 = icmp eq i4 %i2_2, -8
+
+ST_15: empty_20 (210)  [1/1] 0.00ns
+:11  %empty_20 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
+
+ST_15: i2_3 (211)  [1/1] 0.75ns  loc: sc_FIFO_DCT.cpp:95
+:12  %i2_3 = add i4 %i2_2, 1
+
+ST_15: StgValue_227 (212)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:95
+:13  br i1 %exitcond5, label %.preheader.0, label %_ifconv112
+
+ST_15: tmp_30 (215)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:95
+_ifconv112:1  %tmp_30 = trunc i4 %i2_2 to i3
+
+ST_15: tmp_9 (216)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:2  %tmp_9 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_30, i3 0)
+
+ST_15: tmp_10 (217)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:3  %tmp_10 = add i6 %i0_cast, %tmp_9
+
+ST_15: tmp_10_cast (218)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:4  %tmp_10_cast = zext i6 %tmp_10 to i32
+
+ST_15: a_addr (219)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:5  %a_addr = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_10_cast
+
+ST_15: a_load (220)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:6  %a_load = load i32* %a_addr, align 4
+
+ST_15: tmp_11 (221)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:7  %tmp_11 = add i6 %tmp_4, %i2_2_cast
+
+ST_15: tmp_11_cast (222)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:8  %tmp_11_cast = zext i6 %tmp_11 to i32
+
+ST_15: b_addr (223)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:9  %b_addr = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_cast
+
+ST_15: b_load (224)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:10  %b_load = load i8* %b_addr, align 1
+
+ST_15: tmp21 (259)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:103
+.preheader.0:0  %tmp21 = add i32 %s_7_32, %s_6_6
+
+ST_15: tmp22 (260)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:103
+.preheader.0:1  %tmp22 = add i32 %s_7_11, %s_7_12
+
+ST_15: tmp23 (261)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:103
+.preheader.0:2  %tmp23 = add i32 %tmp22, %tmp21
+
+ST_15: tmp24 (262)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:103
+.preheader.0:3  %tmp24 = add i32 %s_7_15, %s_7_13
+
+ST_15: tmp25 (263)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:103
+.preheader.0:4  %tmp25 = add i32 %s_7_14, %s_7_6_19
+
+ST_15: tmp26 (264)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:103
+.preheader.0:5  %tmp26 = add i32 %tmp25, %tmp24
+
+ST_15: s_0_2_21 (265)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:103
+.preheader.0:6  %s_0_2_21 = add nsw i32 %tmp26, %tmp23
+
+ST_15: tmp_8 (266)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:105
+.preheader.0:7  %tmp_8 = add i6 %i0_cast, %tmp_4
+
+ST_15: p_neg (271)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:107
+.preheader.0:12  %p_neg = sub i32 0, %s_0_2_21
+
+ST_15: tmp_24 (272)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:107
+.preheader.0:13  %tmp_24 = call i13 @_ssdm_op_PartSelect.i13.i32.i32.i32(i32 %p_neg, i32 19, i32 31)
+
+ST_15: tmp_16 (281)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:107
+.preheader.0:22  %tmp_16 = add i6 %tmp_1, %i1_1_cast
 
 
  <State 16>: 2.71ns
-ST_16: a_addr_1 (169)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:0  %a_addr_1 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %i0_cast3
+ST_16: a_load (220)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:6  %a_load = load i32* %a_addr, align 4
 
-ST_16: a_load (170)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:1  %a_load = load i32* %a_addr_1, align 4
+ST_16: b_load (224)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:10  %b_load = load i8* %b_addr, align 1
 
-ST_16: a_addr_2 (171)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:2  %a_addr_2 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_6_0_1_cast
 
-ST_16: a_load_1 (172)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:3  %a_load_1 = load i32* %a_addr_2, align 4
+ <State 17>: 6.68ns
+ST_17: b_load_cast (225)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:11  %b_load_cast = sext i8 %b_load to i32
 
+ST_17: s_0_6 (226)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:12  %s_0_6 = mul nsw i32 %a_load, %b_load_cast
 
- <State 17>: 2.71ns
-ST_17: a_load (170)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:1  %a_load = load i32* %a_addr_1, align 4
 
-ST_17: a_load_1 (172)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:3  %a_load_1 = load i32* %a_addr_2, align 4
+ <State 18>: 6.68ns
+ST_18: s_0_6 (226)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:12  %s_0_6 = mul nsw i32 %a_load, %b_load_cast
 
-ST_17: a_addr_3 (173)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:4  %a_addr_3 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_6_0_2_cast
 
-ST_17: a_load_2 (174)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:5  %a_load_2 = load i32* %a_addr_3, align 4
+ <State 19>: 6.68ns
+ST_19: s_0_6 (226)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:12  %s_0_6 = mul nsw i32 %a_load, %b_load_cast
 
-ST_17: a_addr_4 (175)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:6  %a_addr_4 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_6_0_3_cast
 
-ST_17: a_load_3 (176)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:7  %a_load_3 = load i32* %a_addr_4, align 4
+ <State 20>: 8.05ns
+ST_20: s_0_6 (226)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
+_ifconv112:12  %s_0_6 = mul nsw i32 %a_load, %b_load_cast
 
+ST_20: sel_tmp7 (227)  [1/1] 1.94ns  loc: sc_FIFO_DCT.cpp:95
+_ifconv112:13  %sel_tmp7 = icmp eq i3 %tmp_30, -2
 
- <State 18>: 2.71ns
-ST_18: a_load_2 (174)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:5  %a_load_2 = load i32* %a_addr_3, align 4
+ST_20: sel_tmp9 (228)  [1/1] 1.94ns  loc: sc_FIFO_DCT.cpp:95
+_ifconv112:14  %sel_tmp9 = icmp eq i3 %tmp_30, -3
 
-ST_18: a_load_3 (176)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:7  %a_load_3 = load i32* %a_addr_4, align 4
+ST_20: sel_tmp5 (229)  [1/1] 1.94ns  loc: sc_FIFO_DCT.cpp:95
+_ifconv112:15  %sel_tmp5 = icmp eq i3 %tmp_30, -4
 
-ST_18: a_addr_5 (177)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:8  %a_addr_5 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_6_0_4_cast
+ST_20: sel_tmp10 (230)  [1/1] 1.94ns  loc: sc_FIFO_DCT.cpp:95
+_ifconv112:16  %sel_tmp10 = icmp eq i3 %tmp_30, 3
 
-ST_18: a_load_4 (178)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:9  %a_load_4 = load i32* %a_addr_5, align 4
+ST_20: sel_tmp11 (231)  [1/1] 1.94ns  loc: sc_FIFO_DCT.cpp:95
+_ifconv112:17  %sel_tmp11 = icmp eq i3 %tmp_30, 2
 
-ST_18: a_addr_6 (179)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:10  %a_addr_6 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_6_0_5_cast
+ST_20: sel_tmp12 (232)  [1/1] 1.94ns  loc: sc_FIFO_DCT.cpp:95
+_ifconv112:18  %sel_tmp12 = icmp eq i3 %tmp_30, 1
 
-ST_18: a_load_5 (180)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:11  %a_load_5 = load i32* %a_addr_6, align 4
+ST_20: sel_tmp13 (233)  [1/1] 1.94ns  loc: sc_FIFO_DCT.cpp:95
+_ifconv112:19  %sel_tmp13 = icmp eq i3 %tmp_30, 0
 
+ST_20: or_cond4 (234)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95
+_ifconv112:20  %or_cond4 = or i1 %sel_tmp13, %sel_tmp12
 
- <State 19>: 2.71ns
-ST_19: a_load_4 (178)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:9  %a_load_4 = load i32* %a_addr_5, align 4
+ST_20: or_cond5 (235)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:95 (grouped into LUT with out node or_cond7)
+_ifconv112:21  %or_cond5 = or i1 %sel_tmp11, %sel_tmp10
 
-ST_19: a_load_5 (180)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:11  %a_load_5 = load i32* %a_addr_6, align 4
+ST_20: or_cond7 (238)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95 (out node of the LUT)
+_ifconv112:24  %or_cond7 = or i1 %or_cond4, %or_cond5
 
-ST_19: a_addr_7 (181)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:12  %a_addr_7 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_6_0_6_cast
+ST_20: newSel16 (247)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:95 (grouped into LUT with out node s_7_34)
+_ifconv112:33  %newSel16 = select i1 %sel_tmp5, i32 %s_0_6, i32 %s_7_11
 
-ST_19: a_load_6 (182)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:13  %a_load_6 = load i32* %a_addr_7, align 4
+ST_20: s_7_34 (248)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95 (out node of the LUT)
+_ifconv112:34  %s_7_34 = select i1 %or_cond7, i32 %s_7_11, i32 %newSel16
 
-ST_19: a_addr_8 (183)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:14  %a_addr_8 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_6_0_7_cast
+ST_20: newSel19 (252)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:95 (grouped into LUT with out node s_7_36)
+_ifconv112:38  %newSel19 = select i1 %sel_tmp11, i32 %s_0_6, i32 %s_7_13
 
-ST_19: a_load_7 (184)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:15  %a_load_7 = load i32* %a_addr_8, align 4
+ST_20: s_7_36 (253)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95 (out node of the LUT)
+_ifconv112:39  %s_7_36 = select i1 %or_cond4, i32 %s_7_13, i32 %newSel19
 
+ST_20: s_7_37 (254)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:95 (grouped into LUT with out node s_7_38)
+_ifconv112:40  %s_7_37 = select i1 %sel_tmp12, i32 %s_0_6, i32 %s_7_14
 
- <State 20>: 2.71ns
-ST_20: a_load_6 (182)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:13  %a_load_6 = load i32* %a_addr_7, align 4
+ST_20: s_7_38 (255)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95 (out node of the LUT)
+_ifconv112:41  %s_7_38 = select i1 %sel_tmp13, i32 %s_7_14, i32 %s_7_37
 
-ST_20: a_load_7 (184)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.0:15  %a_load_7 = load i32* %a_addr_8, align 4
+ST_20: s_7_39 (256)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95
+_ifconv112:42  %s_7_39 = select i1 %sel_tmp13, i32 %s_0_6, i32 %s_7_15
 
-ST_20: StgValue_271 (185)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:92
-.preheader35.preheader.0:16  br label %.preheader35.0
 
+ <State 21>: 4.11ns
+ST_21: StgValue_273 (214)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:96
+_ifconv112:0  call void (...)* @_ssdm_op_SpecLoopName([7 x i8]* @p_str32) nounwind
 
- <State 21>: 3.70ns
-ST_21: i1_1 (187)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:92
-.preheader35.0:0  %i1_1 = phi i4 [ %i1_3, %.preheader.preheader.0 ], [ 0, %.preheader35.preheader.0 ]
+ST_21: or_cond6 (236)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95
+_ifconv112:22  %or_cond6 = or i1 %sel_tmp5, %sel_tmp9
 
-ST_21: exitcond3 (188)  [1/1] 2.33ns  loc: sc_FIFO_DCT.cpp:92
-.preheader35.0:1  %exitcond3 = icmp eq i4 %i1_1, -8
+ST_21: newSel10 (237)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:95 (grouped into LUT with out node newSel11)
+_ifconv112:23  %newSel10 = select i1 %sel_tmp7, i32 %s_7_6_19, i32 %s_0_6
 
-ST_21: i1_3 (189)  [1/1] 0.75ns  loc: sc_FIFO_DCT.cpp:92
-.preheader35.0:2  %i1_3 = add i4 %i1_1, 1
+ST_21: newSel11 (239)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95 (out node of the LUT)
+_ifconv112:25  %newSel11 = select i1 %or_cond6, i32 %s_7_6_19, i32 %newSel10
 
-ST_21: StgValue_275 (190)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:92
-.preheader35.0:3  br i1 %exitcond3, label %2, label %.preheader.preheader.0
+ST_21: s_7_16 (240)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95 (out node of the LUT)
+_ifconv112:26  %s_7_16 = select i1 %or_cond7, i32 %s_7_6_19, i32 %newSel11
 
-ST_21: tmp_23 (196)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:92
-.preheader.preheader.0:4  %tmp_23 = trunc i4 %i1_1 to i3
+ST_21: newSel12 (241)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:95 (grouped into LUT with out node newSel13)
+_ifconv112:27  %newSel12 = select i1 %sel_tmp7, i32 %s_0_6, i32 %s_6_6
 
-ST_21: tmp_4 (197)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:5  %tmp_4 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_23, i3 0)
+ST_21: newSel13 (242)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95 (out node of the LUT)
+_ifconv112:28  %newSel13 = select i1 %or_cond6, i32 %s_6_6, i32 %newSel12
 
-ST_21: tmp_4_cast (198)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:6  %tmp_4_cast = zext i6 %tmp_4 to i32
+ST_21: s_7_17 (243)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95 (out node of the LUT)
+_ifconv112:29  %s_7_17 = select i1 %or_cond7, i32 %s_6_6, i32 %newSel13
 
-ST_21: b_addr (199)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:7  %b_addr = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_4_cast
+ST_21: newSel14 (244)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:95 (grouped into LUT with out node newSel15)
+_ifconv112:30  %newSel14 = select i1 %sel_tmp5, i32 %s_7_32, i32 %s_0_6
 
-ST_21: b_load (200)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:8  %b_load = load i8* %b_addr, align 8
+ST_21: newSel15 (245)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95 (out node of the LUT)
+_ifconv112:31  %newSel15 = select i1 %or_cond6, i32 %newSel14, i32 %s_7_32
 
-ST_21: tmp_11_0_s (203)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:11  %tmp_11_0_s = or i6 %tmp_4, 1
+ST_21: s_7_33 (246)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95 (out node of the LUT)
+_ifconv112:32  %s_7_33 = select i1 %or_cond7, i32 %s_7_32, i32 %newSel15
 
-ST_21: tmp_11_0_cast (204)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:12  %tmp_11_0_cast = zext i6 %tmp_11_0_s to i32
+ST_21: newSel17 (249)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:95 (grouped into LUT with out node newSel18)
+_ifconv112:35  %newSel17 = select i1 %sel_tmp11, i32 %s_7_12, i32 %s_0_6
 
-ST_21: b_addr_1 (205)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:13  %b_addr_1 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_0_cast
+ST_21: newSel18 (250)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95 (out node of the LUT)
+_ifconv112:36  %newSel18 = select i1 %or_cond4, i32 %s_7_12, i32 %newSel17
 
-ST_21: b_load_1 (206)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:14  %b_load_1 = load i8* %b_addr_1, align 1
+ST_21: s_7_35 (251)  [1/1] 1.37ns  loc: sc_FIFO_DCT.cpp:95 (out node of the LUT)
+_ifconv112:37  %s_7_35 = select i1 %or_cond7, i32 %newSel18, i32 %s_7_12
 
-ST_21: tmp_11_0_1 (209)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:17  %tmp_11_0_1 = or i6 %tmp_4, 2
+ST_21: StgValue_287 (257)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:95
+_ifconv112:43  br label %7
 
-ST_21: tmp_11_0_1_cast (210)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:18  %tmp_11_0_1_cast = zext i6 %tmp_11_0_1 to i32
 
-ST_21: b_addr_2 (211)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:19  %b_addr_2 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_0_1_cast
+ <State 22>: 6.53ns
+ST_22: tmp_8_cast (267)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:105
+.preheader.0:8  %tmp_8_cast = zext i6 %tmp_8 to i32
 
-ST_21: b_load_2 (212)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:20  %b_load_2 = load i8* %b_addr_2, align 2
+ST_22: sc_FIFO_DCT_mB_addr (268)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:105
+.preheader.0:9  %sc_FIFO_DCT_mB_addr = getelementptr [64 x i32]* %sc_FIFO_DCT_mB, i32 0, i32 %tmp_8_cast
 
-ST_21: tmp_11_0_2 (215)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:23  %tmp_11_0_2 = or i6 %tmp_4, 3
+ST_22: StgValue_290 (269)  [1/1] 2.71ns  loc: sc_FIFO_DCT.cpp:105
+.preheader.0:10  store i32 %s_0_2_21, i32* %sc_FIFO_DCT_mB_addr, align 4
 
-ST_21: tmp_11_0_2_cast (216)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:24  %tmp_11_0_2_cast = zext i6 %tmp_11_0_2 to i32
+ST_22: tmp_29 (270)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:107 (grouped into LUT with out node tmp_15)
+.preheader.0:11  %tmp_29 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %s_0_2_21, i32 31)
 
-ST_21: b_addr_3 (217)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:25  %b_addr_3 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_0_2_cast
+ST_22: p_lshr_cast (273)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:107
+.preheader.0:14  %p_lshr_cast = zext i13 %tmp_24 to i14
 
-ST_21: b_load_3 (218)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:26  %b_load_3 = load i8* %b_addr_3, align 1
+ST_22: p_neg_t (274)  [1/1] 1.91ns  loc: sc_FIFO_DCT.cpp:107
+.preheader.0:15  %p_neg_t = sub i14 0, %p_lshr_cast
 
-ST_21: tmp_11_0_3 (221)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:29  %tmp_11_0_3 = or i6 %tmp_4, 4
+ST_22: tmp_25 (275)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:107 (grouped into LUT with out node tmp_15)
+.preheader.0:16  %tmp_25 = call i13 @_ssdm_op_PartSelect.i13.i32.i32.i32(i32 %s_0_2_21, i32 19, i32 31)
 
-ST_21: tmp_11_0_3_cast (222)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:30  %tmp_11_0_3_cast = zext i6 %tmp_11_0_3 to i32
+ST_22: p_lshr_f_cast (276)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:107 (grouped into LUT with out node tmp_15)
+.preheader.0:17  %p_lshr_f_cast = zext i13 %tmp_25 to i14
 
-ST_21: b_addr_4 (223)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:31  %b_addr_4 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_0_3_cast
+ST_22: tmp_13 (277)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:107 (grouped into LUT with out node tmp_15)
+.preheader.0:18  %tmp_13 = select i1 %tmp_29, i14 %p_neg_t, i14 %p_lshr_f_cast
 
-ST_21: b_load_4 (224)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:32  %b_load_4 = load i8* %b_addr_4, align 4
+ST_22: tmp_13_cast (278)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:107 (grouped into LUT with out node tmp_15)
+.preheader.0:19  %tmp_13_cast = sext i14 %tmp_13 to i15
 
-ST_21: tmp_11_0_4 (227)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:35  %tmp_11_0_4 = or i6 %tmp_4, 5
+ST_22: tmp_15 (279)  [1/1] 1.91ns  loc: sc_FIFO_DCT.cpp:107 (out node of the LUT)
+.preheader.0:20  %tmp_15 = add i15 %tmp_13_cast, 127
 
-ST_21: tmp_11_0_4_cast (228)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:36  %tmp_11_0_4_cast = zext i6 %tmp_11_0_4 to i32
+ST_22: tmp_15_cast (280)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:107
+.preheader.0:21  %tmp_15_cast = sext i15 %tmp_15 to i32
 
-ST_21: b_addr_5 (229)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:37  %b_addr_5 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_0_4_cast
+ST_22: tmp_16_cast (282)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:107
+.preheader.0:23  %tmp_16_cast = zext i6 %tmp_16 to i32
 
-ST_21: b_load_5 (230)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:38  %b_load_5 = load i8* %b_addr_5, align 1
+ST_22: sc_FIFO_DCT_mC_addr (283)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:107
+.preheader.0:24  %sc_FIFO_DCT_mC_addr = getelementptr [64 x i32]* %sc_FIFO_DCT_mC, i32 0, i32 %tmp_16_cast
 
-ST_21: tmp_11_0_5 (233)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:41  %tmp_11_0_5 = or i6 %tmp_4, 6
+ST_22: StgValue_302 (284)  [1/1] 2.71ns  loc: sc_FIFO_DCT.cpp:107
+.preheader.0:25  store i32 %tmp_15_cast, i32* %sc_FIFO_DCT_mC_addr, align 4
 
-ST_21: tmp_11_0_5_cast (234)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:42  %tmp_11_0_5_cast = zext i6 %tmp_11_0_5 to i32
+ST_22: empty_22 (285)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:108
+.preheader.0:26  %empty_22 = call i32 (...)* @_ssdm_op_SpecRegionEnd([3 x i8]* @p_str31, i32 %tmp_19)
 
-ST_21: b_addr_6 (235)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:43  %b_addr_6 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_0_5_cast
+ST_22: StgValue_304 (286)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:93
+.preheader.0:27  br label %.preheader35
 
-ST_21: b_load_6 (236)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:44  %b_load_6 = load i8* %b_addr_6, align 2
 
-ST_21: tmp_11_0_6 (239)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:47  %tmp_11_0_6 = or i6 %tmp_4, 7
-
-ST_21: tmp_11_0_6_cast (240)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:48  %tmp_11_0_6_cast = zext i6 %tmp_11_0_6 to i32
-
-ST_21: b_addr_7 (241)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:49  %b_addr_7 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_0_6_cast
-
-ST_21: b_load_7 (242)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:50  %b_load_7 = load i8* %b_addr_7, align 1
-
-ST_21: tmp_15 (267)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
-.preheader.preheader.0:75  %tmp_15 = call i2 @_ssdm_op_PartSelect.i2.i4.i32.i32(i4 %i0, i32 1, i32 2)
-
-ST_21: tmp_16 (268)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.0:76  %tmp_16 = call i6 @_ssdm_op_BitConcatenate.i6.i2.i4(i2 %tmp_15, i4 %i1_1)
-
-
- <State 22>: 2.39ns
-ST_22: b_load (200)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:8  %b_load = load i8* %b_addr, align 8
-
-ST_22: b_load_1 (206)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:14  %b_load_1 = load i8* %b_addr_1, align 1
-
-ST_22: b_load_2 (212)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:20  %b_load_2 = load i8* %b_addr_2, align 2
-
-ST_22: b_load_3 (218)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:26  %b_load_3 = load i8* %b_addr_3, align 1
-
-ST_22: b_load_4 (224)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:32  %b_load_4 = load i8* %b_addr_4, align 4
-
-ST_22: b_load_5 (230)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:38  %b_load_5 = load i8* %b_addr_5, align 1
-
-ST_22: b_load_6 (236)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:44  %b_load_6 = load i8* %b_addr_6, align 2
-
-ST_22: b_load_7 (242)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:50  %b_load_7 = load i8* %b_addr_7, align 1
-
-ST_22: tmp_12 (252)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:104
-.preheader.preheader.0:60  %tmp_12 = add i6 %i0_cast4, %tmp_4
-
-
- <State 23>: 6.68ns
-ST_23: b_load_cast (201)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:9  %b_load_cast = sext i8 %b_load to i32
-
-ST_23: tmp_11 (202)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:10  %tmp_11 = mul nsw i32 %b_load_cast, %a_load
-
-ST_23: b_load_1_cast (207)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:15  %b_load_1_cast = sext i8 %b_load_1 to i32
-
-ST_23: tmp_12_0_1 (208)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:16  %tmp_12_0_1 = mul nsw i32 %b_load_1_cast, %a_load_1
-
-ST_23: b_load_2_cast (213)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:21  %b_load_2_cast = sext i8 %b_load_2 to i32
-
-ST_23: tmp_12_0_2 (214)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:22  %tmp_12_0_2 = mul nsw i32 %b_load_2_cast, %a_load_2
-
-ST_23: b_load_3_cast (219)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:27  %b_load_3_cast = sext i8 %b_load_3 to i32
-
-ST_23: tmp_12_0_3 (220)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:28  %tmp_12_0_3 = mul nsw i32 %b_load_3_cast, %a_load_3
-
-ST_23: b_load_4_cast (225)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:33  %b_load_4_cast = sext i8 %b_load_4 to i32
-
-ST_23: tmp_12_0_4 (226)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:34  %tmp_12_0_4 = mul nsw i32 %b_load_4_cast, %a_load_4
-
-ST_23: b_load_5_cast (231)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:39  %b_load_5_cast = sext i8 %b_load_5 to i32
-
-ST_23: tmp_12_0_5 (232)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:40  %tmp_12_0_5 = mul nsw i32 %b_load_5_cast, %a_load_5
-
-ST_23: b_load_6_cast (237)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:45  %b_load_6_cast = sext i8 %b_load_6 to i32
-
-ST_23: tmp_12_0_6 (238)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:46  %tmp_12_0_6 = mul nsw i32 %b_load_6_cast, %a_load_6
-
-ST_23: b_load_7_cast (243)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:51  %b_load_7_cast = sext i8 %b_load_7 to i32
-
-ST_23: tmp_12_0_7 (244)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:52  %tmp_12_0_7 = mul nsw i32 %b_load_7_cast, %a_load_7
-
-
- <State 24>: 6.68ns
-ST_24: tmp_11 (202)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:10  %tmp_11 = mul nsw i32 %b_load_cast, %a_load
-
-ST_24: tmp_12_0_1 (208)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:16  %tmp_12_0_1 = mul nsw i32 %b_load_1_cast, %a_load_1
-
-ST_24: tmp_12_0_2 (214)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:22  %tmp_12_0_2 = mul nsw i32 %b_load_2_cast, %a_load_2
-
-ST_24: tmp_12_0_3 (220)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:28  %tmp_12_0_3 = mul nsw i32 %b_load_3_cast, %a_load_3
-
-ST_24: tmp_12_0_4 (226)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:34  %tmp_12_0_4 = mul nsw i32 %b_load_4_cast, %a_load_4
-
-ST_24: tmp_12_0_5 (232)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:40  %tmp_12_0_5 = mul nsw i32 %b_load_5_cast, %a_load_5
-
-ST_24: tmp_12_0_6 (238)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:46  %tmp_12_0_6 = mul nsw i32 %b_load_6_cast, %a_load_6
-
-ST_24: tmp_12_0_7 (244)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:52  %tmp_12_0_7 = mul nsw i32 %b_load_7_cast, %a_load_7
-
-
- <State 25>: 6.68ns
-ST_25: tmp_11 (202)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:10  %tmp_11 = mul nsw i32 %b_load_cast, %a_load
-
-ST_25: tmp_12_0_1 (208)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:16  %tmp_12_0_1 = mul nsw i32 %b_load_1_cast, %a_load_1
-
-ST_25: tmp_12_0_2 (214)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:22  %tmp_12_0_2 = mul nsw i32 %b_load_2_cast, %a_load_2
-
-ST_25: tmp_12_0_3 (220)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:28  %tmp_12_0_3 = mul nsw i32 %b_load_3_cast, %a_load_3
-
-ST_25: tmp_12_0_4 (226)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:34  %tmp_12_0_4 = mul nsw i32 %b_load_4_cast, %a_load_4
-
-ST_25: tmp_12_0_5 (232)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:40  %tmp_12_0_5 = mul nsw i32 %b_load_5_cast, %a_load_5
-
-ST_25: tmp_12_0_6 (238)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:46  %tmp_12_0_6 = mul nsw i32 %b_load_6_cast, %a_load_6
-
-ST_25: tmp_12_0_7 (244)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:52  %tmp_12_0_7 = mul nsw i32 %b_load_7_cast, %a_load_7
-
-
- <State 26>: 6.68ns
-ST_26: tmp_11 (202)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:10  %tmp_11 = mul nsw i32 %b_load_cast, %a_load
-
-ST_26: tmp_12_0_1 (208)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:16  %tmp_12_0_1 = mul nsw i32 %b_load_1_cast, %a_load_1
-
-ST_26: tmp_12_0_2 (214)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:22  %tmp_12_0_2 = mul nsw i32 %b_load_2_cast, %a_load_2
-
-ST_26: tmp_12_0_3 (220)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:28  %tmp_12_0_3 = mul nsw i32 %b_load_3_cast, %a_load_3
-
-ST_26: tmp_12_0_4 (226)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:34  %tmp_12_0_4 = mul nsw i32 %b_load_4_cast, %a_load_4
-
-ST_26: tmp_12_0_5 (232)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:40  %tmp_12_0_5 = mul nsw i32 %b_load_5_cast, %a_load_5
-
-ST_26: tmp_12_0_6 (238)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:46  %tmp_12_0_6 = mul nsw i32 %b_load_6_cast, %a_load_6
-
-ST_26: tmp_12_0_7 (244)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.0:52  %tmp_12_0_7 = mul nsw i32 %b_load_7_cast, %a_load_7
-
-
- <State 27>: 8.62ns
-ST_27: tmp7 (245)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:102
-.preheader.preheader.0:53  %tmp7 = add i32 %tmp_12_0_5, %tmp_12_0_6
-
-ST_27: tmp8 (246)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:102
-.preheader.preheader.0:54  %tmp8 = add i32 %tmp_12_0_4, %tmp_12_0_3
-
-ST_27: tmp9 (247)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:102
-.preheader.preheader.0:55  %tmp9 = add i32 %tmp8, %tmp7
-
-ST_27: tmp10 (248)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:102
-.preheader.preheader.0:56  %tmp10 = add i32 %tmp_11, %tmp_12_0_2
-
-ST_27: tmp11 (249)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:102
-.preheader.preheader.0:57  %tmp11 = add i32 %tmp_12_0_1, %tmp_12_0_7
-
-ST_27: tmp12 (250)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:102
-.preheader.preheader.0:58  %tmp12 = add i32 %tmp11, %tmp10
-
-ST_27: tmp_19_0_6 (251)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:102
-.preheader.preheader.0:59  %tmp_19_0_6 = add nsw i32 %tmp12, %tmp9
-
-ST_27: p_neg (257)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.0:65  %p_neg = sub i32 0, %tmp_19_0_6
-
-ST_27: tmp_20 (258)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.0:66  %tmp_20 = call i13 @_ssdm_op_PartSelect.i13.i32.i32.i32(i32 %p_neg, i32 19, i32 31)
-
-
- <State 28>: 6.53ns
-ST_28: empty_16 (192)  [1/1] 0.00ns
-.preheader.preheader.0:0  %empty_16 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
-
-ST_28: StgValue_370 (193)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:93
-.preheader.preheader.0:1  call void (...)* @_ssdm_op_SpecLoopName([3 x i8]* @p_str31) nounwind
-
-ST_28: tmp_10 (194)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:93
-.preheader.preheader.0:2  %tmp_10 = call i32 (...)* @_ssdm_op_SpecRegionBegin([3 x i8]* @p_str31)
-
-ST_28: StgValue_372 (195)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:94
-.preheader.preheader.0:3  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str6) nounwind
-
-ST_28: tmp_13_cast (253)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:104
-.preheader.preheader.0:61  %tmp_13_cast = zext i6 %tmp_12 to i32
-
-ST_28: sc_FIFO_DCT_mB_addr (254)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:104
-.preheader.preheader.0:62  %sc_FIFO_DCT_mB_addr = getelementptr [64 x i32]* %sc_FIFO_DCT_mB, i32 0, i32 %tmp_13_cast
-
-ST_28: StgValue_375 (255)  [1/1] 2.71ns  loc: sc_FIFO_DCT.cpp:104
-.preheader.preheader.0:63  store i32 %tmp_19_0_6, i32* %sc_FIFO_DCT_mB_addr, align 4
-
-ST_28: tmp_26 (256)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106 (grouped into LUT with out node tmp_14)
-.preheader.preheader.0:64  %tmp_26 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %tmp_19_0_6, i32 31)
-
-ST_28: p_lshr_cast (259)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.0:67  %p_lshr_cast = zext i13 %tmp_20 to i14
-
-ST_28: p_neg_t (260)  [1/1] 1.91ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.0:68  %p_neg_t = sub i14 0, %p_lshr_cast
-
-ST_28: tmp_24 (261)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106 (grouped into LUT with out node tmp_14)
-.preheader.preheader.0:69  %tmp_24 = call i13 @_ssdm_op_PartSelect.i13.i32.i32.i32(i32 %tmp_19_0_6, i32 19, i32 31)
-
-ST_28: p_lshr_f_cast (262)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106 (grouped into LUT with out node tmp_14)
-.preheader.preheader.0:70  %p_lshr_f_cast = zext i13 %tmp_24 to i14
-
-ST_28: tmp_13 (263)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106 (grouped into LUT with out node tmp_14)
-.preheader.preheader.0:71  %tmp_13 = select i1 %tmp_26, i14 %p_neg_t, i14 %p_lshr_f_cast
-
-ST_28: tmp_14_cast (264)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106 (grouped into LUT with out node tmp_14)
-.preheader.preheader.0:72  %tmp_14_cast = sext i14 %tmp_13 to i15
-
-ST_28: tmp_14 (265)  [1/1] 1.91ns  loc: sc_FIFO_DCT.cpp:106 (out node of the LUT)
-.preheader.preheader.0:73  %tmp_14 = add i15 127, %tmp_14_cast
-
-ST_28: tmp_15_cast (266)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.0:74  %tmp_15_cast = sext i15 %tmp_14 to i32
-
-ST_28: tmp_16_cast (269)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.0:77  %tmp_16_cast = zext i6 %tmp_16 to i32
-
-ST_28: sc_FIFO_DCT_mC_addr (270)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.0:78  %sc_FIFO_DCT_mC_addr = getelementptr [64 x i32]* %sc_FIFO_DCT_mC, i32 0, i32 %tmp_16_cast
-
-ST_28: StgValue_387 (271)  [1/1] 2.71ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.0:79  store i32 %tmp_15_cast, i32* %sc_FIFO_DCT_mC_addr, align 4
-
-ST_28: empty_17 (272)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:107
-.preheader.preheader.0:80  %empty_17 = call i32 (...)* @_ssdm_op_SpecRegionEnd([3 x i8]* @p_str31, i32 %tmp_10)
-
-ST_28: StgValue_389 (273)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:92
-.preheader.preheader.0:81  br label %.preheader35.0
-
-
- <State 29>: 4.06ns
-ST_29: i0_1_s (276)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
-:1  %i0_1_s = or i3 %tmp_21, 1
-
-ST_29: i0_1_cast (277)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
-:2  %i0_1_cast = zext i3 %i0_1_s to i32
-
-ST_29: b_a_addr_8 (279)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:4  %b_a_addr_8 = getelementptr [64 x i8]* @b_a, i32 0, i32 %i0_1_cast
-
-ST_29: b_a_load_8 (280)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:5  %b_a_load_8 = load i8* %b_a_addr_8, align 1
-
-ST_29: tmp_6_1_1 (282)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:84
-:7  %tmp_6_1_1 = add i5 %i0_cast40_cast, 9
-
-ST_29: tmp_6_1_1_cast (283)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:8  %tmp_6_1_1_cast = zext i5 %tmp_6_1_1 to i32
-
-ST_29: b_a_addr_9 (284)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:9  %b_a_addr_9 = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_1_1_cast
-
-ST_29: b_a_load_9 (285)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:10  %b_a_load_9 = load i8* %b_a_addr_9, align 1
-
-ST_29: tmp_5 (287)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
-:12  %tmp_5 = or i4 %i0, 1
-
-ST_29: tmp_6_1_s (288)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:13  %tmp_6_1_s = call i5 @_ssdm_op_BitConcatenate.i5.i1.i4(i1 true, i4 %tmp_5)
-
-ST_29: tmp_6_1_2_cast (289)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:14  %tmp_6_1_2_cast = zext i5 %tmp_6_1_s to i32
-
-ST_29: b_a_addr_10 (290)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:15  %b_a_addr_10 = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_1_2_cast
-
-ST_29: b_a_load_10 (291)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:16  %b_a_load_10 = load i8* %b_a_addr_10, align 1
-
-ST_29: tmp_6_1_3 (293)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:84
-:18  %tmp_6_1_3 = add i6 %i0_cast4, 25
-
-ST_29: tmp_6_1_3_cast (294)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:19  %tmp_6_1_3_cast = zext i6 %tmp_6_1_3 to i32
-
-ST_29: b_a_addr_11 (295)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:20  %b_a_addr_11 = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_1_3_cast
-
-ST_29: b_a_load_11 (296)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:21  %b_a_load_11 = load i8* %b_a_addr_11, align 1
-
-ST_29: tmp_6_1_2 (298)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:23  %tmp_6_1_2 = call i6 @_ssdm_op_BitConcatenate.i6.i2.i4(i2 -2, i4 %tmp_5)
-
-ST_29: tmp_6_1_4_cast (299)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:24  %tmp_6_1_4_cast = zext i6 %tmp_6_1_2 to i32
-
-ST_29: b_a_addr_12 (300)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:25  %b_a_addr_12 = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_1_4_cast
-
-ST_29: b_a_load_12 (301)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:26  %b_a_load_12 = load i8* %b_a_addr_12, align 1
-
-ST_29: tmp_6_1_5 (303)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:84
-:28  %tmp_6_1_5 = add i6 %i0_cast4, -23
-
-ST_29: tmp_6_1_5_cast (304)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:29  %tmp_6_1_5_cast = zext i6 %tmp_6_1_5 to i32
-
-ST_29: b_a_addr_13 (305)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:30  %b_a_addr_13 = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_1_5_cast
-
-ST_29: b_a_load_13 (306)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:31  %b_a_load_13 = load i8* %b_a_addr_13, align 1
-
-ST_29: tmp_6_1_6_cast1 (308)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:33  %tmp_6_1_6_cast1 = sext i5 %tmp_6_1_s to i6
-
-ST_29: tmp_6_1_6_cast (309)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:34  %tmp_6_1_6_cast = zext i6 %tmp_6_1_6_cast1 to i32
-
-ST_29: b_a_addr_14 (310)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:35  %b_a_addr_14 = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_1_6_cast
-
-ST_29: b_a_load_14 (311)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:36  %b_a_load_14 = load i8* %b_a_addr_14, align 1
-
-ST_29: tmp_6_1_7 (313)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:84
-:38  %tmp_6_1_7 = add i7 %i0_cast1, 57
-
-ST_29: tmp_6_1_7_cast (314)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:39  %tmp_6_1_7_cast = zext i7 %tmp_6_1_7 to i32
-
-ST_29: b_a_addr_15 (315)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:40  %b_a_addr_15 = getelementptr [64 x i8]* @b_a, i32 0, i32 %tmp_6_1_7_cast
-
-ST_29: b_a_load_15 (316)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:41  %b_a_load_15 = load i8* %b_a_addr_15, align 1
-
-
- <State 30>: 2.39ns
-ST_30: empty_12 (275)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:108
-:0  %empty_12 = call i32 (...)* @_ssdm_op_SpecRegionEnd([9 x i8]* @p_str27, i32 %tmp_6)
-
-ST_30: tmp_1 (278)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:77
-:3  %tmp_1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([9 x i8]* @p_str27)
-
-ST_30: b_a_load_8 (280)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:5  %b_a_load_8 = load i8* %b_a_addr_8, align 1
-
-ST_30: b_a_load_8_cast (281)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:6  %b_a_load_8_cast = sext i8 %b_a_load_8 to i32
-
-ST_30: b_a_load_9 (285)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:10  %b_a_load_9 = load i8* %b_a_addr_9, align 1
-
-ST_30: b_a_load_9_cast (286)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:11  %b_a_load_9_cast = sext i8 %b_a_load_9 to i32
-
-ST_30: b_a_load_10 (291)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:16  %b_a_load_10 = load i8* %b_a_addr_10, align 1
-
-ST_30: b_a_load_10_cast (292)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:17  %b_a_load_10_cast = sext i8 %b_a_load_10 to i32
-
-ST_30: b_a_load_11 (296)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:21  %b_a_load_11 = load i8* %b_a_addr_11, align 1
-
-ST_30: b_a_load_11_cast (297)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:22  %b_a_load_11_cast = sext i8 %b_a_load_11 to i32
-
-ST_30: b_a_load_12 (301)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:26  %b_a_load_12 = load i8* %b_a_addr_12, align 1
-
-ST_30: b_a_load_12_cast (302)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:27  %b_a_load_12_cast = sext i8 %b_a_load_12 to i32
-
-ST_30: b_a_load_13 (306)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:31  %b_a_load_13 = load i8* %b_a_addr_13, align 1
-
-ST_30: b_a_load_13_cast (307)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:32  %b_a_load_13_cast = sext i8 %b_a_load_13 to i32
-
-ST_30: b_a_load_14 (311)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:36  %b_a_load_14 = load i8* %b_a_addr_14, align 1
-
-ST_30: b_a_load_14_cast (312)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:37  %b_a_load_14_cast = sext i8 %b_a_load_14 to i32
-
-ST_30: b_a_load_15 (316)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:84
-:41  %b_a_load_15 = load i8* %b_a_addr_15, align 1
-
-ST_30: b_a_load_15_cast (317)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-:42  %b_a_load_15_cast = sext i8 %b_a_load_15 to i32
-
-ST_30: StgValue_441 (318)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:79
-:43  br label %6
-
-
- <State 31>: 3.70ns
-ST_31: i1_s (320)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:79
-:0  %i1_s = phi i4 [ 0, %2 ], [ %i1_2_1, %.preheader36.preheader.1 ]
-
-ST_31: exitcond2_1 (321)  [1/1] 2.33ns  loc: sc_FIFO_DCT.cpp:79
-:1  %exitcond2_1 = icmp eq i4 %i1_s, -8
-
-ST_31: i1_2_1 (322)  [1/1] 0.75ns  loc: sc_FIFO_DCT.cpp:79
-:2  %i1_2_1 = add i4 %i1_s, 1
-
-ST_31: StgValue_445 (323)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:79
-:3  br i1 %exitcond2_1, label %.preheader35.preheader.1, label %.preheader36.preheader.1
-
-ST_31: tmp_27 (329)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:79
-.preheader36.preheader.1:4  %tmp_27 = trunc i4 %i1_s to i3
-
-ST_31: tmp_2_1 (330)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:5  %tmp_2_1 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_27, i3 0)
-
-ST_31: tmp_2_1_cast (331)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:6  %tmp_2_1_cast = zext i6 %tmp_2_1 to i32
-
-ST_31: sc_FIFO_DCT_mA_addr_8 (332)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:7  %sc_FIFO_DCT_mA_addr_8 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_2_1_cast
-
-ST_31: sc_FIFO_DCT_mA_load_8 (333)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:8  %sc_FIFO_DCT_mA_load_8 = load i32* %sc_FIFO_DCT_mA_addr_8, align 4
-
-ST_31: tmp_7_1_s (335)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:10  %tmp_7_1_s = or i6 %tmp_2_1, 1
-
-ST_31: tmp_7_1_cast (336)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:11  %tmp_7_1_cast = zext i6 %tmp_7_1_s to i32
-
-ST_31: sc_FIFO_DCT_mA_addr_9 (337)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:12  %sc_FIFO_DCT_mA_addr_9 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_1_cast
-
-ST_31: sc_FIFO_DCT_mA_load_9 (338)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:13  %sc_FIFO_DCT_mA_load_9 = load i32* %sc_FIFO_DCT_mA_addr_9, align 4
-
-
- <State 32>: 2.71ns
-ST_32: sc_FIFO_DCT_mA_load_8 (333)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:8  %sc_FIFO_DCT_mA_load_8 = load i32* %sc_FIFO_DCT_mA_addr_8, align 4
-
-ST_32: sc_FIFO_DCT_mA_load_9 (338)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:13  %sc_FIFO_DCT_mA_load_9 = load i32* %sc_FIFO_DCT_mA_addr_9, align 4
-
-ST_32: tmp_7_1_1 (340)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:15  %tmp_7_1_1 = or i6 %tmp_2_1, 2
-
-ST_32: tmp_7_1_1_cast (341)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:16  %tmp_7_1_1_cast = zext i6 %tmp_7_1_1 to i32
-
-ST_32: sc_FIFO_DCT_mA_addr_10 (342)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:17  %sc_FIFO_DCT_mA_addr_10 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_1_1_cast
-
-ST_32: sc_FIFO_DCT_mA_load_10 (343)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:18  %sc_FIFO_DCT_mA_load_10 = load i32* %sc_FIFO_DCT_mA_addr_10, align 4
-
-ST_32: tmp_7_1_2 (345)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:20  %tmp_7_1_2 = or i6 %tmp_2_1, 3
-
-ST_32: tmp_7_1_2_cast (346)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:21  %tmp_7_1_2_cast = zext i6 %tmp_7_1_2 to i32
-
-ST_32: sc_FIFO_DCT_mA_addr_11 (347)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:22  %sc_FIFO_DCT_mA_addr_11 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_1_2_cast
-
-ST_32: sc_FIFO_DCT_mA_load_11 (348)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:23  %sc_FIFO_DCT_mA_load_11 = load i32* %sc_FIFO_DCT_mA_addr_11, align 4
-
-
- <State 33>: 6.68ns
-ST_33: tmp_8_1 (334)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:9  %tmp_8_1 = mul nsw i32 %sc_FIFO_DCT_mA_load_8, %b_a_load_8_cast
-
-ST_33: tmp_8_1_1 (339)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:14  %tmp_8_1_1 = mul nsw i32 %sc_FIFO_DCT_mA_load_9, %b_a_load_9_cast
-
-ST_33: sc_FIFO_DCT_mA_load_10 (343)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:18  %sc_FIFO_DCT_mA_load_10 = load i32* %sc_FIFO_DCT_mA_addr_10, align 4
-
-ST_33: sc_FIFO_DCT_mA_load_11 (348)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:23  %sc_FIFO_DCT_mA_load_11 = load i32* %sc_FIFO_DCT_mA_addr_11, align 4
-
-ST_33: tmp_7_1_5 (360)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:35  %tmp_7_1_5 = or i6 %tmp_2_1, 6
-
-ST_33: tmp_7_1_5_cast (361)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:36  %tmp_7_1_5_cast = zext i6 %tmp_7_1_5 to i32
-
-ST_33: sc_FIFO_DCT_mA_addr_14 (362)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:37  %sc_FIFO_DCT_mA_addr_14 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_1_5_cast
-
-ST_33: sc_FIFO_DCT_mA_load_14 (363)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:38  %sc_FIFO_DCT_mA_load_14 = load i32* %sc_FIFO_DCT_mA_addr_14, align 4
-
-ST_33: tmp_7_1_6 (365)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:40  %tmp_7_1_6 = or i6 %tmp_2_1, 7
-
-ST_33: tmp_7_1_6_cast (366)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:41  %tmp_7_1_6_cast = zext i6 %tmp_7_1_6 to i32
-
-ST_33: sc_FIFO_DCT_mA_addr_15 (367)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:42  %sc_FIFO_DCT_mA_addr_15 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_1_6_cast
-
-ST_33: sc_FIFO_DCT_mA_load_15 (368)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:43  %sc_FIFO_DCT_mA_load_15 = load i32* %sc_FIFO_DCT_mA_addr_15, align 4
-
-
- <State 34>: 6.68ns
-ST_34: tmp_8_1 (334)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:9  %tmp_8_1 = mul nsw i32 %sc_FIFO_DCT_mA_load_8, %b_a_load_8_cast
-
-ST_34: tmp_8_1_1 (339)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:14  %tmp_8_1_1 = mul nsw i32 %sc_FIFO_DCT_mA_load_9, %b_a_load_9_cast
-
-ST_34: tmp_8_1_2 (344)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:19  %tmp_8_1_2 = mul nsw i32 %sc_FIFO_DCT_mA_load_10, %b_a_load_10_cast
-
-ST_34: tmp_8_1_3 (349)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:24  %tmp_8_1_3 = mul nsw i32 %sc_FIFO_DCT_mA_load_11, %b_a_load_11_cast
-
-ST_34: tmp_7_1_3 (350)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:25  %tmp_7_1_3 = or i6 %tmp_2_1, 4
-
-ST_34: tmp_7_1_3_cast (351)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:26  %tmp_7_1_3_cast = zext i6 %tmp_7_1_3 to i32
-
-ST_34: sc_FIFO_DCT_mA_addr_12 (352)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:27  %sc_FIFO_DCT_mA_addr_12 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_1_3_cast
-
-ST_34: sc_FIFO_DCT_mA_load_12 (353)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:28  %sc_FIFO_DCT_mA_load_12 = load i32* %sc_FIFO_DCT_mA_addr_12, align 4
-
-ST_34: tmp_7_1_4 (355)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:30  %tmp_7_1_4 = or i6 %tmp_2_1, 5
-
-ST_34: tmp_7_1_4_cast (356)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:31  %tmp_7_1_4_cast = zext i6 %tmp_7_1_4 to i32
-
-ST_34: sc_FIFO_DCT_mA_addr_13 (357)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:32  %sc_FIFO_DCT_mA_addr_13 = getelementptr [64 x i32]* %sc_FIFO_DCT_mA, i32 0, i32 %tmp_7_1_4_cast
-
-ST_34: sc_FIFO_DCT_mA_load_13 (358)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:33  %sc_FIFO_DCT_mA_load_13 = load i32* %sc_FIFO_DCT_mA_addr_13, align 4
-
-ST_34: sc_FIFO_DCT_mA_load_14 (363)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:38  %sc_FIFO_DCT_mA_load_14 = load i32* %sc_FIFO_DCT_mA_addr_14, align 4
-
-ST_34: sc_FIFO_DCT_mA_load_15 (368)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:43  %sc_FIFO_DCT_mA_load_15 = load i32* %sc_FIFO_DCT_mA_addr_15, align 4
-
-
- <State 35>: 6.68ns
-ST_35: tmp_8_1 (334)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:9  %tmp_8_1 = mul nsw i32 %sc_FIFO_DCT_mA_load_8, %b_a_load_8_cast
-
-ST_35: tmp_8_1_1 (339)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:14  %tmp_8_1_1 = mul nsw i32 %sc_FIFO_DCT_mA_load_9, %b_a_load_9_cast
-
-ST_35: tmp_8_1_2 (344)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:19  %tmp_8_1_2 = mul nsw i32 %sc_FIFO_DCT_mA_load_10, %b_a_load_10_cast
-
-ST_35: tmp_8_1_3 (349)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:24  %tmp_8_1_3 = mul nsw i32 %sc_FIFO_DCT_mA_load_11, %b_a_load_11_cast
-
-ST_35: sc_FIFO_DCT_mA_load_12 (353)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:28  %sc_FIFO_DCT_mA_load_12 = load i32* %sc_FIFO_DCT_mA_addr_12, align 4
-
-ST_35: sc_FIFO_DCT_mA_load_13 (358)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:33  %sc_FIFO_DCT_mA_load_13 = load i32* %sc_FIFO_DCT_mA_addr_13, align 4
-
-ST_35: tmp_8_1_6 (364)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:39  %tmp_8_1_6 = mul nsw i32 %sc_FIFO_DCT_mA_load_14, %b_a_load_14_cast
-
-ST_35: tmp_8_1_7 (369)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:44  %tmp_8_1_7 = mul nsw i32 %sc_FIFO_DCT_mA_load_15, %b_a_load_15_cast
-
-
- <State 36>: 6.68ns
-ST_36: tmp_8_1 (334)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:9  %tmp_8_1 = mul nsw i32 %sc_FIFO_DCT_mA_load_8, %b_a_load_8_cast
-
-ST_36: tmp_8_1_1 (339)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:14  %tmp_8_1_1 = mul nsw i32 %sc_FIFO_DCT_mA_load_9, %b_a_load_9_cast
-
-ST_36: tmp_8_1_2 (344)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:19  %tmp_8_1_2 = mul nsw i32 %sc_FIFO_DCT_mA_load_10, %b_a_load_10_cast
-
-ST_36: tmp_8_1_3 (349)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:24  %tmp_8_1_3 = mul nsw i32 %sc_FIFO_DCT_mA_load_11, %b_a_load_11_cast
-
-ST_36: tmp_8_1_4 (354)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:29  %tmp_8_1_4 = mul nsw i32 %sc_FIFO_DCT_mA_load_12, %b_a_load_12_cast
-
-ST_36: tmp_8_1_5 (359)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:34  %tmp_8_1_5 = mul nsw i32 %sc_FIFO_DCT_mA_load_13, %b_a_load_13_cast
-
-ST_36: tmp_8_1_6 (364)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:39  %tmp_8_1_6 = mul nsw i32 %sc_FIFO_DCT_mA_load_14, %b_a_load_14_cast
-
-ST_36: tmp_8_1_7 (369)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:44  %tmp_8_1_7 = mul nsw i32 %sc_FIFO_DCT_mA_load_15, %b_a_load_15_cast
-
-
- <State 37>: 6.68ns
-ST_37: tmp_8_1_2 (344)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:19  %tmp_8_1_2 = mul nsw i32 %sc_FIFO_DCT_mA_load_10, %b_a_load_10_cast
-
-ST_37: tmp_8_1_3 (349)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:24  %tmp_8_1_3 = mul nsw i32 %sc_FIFO_DCT_mA_load_11, %b_a_load_11_cast
-
-ST_37: tmp_8_1_4 (354)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:29  %tmp_8_1_4 = mul nsw i32 %sc_FIFO_DCT_mA_load_12, %b_a_load_12_cast
-
-ST_37: tmp_8_1_5 (359)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:34  %tmp_8_1_5 = mul nsw i32 %sc_FIFO_DCT_mA_load_13, %b_a_load_13_cast
-
-ST_37: tmp_8_1_6 (364)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:39  %tmp_8_1_6 = mul nsw i32 %sc_FIFO_DCT_mA_load_14, %b_a_load_14_cast
-
-ST_37: tmp_8_1_7 (369)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:44  %tmp_8_1_7 = mul nsw i32 %sc_FIFO_DCT_mA_load_15, %b_a_load_15_cast
-
-ST_37: tmp16 (370)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:88
-.preheader36.preheader.1:45  %tmp16 = add i32 %tmp_8_1, %tmp_8_1_1
-
-
- <State 38>: 6.68ns
-ST_38: tmp_8_1_4 (354)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:29  %tmp_8_1_4 = mul nsw i32 %sc_FIFO_DCT_mA_load_12, %b_a_load_12_cast
-
-ST_38: tmp_8_1_5 (359)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:34  %tmp_8_1_5 = mul nsw i32 %sc_FIFO_DCT_mA_load_13, %b_a_load_13_cast
-
-ST_38: tmp_8_1_6 (364)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:39  %tmp_8_1_6 = mul nsw i32 %sc_FIFO_DCT_mA_load_14, %b_a_load_14_cast
-
-ST_38: tmp_8_1_7 (369)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:44  %tmp_8_1_7 = mul nsw i32 %sc_FIFO_DCT_mA_load_15, %b_a_load_15_cast
-
-ST_38: tmp17 (371)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:88
-.preheader36.preheader.1:46  %tmp17 = add i32 %tmp_8_1_2, %tmp_8_1_3
-
-
- <State 39>: 6.68ns
-ST_39: tmp_8_1_4 (354)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:29  %tmp_8_1_4 = mul nsw i32 %sc_FIFO_DCT_mA_load_12, %b_a_load_12_cast
-
-ST_39: tmp_8_1_5 (359)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:84
-.preheader36.preheader.1:34  %tmp_8_1_5 = mul nsw i32 %sc_FIFO_DCT_mA_load_13, %b_a_load_13_cast
-
-ST_39: tmp20 (374)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:88
-.preheader36.preheader.1:49  %tmp20 = add i32 %tmp_8_1_6, %tmp_8_1_7
-
-
- <State 40>: 8.47ns
-ST_40: empty_19 (325)  [1/1] 0.00ns
-.preheader36.preheader.1:0  %empty_19 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
-
-ST_40: StgValue_523 (326)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:80
-.preheader36.preheader.1:1  call void (...)* @_ssdm_op_SpecLoopName([3 x i8]* @p_str28) nounwind
-
-ST_40: tmp_17 (327)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:80
-.preheader36.preheader.1:2  %tmp_17 = call i32 (...)* @_ssdm_op_SpecRegionBegin([3 x i8]* @p_str28)
-
-ST_40: StgValue_525 (328)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:81
-.preheader36.preheader.1:3  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str6) nounwind
-
-ST_40: tmp18 (372)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:88
-.preheader36.preheader.1:47  %tmp18 = add i32 %tmp17, %tmp16
-
-ST_40: tmp19 (373)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:88
-.preheader36.preheader.1:48  %tmp19 = add i32 %tmp_8_1_4, %tmp_8_1_5
-
-ST_40: tmp21 (375)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:88
-.preheader36.preheader.1:50  %tmp21 = add i32 %tmp20, %tmp19
-
-ST_40: tmp_14_1_6 (376)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:88
-.preheader36.preheader.1:51  %tmp_14_1_6 = add nsw i32 %tmp21, %tmp18
-
-ST_40: tmp_13_1 (377)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:90
-.preheader36.preheader.1:52  %tmp_13_1 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_27, i3 %i0_1_s)
-
-ST_40: tmp_13_1_cast (378)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:90
-.preheader36.preheader.1:53  %tmp_13_1_cast = zext i6 %tmp_13_1 to i32
-
-ST_40: a_addr_9 (379)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:90
-.preheader36.preheader.1:54  %a_addr_9 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_13_1_cast
-
-ST_40: StgValue_533 (380)  [1/1] 2.71ns  loc: sc_FIFO_DCT.cpp:90
-.preheader36.preheader.1:55  store i32 %tmp_14_1_6, i32* %a_addr_9, align 4
-
-ST_40: empty_20 (381)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:91
-.preheader36.preheader.1:56  %empty_20 = call i32 (...)* @_ssdm_op_SpecRegionEnd([3 x i8]* @p_str28, i32 %tmp_17)
-
-ST_40: StgValue_535 (382)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:79
-.preheader36.preheader.1:57  br label %6
-
-
- <State 41>: 2.71ns
-ST_41: a_addr_10 (385)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:1  %a_addr_10 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %i0_1_cast
-
-ST_41: a_load_8 (386)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:2  %a_load_8 = load i32* %a_addr_10, align 4
-
-ST_41: a_addr_11 (387)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:3  %a_addr_11 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_6_1_1_cast
-
-ST_41: a_load_9 (388)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:4  %a_load_9 = load i32* %a_addr_11, align 4
-
-
- <State 42>: 2.71ns
-ST_42: a_load_8 (386)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:2  %a_load_8 = load i32* %a_addr_10, align 4
-
-ST_42: a_load_9 (388)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:4  %a_load_9 = load i32* %a_addr_11, align 4
-
-ST_42: a_addr_12 (389)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:5  %a_addr_12 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_6_1_2_cast
-
-ST_42: a_load_10 (390)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:6  %a_load_10 = load i32* %a_addr_12, align 4
-
-ST_42: a_addr_13 (391)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:7  %a_addr_13 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_6_1_3_cast
-
-ST_42: a_load_11 (392)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:8  %a_load_11 = load i32* %a_addr_13, align 4
-
-
- <State 43>: 2.71ns
-ST_43: a_load_10 (390)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:6  %a_load_10 = load i32* %a_addr_12, align 4
-
-ST_43: a_load_11 (392)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:8  %a_load_11 = load i32* %a_addr_13, align 4
-
-ST_43: a_addr_14 (393)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:9  %a_addr_14 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_6_1_4_cast
-
-ST_43: a_load_12 (394)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:10  %a_load_12 = load i32* %a_addr_14, align 4
-
-ST_43: a_addr_15 (395)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:11  %a_addr_15 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_6_1_5_cast
-
-ST_43: a_load_13 (396)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:12  %a_load_13 = load i32* %a_addr_15, align 4
-
-
- <State 44>: 2.71ns
-ST_44: a_load_12 (394)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:10  %a_load_12 = load i32* %a_addr_14, align 4
-
-ST_44: a_load_13 (396)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:12  %a_load_13 = load i32* %a_addr_15, align 4
-
-ST_44: a_addr_16 (397)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:13  %a_addr_16 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_6_1_6_cast
-
-ST_44: a_load_14 (398)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:14  %a_load_14 = load i32* %a_addr_16, align 4
-
-ST_44: a_addr_17 (399)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:15  %a_addr_17 = getelementptr inbounds [64 x i32]* %a, i32 0, i32 %tmp_6_1_7_cast
-
-ST_44: a_load_15 (400)  [2/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:16  %a_load_15 = load i32* %a_addr_17, align 4
-
-
- <State 45>: 2.71ns
-ST_45: tmp_1_1 (384)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106
-.preheader35.preheader.1:0  %tmp_1_1 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %i0_1_s, i3 0)
-
-ST_45: a_load_14 (398)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:14  %a_load_14 = load i32* %a_addr_16, align 4
-
-ST_45: a_load_15 (400)  [1/2] 2.71ns  loc: sc_FIFO_DCT.cpp:98
-.preheader35.preheader.1:16  %a_load_15 = load i32* %a_addr_17, align 4
-
-ST_45: StgValue_561 (401)  [1/1] 1.57ns  loc: sc_FIFO_DCT.cpp:92
-.preheader35.preheader.1:17  br label %.preheader35.1
-
-
- <State 46>: 3.70ns
-ST_46: i1_1_1 (403)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:92
-.preheader35.1:0  %i1_1_1 = phi i4 [ %i1_3_1, %.preheader.preheader.1 ], [ 0, %.preheader35.preheader.1 ]
-
-ST_46: exitcond3_1 (404)  [1/1] 2.33ns  loc: sc_FIFO_DCT.cpp:92
-.preheader35.1:1  %exitcond3_1 = icmp eq i4 %i1_1_1, -8
-
-ST_46: i1_3_1 (405)  [1/1] 0.75ns  loc: sc_FIFO_DCT.cpp:92
-.preheader35.1:2  %i1_3_1 = add i4 %i1_1_1, 1
-
-ST_46: StgValue_565 (406)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:92
-.preheader35.1:3  br i1 %exitcond3_1, label %5, label %.preheader.preheader.1
-
-ST_46: i1_1_1_cast (408)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:92
-.preheader.preheader.1:0  %i1_1_1_cast = zext i4 %i1_1_1 to i6
-
-ST_46: tmp_28 (413)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:92
-.preheader.preheader.1:5  %tmp_28 = trunc i4 %i1_1_1 to i3
-
-ST_46: tmp_4_1 (414)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:6  %tmp_4_1 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_28, i3 0)
-
-ST_46: tmp_4_1_cast (415)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:7  %tmp_4_1_cast = zext i6 %tmp_4_1 to i32
-
-ST_46: b_addr_8 (416)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:8  %b_addr_8 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_4_1_cast
-
-ST_46: b_load_8 (417)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:9  %b_load_8 = load i8* %b_addr_8, align 8
-
-ST_46: tmp_11_1_s (420)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:12  %tmp_11_1_s = or i6 %tmp_4_1, 1
-
-ST_46: tmp_11_1_cast (421)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:13  %tmp_11_1_cast = zext i6 %tmp_11_1_s to i32
-
-ST_46: b_addr_9 (422)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:14  %b_addr_9 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_1_cast
-
-ST_46: b_load_9 (423)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:15  %b_load_9 = load i8* %b_addr_9, align 1
-
-ST_46: tmp_11_1_1 (426)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:18  %tmp_11_1_1 = or i6 %tmp_4_1, 2
-
-ST_46: tmp_11_1_1_cast (427)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:19  %tmp_11_1_1_cast = zext i6 %tmp_11_1_1 to i32
-
-ST_46: b_addr_10 (428)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:20  %b_addr_10 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_1_1_cast
-
-ST_46: b_load_10 (429)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:21  %b_load_10 = load i8* %b_addr_10, align 2
-
-ST_46: tmp_11_1_2 (432)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:24  %tmp_11_1_2 = or i6 %tmp_4_1, 3
-
-ST_46: tmp_11_1_2_cast (433)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:25  %tmp_11_1_2_cast = zext i6 %tmp_11_1_2 to i32
-
-ST_46: b_addr_11 (434)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:26  %b_addr_11 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_1_2_cast
-
-ST_46: b_load_11 (435)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:27  %b_load_11 = load i8* %b_addr_11, align 1
-
-ST_46: tmp_11_1_3 (438)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:30  %tmp_11_1_3 = or i6 %tmp_4_1, 4
-
-ST_46: tmp_11_1_3_cast (439)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:31  %tmp_11_1_3_cast = zext i6 %tmp_11_1_3 to i32
-
-ST_46: b_addr_12 (440)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:32  %b_addr_12 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_1_3_cast
-
-ST_46: b_load_12 (441)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:33  %b_load_12 = load i8* %b_addr_12, align 4
-
-ST_46: tmp_11_1_4 (444)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:36  %tmp_11_1_4 = or i6 %tmp_4_1, 5
-
-ST_46: tmp_11_1_4_cast (445)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:37  %tmp_11_1_4_cast = zext i6 %tmp_11_1_4 to i32
-
-ST_46: b_addr_13 (446)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:38  %b_addr_13 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_1_4_cast
-
-ST_46: b_load_13 (447)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:39  %b_load_13 = load i8* %b_addr_13, align 1
-
-ST_46: tmp_11_1_5 (450)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:42  %tmp_11_1_5 = or i6 %tmp_4_1, 6
-
-ST_46: tmp_11_1_5_cast (451)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:43  %tmp_11_1_5_cast = zext i6 %tmp_11_1_5 to i32
-
-ST_46: b_addr_14 (452)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:44  %b_addr_14 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_1_5_cast
-
-ST_46: b_load_14 (453)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:45  %b_load_14 = load i8* %b_addr_14, align 2
-
-ST_46: tmp_11_1_6 (456)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:48  %tmp_11_1_6 = or i6 %tmp_4_1, 7
-
-ST_46: tmp_11_1_6_cast (457)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:49  %tmp_11_1_6_cast = zext i6 %tmp_11_1_6 to i32
-
-ST_46: b_addr_15 (458)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:50  %b_addr_15 = getelementptr [64 x i8]* @b, i32 0, i32 %tmp_11_1_6_cast
-
-ST_46: b_load_15 (459)  [2/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:51  %b_load_15 = load i8* %b_addr_15, align 1
-
-ST_46: tmp_18_1 (484)  [1/1] 1.67ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.1:76  %tmp_18_1 = add i6 %tmp_1_1, %i1_1_1_cast
-
-
- <State 47>: 2.39ns
-ST_47: b_load_8 (417)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:9  %b_load_8 = load i8* %b_addr_8, align 8
-
-ST_47: b_load_9 (423)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:15  %b_load_9 = load i8* %b_addr_9, align 1
-
-ST_47: b_load_10 (429)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:21  %b_load_10 = load i8* %b_addr_10, align 2
-
-ST_47: b_load_11 (435)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:27  %b_load_11 = load i8* %b_addr_11, align 1
-
-ST_47: b_load_12 (441)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:33  %b_load_12 = load i8* %b_addr_12, align 4
-
-ST_47: b_load_13 (447)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:39  %b_load_13 = load i8* %b_addr_13, align 1
-
-ST_47: b_load_14 (453)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:45  %b_load_14 = load i8* %b_addr_14, align 2
-
-ST_47: b_load_15 (459)  [1/2] 2.39ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:51  %b_load_15 = load i8* %b_addr_15, align 1
-
-
- <State 48>: 6.68ns
-ST_48: b_load_8_cast (418)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:10  %b_load_8_cast = sext i8 %b_load_8 to i32
-
-ST_48: tmp_12_1 (419)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:11  %tmp_12_1 = mul nsw i32 %b_load_8_cast, %a_load_8
-
-ST_48: b_load_9_cast (424)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:16  %b_load_9_cast = sext i8 %b_load_9 to i32
-
-ST_48: tmp_12_1_1 (425)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:17  %tmp_12_1_1 = mul nsw i32 %b_load_9_cast, %a_load_9
-
-ST_48: b_load_10_cast (430)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:22  %b_load_10_cast = sext i8 %b_load_10 to i32
-
-ST_48: tmp_12_1_2 (431)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:23  %tmp_12_1_2 = mul nsw i32 %b_load_10_cast, %a_load_10
-
-ST_48: b_load_11_cast (436)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:28  %b_load_11_cast = sext i8 %b_load_11 to i32
-
-ST_48: tmp_12_1_3 (437)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:29  %tmp_12_1_3 = mul nsw i32 %b_load_11_cast, %a_load_11
-
-ST_48: b_load_12_cast (442)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:34  %b_load_12_cast = sext i8 %b_load_12 to i32
-
-ST_48: tmp_12_1_4 (443)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:35  %tmp_12_1_4 = mul nsw i32 %b_load_12_cast, %a_load_12
-
-ST_48: b_load_13_cast (448)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:40  %b_load_13_cast = sext i8 %b_load_13 to i32
-
-ST_48: tmp_12_1_5 (449)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:41  %tmp_12_1_5 = mul nsw i32 %b_load_13_cast, %a_load_13
-
-ST_48: b_load_14_cast (454)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:46  %b_load_14_cast = sext i8 %b_load_14 to i32
-
-ST_48: tmp_12_1_6 (455)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:47  %tmp_12_1_6 = mul nsw i32 %b_load_14_cast, %a_load_14
-
-ST_48: b_load_15_cast (460)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:52  %b_load_15_cast = sext i8 %b_load_15 to i32
-
-ST_48: tmp_12_1_7 (461)  [4/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:53  %tmp_12_1_7 = mul nsw i32 %b_load_15_cast, %a_load_15
-
-
- <State 49>: 6.68ns
-ST_49: tmp_12_1 (419)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:11  %tmp_12_1 = mul nsw i32 %b_load_8_cast, %a_load_8
-
-ST_49: tmp_12_1_1 (425)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:17  %tmp_12_1_1 = mul nsw i32 %b_load_9_cast, %a_load_9
-
-ST_49: tmp_12_1_2 (431)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:23  %tmp_12_1_2 = mul nsw i32 %b_load_10_cast, %a_load_10
-
-ST_49: tmp_12_1_3 (437)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:29  %tmp_12_1_3 = mul nsw i32 %b_load_11_cast, %a_load_11
-
-ST_49: tmp_12_1_4 (443)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:35  %tmp_12_1_4 = mul nsw i32 %b_load_12_cast, %a_load_12
-
-ST_49: tmp_12_1_5 (449)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:41  %tmp_12_1_5 = mul nsw i32 %b_load_13_cast, %a_load_13
-
-ST_49: tmp_12_1_6 (455)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:47  %tmp_12_1_6 = mul nsw i32 %b_load_14_cast, %a_load_14
-
-ST_49: tmp_12_1_7 (461)  [3/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:53  %tmp_12_1_7 = mul nsw i32 %b_load_15_cast, %a_load_15
-
-
- <State 50>: 6.68ns
-ST_50: tmp_12_1 (419)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:11  %tmp_12_1 = mul nsw i32 %b_load_8_cast, %a_load_8
-
-ST_50: tmp_12_1_1 (425)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:17  %tmp_12_1_1 = mul nsw i32 %b_load_9_cast, %a_load_9
-
-ST_50: tmp_12_1_2 (431)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:23  %tmp_12_1_2 = mul nsw i32 %b_load_10_cast, %a_load_10
-
-ST_50: tmp_12_1_3 (437)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:29  %tmp_12_1_3 = mul nsw i32 %b_load_11_cast, %a_load_11
-
-ST_50: tmp_12_1_4 (443)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:35  %tmp_12_1_4 = mul nsw i32 %b_load_12_cast, %a_load_12
-
-ST_50: tmp_12_1_5 (449)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:41  %tmp_12_1_5 = mul nsw i32 %b_load_13_cast, %a_load_13
-
-ST_50: tmp_12_1_6 (455)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:47  %tmp_12_1_6 = mul nsw i32 %b_load_14_cast, %a_load_14
-
-ST_50: tmp_12_1_7 (461)  [2/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:53  %tmp_12_1_7 = mul nsw i32 %b_load_15_cast, %a_load_15
-
-
- <State 51>: 6.68ns
-ST_51: tmp_12_1 (419)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:11  %tmp_12_1 = mul nsw i32 %b_load_8_cast, %a_load_8
-
-ST_51: tmp_12_1_1 (425)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:17  %tmp_12_1_1 = mul nsw i32 %b_load_9_cast, %a_load_9
-
-ST_51: tmp_12_1_2 (431)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:23  %tmp_12_1_2 = mul nsw i32 %b_load_10_cast, %a_load_10
-
-ST_51: tmp_12_1_3 (437)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:29  %tmp_12_1_3 = mul nsw i32 %b_load_11_cast, %a_load_11
-
-ST_51: tmp_12_1_4 (443)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:35  %tmp_12_1_4 = mul nsw i32 %b_load_12_cast, %a_load_12
-
-ST_51: tmp_12_1_5 (449)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:41  %tmp_12_1_5 = mul nsw i32 %b_load_13_cast, %a_load_13
-
-ST_51: tmp_12_1_6 (455)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:47  %tmp_12_1_6 = mul nsw i32 %b_load_14_cast, %a_load_14
-
-ST_51: tmp_12_1_7 (461)  [1/4] 6.68ns  loc: sc_FIFO_DCT.cpp:98
-.preheader.preheader.1:53  %tmp_12_1_7 = mul nsw i32 %b_load_15_cast, %a_load_15
-
-
- <State 52>: 8.62ns
-ST_52: tmp24 (462)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:102
-.preheader.preheader.1:54  %tmp24 = add i32 %tmp_12_1_5, %tmp_12_1_6
-
-ST_52: tmp25 (463)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:102
-.preheader.preheader.1:55  %tmp25 = add i32 %tmp_12_1_4, %tmp_12_1_3
-
-ST_52: tmp26 (464)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:102
-.preheader.preheader.1:56  %tmp26 = add i32 %tmp25, %tmp24
-
-ST_52: tmp27 (465)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:102
-.preheader.preheader.1:57  %tmp27 = add i32 %tmp_12_1, %tmp_12_1_2
-
-ST_52: tmp28 (466)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:102
-.preheader.preheader.1:58  %tmp28 = add i32 %tmp_12_1_1, %tmp_12_1_7
-
-ST_52: tmp29 (467)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:102
-.preheader.preheader.1:59  %tmp29 = add i32 %tmp28, %tmp27
-
-ST_52: tmp_19_1_6 (468)  [1/1] 1.92ns  loc: sc_FIFO_DCT.cpp:102
-.preheader.preheader.1:60  %tmp_19_1_6 = add nsw i32 %tmp29, %tmp26
-
-ST_52: p_neg_1 (474)  [1/1] 2.39ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.1:66  %p_neg_1 = sub i32 0, %tmp_19_1_6
-
-ST_52: tmp_25 (475)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.1:67  %tmp_25 = call i13 @_ssdm_op_PartSelect.i13.i32.i32.i32(i32 %p_neg_1, i32 19, i32 31)
-
-
- <State 53>: 6.53ns
-ST_53: empty_21 (409)  [1/1] 0.00ns
-.preheader.preheader.1:1  %empty_21 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
-
-ST_53: StgValue_659 (410)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:93
-.preheader.preheader.1:2  call void (...)* @_ssdm_op_SpecLoopName([3 x i8]* @p_str31) nounwind
-
-ST_53: tmp_18 (411)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:93
-.preheader.preheader.1:3  %tmp_18 = call i32 (...)* @_ssdm_op_SpecRegionBegin([3 x i8]* @p_str31)
-
-ST_53: StgValue_661 (412)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:94
-.preheader.preheader.1:4  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str6) nounwind
-
-ST_53: tmp_15_1 (469)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:104
-.preheader.preheader.1:61  %tmp_15_1 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_28, i3 %i0_1_s)
-
-ST_53: tmp_15_1_cast (470)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:104
-.preheader.preheader.1:62  %tmp_15_1_cast = zext i6 %tmp_15_1 to i32
-
-ST_53: sc_FIFO_DCT_mB_addr_1 (471)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:104
-.preheader.preheader.1:63  %sc_FIFO_DCT_mB_addr_1 = getelementptr [64 x i32]* %sc_FIFO_DCT_mB, i32 0, i32 %tmp_15_1_cast
-
-ST_53: StgValue_665 (472)  [1/1] 2.71ns  loc: sc_FIFO_DCT.cpp:104
-.preheader.preheader.1:64  store i32 %tmp_19_1_6, i32* %sc_FIFO_DCT_mB_addr_1, align 4
-
-ST_53: tmp_32 (473)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106 (grouped into LUT with out node tmp_17_1)
-.preheader.preheader.1:65  %tmp_32 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %tmp_19_1_6, i32 31)
-
-ST_53: p_lshr_1_cast (476)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.1:68  %p_lshr_1_cast = zext i13 %tmp_25 to i14
-
-ST_53: p_neg_t_1 (477)  [1/1] 1.91ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.1:69  %p_neg_t_1 = sub i14 0, %p_lshr_1_cast
-
-ST_53: tmp_29 (478)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106 (grouped into LUT with out node tmp_17_1)
-.preheader.preheader.1:70  %tmp_29 = call i13 @_ssdm_op_PartSelect.i13.i32.i32.i32(i32 %tmp_19_1_6, i32 19, i32 31)
-
-ST_53: p_lshr_f_1_cast (479)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106 (grouped into LUT with out node tmp_17_1)
-.preheader.preheader.1:71  %p_lshr_f_1_cast = zext i13 %tmp_29 to i14
-
-ST_53: tmp_16_1 (480)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106 (grouped into LUT with out node tmp_17_1)
-.preheader.preheader.1:72  %tmp_16_1 = select i1 %tmp_32, i14 %p_neg_t_1, i14 %p_lshr_f_1_cast
-
-ST_53: tmp_16_1_cast (481)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106 (grouped into LUT with out node tmp_17_1)
-.preheader.preheader.1:73  %tmp_16_1_cast = sext i14 %tmp_16_1 to i15
-
-ST_53: tmp_17_1 (482)  [1/1] 1.91ns  loc: sc_FIFO_DCT.cpp:106 (out node of the LUT)
-.preheader.preheader.1:74  %tmp_17_1 = add i15 127, %tmp_16_1_cast
-
-ST_53: tmp_17_1_cast (483)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.1:75  %tmp_17_1_cast = sext i15 %tmp_17_1 to i32
-
-ST_53: tmp_18_1_cast (485)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.1:77  %tmp_18_1_cast = zext i6 %tmp_18_1 to i32
-
-ST_53: sc_FIFO_DCT_mC_addr_1 (486)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.1:78  %sc_FIFO_DCT_mC_addr_1 = getelementptr [64 x i32]* %sc_FIFO_DCT_mC, i32 0, i32 %tmp_18_1_cast
-
-ST_53: StgValue_677 (487)  [1/1] 2.71ns  loc: sc_FIFO_DCT.cpp:106
-.preheader.preheader.1:79  store i32 %tmp_17_1_cast, i32* %sc_FIFO_DCT_mC_addr_1, align 4
-
-ST_53: empty_22 (488)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:107
-.preheader.preheader.1:80  %empty_22 = call i32 (...)* @_ssdm_op_SpecRegionEnd([3 x i8]* @p_str31, i32 %tmp_18)
-
-ST_53: StgValue_679 (489)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:92
-.preheader.preheader.1:81  br label %.preheader35.1
-
-
- <State 54>: 0.75ns
-ST_54: empty_18 (491)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:108
-:0  %empty_18 = call i32 (...)* @_ssdm_op_SpecRegionEnd([9 x i8]* @p_str27, i32 %tmp_1)
-
-ST_54: i0_1_1 (492)  [1/1] 0.75ns  loc: sc_FIFO_DCT.cpp:76
-:1  %i0_1_1 = add i4 %i0, 2
-
-ST_54: StgValue_682 (493)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:76
-:2  br label %1
-
-
- <State 55>: 0.00ns
-ST_55: StgValue_683 (498)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:111
+ <State 23>: 0.00ns
+ST_23: StgValue_305 (302)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:112
 _ZN7_ap_sc_7sc_core4waitEi.exit2:3  call void (...)* @_ssdm_op_Wait(i32 1) nounwind
 
-ST_55: StgValue_684 (499)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:113
+ST_23: StgValue_306 (303)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:114
 _ZN7_ap_sc_7sc_core4waitEi.exit2:4  call void @_ssdm_op_Write.ap_auto.volatile.i1P(i1* %s_DCT, i1 true)
 
-ST_55: StgValue_685 (500)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:114
+ST_23: StgValue_307 (304)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:115
 _ZN7_ap_sc_7sc_core4waitEi.exit2:5  call void @_ssdm_op_Write.ap_auto.volatile.i1P(i1* %s_working, i1 false)
 
 
- <State 56>: 0.00ns
-ST_56: StgValue_686 (501)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:115
+ <State 24>: 0.00ns
+ST_24: StgValue_308 (305)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:116
 _ZN7_ap_sc_7sc_core4waitEi.exit2:6  call void (...)* @_ssdm_op_Wait(i32 1) nounwind
 
-ST_56: tmp_19 (502)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:115
-_ZN7_ap_sc_7sc_core4waitEi.exit2:7  %tmp_19 = call i1 @_ssdm_op_Read.ap_auto.volatile.i1P(i1* %s_done)
+ST_24: tmp_14 (306)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:116
+_ZN7_ap_sc_7sc_core4waitEi.exit2:7  %tmp_14 = call i1 @_ssdm_op_Read.ap_auto.volatile.i1P(i1* %s_done)
 
-ST_56: StgValue_688 (503)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:115
-_ZN7_ap_sc_7sc_core4waitEi.exit2:8  call void (...)* @_ssdm_op_Poll(i1 %tmp_19)
+ST_24: StgValue_310 (307)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:116
+_ZN7_ap_sc_7sc_core4waitEi.exit2:8  call void (...)* @_ssdm_op_Poll(i1 %tmp_14)
 
-ST_56: StgValue_689 (504)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:116
+ST_24: StgValue_311 (308)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:117
 _ZN7_ap_sc_7sc_core4waitEi.exit2:9  call void @_ssdm_op_Write.ap_auto.volatile.i1P(i1* %s_DCT, i1 false)
 
 
- <State 57>: 0.00ns
-ST_57: StgValue_690 (505)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:117
+ <State 25>: 0.00ns
+ST_25: StgValue_312 (309)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:118
 _ZN7_ap_sc_7sc_core4waitEi.exit2:10  call void (...)* @_ssdm_op_Wait(i32 1) nounwind
 
-ST_57: StgValue_691 (506)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:119
+ST_25: StgValue_313 (310)  [1/1] 0.00ns  loc: sc_FIFO_DCT.cpp:120
 _ZN7_ap_sc_7sc_core4waitEi.exit2:11  br label %0
 
 
@@ -2241,248 +1065,115 @@ The critical path consists of the following:
 
  <State 3>: 1.57ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('i0', sc_FIFO_DCT.cpp:76) with incoming values : ('i0_1_1', sc_FIFO_DCT.cpp:76) [53]  (1.57 ns)
+	multiplexor before 'phi' operation ('i0') with incoming values : ('i0', sc_FIFO_DCT.cpp:76) [61]  (1.57 ns)
 
- <State 4>: 4.06ns
+ <State 4>: 2.39ns
 The critical path consists of the following:
-	'phi' operation ('i0', sc_FIFO_DCT.cpp:76) with incoming values : ('i0_1_1', sc_FIFO_DCT.cpp:76) [53]  (0 ns)
-	'add' operation ('tmp_6_0_5', sc_FIFO_DCT.cpp:84) [88]  (1.67 ns)
-	'getelementptr' operation ('b_a_addr_5', sc_FIFO_DCT.cpp:84) [90]  (0 ns)
-	'load' operation ('b_a_load_5', sc_FIFO_DCT.cpp:84) on array 'b_a' [91]  (2.39 ns)
+	wire read on port 'sc_FIFO_DCT_exec_cnt' (sc_FIFO_DCT.cpp:111) [299]  (0 ns)
+	'add' operation ('tmp_s', sc_FIFO_DCT.cpp:111) [300]  (2.39 ns)
+	wire write on port 'sc_FIFO_DCT_exec_cnt' (sc_FIFO_DCT.cpp:111) [301]  (0 ns)
 
- <State 5>: 2.39ns
+ <State 5>: 2.33ns
 The critical path consists of the following:
-	'load' operation ('b_a_load', sc_FIFO_DCT.cpp:84) on array 'b_a' [66]  (2.39 ns)
+	'phi' operation ('i1') with incoming values : ('i1', sc_FIFO_DCT.cpp:78) [88]  (0 ns)
+	'icmp' operation ('exitcond2', sc_FIFO_DCT.cpp:78) [89]  (2.33 ns)
 
- <State 6>: 3.7ns
+ <State 6>: 6.23ns
 The critical path consists of the following:
-	'icmp' operation ('exitcond2', sc_FIFO_DCT.cpp:79) [106]  (2.33 ns)
-	blocking operation 1.37 ns on control path)
+	'phi' operation ('s[7]') with incoming values : ('s_7_25_load') ('s[7]', sc_FIFO_DCT.cpp:81) [100]  (0 ns)
+	'add' operation ('tmp19', sc_FIFO_DCT.cpp:89) [164]  (2.39 ns)
+	'add' operation ('tmp20', sc_FIFO_DCT.cpp:89) [165]  (1.92 ns)
+	'add' operation ('s[0]', sc_FIFO_DCT.cpp:89) [166]  (1.92 ns)
 
  <State 7>: 2.71ns
 The critical path consists of the following:
-	'load' operation ('sc_FIFO_DCT_mA_load', sc_FIFO_DCT.cpp:84) on array 'sc_FIFO_DCT_mA' [118]  (2.71 ns)
+	'load' operation ('sc_FIFO_DCT_mA_load', sc_FIFO_DCT.cpp:84) on array 'sc_FIFO_DCT_mA' [126]  (2.71 ns)
 
  <State 8>: 6.68ns
 The critical path consists of the following:
-	'mul' operation ('tmp_8', sc_FIFO_DCT.cpp:84) [119]  (6.68 ns)
+	'mul' operation ('s[0]', sc_FIFO_DCT.cpp:84) [127]  (6.68 ns)
 
  <State 9>: 6.68ns
 The critical path consists of the following:
-	'mul' operation ('tmp_8', sc_FIFO_DCT.cpp:84) [119]  (6.68 ns)
+	'mul' operation ('s[0]', sc_FIFO_DCT.cpp:84) [127]  (6.68 ns)
 
  <State 10>: 6.68ns
 The critical path consists of the following:
-	'mul' operation ('tmp_8', sc_FIFO_DCT.cpp:84) [119]  (6.68 ns)
+	'mul' operation ('s[0]', sc_FIFO_DCT.cpp:84) [127]  (6.68 ns)
 
- <State 11>: 6.68ns
+ <State 11>: 8.05ns
 The critical path consists of the following:
-	'mul' operation ('tmp_8', sc_FIFO_DCT.cpp:84) [119]  (6.68 ns)
+	'mul' operation ('s[0]', sc_FIFO_DCT.cpp:84) [127]  (6.68 ns)
+	'select' operation ('s[7]', sc_FIFO_DCT.cpp:81) [155]  (0 ns)
+	'select' operation ('s[7]', sc_FIFO_DCT.cpp:81) [156]  (1.37 ns)
 
- <State 12>: 6.68ns
+ <State 12>: 4.11ns
 The critical path consists of the following:
-	'mul' operation ('tmp_8_0_2', sc_FIFO_DCT.cpp:84) [129]  (6.68 ns)
+	'or' operation ('or_cond2', sc_FIFO_DCT.cpp:81) [137]  (1.37 ns)
+	'select' operation ('newSel7', sc_FIFO_DCT.cpp:81) [146]  (1.37 ns)
+	'select' operation ('s[7]', sc_FIFO_DCT.cpp:81) [147]  (1.37 ns)
 
- <State 13>: 6.68ns
+ <State 13>: 4.38ns
 The critical path consists of the following:
-	'mul' operation ('tmp_8_0_2', sc_FIFO_DCT.cpp:84) [129]  (6.68 ns)
+	'add' operation ('tmp_3', sc_FIFO_DCT.cpp:91) [167]  (1.67 ns)
+	'getelementptr' operation ('a_addr_1', sc_FIFO_DCT.cpp:91) [169]  (0 ns)
+	'store' operation (sc_FIFO_DCT.cpp:91) of variable 's[0]', sc_FIFO_DCT.cpp:89 on array 'a', sc_FIFO_DCT.cpp:57 [170]  (2.71 ns)
 
- <State 14>: 6.68ns
+ <State 14>: 2.33ns
 The critical path consists of the following:
-	'mul' operation ('tmp_8_0_2', sc_FIFO_DCT.cpp:84) [129]  (6.68 ns)
+	'phi' operation ('i1') with incoming values : ('i1', sc_FIFO_DCT.cpp:93) [186]  (0 ns)
+	'icmp' operation ('exitcond3', sc_FIFO_DCT.cpp:93) [188]  (2.33 ns)
 
- <State 15>: 8.47ns
+ <State 15>: 8.62ns
 The critical path consists of the following:
-	'add' operation ('tmp3', sc_FIFO_DCT.cpp:88) [156]  (1.92 ns)
-	'add' operation ('tmp1', sc_FIFO_DCT.cpp:88) [157]  (1.92 ns)
-	'add' operation ('tmp_14_0_6', sc_FIFO_DCT.cpp:88) [161]  (1.92 ns)
-	'store' operation (sc_FIFO_DCT.cpp:90) of variable 'tmp_14_0_6', sc_FIFO_DCT.cpp:88 on array 'a', sc_FIFO_DCT.cpp:57 [165]  (2.71 ns)
+	'phi' operation ('s[7]') with incoming values : ('s_7_25_load') ('s[7]', sc_FIFO_DCT.cpp:81) ('s[7]', sc_FIFO_DCT.cpp:95) [199]  (0 ns)
+	'add' operation ('tmp25', sc_FIFO_DCT.cpp:103) [263]  (2.39 ns)
+	'add' operation ('tmp26', sc_FIFO_DCT.cpp:103) [264]  (1.92 ns)
+	'add' operation ('s[0]', sc_FIFO_DCT.cpp:103) [265]  (1.92 ns)
+	'sub' operation ('p_neg', sc_FIFO_DCT.cpp:107) [271]  (2.39 ns)
 
  <State 16>: 2.71ns
 The critical path consists of the following:
-	'getelementptr' operation ('a_addr_1', sc_FIFO_DCT.cpp:98) [169]  (0 ns)
-	'load' operation ('a_load', sc_FIFO_DCT.cpp:98) on array 'a', sc_FIFO_DCT.cpp:57 [170]  (2.71 ns)
+	'load' operation ('a_load', sc_FIFO_DCT.cpp:98) on array 'a', sc_FIFO_DCT.cpp:57 [220]  (2.71 ns)
 
- <State 17>: 2.71ns
+ <State 17>: 6.68ns
 The critical path consists of the following:
-	'load' operation ('a_load', sc_FIFO_DCT.cpp:98) on array 'a', sc_FIFO_DCT.cpp:57 [170]  (2.71 ns)
+	'mul' operation ('s[0]', sc_FIFO_DCT.cpp:98) [226]  (6.68 ns)
 
- <State 18>: 2.71ns
+ <State 18>: 6.68ns
 The critical path consists of the following:
-	'load' operation ('a_load_2', sc_FIFO_DCT.cpp:98) on array 'a', sc_FIFO_DCT.cpp:57 [174]  (2.71 ns)
+	'mul' operation ('s[0]', sc_FIFO_DCT.cpp:98) [226]  (6.68 ns)
 
- <State 19>: 2.71ns
+ <State 19>: 6.68ns
 The critical path consists of the following:
-	'load' operation ('a_load_4', sc_FIFO_DCT.cpp:98) on array 'a', sc_FIFO_DCT.cpp:57 [178]  (2.71 ns)
+	'mul' operation ('s[0]', sc_FIFO_DCT.cpp:98) [226]  (6.68 ns)
 
- <State 20>: 2.71ns
+ <State 20>: 8.05ns
 The critical path consists of the following:
-	'load' operation ('a_load_6', sc_FIFO_DCT.cpp:98) on array 'a', sc_FIFO_DCT.cpp:57 [182]  (2.71 ns)
+	'mul' operation ('s[0]', sc_FIFO_DCT.cpp:98) [226]  (6.68 ns)
+	'select' operation ('newSel19', sc_FIFO_DCT.cpp:95) [252]  (0 ns)
+	'select' operation ('s[7]', sc_FIFO_DCT.cpp:95) [253]  (1.37 ns)
 
- <State 21>: 3.7ns
+ <State 21>: 4.11ns
 The critical path consists of the following:
-	'icmp' operation ('exitcond3', sc_FIFO_DCT.cpp:92) [188]  (2.33 ns)
-	blocking operation 1.37 ns on control path)
+	'or' operation ('or_cond6', sc_FIFO_DCT.cpp:95) [236]  (1.37 ns)
+	'select' operation ('newSel11', sc_FIFO_DCT.cpp:95) [239]  (1.37 ns)
+	'select' operation ('s[7]', sc_FIFO_DCT.cpp:95) [240]  (1.37 ns)
 
- <State 22>: 2.39ns
+ <State 22>: 6.53ns
 The critical path consists of the following:
-	'load' operation ('b_load', sc_FIFO_DCT.cpp:98) on array 'b' [200]  (2.39 ns)
+	'sub' operation ('p_neg_t', sc_FIFO_DCT.cpp:107) [274]  (1.91 ns)
+	'select' operation ('tmp_13', sc_FIFO_DCT.cpp:107) [277]  (0 ns)
+	'add' operation ('tmp_15', sc_FIFO_DCT.cpp:107) [279]  (1.91 ns)
+	'store' operation (sc_FIFO_DCT.cpp:107) of variable 'tmp_15_cast', sc_FIFO_DCT.cpp:107 on array 'sc_FIFO_DCT_mC' [284]  (2.71 ns)
 
- <State 23>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_11', sc_FIFO_DCT.cpp:98) [202]  (6.68 ns)
-
- <State 24>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_11', sc_FIFO_DCT.cpp:98) [202]  (6.68 ns)
-
- <State 25>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_11', sc_FIFO_DCT.cpp:98) [202]  (6.68 ns)
-
- <State 26>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_11', sc_FIFO_DCT.cpp:98) [202]  (6.68 ns)
-
- <State 27>: 8.62ns
-The critical path consists of the following:
-	'add' operation ('tmp7', sc_FIFO_DCT.cpp:102) [245]  (2.39 ns)
-	'add' operation ('tmp9', sc_FIFO_DCT.cpp:102) [247]  (1.92 ns)
-	'add' operation ('tmp_19_0_6', sc_FIFO_DCT.cpp:102) [251]  (1.92 ns)
-	'sub' operation ('p_neg', sc_FIFO_DCT.cpp:106) [257]  (2.39 ns)
-
- <State 28>: 6.53ns
-The critical path consists of the following:
-	'sub' operation ('p_neg_t', sc_FIFO_DCT.cpp:106) [260]  (1.91 ns)
-	'select' operation ('tmp_13', sc_FIFO_DCT.cpp:106) [263]  (0 ns)
-	'add' operation ('tmp_14', sc_FIFO_DCT.cpp:106) [265]  (1.91 ns)
-	'store' operation (sc_FIFO_DCT.cpp:106) of variable 'tmp_15_cast', sc_FIFO_DCT.cpp:106 on array 'sc_FIFO_DCT_mC' [271]  (2.71 ns)
-
- <State 29>: 4.06ns
-The critical path consists of the following:
-	'add' operation ('tmp_6_1_1', sc_FIFO_DCT.cpp:84) [282]  (1.67 ns)
-	'getelementptr' operation ('b_a_addr_9', sc_FIFO_DCT.cpp:84) [284]  (0 ns)
-	'load' operation ('b_a_load_9', sc_FIFO_DCT.cpp:84) on array 'b_a' [285]  (2.39 ns)
-
- <State 30>: 2.39ns
-The critical path consists of the following:
-	'load' operation ('b_a_load_8', sc_FIFO_DCT.cpp:84) on array 'b_a' [280]  (2.39 ns)
-
- <State 31>: 3.7ns
-The critical path consists of the following:
-	'icmp' operation ('exitcond2_1', sc_FIFO_DCT.cpp:79) [321]  (2.33 ns)
-	blocking operation 1.37 ns on control path)
-
- <State 32>: 2.71ns
-The critical path consists of the following:
-	'load' operation ('sc_FIFO_DCT_mA_load_8', sc_FIFO_DCT.cpp:84) on array 'sc_FIFO_DCT_mA' [333]  (2.71 ns)
-
- <State 33>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_8_1', sc_FIFO_DCT.cpp:84) [334]  (6.68 ns)
-
- <State 34>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_8_1', sc_FIFO_DCT.cpp:84) [334]  (6.68 ns)
-
- <State 35>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_8_1', sc_FIFO_DCT.cpp:84) [334]  (6.68 ns)
-
- <State 36>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_8_1', sc_FIFO_DCT.cpp:84) [334]  (6.68 ns)
-
- <State 37>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_8_1_2', sc_FIFO_DCT.cpp:84) [344]  (6.68 ns)
-
- <State 38>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_8_1_4', sc_FIFO_DCT.cpp:84) [354]  (6.68 ns)
-
- <State 39>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_8_1_4', sc_FIFO_DCT.cpp:84) [354]  (6.68 ns)
-
- <State 40>: 8.47ns
-The critical path consists of the following:
-	'add' operation ('tmp19', sc_FIFO_DCT.cpp:88) [373]  (1.92 ns)
-	'add' operation ('tmp21', sc_FIFO_DCT.cpp:88) [375]  (1.92 ns)
-	'add' operation ('tmp_14_1_6', sc_FIFO_DCT.cpp:88) [376]  (1.92 ns)
-	'store' operation (sc_FIFO_DCT.cpp:90) of variable 'tmp_14_1_6', sc_FIFO_DCT.cpp:88 on array 'a', sc_FIFO_DCT.cpp:57 [380]  (2.71 ns)
-
- <State 41>: 2.71ns
-The critical path consists of the following:
-	'getelementptr' operation ('a_addr_10', sc_FIFO_DCT.cpp:98) [385]  (0 ns)
-	'load' operation ('a_load_8', sc_FIFO_DCT.cpp:98) on array 'a', sc_FIFO_DCT.cpp:57 [386]  (2.71 ns)
-
- <State 42>: 2.71ns
-The critical path consists of the following:
-	'load' operation ('a_load_8', sc_FIFO_DCT.cpp:98) on array 'a', sc_FIFO_DCT.cpp:57 [386]  (2.71 ns)
-
- <State 43>: 2.71ns
-The critical path consists of the following:
-	'load' operation ('a_load_10', sc_FIFO_DCT.cpp:98) on array 'a', sc_FIFO_DCT.cpp:57 [390]  (2.71 ns)
-
- <State 44>: 2.71ns
-The critical path consists of the following:
-	'load' operation ('a_load_12', sc_FIFO_DCT.cpp:98) on array 'a', sc_FIFO_DCT.cpp:57 [394]  (2.71 ns)
-
- <State 45>: 2.71ns
-The critical path consists of the following:
-	'load' operation ('a_load_14', sc_FIFO_DCT.cpp:98) on array 'a', sc_FIFO_DCT.cpp:57 [398]  (2.71 ns)
-
- <State 46>: 3.7ns
-The critical path consists of the following:
-	'icmp' operation ('exitcond3_1', sc_FIFO_DCT.cpp:92) [404]  (2.33 ns)
-	blocking operation 1.37 ns on control path)
-
- <State 47>: 2.39ns
-The critical path consists of the following:
-	'load' operation ('b_load_8', sc_FIFO_DCT.cpp:98) on array 'b' [417]  (2.39 ns)
-
- <State 48>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_12_1', sc_FIFO_DCT.cpp:98) [419]  (6.68 ns)
-
- <State 49>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_12_1', sc_FIFO_DCT.cpp:98) [419]  (6.68 ns)
-
- <State 50>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_12_1', sc_FIFO_DCT.cpp:98) [419]  (6.68 ns)
-
- <State 51>: 6.68ns
-The critical path consists of the following:
-	'mul' operation ('tmp_12_1', sc_FIFO_DCT.cpp:98) [419]  (6.68 ns)
-
- <State 52>: 8.62ns
-The critical path consists of the following:
-	'add' operation ('tmp24', sc_FIFO_DCT.cpp:102) [462]  (2.39 ns)
-	'add' operation ('tmp26', sc_FIFO_DCT.cpp:102) [464]  (1.92 ns)
-	'add' operation ('tmp_19_1_6', sc_FIFO_DCT.cpp:102) [468]  (1.92 ns)
-	'sub' operation ('p_neg_1', sc_FIFO_DCT.cpp:106) [474]  (2.39 ns)
-
- <State 53>: 6.53ns
-The critical path consists of the following:
-	'sub' operation ('p_neg_t_1', sc_FIFO_DCT.cpp:106) [477]  (1.91 ns)
-	'select' operation ('tmp_16_1', sc_FIFO_DCT.cpp:106) [480]  (0 ns)
-	'add' operation ('tmp_17_1', sc_FIFO_DCT.cpp:106) [482]  (1.91 ns)
-	'store' operation (sc_FIFO_DCT.cpp:106) of variable 'tmp_17_1_cast', sc_FIFO_DCT.cpp:106 on array 'sc_FIFO_DCT_mC' [487]  (2.71 ns)
-
- <State 54>: 0.75ns
-The critical path consists of the following:
-	'add' operation ('i0_1_1', sc_FIFO_DCT.cpp:76) [492]  (0.75 ns)
-
- <State 55>: 0ns
+ <State 23>: 0ns
 The critical path consists of the following:
 
- <State 56>: 0ns
+ <State 24>: 0ns
 The critical path consists of the following:
 
- <State 57>: 0ns
+ <State 25>: 0ns
 The critical path consists of the following:
 
 
@@ -2519,38 +1210,6 @@ N/A
 	State 23
 	State 24
 	State 25
-	State 26
-	State 27
-	State 28
-	State 29
-	State 30
-	State 31
-	State 32
-	State 33
-	State 34
-	State 35
-	State 36
-	State 37
-	State 38
-	State 39
-	State 40
-	State 41
-	State 42
-	State 43
-	State 44
-	State 45
-	State 46
-	State 47
-	State 48
-	State 49
-	State 50
-	State 51
-	State 52
-	State 53
-	State 54
-	State 55
-	State 56
-	State 57
 
 
 ============================================================

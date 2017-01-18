@@ -438,10 +438,10 @@ _ZN7_ap_sc_7sc_core4waitEi.exit:24  %empty = call i32 (...)* @_ssdm_op_SpecState
 
 <Node id="40" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32">
 <![CDATA[
-_ZN7_ap_sc_7sc_core4waitEi.exit:25  %empty_10 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str8, i32 %tmp_7)
+_ZN7_ap_sc_7sc_core4waitEi.exit:25  %empty_8 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str8, i32 %tmp_7)
 
 ]]></Node>
-<StgValue><ssdm name="empty_10"/></StgValue>
+<StgValue><ssdm name="empty_8"/></StgValue>
 </operation>
 </state>
 
@@ -1153,11 +1153,11 @@ _ZN7_ap_sc_7sc_core4waitEi.exit2:1  br label %0
 </dataflow>
 <dataflow id="205" from="p_ssdm_reset_v" to="empty" fromId="30" toId="31">
 </dataflow>
-<dataflow id="207" from="_ssdm_op_SpecRegionEnd" to="empty_10" fromId="206" toId="32">
+<dataflow id="207" from="_ssdm_op_SpecRegionEnd" to="empty_8" fromId="206" toId="32">
 </dataflow>
-<dataflow id="208" from="p_str8" to="empty_10" fromId="192" toId="32">
+<dataflow id="208" from="p_str8" to="empty_8" fromId="192" toId="32">
 </dataflow>
-<dataflow id="209" from="tmp_7" to="empty_10" fromId="28" toId="32">
+<dataflow id="209" from="tmp_7" to="empty_8" fromId="28" toId="32">
 </dataflow>
 <dataflow id="211" from="_ssdm_op_Wait" to="StgValue_33" fromId="210" toId="33">
 </dataflow>

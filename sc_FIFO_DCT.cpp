@@ -1,4 +1,14 @@
+/**
+ *	DCT body
+ *	Autores:
+ *		Carlos Pastor
+ *		Miguel Angel
+ *
+ */
+
 #include "sc_FIFO_DCT.h"
+
+// Valores escalados de la matriz DCT
 
 static const int b[] = {
 		90,   90,   90,   90,   90,   90,   90,   90,
@@ -22,6 +32,10 @@ static const int b_a[] = {
 		90, -125,  118, -106,   90, -71,   48, -24,
 };
 
+// Este proceso trabaja para llenar un buffer de 64 valores y se lo pasa a
+// la DCT para el calculo.
+// Espera a que el trabajo de la DCT termine y que los datos se han
+// escrito a la salida para ejecutar otro ciclo.
 void sc_FIFO_DCT::buffering()
 {
 	//Initialization
@@ -51,6 +65,10 @@ void sc_FIFO_DCT::buffering()
    } //end of while(true)
 }
 
+
+// En este proceso se aplica la DCT para valores INT
+// Espera a tener el buffer mA con los 64 datos para empezar.
+// Deues hace la multiplicacion de forma similar al codigo en C
 void sc_FIFO_DCT::DCT()
 {
    //Initialization
@@ -75,38 +93,43 @@ void sc_FIFO_DCT::DCT()
 
 	   DCT_loop:for (i0 = 0; i0 < 8; i0++)
 	   {
-#pragma HLS UNROLL factor = 2
+			 // Multiplicacion T x A
 		   TA:for (i1 = 0; i1 < 8; i1++)
 		   {
-#pragma HLS PIPELINE
+				 // Multiplicacion T x A
 			   multTA:for (i2 = 0; i2 < 8; i2++)
 			   {
 				   s[i2] = b_a[i0 + (i2 << 3)] * ( mA[i2 + (i1 << 3)] );
 			   }
+				 // Saca el resultado de el produto vectorial T x A
 			   sumTA:for (i2 = 1; i2 < 8; i2++)
 			   {
 				   s[0] += s[i2];
 			   }
+				 // Guarda los valores calculados en la matriz a
 			   a[i0 + (i1 << 3)] = s[0];
 		   }
+			 // Multiplicacion (T x A) * Tt
 		   AT:for (i1 = 0; i1 < 8; i1++)
 		   {
-#pragma HLS PIPELINE
+				 // Multiplicacion (T x A) * Tt
 			   multAT:for (i2 = 0; i2 < 8; i2++)
 			   {
-
 				   s[i2] = a[i0 + (i2 << 3)] * b[i2 + (i1 << 3)];
 			   }
+				 // Saca el resultado de el produto vectorial (T x A) * T
 			   sumAT:for (i2 = 1; i2 < 8; i2++)
 			   {
 				   s[0] += s[i2];
 			   }
+				 // Guarda los valores calculados en la matriz mB
 			   mB[i0 + (i1 << 3)] = s[0];
-			   //Se escala y se pone un ofset para meter el valor en un int
+			   // Se escala y se pone un ofset para meter el valor en un int
 			   mC[i1 + (i0 << 3)] = ((mB[i0 + (i1 << 3)]/65536)/8 + 127);
 		   }
 	   }
 
+		 // Reporta el estado
 	   cout << "Simulating DCT" << (exec_cnt++) << endl;
 	   wait();
 
@@ -119,6 +142,7 @@ void sc_FIFO_DCT::DCT()
    } //end of while(true)
 }
 
+// Espera a que termine el calculo para sacar los valores a la salida.
 void sc_FIFO_DCT::data_out()
 {
 	//Initialization

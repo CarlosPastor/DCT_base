@@ -34914,31 +34914,32 @@ void sc_FIFO_DCT::DCT()
 
     DCT_loop:for (i0 = 0; i0 < 8; i0++)
     {
-#pragma HLS UNROLL factor = 2
- TA:for (i1 = 0; i1 < 8; i1++)
+     TA:for (i1 = 0; i1 < 8; i1++)
      {
-#pragma HLS PIPELINE
- multTA:for (i2 = 0; i2 < 8; i2++)
+//#pragma HLS PIPELINE
+      multTA:for (i2 = 0; i2 < 8; i2++)
       {
+//#pragma HLS PIPELINE
        s[i2] = b_a[i0 + (i2 << 3)] * ( mA[i2 + (i1 << 3)] );
       }
       sumTA:for (i2 = 1; i2 < 8; i2++)
       {
-       s[0] += s[i2];
+#pragma HLS UNROLL
+ s[0] += s[i2];
       }
       a[i0 + (i1 << 3)] = s[0];
      }
      AT:for (i1 = 0; i1 < 8; i1++)
      {
-#pragma HLS PIPELINE
- multAT:for (i2 = 0; i2 < 8; i2++)
+      multAT:for (i2 = 0; i2 < 8; i2++)
       {
-
+//#pragma HLS PIPELINE
        s[i2] = a[i0 + (i2 << 3)] * b[i2 + (i1 << 3)];
       }
       sumAT:for (i2 = 1; i2 < 8; i2++)
       {
-       s[0] += s[i2];
+#pragma HLS UNROLL
+ s[0] += s[i2];
       }
       mB[i0 + (i1 << 3)] = s[0];
       //Se escala y se pone un ofset para meter el valor en un int
